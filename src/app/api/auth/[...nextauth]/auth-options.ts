@@ -4,7 +4,6 @@ import GoogleProvider from 'next-auth/providers/google';
 import { env } from '@/env.mjs';
 import isEqual from 'lodash/isEqual';
 import { pagesOptions } from './pages-options';
-
 export const authOptions: NextAuthOptions = {
   // debug: true,
   pages: {
@@ -55,7 +54,6 @@ export const authOptions: NextAuthOptions = {
           email: 'admin@admin.com',
           password: 'admin',
         };
-
         if (
           isEqual(user, {
             email: credentials?.email,
