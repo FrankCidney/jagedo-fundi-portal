@@ -16,6 +16,14 @@ export const routes = {
     evaluate: '/admin/quotations/evaluateQuotations',
   },
 
+  serviceProvider: {
+    dashboard: '/service-provider/fundi/dashboard',
+    requisitions: '/service-provider/fundi/requisitions',
+    makeQuotation: '/service-provider/fundi/make-quotation',
+    viewQuotations: '/service-provider/fundi/view-quotations',
+    confirmAvailability: '/service-provider/fundi/confirm-availability'
+  },
+
   eCommerce: {
     dashboard: '/ecommerce',
     products: '/ecommerce/products',

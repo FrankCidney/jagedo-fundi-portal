@@ -1,4 +1,5 @@
 import MetricCard from "@/components/cards/metric-card";
+import { routes } from "@/config/routes";
 import { Metadata } from "next";
 import Link from "next/link";
 import { Button, Title } from "rizzui";
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   title: "New Page | Isomorphic",
 };
 
-export default function Home() {
+export default function ConfirmAvailability() {
   return (
     <>
         <Title as="h4" className="mb-3.5 font-semibold @2xl:mb-5 pb-5">
@@ -25,13 +26,13 @@ export default function Home() {
         <p className="w-full text-center font-bold pt-5">Confirm your availability for this job.</p>
 
         <div className="flex justify-center space-x-4 pt-5">
-          <Link href={'/service-provider/fundi/make-quotation'}>
+          <Link href={routes.serviceProvider.makeQuotation}>
             <Button className="w-32">
                 Accept Job
             </Button>
           </Link>
 
-          <Link href={'/service-provider/fundi/make-quotation'}>
+          <Link href={routes.serviceProvider.requisitions}>
             <Button variant="outline" className="w-32">
                 Back
             </Button>

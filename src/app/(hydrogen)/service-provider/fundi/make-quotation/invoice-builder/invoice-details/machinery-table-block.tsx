@@ -67,13 +67,13 @@ export default function MachineryTableBlock() {
             {...register('invoiceTableHeader.machineryQuote.rate')}
           />
         </TableHeaderCell>
-        <TableHeaderCell className="col-span-2 justify-end">
+        {/* <TableHeaderCell className="col-span-2 justify-end">
           <InvoiceInput
             placeholder="Sub-Total"
             inputClassName="[&_input]:text-end"
             {...register('invoiceTableHeader.machineryQuote.subTotal')}
           />
-        </TableHeaderCell>
+        </TableHeaderCell> */}
       </div>
       <ul>
         <SortableList items={fields} onChange={handleChange}>

@@ -44,10 +44,26 @@ import {
   PiCalendarDuotone,
   PiShapesDuotone,
   PiNewspaperClippingDuotone,
+  PiClipboardDuotone,
+  PiNoteDuotone,
+  PiNotePencilDuotone,
+  PiHouseDuotone
 } from 'react-icons/pi';
 
+interface MenuItem {
+
+  name: string;
+  href: string;
+  icon?: React.ReactNode;
+  dropdownItems?: [{
+    name: string;
+    href: string;
+    badge?: string;
+  }];
+
+}
 // Note: do not add href in the label object, it is rendering as label
-export const menuItems = [
+export const menuItems: MenuItem[] = [
   // label start
   // {
   //   name: 'Overview',
@@ -66,58 +82,84 @@ export const menuItems = [
   //   badge: 'NEW',
   // },
 
+  // {
+  //   name: 'Admin',
+  //   href: routes.admin.dashboard,
+  //   icon: <PiBriefcaseDuotone />,
+  //   dropdownItems: [
+  //     {
+  //       name: 'Dashboard',
+  //       href: routes.admin.dashboard,
+  //       badge: '',
+  //     },
+  //     {
+  //       name: 'Profile Creation',
+  //       href: routes.admin.profileCreation,
+  //       badge: '',
+  //     },
+  //     {
+  //       name: 'Customer register',
+  //       href: routes.admin.customer,
+  //       badge: '',
+  //     },
+  //     // {
+  //     //   name: 'Individual register',
+  //     //   href: routes.admin.individual,
+  //     //   badge: '',
+  //     // },
+  //     {
+  //       name: 'Service provider register',
+  //       href: routes.admin.serviceProvider,
+  //       badge: '',
+  //     },
+  //     {
+  //       name: ' Organization register',
+  //       href: routes.admin.organization,
+  //       badge: '',
+  //     },
+  //     {
+  //       name: 'Requisitions',
+  //       href: routes.admin.requisitions,
+  //       badge: '',
+  //     },
+  //     {
+  //       name: 'Requisition details',
+  //       href: routes.admin.assignServiceProvider,
+  //       badge: '',
+  //     },
+  //     {
+  //       name: 'Assign Service Providers',
+  //       href: routes.admin.addToServiceProviders,
+  //       badge: '',
+  //     },
+  //   ],
+  // },
+
   {
-    name: 'Admin',
-    href: routes.admin.dashboard,
-    icon: <PiBriefcaseDuotone />,
-    dropdownItems: [
-      {
-        name: 'Dashboard',
-        href: routes.admin.dashboard,
-        badge: '',
-      },
-      {
-        name: 'Profile Creation',
-        href: routes.admin.profileCreation,
-        badge: '',
-      },
-      {
-        name: 'Customer register',
-        href: routes.admin.customer,
-        badge: '',
-      },
-      // {
-      //   name: 'Individual register',
-      //   href: routes.admin.individual,
-      //   badge: '',
-      // },
-      {
-        name: 'Service provider register',
-        href: routes.admin.serviceProvider,
-        badge: '',
-      },
-      {
-        name: ' Organization register',
-        href: routes.admin.organization,
-        badge: '',
-      },
-      {
-        name: 'Requisitions',
-        href: routes.admin.requisitions,
-        badge: '',
-      },
-      {
-        name: 'Requisition details',
-        href: routes.admin.assignServiceProvider,
-        badge: '',
-      },
-      {
-        name: 'Assign Service Providers',
-        href: routes.admin.addToServiceProviders,
-        badge: '',
-      },
-    ],
+    name: 'Home',
+    href: routes.serviceProvider.dashboard,
+    icon: <PiHouseDuotone />
   },
+
+  {
+    name: 'Requisitions',
+    href: routes.serviceProvider.requisitions,
+    icon: <PiClipboardDuotone />,
+  },
+
+  // {
+  //   name: 'Make Quotation',
+  //   href: routes.serviceProvider.makeQuotation,
+  //   icon: <PiNotePencilDuotone />,
+  // },
+
+  {
+    name: 'Quotations',
+    href: routes.serviceProvider.viewQuotations,
+    icon: <PiNoteDuotone />,
+  },
+
+  
   // {
   //   name: 'E-Commerce',
   //   href: routes.eCommerce.dashboard,

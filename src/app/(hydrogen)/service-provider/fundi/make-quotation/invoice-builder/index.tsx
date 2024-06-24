@@ -92,7 +92,7 @@ export default function InvoiceBuilder() {
         data={methods.watch()}
       /> */}
 
-      {/* QuoteComponent takes invoice builder as children */}
+      
       <QuoteComponent>
         <div className="rounded-2xl p-2">
           <SimpleBar className="w-full">
@@ -153,7 +153,7 @@ export default function InvoiceBuilder() {
       <div className="p-5" />
 
       <div className="flex justify-center space-x-4 pt-5">
-        <Link href={'/'}>
+        <Link href={routes.serviceProvider.viewQuotations}>
             <Button className="w-32">
                 Submit
             </Button>

@@ -141,3 +141,37 @@ export const jobData = [
     status: 'Live',
   },
 ];
+
+export const quotationData = [
+  {
+    id: 'JB000FFF',
+    date: '2022-11-10T06:22:01.621Z',
+    jobDetails: 'Project type: Housing, Description: Repair of faulty wiring system, Request type: Standard',
+    status: 'Under Review'
+  },
+
+  {
+    id: 'JB00DINT',
+    date: '2023-11-10T06:22:01.621Z',
+    jobDetails: 'Project type: Housing, Description: Repair of sockets, Request Type: Standard',
+    status: 'Under Review'
+  }
+];
+
+export const requisitionData = [
+  {
+    id: 'BT000FF',
+    date: '2023-11-12T06:22:01.621Z',
+    jobDetails: 'Project type: Housing, Description: Repair of faulty wiring system, Request type: Standard',
+    status: 'Pending'
+  },
+
+  {
+    id: 'BT0F0G',
+    date: '2023-11-10T06:22:01.621Z',
+    jobDetails: 'Project type: Housing, Description: Repair of sockets, Request Type: Standard',
+    status: 'Pending'
+  }
+];
+
+
