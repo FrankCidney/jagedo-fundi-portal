@@ -32,6 +32,7 @@ import QuoteComponent from '../quote-component';
 import MaterialDropdown from '../material-dropdown';
 import MachineryDropdown from '../machinery-dropdown';
 import MachineryTableBlock from './invoice-details/machinery-table-block';
+import Link from 'next/link';
 
 const pageHeader = {
   title: 'Invoice Builder',
@@ -148,6 +149,16 @@ export default function InvoiceBuilder() {
             </SimpleBar>
           </div>
       </MachineryDropdown>
+
+      <div className="p-5" />
+
+      <div className="flex justify-center space-x-4 pt-5">
+        <Link href={'/'}>
+            <Button className="w-32">
+                Submit
+            </Button>
+        </Link>
+        </div>
     </>
   );
 }

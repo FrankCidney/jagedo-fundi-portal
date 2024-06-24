@@ -1,5 +1,6 @@
 import MetricCard from "@/components/cards/metric-card";
 import { Metadata } from "next";
+import Link from "next/link";
 import { Button, Title } from "rizzui";
 
 // SEO metadata
@@ -24,13 +25,17 @@ export default function Home() {
         <p className="w-full text-center font-bold pt-5">Confirm your availability for this job.</p>
 
         <div className="flex justify-center space-x-4 pt-5">
+          <Link href={'/service-provider/fundi/make-quotation'}>
             <Button className="w-32">
                 Accept Job
             </Button>
+          </Link>
 
+          <Link href={'/service-provider/fundi/make-quotation'}>
             <Button variant="outline" className="w-32">
                 Back
             </Button>
+          </Link>
         </div>
     </>
   )
