@@ -38,7 +38,7 @@ export const authOptions: NextAuthOptions = {
       // if (parsedUrl.origin === baseUrl) {
       //   return url;
       // }
-      return `${baseUrl}/service-provider/fundi/dashboard`;
+      return baseUrl;
     },
   },
   providers: [

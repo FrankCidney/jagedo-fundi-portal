@@ -12,7 +12,7 @@ import PendingInvoiceCard from '@/app/shared/customers/dashboard/pendinginvoice'
 
 
 
-export default function CustomerDashboard() {
+export default function FundiDashboard() {
 
   const items = [
     { text: 'Repair broken pipe', subText: 'Yesterday' },

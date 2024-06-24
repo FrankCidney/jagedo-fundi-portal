@@ -137,7 +137,7 @@ export const menuItems: MenuItem[] = [
 
   {
     name: 'Home',
-    href: routes.serviceProvider.dashboard,
+    href: '/',
     icon: <PiHouseDuotone />
   },
 
