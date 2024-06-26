@@ -63,6 +63,19 @@ export const getColumns = ({
       </Text>
     ),
   },
+
+  {
+    title: <HeaderCell title="Request Type" />,
+    dataIndex: 'requestType',
+    key: 'requestType',
+    width: 100,
+    render: (requestType: string) => (
+      <Text className="text-sm text-gray-900 dark:text-gray-700">
+        {requestType}
+      </Text>
+    ),
+  },
+
   {
     title: <HeaderCell title="Status" />,
     dataIndex: 'status',
@@ -77,12 +90,23 @@ export const getColumns = ({
   {
     // Need to avoid this issue -> <td> elements in a large <table> do not have table headers.
     title: <HeaderCell title="Actions" />,
-    dataIndex: 'action',
+    dataIndex: 'requestType',
     key: 'action',
     width: 100,
-    render: (_: string, row: any) => (
+    render: (requestType: string, row: any) => (
       <div className="gap-3 pe-3">
-        <Tooltip size="sm" content={'View'} placement="top" color="invert">
+        {(requestType === 'Emergency') ? (
+          <Link href={routes.serviceProvider.confirmAvailability}>
+            <Text className="text-sm text-green-600">View RFQ</Text>
+        </Link>
+        ) : (
+          <Link href={routes.serviceProvider.makeQuotation}>
+            <Text className="text-sm text-green-600">View RFQ</Text>
+          </Link>
+        )}
+        
+
+        {/* <Tooltip size="sm" content={'View'} placement="top" color="invert">
           <ActionIcon
             as="span"
             size="sm"
@@ -94,7 +118,9 @@ export const getColumns = ({
               <EyeIcon className="h-4 w-4" />
             </Link>
           </ActionIcon>
-        </Tooltip>
+        </Tooltip> */}
+
+
         {/* <DeletePopover
           title={`Remove User`}
           description={`Are you sure you want to remove this User?`}

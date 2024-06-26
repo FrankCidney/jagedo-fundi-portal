@@ -146,7 +146,7 @@ export const quotationData = [
   {
     id: 'JB000FFF',
     date: '2022-11-10T06:22:01.621Z',
-    jobDetails: 'Project type: Housing, Description: Repair of faulty wiring system, Request type: Standard',
+    jobDetails: 'Project type: Housing, Description: Repair of faulty wiring system, Request type: Emergency',
     status: 'Under Review'
   },
 
@@ -162,7 +162,8 @@ export const requisitionData = [
   {
     id: 'BT000FF',
     date: '2023-11-12T06:22:01.621Z',
-    jobDetails: 'Project type: Housing, Description: Repair of faulty wiring system, Request type: Standard',
+    jobDetails: 'Project type: Housing, Description: Repair of faulty wiring system',
+    requestType: 'Emergency',
     status: 'Pending'
   },
 
@@ -170,6 +171,7 @@ export const requisitionData = [
     id: 'BT0F0G',
     date: '2023-11-10T06:22:01.621Z',
     jobDetails: 'Project type: Housing, Description: Repair of sockets, Request Type: Standard',
+    requestType: '2.0',
     status: 'Pending'
   }
 ];

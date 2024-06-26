@@ -9,6 +9,7 @@ import SummaryWidgetCustomers from '@/app/shared/customers/dashboard/summaryCust
 import { Summary } from 'rc-table';
 import WalletCard from '@/app/shared/customers/dashboard/wallet';
 import PendingInvoiceCard from '@/app/shared/customers/dashboard/pendinginvoice';
+import FundiCards from './fundi-cards';
 
 
 
@@ -40,7 +41,7 @@ export default function FundiDashboard() {
     <div className="@container">
       <div className="grid grid-cols-1 gap-4 @4xl:grid-cols-2 @7xl:grid-cols-12 3xl:gap-8">
 
-        {/* <SpType className="py-5 @2xl:grid-cols-3  @3xl:gap-6 @4xl:col-span-2 @4xl:grid-cols-4 @7xl:col-span-8" /> */}
+        <FundiCards className="py-5 @2xl:grid-cols-3  @3xl:gap-6 @4xl:col-span-2 @4xl:grid-cols-4 @7xl:col-span-8" />
         <SummaryWidgetCustomers className="h-[150px] @sm:h-[320px] @7xl:col-span-4 @7xl:col-start-9 @7xl:row-start-1 @7xl:row-end-3 @7xl:h-full" />
         <StatusCard
           className="h-[150px] @sm:h-[320px] @4xl:col-start-2 @7xl:col-span-4 @7xl:col-start-auto @7xl:row-start-auto"
