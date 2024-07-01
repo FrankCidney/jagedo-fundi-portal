@@ -166,11 +166,11 @@ export const getColumns = ({
     render: (requestType: string, row: any) => (
       <div className="gap-3 pe-3">
         {(requestType === 'Emergency') ? (
-          <Link href={''}>
+          <Link href={routes.serviceProvider.fundi.jobDetails}>
             <Text className="text-sm text-green-600">View Job</Text>
         </Link>
         ) : (
-          <Link href={''}>
+          <Link href={routes.serviceProvider.fundi.jobDetails}>
             <Text className="text-sm text-green-600">View Job</Text>
           </Link>
         )}

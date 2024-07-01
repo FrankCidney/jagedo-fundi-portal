@@ -28,6 +28,8 @@ export const routes = {
       completedJobs: '/service-provider/jobs/completed/fundi',
       createProfile: '/service-provider/profile/create-profile/fundi',
       editProfile: '/service-provider/profile/edit-profile/fundi',
+      jobDetails: '/service-provider/jobs/active/job-details/fundi',
+      quotationDetails: '/service-provider/quotations/quotation-details/fundi'
 
     },
     

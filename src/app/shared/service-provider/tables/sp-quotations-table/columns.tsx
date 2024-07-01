@@ -124,7 +124,7 @@ export const getColumns = ({
             aria-label={'View Appointment'}
             className="hover:!border-gray-900 hover:text-gray-700"
           >
-            <Link href={routes.serviceProvider.fundi.makeQuotation}>
+            <Link href={routes.serviceProvider.fundi.quotationDetails}>
               <EyeIcon className="h-4 w-4" />
             </Link>
           </ActionIcon>
