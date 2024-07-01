@@ -70,7 +70,7 @@ const orderData = [
 const spDashboardNavCardData = [
   {
     id: '1',
-    icon: <PiMonitorDuotone className="h-6 w-6 text-green-500" />,
+    icon: <PiMonitorDuotone className="h-6 w-6" />,
     title: 'My Workspace',
     metric: 'My Workspace',
     increased: true,
@@ -83,7 +83,7 @@ const spDashboardNavCardData = [
   },
   {
     id: '2',
-    icon: <PiTrolleyDuotone className="h-6 w-6" />,
+    icon: <PiTrolleyDuotone className="h-6 w-6 text-yellow-500" />,
     title: 'My Shop',
     metric: 'My Shop',
     percentage: '+32.40',
@@ -94,7 +94,7 @@ const spDashboardNavCardData = [
   },
   {
     id: '3',
-    icon: <PiFolderOpenDuotone className="h-6 w-6" />,
+    icon: <PiFolderOpenDuotone className="h-6 w-6 text-orange-500" />,
     title: 'My Projects',
     metric: 'My Projects',
     increased: true,
@@ -107,7 +107,7 @@ const spDashboardNavCardData = [
   },
   {
     id: '4',
-    icon: <PiCurrencyCircleDollarDuotone className="h-6 w-6" />,
+    icon: <PiCurrencyCircleDollarDuotone className="h-6 w-6 text-green-500" />,
     title: 'Sales',
     metric: 'Sales',
     increased: true,
