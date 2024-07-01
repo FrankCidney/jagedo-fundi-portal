@@ -47,7 +47,8 @@ import {
   PiClipboardDuotone,
   PiNoteDuotone,
   PiNotePencilDuotone,
-  PiHouseDuotone
+  PiHouseDuotone,
+  PiToolboxDuotone,
 } from 'react-icons/pi';
 
 interface MenuItem {
@@ -55,11 +56,8 @@ interface MenuItem {
   name: string;
   href: string;
   icon?: React.ReactNode;
-  dropdownItems?: [{
-    name: string;
-    href: string;
-    badge?: string;
-  }];
+  badge?: string;
+  dropdownItems?: MenuItem[];
 
 }
 // Note: do not add href in the label object, it is rendering as label
@@ -137,13 +135,13 @@ export const menuItems: MenuItem[] = [
 
   {
     name: 'Home',
-    href: routes.serviceProvider.dashboard,
+    href: routes.serviceProvider.fundi.dashboard,
     icon: <PiHouseDuotone />
   },
 
   {
     name: 'Requisitions',
-    href: routes.serviceProvider.requisitions,
+    href: routes.serviceProvider.fundi.requisitions,
     icon: <PiClipboardDuotone />,
   },
 
@@ -155,8 +153,49 @@ export const menuItems: MenuItem[] = [
 
   {
     name: 'Quotations',
-    href: routes.serviceProvider.viewQuotations,
+    href: routes.serviceProvider.fundi.quotations,
     icon: <PiNoteDuotone />,
+  },
+
+  {
+    name: 'Jobs',
+    href: routes.serviceProvider.fundi.quotations,
+    icon: <PiToolboxDuotone/>,
+    dropdownItems: [
+      {
+        name: 'Active',
+        href: routes.serviceProvider.fundi.activeJobs,
+        badge: '',
+      },
+      {
+        name: 'Completed',
+        href: routes.serviceProvider.fundi.completedJobs,
+        badge: '',
+      },
+      {
+        name: 'All Jobs',
+        href: routes.serviceProvider.fundi.jobs,
+        badge: '',
+      },
+    ]
+  },
+
+  {
+    name: 'Profile',
+    href: routes.serviceProvider.fundi.quotations,
+    icon: <PiUserCircleDuotone />,
+    dropdownItems: [
+      {
+        name: 'Create Profile',
+        href: routes.serviceProvider.fundi.createProfile,
+        badge: '',
+      },
+      {
+        name: 'Edit Profile',
+        href: routes.serviceProvider.fundi.editProfile,
+        badge: '',
+      },
+    ]
   },
 
   

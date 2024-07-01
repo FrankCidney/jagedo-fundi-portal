@@ -50,7 +50,7 @@ export default function FundiMultiStepForm() {
   useEffect(() => {
     if (currentStep === 2) {
       const timer = setTimeout(() => {
-        router.push(routes.serviceProvider.dashboard) // Replace '/next-step' with your desired route
+        router.push('') // Replace '/next-step' with your desired route
       }, 2000)
 
       return () => clearTimeout(timer) // Cleanup the timer if the component unmounts

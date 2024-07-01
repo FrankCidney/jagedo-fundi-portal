@@ -26,13 +26,13 @@ export default function ConfirmAvailability() {
         <p className="w-full text-center font-bold pt-5">Confirm your availability for this job.</p>
 
         <div className="flex justify-center space-x-4 pt-5">
-          <Link href={routes.serviceProvider.makeQuotation}>
+          <Link href={routes.serviceProvider.fundi.makeQuotation}>
             <Button className="w-32">
                 Accept Job
             </Button>
           </Link>
 
-          <Link href={routes.serviceProvider.requisitions}>
+          <Link href={routes.serviceProvider.fundi.requisitions}>
             <Button variant="outline" className="w-32">
                 Back
             </Button>

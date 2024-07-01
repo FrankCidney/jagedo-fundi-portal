@@ -103,18 +103,19 @@ const revenueData = [
 ];
 
 const eComDashboardStatData = [
-    {
-        id: '1',
-        icon: <PiUserCircleDuotone className="h-6 w-6" />,
-        title: 'Customer card',
-        metric: 'Customer',
-        increased: true,
-        decreased: false,
-        percentage: '+32.40',
-        style: 'text-[#3872FA]',
-        fill: '#3872FA',
-        chart: orderData,
-        },
+  {
+      id: '1',
+      icon: <PiUserCircleDuotone className="h-6 w-6" />,
+      title: 'Customer card',
+      metric: 'Customer',
+      increased: true,
+      decreased: false,
+      percentage: '+32.40',
+      style: 'text-[#3872FA]',
+      fill: '#3872FA',
+      chart: orderData,
+      link: '/signup/customer',
+      },
   {
     id: '2',
     icon: <PiWrenchDuotone className="h-6 w-6" />,
@@ -126,6 +127,7 @@ const eComDashboardStatData = [
     style: 'text-[#3872FA]',
     fill: '#3872FA',
     chart: orderData,
+    link: '/signup/fundi',
   },
   {
     id: '3',
@@ -138,6 +140,7 @@ const eComDashboardStatData = [
     style: 'text-[#3872FA]',
     fill: '#3872FA',
     chart: orderData,
+    link: '/signup/professional',
   },
   {
     id: '4',
@@ -150,6 +153,7 @@ const eComDashboardStatData = [
     style: 'text-[#3872FA]',
     fill: '#3872FA',
     chart: orderData,
+    link: '/signup/contractor',
   },
 //   {
 //     id: '4',
@@ -167,12 +171,12 @@ export default function AccountType({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        'grid grid-cols-1 gap-5 3xl:gap-6  4xl:gap-9 4xl:gap-x-12',
+        'grid grid-cols-1 gap-5 md:grid-cols-2 3xl:gap-6  4xl:gap-9 4xl:gap-x-12',
         className
       )}
     >
       {eComDashboardStatData.map((stat) => (
-        <Link key={stat.title + stat.id} href={'/auth/sign-up/fundi'}>
+        <Link key={stat.title + stat.id} href={stat.link}>
           <CategoriesCard
             metric={stat.metric}
             metricClassName="lg:text-[18px] text-sm" // Adjust metric text size

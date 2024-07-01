@@ -142,6 +142,24 @@ export const jobData = [
   },
 ];
 
+export const requisitionData = [
+  {
+    id: 'BT000FF',
+    date: '2023-11-12T06:22:01.621Z',
+    jobDetails: 'Project type: Housing, Description: Repair of faulty wiring system',
+    requestType: 'Emergency',
+    status: 'Pending'
+  },
+
+  {
+    id: 'BT0F0G',
+    date: '2023-11-10T06:22:01.621Z',
+    jobDetails: 'Project type: Housing, Description: Repair of sockets, Request Type: Standard',
+    requestType: '2.0',
+    status: 'Pending'
+  }
+];
+
 export const quotationData = [
   {
     id: 'JB000FFF',
@@ -158,21 +176,75 @@ export const quotationData = [
   }
 ];
 
-export const requisitionData = [
+export const jobsData = [
   {
-    id: 'BT000FF',
+    id: 'JOB0019',
     date: '2023-11-12T06:22:01.621Z',
-    jobDetails: 'Project type: Housing, Description: Repair of faulty wiring system',
-    requestType: 'Emergency',
-    status: 'Pending'
+    category: 'Fundi',
+    subCategory: 'Mason',
+    description: 'Boundary wall construction',
+    location: 'Nyali, Mombasa',
+    requestType: '2.0',
+    status: 'Ongoing'
   },
 
   {
-    id: 'BT0F0G',
+    id: 'JOB0022',
     date: '2023-11-10T06:22:01.621Z',
-    jobDetails: 'Project type: Housing, Description: Repair of sockets, Request Type: Standard',
+    category: 'Fundi',
+    subCategory: 'Mason',
+    description: 'Boundary wall construction',
+    location: 'Kisumu',
+    requestType: 'Emergency',
+    status: 'Completed'
+  }
+];
+
+export const activeJobsData = [
+  {
+    id: 'JOB0019',
+    date: '2023-11-12T06:22:01.621Z',
+    category: 'Fundi',
+    subCategory: 'Mason',
+    description: 'Boundary wall construction',
+    location: 'Nyali, Mombasa',
     requestType: '2.0',
-    status: 'Pending'
+    status: 'Ongoing'
+  },
+
+  {
+    id: 'JOB0022',
+    date: '2023-11-10T06:22:01.621Z',
+    category: 'Fundi',
+    subCategory: 'Mason',
+    description: 'Boundary wall construction',
+    location: 'Kisumu',
+    requestType: 'Emergency',
+    status: 'Ongoing'
+  }
+];
+
+export const completedJobsData = [
+  {
+    id: 'JOB0019',
+    date: '2023-11-12T06:22:01.621Z',
+    category: 'Fundi',
+    subCategory: 'Mason',
+    description: 'Boundary wall construction',
+    location: 'Nyali, Mombasa',
+    requestType: '2.0',
+    status: 'Reviewed'
+  },
+
+  {
+    id: 'JOB0022',
+    date: '2023-11-10T06:22:01.621Z',
+    category: 'Fundi',
+    subCategory: 'Mason',
+    description: 'Boundary wall construction',
+    location: 'Kisumu',
+    requestType: 'Emergency',
+    status: 'Unreviewed'
   }
 ];
 

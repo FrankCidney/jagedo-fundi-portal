@@ -82,7 +82,7 @@ export default function SignInForm() {
         Don’t have an account?{' '}
         <Link
           // href={routes.auth.signUp4}
-          href={'/auth/sign-up'}
+          href={'/signup'}
           className="font-semibold text-gray-700 transition-colors hover:text-blue"
         >
           Sign Up

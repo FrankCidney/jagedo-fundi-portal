@@ -17,11 +17,20 @@ export const routes = {
   },
 
   serviceProvider: {
-    dashboard: '/service-provider/fundi/dashboard',
-    requisitions: '/service-provider/fundi/requisitions',
-    makeQuotation: '/service-provider/fundi/make-quotation',
-    viewQuotations: '/service-provider/fundi/view-quotations',
-    confirmAvailability: '/service-provider/fundi/confirm-availability'
+    fundi: {
+      dashboard: '/service-provider/dashboard/fundi',
+      requisitions: '/service-provider/requisitions/fundi',
+      makeQuotation: '/service-provider/fundi/make-quotation',
+      quotations: '/service-provider/quotations/fundi',
+      confirmAvailability: '/service-provider/fundi/confirm-availability',
+      jobs: '/service-provider/jobs/fundi',
+      activeJobs: '/service-provider/jobs/active/fundi',
+      completedJobs: '/service-provider/jobs/completed/fundi',
+      createProfile: '/service-provider/profile/create-profile/fundi',
+      editProfile: '/service-provider/profile/edit-profile/fundi',
+
+    },
+    
   },
 
   eCommerce: {

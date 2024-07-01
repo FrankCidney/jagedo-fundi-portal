@@ -1,4 +1,4 @@
-import CustomMultiStepForm from "@/app/shared/custom-multi-step/form";
+// import CustomMultiStepForm from "@/app/shared/custom-multi-step";
 import { Metadata } from "next";
 // import { Title } from "rizzui";
 
@@ -30,7 +30,7 @@ export default function Home() {
     //   </div>
     // </section>
     <>
-      <CustomMultiStepForm />
+      {/* <CustomMultiStepForm /> */}
     </>
   )
 }
