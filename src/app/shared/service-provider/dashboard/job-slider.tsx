@@ -31,21 +31,21 @@ const data = [
     link: routes.serviceProvider.fundi.quotations,
   },
   {
-    name: 'Active Jobs',
+    name: 'Active',
     total: 10,
     fill: '#04364A',
-    link: '##',
+    link: routes.serviceProvider.fundi.activeJobs,
   },
-//   {
-//     name: 'Ongoing',
-//     total: 11,
-//     fill: '#176B87',
-//     link: '',
-//   },
   {
     name: 'Completed',
     total: 13,
     fill: '#64CCC5',
+    link: routes.serviceProvider.fundi.completedJobs,
+  },
+  {
+    name: 'Reviews',
+    total: 5,
+    fill: '#702963',
     link: '##',
   },
 ];
@@ -77,7 +77,7 @@ export default function JobSlider({ className }: { className?: string }) {
   return (
     <WidgetCard
       title="All Jobs"
-      titleClassName="text-gray-700 font-normal sm:text-sm font-inter"
+      titleClassName="text-gray-800 sm:text-sm font-inter"
       headerClassName="items-center"
       className={cn('@container', className)}
       //   action={
@@ -126,6 +126,7 @@ export default function JobSlider({ className }: { className?: string }) {
                 barSize={28}
                 radius={[50, 50, 50, 50]}
                 onClick={handleBarClick}
+                className='cursor-pointer'
               >
                 <LabelList
                   position="right"

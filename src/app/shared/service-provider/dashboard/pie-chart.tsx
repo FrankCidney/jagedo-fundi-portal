@@ -1,95 +1,34 @@
 'use client';
 
+import { Title, Text } from 'rizzui';
 import WidgetCard from '@/components/cards/widget-card';
-import { Title } from 'rizzui';
-import cn from '@/utils/class-names';
-import { useCallback, useState } from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Sector } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
 const data = [
-  { name: 'Service Providers', value: 30 },
-  { name: 'Customers', value: 20 },
+  { name: 'Success', value: 60 },
+  { name: 'Pending', value: 40 },
+  { name: 'Failed', value: 10 },
 ];
-const COLORS = ['#FFD66B', '#64CCC5', '#176B87', '#2B7F75'];
+const COLORS = ['#64ccc5', '#ffd66b', '#D22B2B', '#FFD1D1'];
 
-const viewOptions = [
-  {
-    value: 'Daily',
-    label: 'Daily',
-  },
-  {
-    value: 'Monthly',
-    label: 'Monthly',
-  },
-];
-
-const renderActiveShape = (props: any) => {
-  const RADIAN = Math.PI / 180;
-  const { cx, cy, outerRadius, startAngle, endAngle, midAngle } = props;
-  const sin = Math.sin(-RADIAN * midAngle);
-  const cos = Math.cos(-RADIAN * midAngle);
-  const sx = cx + (outerRadius - 100) * cos;
-  const sy = cy + (outerRadius - 100) * sin;
+export default function BidsStatus({
+  className,
+}: {
+  className?: string;
+}) {
   return (
-    <Sector
-      cx={sx}
-      cy={sy}
-      cornerRadius={5}
-      innerRadius={50}
-      outerRadius={102}
-      startAngle={startAngle}
-      endAngle={endAngle}
-      fill={props.fill}
-    />
-  );
-};
-
-export default function UsersTraction({ className }: { className?: string }) {
-  const [activeIndex, setActiveIndex] = useState(1);
-  const [chartData] = useState(data);
-
-  const onMouseOver = useCallback((_: any, index: number) => {
-    setActiveIndex(index);
-  }, []);
-  const onMouseLeave = useCallback(() => {
-    setActiveIndex(0);
-  }, []);
-
-  function handleChange(viewType: string) {
-    console.log('viewType', viewType);
-  }
-
-  return (
-    <WidgetCard
-      title="Traction"
-      titleClassName="text-gray-800 sm:text-lg font-inter"
-      headerClassName="items-center"
-      className={cn('@container', className)}
-      //   action={
-      //     <DropdownAction
-      //       className="rounded-lg border"
-      //       options={viewOptions}
-      //       onChange={handleChange}
-      //       dropdownClassName="!z-0"
-      //     />
-      //   }
-    >
-      <div className="h-full items-center gap-2 @sm:flex">
-        <div className="relative h-[300px] w-full after:absolute after:inset-1/2 after:h-20 after:w-20 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:border after:border-dashed after:border-gray-300 @sm:w-3/5 @sm:py-3 rtl:after:translate-x-1/2">
+    <WidgetCard title={'Bids Status'} rounded="lg" className={className}>
+      <div className="flex flex-col items-center gap-6 @sm:flex-row">
+        <div className="h-[300px] w-[300px] @sm:w-2/3 @sm:py-3">
           <ResponsiveContainer width="100%" height="100%">
-            <PieChart className="w-20 [&_.recharts-layer:focus]:outline-none [&_.recharts-sector:focus]:outline-none dark:[&_.recharts-text.recharts-label]:first-of-type:fill-white">
+            <PieChart className="[&_.recharts-sector:focus]:outline-none">
               <Pie
-                activeIndex={activeIndex}
-                data={chartData}
-                cornerRadius={10}
-                innerRadius={55}
-                outerRadius={100}
-                paddingAngle={5}
+                data={data}
+                innerRadius={40}
+                outerRadius={80}
+                fill="#6D1A36"
                 stroke="rgba(0,0,0,0)"
                 dataKey="value"
-                activeShape={renderActiveShape}
-                onMouseOver={onMouseOver}
-                onMouseLeave={onMouseLeave}
               >
                 {data.map((_, index) => (
                   <Cell
@@ -101,46 +40,23 @@ export default function UsersTraction({ className }: { className?: string }) {
             </PieChart>
           </ResponsiveContainer>
         </div>
-        <div className="@sm:w-2/5 @sm:ps-2">
-          <div className="mb-4 mt-1">
-            <div className="mb-1.5 text-gray-700">All Users</div>
-            <Title as="h2" className="font-inter font-bold text-gray-900">
-              60
-            </Title>
-          </div>
-          <div className="whitespace-nowrap">
-            <span>
-              <Detail color={COLORS[0]} value={75} text="Service providers" />
-            </span>
-            <Detail color={COLORS[1]} value={25} text="Customers" />
-          </div>
+        <div className="grid grid-cols-2 gap-6 @sm:w-1/3 @md:grid-cols-1">
+          {data.map((item, index) => (
+            <div key={item.name} className="text-center">
+              <div className="mb-1.5 flex items-center">
+                <span
+                  className="me-2 h-2 w-2 flex-shrink-0 rounded-full"
+                  style={{ backgroundColor: COLORS[index] }}
+                />
+                <Text as="span" className=" whitespace-nowrap">
+                  {item.name}
+                </Text>
+              </div>
+              {/* <Title as="h5">{item.value}</Title> */}
+            </div>
+          ))}
         </div>
       </div>
     </WidgetCard>
-  );
-}
-
-function Detail({
-  color,
-  value,
-  text,
-}: {
-  color: string;
-  value: number;
-  text: string;
-}) {
-  return (
-    <div className="flex justify-between gap-2 border-b border-gray-100 py-3 last:border-b-0">
-      <div className=" col-span-3 flex items-center justify-start gap-1.5">
-        <span style={{ background: color }} className="block h-3 w-3 rounded" />
-        <p className="text-gray-500">{text}</p>
-      </div>
-      <span
-        style={{ borderColor: color }}
-        className="rounded-full border-2 px-2 font-semibold text-gray-700"
-      >
-        {value}%
-      </span>
-    </div>
   );
 }
