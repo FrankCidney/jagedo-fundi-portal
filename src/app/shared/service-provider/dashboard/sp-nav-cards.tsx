@@ -84,8 +84,8 @@ const spDashboardNavCardData = [
   {
     id: '2',
     icon: <PiTrolleyDuotone className="h-6 w-6 text-yellow-500" />,
-    title: 'My Shop',
-    metric: 'My Shop',
+    title: 'Shop App',
+    metric: 'Shop App',
     percentage: '+32.40',
     style: 'text-[#3872FA]',
     fill: '#3872FA',

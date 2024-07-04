@@ -25,7 +25,7 @@ const pageHeader = {
       name: 'Fundi',
     },
     {
-      name: 'Create profile',
+      name: 'Edit profile',
     },
   ],
 };

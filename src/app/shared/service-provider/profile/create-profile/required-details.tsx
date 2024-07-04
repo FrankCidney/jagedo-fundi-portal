@@ -26,14 +26,30 @@ export default function RequiredDetails({ className }: ProductMediaProps) {
       className={cn(className)}
     >
       <Controller
-        name="Category"
+        name="skill"
         control={control}
         render={({ field: { onChange, value } }) => (
           <Select
             options={categoryOption}
             value={value}
             onChange={onChange}
-            label="Category"
+            label="Skill"
+            error={errors?.skill?.message as string}
+            getOptionValue={(option) => option.value}
+            inPortal={false}
+          />
+        )}
+      />
+
+      <Controller
+        name="level"
+        control={control}
+        render={({ field: { onChange, value } }) => (
+          <Select
+            options={categoryOption}
+            value={value}
+            onChange={onChange}
+            label="Level/Class"
             error={errors?.categories?.message as string}
             getOptionValue={(option) => option.value}
             inPortal={false}
@@ -42,54 +58,55 @@ export default function RequiredDetails({ className }: ProductMediaProps) {
       />
 
       <Controller
-        name="subcategory"
+        name="years"
         control={control}
         render={({ field: { onChange, value } }) => (
           <Select
             options={categoryOption}
             value={value}
             onChange={onChange}
-            label="Sub Category"
+            label="Years of experience"
             error={errors?.categories?.message as string}
             getOptionValue={(option) => option.value}
             inPortal={false}
           />
         )}
       />
+
       <UploadZone
-        label="PIN Number*"
+        label="Certificates*"
         className="flex-grow"
-        name="pinNumber"
+        name="certificates"
         getValues={getValues}
         setValue={setValue}
       />
 
       <UploadZone
-        label="Company Profile*"
+        label="ID Picture/Passport Front:*"
         className="flex-grow"
-        name="companyProfile"
+        name="idFront"
         getValues={getValues}
         setValue={setValue}
       />
 
       <UploadZone
-        label="Business Registration Number*"
+        label="ID Picture/Passport Back:*"
         className="flex-grow"
-        name="registration"
+        name="idBack"
         getValues={getValues}
         setValue={setValue}
       />
 
       <UploadZone
-        label="Portfolio*"
+        label="Resume/CV*"
         className="flex-grow"
-        name="portfolio"
+        name="resume"
         getValues={getValues}
         setValue={setValue}
       />
 
       <UploadZone
-        label="NCA Licence*"
+        label="NCA Registration Card*"
         className="col-span-full"
         name="licence"
         getValues={getValues}

@@ -67,9 +67,9 @@ export default function ActiveJobDetailsCard() {
         ))}
       </div>
 
-      <Button onClick={handleClick} className="m-auto mt-4">
+      {/* <Button onClick={handleClick} className="m-auto mt-4">
         Back
-      </Button>
+      </Button> */}
     </>
   );
 }

@@ -11,13 +11,15 @@ import {
 } from '@/store/checkout';
 import OrderViewProducts from '@/app/shared/ecommerce/order/order-products/order-view-products';
 import { useCart } from '@/store/quick-cart/cart.context';
-import { Title, Text, Button } from 'rizzui';
+import { Title, Text, Button, Modal } from 'rizzui';
 import cn from '@/utils/class-names';
 import { toCurrency } from '@/utils/to-currency';
 import { formatDate } from '@/utils/format-date';
 import usePrice from '@/hooks/use-price';
 import { routes } from '@/config/routes';
 import Link from 'next/link';
+import PersonalDetailsForm from './personal-details';
+import { useState } from 'react';
 // import CustomersTable from '../../../dashboard/tables/customers/organization';
 
 interface EditFundiFormProps {
@@ -56,6 +58,7 @@ function WidgetCard({
 }
 
 export default function EditFundiForm() {
+  const [modalState, setModalState] = useState(false);
 //   const { items, total, totalItems } = useCart();
 //   const { price: subtotal } = usePrice(
 //     items && {
@@ -68,6 +71,10 @@ export default function EditFundiForm() {
 
   return (
     <div className="@container">
+      <Modal isOpen={modalState} onClose={() => setModalState(false)}>
+        <div className='p-20 font-bold text-lg'>Details saved successfully.</div>
+      </Modal>
+
       <div className="items-start pt-5 @5xl:grid @5xl:grid-cols-12 @5xl:gap-7 @6xl:grid-cols-10 @7xl:gap-10">
         <div className="space-y-7 pt-8 @container @5xl:col-span-4 @5xl:space-y-10 @5xl:pt-0 @6xl:col-span-3">
           <WidgetCard
@@ -90,10 +97,10 @@ export default function EditFundiForm() {
                 as="h3"
                 className="mb-2.5 text-base font-semibold @7xl:text-lg"
               >
-                Leslie Alexander
+                Olive Wangari
               </Title>
               <Text as="p" className="mb-2 break-all last:mb-0">
-                mailto:nevaeh.simmons@example.com
+                mailto:olive.wangari@example.com
               </Text>
               <Text as="p" className="mb-2 last:mb-0">
                 (316) 555-0116
@@ -134,8 +141,26 @@ export default function EditFundiForm() {
               <div className="flex justify-between font-medium">
                 Phone Number <span>0704032343</span>
               </div>
+              <div className="flex justify-between font-medium">
+                National ID <span>36797512</span>
+              </div>
+              <div className="flex justify-between font-medium">
+                County <span>Nairobi</span>
+              </div>
+              <div className="flex justify-between font-medium">
+                Sub-County <span>Dagoretti North</span>
+              </div>
+              <div className="flex justify-between font-medium">
+                Estate <span>Kawangware</span>
+              </div>
             </div>
           </div>
+          <PersonalDetailsForm />
+
+          <Button onClick={() => setModalState(true)} as="span" className="h-[38px] shadow md:h-10">
+            Save Changes
+          </Button>
+
         </div>
       </div>
 

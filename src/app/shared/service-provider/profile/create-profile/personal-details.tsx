@@ -37,41 +37,58 @@ export default function PersonalDetailsForm({
     >
       <Input
         className="-mt-4"
-        label="Company Name"
-        placeholder="Company Name"
-        {...register('title')}
-        error={errors.title?.message as string}
+        label="First Name"
+        placeholder="First Name"
+        {...register('firstName')}
+        error={errors.firstName?.message as string}
       />
 
       <Input
         className="-mt-4"
-        label="Company Email"
-        placeholder="Company Email"
-        {...register('companyEmail')}
+        label="Last Name"
+        placeholder="Last Name"
+        {...register('lastName')}
+        error={errors.lastName?.message as string}
+      />
+
+      {/* <Input
+        type="email"
+        placeholder="Email"
+        label="Email Address"
+        {...register('email')}
+        error={errors.email?.message as string}
+        className="-mt-4"
+      /> */}
+
+      <Input
+        className="-mt-4"
+        label="Email"
+        placeholder="Email"
+        {...register('email')}
         error={errors.sku?.message as string}
       />
 
       <Input
         className="-mt-4"
-        label="Company Number"
-        placeholder="Company Number"
-        {...register('companyNumber')}
+        label="Phone Number"
+        placeholder="Phone Number"
+        {...register('phoneNumber')}
         error={errors.sku?.message as string}
       />
       <Input
         className="-mt-4"
-        label="Contact Person First Name"
-        placeholder="Contact Person First Name"
-        {...register('contactfName')}
+        label="Gender"
+        placeholder="Gender"
+        {...register('gender')}
         error={errors.sku?.message as string}
       />
-      <Input
+      {/* <Input
         className="-mt-4"
         label="Contact Person Last Name"
         placeholder="Contact Person Last Name"
         {...register('contactlName')}
         error={errors.sku?.message as string}
-      />
+      /> */}
       <Input
         className="-mt-4"
         label="County"
