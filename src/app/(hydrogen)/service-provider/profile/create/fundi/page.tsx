@@ -29,7 +29,7 @@ const pageHeader = {
   ],
 };
 
-export default function CreateCustomer() {
+export default function FundiCreateProfilePage() {
   return (
     <>
       <PageHeader

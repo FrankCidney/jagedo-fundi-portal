@@ -4,7 +4,7 @@
 
 import { motion } from "framer-motion";
 import { Input, Loader, Password, Radio, RadioGroup, Text, Checkbox } from "rizzui";
-import { SignUpFormSchema, signUpFormSchema } from "@/utils/validators/custom-signup.schema";
+import { FundiSignUpFormSchema, fundiSignUpFormSchema } from "@/utils/validators/custom-signup.schema";
 import { SubmitHandler, Controller } from "react-hook-form";
 import CustomMultiStepForm from "@/app/shared/custom-multi-step";
 import dynamic from "next/dynamic";
@@ -42,7 +42,7 @@ const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
 export default function FundiSteps() {
 
   // submit handler
-  const onSubmit: SubmitHandler<SignUpFormSchema> = (data) => {
+  const onSubmit: SubmitHandler<FundiSignUpFormSchema> = (data) => {
     console.log(data);
 
   };
@@ -50,8 +50,8 @@ export default function FundiSteps() {
     return (
         <>
 
-        <CustomMultiStepForm<SignUpFormSchema>
-          validationSchema={signUpFormSchema}
+        <CustomMultiStepForm<FundiSignUpFormSchema>
+          validationSchema={fundiSignUpFormSchema}
           onSubmit={onSubmit}
           useFormProps={{
             mode: 'onChange',

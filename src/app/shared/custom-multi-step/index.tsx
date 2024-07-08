@@ -15,8 +15,8 @@ import {
 } from 'react-hook-form';
 import type { Schema } from 'zod';
 
-import { signUpFormSchema, SignUpFormSchema } from '@/utils/validators/custom-signup.schema'
-import { MultiStepFormProps, MultiStepFormSteps } from '@/types/custom-types'
+// import { signUpFormSchema, SignUpFormSchema } from '@/utils/validators/custom-signup.schema'
+import { MultiStepFormSteps } from '@/types/custom-types'
 import { Button, Stepper } from 'rizzui';
 import { PiArrowRightBold, PiArrowLeftBold } from 'react-icons/pi';
 import { useRouter } from 'next/navigation';
@@ -114,9 +114,9 @@ TFormValues extends Record<string, any> = Record<string, any>,
 
     if (currentStep < steps.length - 1) {
 
-      if (currentStep === steps.length - 2) {
-        await methods.handleSubmit(onSubmit)()
-      }
+      // if (currentStep === steps.length - 2) {
+      //   await methods.handleSubmit(onSubmit)()
+      // }
 
       setPreviousStep(currentStep)
       setCurrentStep(step => step + 1)

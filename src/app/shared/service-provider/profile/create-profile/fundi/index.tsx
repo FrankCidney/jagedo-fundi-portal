@@ -1,93 +1,345 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import toast from 'react-hot-toast';
-import { Element } from 'react-scroll';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm, FormProvider, SubmitHandler } from 'react-hook-form';
-import { Text } from 'rizzui';
-import cn from '@/utils/class-names';
-import FormNav, {
-  formParts,
-} from '@/app/shared/admin/product/create-edit/form-nav';
-import { defaultValues } from '@/app/shared/admin/product/create-edit/form-utils';
-import ProductMedia from '@/app/shared/service-provider/profile/create-profile/required-details';
-import FormFooter from '@/components/form-footer';
-import {
-  CreateProductInput,
-  productFormSchema,
-} from '@/utils/validators/create-product.schema';
-import { useLayout } from '@/hooks/use-layout';
-import { LAYOUT_OPTIONS } from '@/config/enums';
-import PersonalDetailsForm from '@/app/shared/service-provider/profile/create-profile/personal-details';
+import { motion } from "framer-motion";
+import { Input, Loader, } from "rizzui";
+import { FundiProfileSchema, fundiProfileSchema } from "@/utils/validators/custom-profile.schema";
+import { SubmitHandler, Controller } from "react-hook-form";
+import CustomMultiStepForm from "@/app/shared/custom-multi-step";
+import dynamic from "next/dynamic";
+import UploadZone from '@/components/ui/file-upload/upload-zone';
+// import Link from 'next/link';
+import { 
+  fundiInitialValues, 
+  fundiProfileSteps, 
+  skill, 
+  gender, 
+  level,
+  years, 
+  county, 
+  subCounty, 
+} from "@/app/shared/service-provider/profile/create-profile/fundi/data";
 
-const MAP_STEP_TO_COMPONENT = {
-  [formParts.personalDetails]: PersonalDetailsForm,
-  [formParts.requiredDetails]: ProductMedia,
-};
 
-interface IndexProps {
-  slug?: string;
-  className?: string;
-  product?: CreateProductInput;
-}
+// dynamic import Select component from rizzui
+const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
+  ssr: false,
+  loading: () => (
+    <div className="grid h-10 place-content-center">
+      <Loader variant="spinner" />
+    </div>
+  ),
+});
 
-export default function CreateFundiProfileForm({
-  slug,
-  product,
-  className,
-}: IndexProps) {
-  const { layout } = useLayout();
-  const [isLoading, setLoading] = useState(false);
-  const methods = useForm<CreateProductInput>({
-    resolver: zodResolver(productFormSchema),
-    defaultValues: defaultValues(product),
-  });
+export default function CreateFundiProfileForm() {
 
-  const onSubmit: SubmitHandler<CreateProductInput> = (data) => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      console.log('product_data', data);
-      toast.success(
-        <Text as="b">Product successfully {slug ? 'updated' : 'created'}</Text>
-      );
-      methods.reset();
-    }, 600);
+  // submit handler
+  const onSubmit: SubmitHandler<FundiProfileSchema> = (data) => {
+    console.log(data);
+
   };
 
-  return (
-    <div className="@container">
-      <FormNav
-        className={cn(
-          layout === LAYOUT_OPTIONS.HYDROGEN && 'z-[999] 2xl:top-[72px]'
-        )}
-      />
-      <FormProvider {...methods}>
-        <form
-          onSubmit={methods.handleSubmit(onSubmit)}
-          className={cn(
-            'relative z-[19] [&_label.block>span]:font-medium',
-            className
-          )}
+    return (
+        <>
+        <CustomMultiStepForm<FundiProfileSchema>
+          validationSchema={fundiProfileSchema}
+          onSubmit={onSubmit}
+          useFormProps={{
+            mode: 'onChange',
+            defaultValues: fundiInitialValues,
+          }}
+          steps={fundiProfileSteps}
         >
-          <div className="mb-10 grid gap-7 divide-y divide-dashed divide-gray-200 @2xl:gap-9 @3xl:gap-11">
-            {Object.entries(MAP_STEP_TO_COMPONENT).map(([key, Component]) => (
-              <Element
-                key={key}
-                name={formParts[key as keyof typeof formParts]}
-              >
-                {<Component className="pt-7 @2xl:pt-9 @3xl:pt-11" />}
-              </Element>
-            ))}
-          </div>
+          {({ register, formState: { errors }, control, getValues, setValue }, currentStep, delta) => (
+            <>
 
-          <FormFooter
-            isLoading={isLoading}
-            submitBtnText={slug ? 'Update Details' : 'Submit'}
-          />
-        </form>
-      </FormProvider>
-    </div>
-  );
+              {/* Step 1 */}
+              {currentStep === 0 && (
+                <motion.div
+                  initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                >
+                  {/* Title and description */}
+                  <div className="col-span-full @4xl:col-span-4 pb-10">
+                    <h4 className="text-base font-medium">Personal Details</h4>
+                    <p className="mt-2">Provide your personal details.</p>
+                  </div>
+
+                  {/* Inputs */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <Input
+                      placeholder="First Name"
+                      label="First Name"
+                      size="lg"
+                      inputClassName="text-sm"
+                      {...register('firstName')}
+                      error={errors.firstName?.message}
+                      className="[&>label>span]:font-medium"
+                    />
+
+                    <Input
+                      placeholder="Last Name"
+                      label="Last Name"
+                      size="lg"
+                      inputClassName="text-sm"
+                      {...register('lastName')}
+                      error={errors.lastName?.message}
+                      className="[&>label>span]:font-medium"
+                    />
+
+                    <Input
+                      placeholder="Phone Number"
+                      label="Phone Number"
+                      size="lg"
+                      inputClassName="text-sm"
+                      {...register('phoneNo')}
+                      error={errors.phoneNo?.message}
+                      className="[&>label>span]:font-medium"
+                    />
+
+                    <Input
+                      type="email"
+                      placeholder="Email"
+                      label="Email Address"
+                      size="lg"
+                      inputClassName="text-sm"
+                      {...register('email')}
+                      error={errors.email?.message}
+                      className="[&>label>span]:font-medium"
+                    />
+
+                    <Controller
+                      control={control}
+                      name="gender"
+                      render={({ field: { value, onChange } }) => (
+                        <Select 
+                          dropdownClassName="!z-10"
+                          inPortal={false}
+                          placeholder="Gender"
+                          label="Gender"
+                          size="lg"
+                          selectClassName="font-medium text-sm"
+                          optionClassName=""
+                          options={gender}
+                          onChange={onChange}
+                          value={value}
+                          className=""
+                          getOptionValue={(option) => option.value}
+                          displayValue={(selected) =>
+                            gender?.find((r) => r.value === selected)?.label ?? ''
+                          }
+                          error={errors?.gender?.message as string}
+                        />
+                      )}
+                    />
+
+                    <Controller
+                      control={control}
+                      name="county"
+                      render={({ field: { value, onChange } }) => (
+                        <Select 
+                          dropdownClassName="!z-10"
+                          inPortal={false}
+                          placeholder="County/State"
+                          label="County/State"
+                          size="lg"
+                          selectClassName="font-medium text-sm"
+                          optionClassName=""
+                          options={county}
+                          onChange={onChange}
+                          value={value}
+                          className=""
+                          getOptionValue={(option) => option.value}
+                          displayValue={(selected) =>
+                            county?.find((r) => r.value === selected)?.label ?? ''
+                          }
+                          error={errors?.county?.message as string}
+                        />
+                      )}
+                    />  
+                    
+                    <Controller
+                      control={control}
+                      name="subCounty"
+                      render={({ field: { value, onChange } }) => (
+                        <Select 
+                          dropdownClassName="!z-10"
+                          inPortal={false}
+                          placeholder="Sub-County/Area"
+                          label="Sub-County/Area"
+                          size="lg"
+                          selectClassName="font-medium text-sm"
+                          optionClassName=""
+                          options={subCounty}
+                          onChange={onChange}
+                          value={value}
+                          className="flex-grow"
+                          getOptionValue={(option) => option.value}
+                          displayValue={(selected) =>
+                            subCounty?.find((r) => r.value === selected)?.label ?? ''
+                          }
+                          error={errors?.subCounty?.message as string}
+                        />
+                      )}
+                    />  
+
+                    <Input
+                      placeholder="Estate"
+                      label="Estate"
+                      size="lg"
+                      inputClassName="text-sm"
+                      {...register('estate')}
+                      error={errors.estate?.message}
+                      className="[&>label>span]:font-medium flex-grow"
+                    /> 
+                  </div>
+                </motion.div>
+              )}
+
+              
+
+              {/* Step 2 */}
+              {currentStep === 1 && (
+                <motion.div
+                  initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                >
+                  {/* Title and description */}
+                  <div className="col-span-full @4xl:col-span-4 pb-10">
+                    <h4 className="text-base font-medium">Required Details</h4>
+                    <p className="mt-2">Please provide required details</p>
+                  </div>
+
+                  {/* Inputs */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">                                     
+                  <Controller
+                      control={control}
+                      name="skill"
+                      render={({ field: { value, onChange } }) => (
+                        <Select 
+                          dropdownClassName="!z-10"
+                          inPortal={false}
+                          placeholder="Select Skill"
+                          label="Skill"
+                          size="lg"
+                          selectClassName="font-medium text-sm"
+                          optionClassName=""
+                          options={skill}
+                          onChange={onChange}
+                          value={value}
+                          className=""
+                          getOptionValue={(option) => option.value}
+                          displayValue={(selected) =>
+                            skill?.find((r) => r.value === selected)?.label ?? ''
+                          }
+                          error={errors?.skill?.message as string}
+                        />
+                      )}
+                    />
+
+                    <Controller
+                      control={control}
+                      name="level"
+                      render={({ field: { value, onChange } }) => (
+                        <Select 
+                          dropdownClassName="!z-10"
+                          inPortal={false}
+                          placeholder="Select level/class"
+                          label="Level/Class*"
+                          size="lg"
+                          selectClassName="font-medium text-sm"
+                          optionClassName=""
+                          options={level}
+                          onChange={onChange}
+                          value={value}
+                          className=""
+                          getOptionValue={(option) => option.value}
+                          displayValue={(selected) =>
+                            level?.find((r) => r.value === selected)?.label ?? ''
+                          }
+                          error={errors?.level?.message as string}
+                        />
+                      )}
+                    />
+
+                    <Controller
+                      control={control}
+                      name="years"
+                      render={({ field: { value, onChange } }) => (
+                        <Select 
+                          dropdownClassName="!z-10"
+                          inPortal={false}
+                          placeholder="Select years of experience"
+                          label="Years of experience*"
+                          size="lg"
+                          selectClassName="font-medium text-sm"
+                          optionClassName=""
+                          options={years}
+                          onChange={onChange}
+                          value={value}
+                          className=""
+                          getOptionValue={(option) => option.value}
+                          displayValue={(selected) =>
+                            years?.find((r) => r.value === selected)?.label ?? ''
+                          }
+                          error={errors?.years?.message as string}
+                        />
+                      )}
+                    />
+                  {/* </div> */}
+
+                  {/* <div className="flex"> */}
+                    {/* <div> */}
+                      <UploadZone
+                          label="ID Picture/Passport Front:*"
+                          className="flex-grow"
+                          name="idFront"
+                          getValues={getValues}
+                          setValue={setValue}
+                      />
+
+                      <UploadZone
+                          label="ID Picture/Passport Back:*"
+                          className="flex-grow"
+                          name="idBack"
+                          getValues={getValues}
+                          setValue={setValue}
+                      />
+                    {/* </div> */}
+
+                    <UploadZone
+                        label="Certificates*"
+                        className="flex-grow"
+                        name="certificates"
+                        getValues={getValues}
+                        setValue={setValue}
+                    />
+
+                    <UploadZone
+                        label="Resume/CV*"
+                        className="flex-grow"
+                        name="resume"
+                        getValues={getValues}
+                        setValue={setValue}
+                    />
+
+                    <UploadZone
+                        label="NCA Registration Card*"
+                        className="flex-grow"
+                        name="ncaCard"
+                        getValues={getValues}
+                        setValue={setValue}
+                    />                               
+                  </div>
+                  {/* </div> */}
+
+                </motion.div>
+              )}         
+            </>
+          )}
+        </CustomMultiStepForm>
+        
+        </>
+    )
 }

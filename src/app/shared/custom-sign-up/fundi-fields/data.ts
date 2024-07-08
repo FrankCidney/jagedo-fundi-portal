@@ -1,4 +1,4 @@
-import { SignUpFormSchema } from "@/utils/validators/custom-signup.schema"
+import { FundiSignUpFormSchema } from "@/utils/validators/custom-signup.schema"
 
 // here's where you specify the steps
 // note: if the fields don't match the inputs that you have in the steps file,
@@ -40,7 +40,7 @@ export const fundiSteps = [
 ]
 
 // set initial values for the form fields here
-export const fundiInitialValues: SignUpFormSchema = {
+export const fundiInitialValues: FundiSignUpFormSchema = {
     firstName: '',
     lastName: '',
     email: '',

@@ -22,17 +22,32 @@ export const routes = {
       requisitions: '/service-provider/requisitions/fundi',
       makeQuotation: '/service-provider/fundi/make-quotation',
       quotations: '/service-provider/quotations/fundi',
+      quotationDetails: '/service-provider/quotations/quotation-details/fundi',
       confirmAvailability: '/service-provider/fundi/confirm-availability',
+
+      // jobs
       jobs: '/service-provider/jobs/fundi',
       activeJobs: '/service-provider/jobs/active/fundi',
       completedJobs: '/service-provider/jobs/completed/fundi',
-      createProfile: '/service-provider/profile/create-profile/fundi',
-      editProfile: '/service-provider/profile/edit-profile/fundi',
       jobDetails: '/service-provider/jobs/active/job-details/fundi',
-      quotationDetails: '/service-provider/quotations/quotation-details/fundi'
 
+      // profile
+      profile: '/service-provider/profile/fundi',
+      // create
+      createProfile: '/service-provider/profile/create/fundi',
+      requiredDetails: '/service-provider/profile/create/fundi/required-details',
+      // edit
+      editProfile: '/service-provider/profile/edit/fundi',
+      
     },
-    
+
+    professional: {
+      profile: '',
+    },
+
+    contractor: {
+      profile: '',
+    }
   },
 
   eCommerce: {

@@ -34,7 +34,7 @@ export default function Notifications(
             Notifications
           </Title>
           <Link
-            href={routes.support.inbox}
+            href={''}
             // onClick={() => setIsOpen(false)}
             className="hover:underline"
           >
