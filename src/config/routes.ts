@@ -37,8 +37,11 @@ export const routes = {
       createProfile: '/service-provider/profile/create/fundi',
       requiredDetails: '/service-provider/profile/create/fundi/required-details',
       // edit
-      editProfile: '/service-provider/profile/edit/fundi',
-      
+      editProfile: '/service-provider/profile/edit',
+      // contactDetails: '/service-provider/profile/edit/fundi/contact-details',
+      accountDetails: '/service-provider/profile/edit/account-details',
+      uploads: '/service-provider/profile/edit/uploads',
+      evaluationForm: '/service-provider/profile/edit/evaluation-form',
     },
 
     professional: {

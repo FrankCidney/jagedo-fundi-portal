@@ -32,14 +32,52 @@ export default function Timeline({
   }
 
   return (
+    <>
+    {/* <div className={cn('relative @container flex', className)}>
+      {data.map((timeline: any, index: number) => (
+        <div className="flex items-center justify-between" key={`timeline-${index}`}>
+          <div className="hidden w-[147px] flex-shrink-0 @lg:block">
+            
+          </div>
+          <div
+            className={cn(
+              'relative flex-grow border-t border-muted py-5 ps-10 before:absolute before:-left-[3px] before:-top-[3px] before:h-1.5 before:w-1.5 before:rounded-full before:bg-gray-200 dark:border-gray-700 dark:before:bg-gray-900 rtl:before:-right-[3px]',
+              index !== 0 && 'before:hidden',
+              index === data.length - 1 &&
+                'before:-bottom-[3px] before:top-auto before:block'
+            )}
+          >
+              <span className="absolute -top-2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-gray-0 dark:bg-gray-50 rtl:-right-3">
+                {timeline.icon ? (
+                  timeline.icon
+                ) : order === 'asc' ? (
+                  <PiTriangle className="h-5 w-5 rotate-180" />
+                ) : (
+                  <PiTriangle className="h-5 w-5" />
+                )}
+              </span>
+              <Title
+                as="h3"
+                className={cn(
+                  'mb-3 flex items-center text-base font-semibold',
+                  timeline.status
+                    ? statusColors[timeline.status]
+                    : 'text-gray-900'
+                )}
+              >
+                {timeline.title}
+              </Title>
+          </div>
+        </div>
+      ))}
+    </div> */}
+
     <div className={cn('relative @container', className)}>
       {data.map((timeline: any, index: number) => (
         <div className="flex items-center" key={`timeline-${index}`}>
-          <div className="hidden w-[147px] flex-shrink-0 @lg:block">
-            {/* <Text as="span" className="pe-5 text-gray-500 @2xl:pe-10">
-              {timeline.date}
-            </Text> */}
-          </div>
+          {/* <div className="hidden w-[147px] flex-shrink-0 @lg:block">
+            
+          </div> */}
           <div
             className={cn(
               'relative flex-grow border-s border-muted py-5 ps-10 before:absolute before:-left-[3px] before:-top-[3px] before:h-1.5 before:w-1.5 before:rounded-full before:bg-gray-200 dark:border-gray-700 dark:before:bg-gray-900 rtl:before:-right-[3px]',
@@ -82,25 +120,7 @@ export default function Timeline({
           </div>
         </div>
       ))}
-
-      {showmoreButton && (
-        <div className="flex items-center" ref={buttonEl}>
-          <div className="hidden w-[147px] flex-shrink-0 @lg:block"></div>
-          <Link
-            to={'tracking_history'}
-            spy={true}
-            hashSpy={true}
-            smooth={true}
-            duration={500}
-            // @ts-ignore
-            onClick={(e) => handleScrollPosition(e)}
-            className="ms-10 mt-10 flex flex-grow cursor-pointer items-center gap-3 text-sm font-medium text-gray-900"
-          >
-            View Travel History
-            <PiArrowDownBold className="h-4 w-4 text-gray-500" />
-          </Link>
-        </div>
-      )}
     </div>
+    </>
   );
 }

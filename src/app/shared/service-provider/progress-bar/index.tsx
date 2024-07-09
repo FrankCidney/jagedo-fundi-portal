@@ -3,6 +3,9 @@
 import { useParams } from 'next/navigation';
 import { PiCheckCircle, PiCopySimple, PiMoped } from 'react-icons/pi';
 import Timeline from './timeline';
+import { Button } from 'rizzui';
+import Link from 'next/link';
+import { routes } from '@/config/routes';
 
 const timelineData = [
   {
@@ -49,10 +52,16 @@ export default function ProgressBarActive({
   className?: string;
 }) {
   return (
-    <div>
-      <div>
-        <Timeline data={timelineData} order="desc" />
+    <>
+      <div className='ml-14 lg:ml-28'>
+        <div className='mb-8'>
+          <Link href={routes.serviceProvider.fundi.activeJobs}>
+              <Button>Complete Milestone</Button>
+          </Link>
+        </div>
+
+        <Timeline data={timelineData} order="desc" />   
       </div>
-    </div>
+    </>
   );
 }

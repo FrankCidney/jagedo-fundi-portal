@@ -12,18 +12,22 @@ import { useBerylliumSidebars } from '@/layouts/beryllium/beryllium-utils';
 import { routes } from '@/config/routes';
 
 const menuItems = [
-  {
-    label: 'Account Details',
-    value: routes.serviceProvider.fundi.accountDetails,
-  },
-  {
-    label: 'Uploads',
-    value: routes.serviceProvider.fundi.uploads,
-  },
-  {
-    label: 'Evaluation Form',
-    value: routes.serviceProvider.fundi.evaluationForm,
-  },
+    {
+        label: 'Contact Details',
+        value: routes.serviceProvider.fundi.editProfile,
+    },
+    {
+        label: 'Account Details',
+        value: routes.serviceProvider.fundi.accountDetails,
+    },
+    {
+        label: 'Uploads',
+        value: routes.serviceProvider.fundi.uploads,
+    },
+    {
+        label: 'Evaluation Form',
+        value: routes.serviceProvider.fundi.evaluationForm,
+    },
 //   {
 //     label: 'Password',
 //     value: '/forms/profile-settings/password',

@@ -1,12 +1,12 @@
-import Link from 'next/link';
-import { PiPlusBold } from 'react-icons/pi';
+// import Link from 'next/link';
+// import { PiPlusBold } from 'react-icons/pi';
 import { metaObject } from '@/config/site.config';
 import PageHeader from '@/app/shared/commons/page-header';
-import { Button } from 'rizzui';
-import { routes } from '@/config/routes';
-import CreateEditProduct from '@/app/shared/admin/product/create-edit';
+// import { Button } from 'rizzui';
+// import { routes } from '@/config/routes';
+// import CreateEditProduct from '@/app/shared/admin/product/create-edit';
 // import CreateCustomerForm from '@/app/shared/admin/profile/create-profile/customers/page';
-import CreateFundiProfileForm from '@/app/shared/service-provider/profile/create-profile/fundi';
+// import CreateFundiProfileForm from '@/app/shared/service-provider/profile/create-profile/fundi';
 import EditFundiForm from '@/app/shared/service-provider/profile/edit-profile';
 
 export const metadata = {

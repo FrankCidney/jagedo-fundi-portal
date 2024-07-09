@@ -19,8 +19,8 @@ export const metadata = {
   
   export default function JobDetailsPage({ className }: PageProps) {
     return (
-      <div className={cn('xl:gap-15 grid grid-cols-2 lg:grid-cols-2', className)}>
-      <div>
+      <div className={cn('xl:gap-15 grid grid-cols-1 lg:grid-cols-3', className)}>
+      <div className='col-span-2'>
         <ActiveJobDetailsCard />
         <Progressbar
           className="mt-6"
@@ -29,13 +29,14 @@ export const metadata = {
           color="info"
           size="xl"
         />
-        <Link href={routes.serviceProvider.fundi.activeJobs}>
-          <div className="flex  justify-center">
-            <Button className="mt-6">Back</Button>
-          </div>
-        </Link>
+        
+        <div className="flex  justify-center">
+          <Link href={routes.serviceProvider.fundi.activeJobs}>
+              <Button className="mt-6">Back</Button>
+          </Link>
+        </div>
       </div>
-      <div className="-ml-12">
+      <div className="">
         <ProgressBarActive />
       </div>
     </div>
