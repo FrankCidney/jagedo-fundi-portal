@@ -16,39 +16,206 @@ import SimpleBar from 'simplebar-react';
 import { formatNumber } from '@/utils/format-number';
 import { routes } from '@/config/routes';
 import { useRouter } from 'next/navigation';
+import { checkRole } from '@/utils/custom-check-role';
 
-const data = [
-  {
-    name: 'Requsitions',
-    total: 8,
-    fill: '#2B7F75',
-    link: routes.serviceProvider.fundi.requisitions,
-  },
-  {
-    name: 'Quotations',
-    total: 7,
-    fill: '#FFD66B',
-    link: routes.serviceProvider.fundi.quotations,
-  },
-  {
-    name: 'Active',
-    total: 10,
-    fill: '#04364A',
-    link: routes.serviceProvider.fundi.activeJobs,
-  },
-  {
-    name: 'Completed',
-    total: 13,
-    fill: '#64CCC5',
-    link: routes.serviceProvider.fundi.completedJobs,
-  },
-  {
-    name: 'Reviews',
-    total: 5,
-    fill: '#702963',
-    link: '##',
-  },
-];
+const userRole = checkRole()
+
+// function to get the link based on userRole
+// function getLinkByRole(userRole: string, key: string) {
+//   switch (userRole) {
+//     case 'fundi':
+//       return routes.serviceProvider.fundi[key];
+//     case 'professional':
+//       return routes.serviceProvider.professional.requisitions;
+//     case 'contractor':
+//       return routes.serviceProvider.contractor.requisitions;
+//     default:
+//       return '/default/requisitions'; // Fallback link if userRole doesn't match
+//   }
+// }
+
+type JobSliderData = {
+  name: string
+  total: number
+  fill: string
+  link: string
+}
+
+let data: JobSliderData[] = []
+
+switch (userRole) {
+  case 'fundi':
+    data = [
+      {
+        name: 'Requisitions',
+        total: 8,
+        fill: '#2B7F75',
+        link: routes.serviceProvider.fundi.requisitions,
+      },
+      {
+        name: 'Quotations',
+        total: 7,
+        fill: '#FFD66B',
+        link: routes.serviceProvider.fundi.quotations,
+      },
+      {
+        name: 'Active',
+        total: 10,
+        fill: '#04364A',
+        link: routes.serviceProvider.fundi.activeJobs,
+      },
+      {
+        name: 'Completed',
+        total: 13,
+        fill: '#64CCC5',
+        link: routes.serviceProvider.fundi.completedJobs,
+      },
+      {
+        name: 'Reviews',
+        total: 5,
+        fill: '#702963',
+        link: '##',
+      },
+    ];
+    break;
+  
+  case 'professional':
+    data = [
+      {
+        name: 'Requisitions',
+        total: 8,
+        fill: '#2B7F75',
+        link: routes.serviceProvider.professional.requisitions,
+      },
+      {
+        name: 'Quotations',
+        total: 9,
+        fill: '#FFD66B',
+        link: routes.serviceProvider.professional.quotations,
+      },
+      {
+        name: 'Active',
+        total: 7,
+        fill: '#04364A',
+        link: routes.serviceProvider.professional.activeJobs,
+      },
+      {
+        name: 'Completed',
+        total: 10,
+        fill: '#64CCC5',
+        link: routes.serviceProvider.professional.completedJobs,
+      },
+      {
+        name: 'Reviews',
+        total: 7,
+        fill: '#702963',
+        link: '##',
+      },
+    ];
+    break;
+
+  case 'contractor':
+    data = [
+      {
+        name: 'Requisitions',
+        total: 9,
+        fill: '#2B7F75',
+        link: routes.serviceProvider.contractor.requisitions,
+      },
+      {
+        name: 'Quotations',
+        total: 4,
+        fill: '#FFD66B',
+        link: routes.serviceProvider.contractor.quotations,
+      },
+      {
+        name: 'Active',
+        total: 5,
+        fill: '#04364A',
+        link: routes.serviceProvider.contractor.activeJobs,
+      },
+      {
+        name: 'Completed',
+        total: 18,
+        fill: '#64CCC5',
+        link: routes.serviceProvider.contractor.completedJobs,
+      },
+      {
+        name: 'Reviews',
+        total: 7,
+        fill: '#702963',
+        link: '##',
+      },
+    ];
+    break;
+
+  default:
+    data = [
+      {
+        name: 'Requisitions',
+        total: 8,
+        fill: '#2B7F75',
+        link: routes.serviceProvider.fundi.requisitions,
+      },
+      {
+        name: 'Quotations',
+        total: 7,
+        fill: '#FFD66B',
+        link: routes.serviceProvider.fundi.quotations,
+      },
+      {
+        name: 'Active',
+        total: 10,
+        fill: '#04364A',
+        link: routes.serviceProvider.fundi.activeJobs,
+      },
+      {
+        name: 'Completed',
+        total: 13,
+        fill: '#64CCC5',
+        link: routes.serviceProvider.fundi.completedJobs,
+      },
+      {
+        name: 'Reviews',
+        total: 5,
+        fill: '#702963',
+        link: '##',
+      },
+    ];
+}
+
+// const data = [
+//   {
+//     name: 'Requisitions',
+//     total: 8,
+//     fill: '#2B7F75',
+//     link: routes.serviceProvider.fundi.requisitions,
+//   },
+//   {
+//     name: 'Quotations',
+//     total: 7,
+//     fill: '#FFD66B',
+//     link: routes.serviceProvider.fundi.quotations,
+//   },
+//   {
+//     name: 'Active',
+//     total: 10,
+//     fill: '#04364A',
+//     link: routes.serviceProvider.fundi.activeJobs,
+//   },
+//   {
+//     name: 'Completed',
+//     total: 13,
+//     fill: '#64CCC5',
+//     link: routes.serviceProvider.fundi.completedJobs,
+//   },
+//   {
+//     name: 'Reviews',
+//     total: 5,
+//     fill: '#702963',
+//     link: '##',
+//   },
+// ];
 
 const viewOptions = [
   {

@@ -45,11 +45,17 @@ export const routes = {
     },
 
     professional: {
-      profile: '',
+      requisitions: '/service-provider/requisitions/fundi',
+      quotations: '/service-provider/quotations/fundi',
+      activeJobs: '/service-provider/jobs/active/fundi',
+      completedJobs: '/service-provider/jobs/completed/fundi',
     },
 
     contractor: {
-      profile: '',
+      requisitions: '/service-provider/requisitions/fundi',
+      quotations: '/service-provider/quotations/fundi',
+      activeJobs: '/service-provider/jobs/active/fundi',
+      completedJobs: '/service-provider/jobs/completed/fundi',
     }
   },
 

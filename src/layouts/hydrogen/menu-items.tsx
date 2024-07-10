@@ -50,6 +50,7 @@ import {
   PiHouseDuotone,
   PiToolboxDuotone,
 } from 'react-icons/pi';
+import { checkRole } from '@/utils/custom-check-role';
 
 interface MenuItem {
 
@@ -60,8 +61,333 @@ interface MenuItem {
   dropdownItems?: MenuItem[];
 
 }
+
+const userRole = checkRole()
+let menuData: MenuItem[] = []
+
+switch(userRole) {
+  case 'fundi':
+    menuData = [
+      {
+        name: 'Fundi Home',
+        href: routes.serviceProvider.fundi.dashboard,
+        icon: <PiHouseDuotone />
+      },
+    
+      {
+        name: 'Requisitions',
+        href: routes.serviceProvider.fundi.requisitions,
+        icon: <PiClipboardDuotone />,
+      },
+    
+      {
+        name: 'Quotations',
+        href: routes.serviceProvider.fundi.quotations,
+        icon: <PiNoteDuotone />,
+      },
+    
+      {
+        name: 'Jobs',
+        href: routes.serviceProvider.fundi.quotations,
+        icon: <PiToolboxDuotone/>,
+        dropdownItems: [
+          {
+            name: 'Active',
+            href: routes.serviceProvider.fundi.activeJobs,
+            badge: '',
+          },
+          {
+            name: 'Completed',
+            href: routes.serviceProvider.fundi.completedJobs,
+            badge: '',
+          },
+          {
+            name: 'All Jobs',
+            href: routes.serviceProvider.fundi.jobs,
+            badge: '',
+          },
+        ]
+      },
+    
+      {
+        name: 'Profile',
+        href: routes.serviceProvider.fundi.quotations,
+        icon: <PiUserCircleDuotone />,
+        dropdownItems: [
+          {
+            name: 'Create Profile',
+            href: routes.serviceProvider.fundi.createProfile,
+            badge: '',
+          },
+          {
+            name: 'Edit Profile',
+            href: routes.serviceProvider.fundi.editProfile,
+            badge: '',
+          },
+        ]
+      },
+    ];
+    break;
+
+  case 'professional':
+    menuData = [
+      {
+        name: 'Professional Home',
+        href: routes.serviceProvider.fundi.dashboard,
+        icon: <PiHouseDuotone />
+      },
+    
+      {
+        name: 'Requisitions',
+        href: routes.serviceProvider.fundi.requisitions,
+        icon: <PiClipboardDuotone />,
+      },
+    
+      {
+        name: 'Quotations',
+        href: routes.serviceProvider.fundi.quotations,
+        icon: <PiNoteDuotone />,
+      },
+    
+      {
+        name: 'Jobs',
+        href: routes.serviceProvider.fundi.quotations,
+        icon: <PiToolboxDuotone/>,
+        dropdownItems: [
+          {
+            name: 'Active',
+            href: routes.serviceProvider.fundi.activeJobs,
+            badge: '',
+          },
+          {
+            name: 'Completed',
+            href: routes.serviceProvider.fundi.completedJobs,
+            badge: '',
+          },
+          {
+            name: 'All Jobs',
+            href: routes.serviceProvider.fundi.jobs,
+            badge: '',
+          },
+        ]
+      },
+    
+      {
+        name: 'Profile',
+        href: routes.serviceProvider.fundi.quotations,
+        icon: <PiUserCircleDuotone />,
+        dropdownItems: [
+          {
+            name: 'Create Profile',
+            href: routes.serviceProvider.fundi.createProfile,
+            badge: '',
+          },
+          {
+            name: 'Edit Profile',
+            href: routes.serviceProvider.fundi.editProfile,
+            badge: '',
+          },
+        ]
+      },
+    ];
+    break;
+
+  case 'contractor':
+    menuData = [
+      {
+        name: 'Contractor Home',
+        href: routes.serviceProvider.fundi.dashboard,
+        icon: <PiHouseDuotone />
+      },
+    
+      {
+        name: 'Requisitions',
+        href: routes.serviceProvider.fundi.requisitions,
+        icon: <PiClipboardDuotone />,
+      },
+    
+      {
+        name: 'Quotations',
+        href: routes.serviceProvider.fundi.quotations,
+        icon: <PiNoteDuotone />,
+      },
+    
+      {
+        name: 'Jobs',
+        href: routes.serviceProvider.fundi.quotations,
+        icon: <PiToolboxDuotone/>,
+        dropdownItems: [
+          {
+            name: 'Active',
+            href: routes.serviceProvider.fundi.activeJobs,
+            badge: '',
+          },
+          {
+            name: 'Completed',
+            href: routes.serviceProvider.fundi.completedJobs,
+            badge: '',
+          },
+          {
+            name: 'All Jobs',
+            href: routes.serviceProvider.fundi.jobs,
+            badge: '',
+          },
+        ]
+      },
+    
+      {
+        name: 'Profile',
+        href: routes.serviceProvider.fundi.quotations,
+        icon: <PiUserCircleDuotone />,
+        dropdownItems: [
+          {
+            name: 'Create Profile',
+            href: routes.serviceProvider.fundi.createProfile,
+            badge: '',
+          },
+          {
+            name: 'Edit Profile',
+            href: routes.serviceProvider.fundi.editProfile,
+            badge: '',
+          },
+        ]
+      },
+    ];
+    break;
+
+  default:
+    menuData = [
+      {
+        name: 'Default Home',
+        href: routes.serviceProvider.fundi.dashboard,
+        icon: <PiHouseDuotone />
+      },
+    
+      {
+        name: 'Requisitions',
+        href: routes.serviceProvider.fundi.requisitions,
+        icon: <PiClipboardDuotone />,
+      },
+    
+      {
+        name: 'Quotations',
+        href: routes.serviceProvider.fundi.quotations,
+        icon: <PiNoteDuotone />,
+      },
+    
+      {
+        name: 'Jobs',
+        href: routes.serviceProvider.fundi.quotations,
+        icon: <PiToolboxDuotone/>,
+        dropdownItems: [
+          {
+            name: 'Active',
+            href: routes.serviceProvider.fundi.activeJobs,
+            badge: '',
+          },
+          {
+            name: 'Completed',
+            href: routes.serviceProvider.fundi.completedJobs,
+            badge: '',
+          },
+          {
+            name: 'All Jobs',
+            href: routes.serviceProvider.fundi.jobs,
+            badge: '',
+          },
+        ]
+      },
+    
+      {
+        name: 'Profile',
+        href: routes.serviceProvider.fundi.quotations,
+        icon: <PiUserCircleDuotone />,
+        dropdownItems: [
+          {
+            name: 'Create Profile',
+            href: routes.serviceProvider.fundi.createProfile,
+            badge: '',
+          },
+          {
+            name: 'Edit Profile',
+            href: routes.serviceProvider.fundi.editProfile,
+            badge: '',
+          },
+        ]
+      },
+    ];
+
+}
 // Note: do not add href in the label object, it is rendering as label
-export const menuItems: MenuItem[] = [
+export const menuItems: MenuItem[] = menuData
+
+// [
+
+
+
+
+
+
+  // {
+  //   name: 'Home',
+  //   href: routes.serviceProvider.fundi.dashboard,
+  //   icon: <PiHouseDuotone />
+  // },
+
+  // {
+  //   name: 'Requisitions',
+  //   href: routes.serviceProvider.fundi.requisitions,
+  //   icon: <PiClipboardDuotone />,
+  // },
+
+  // {
+  //   name: 'Quotations',
+  //   href: routes.serviceProvider.fundi.quotations,
+  //   icon: <PiNoteDuotone />,
+  // },
+
+  // {
+  //   name: 'Jobs',
+  //   href: routes.serviceProvider.fundi.quotations,
+  //   icon: <PiToolboxDuotone/>,
+  //   dropdownItems: [
+  //     {
+  //       name: 'Active',
+  //       href: routes.serviceProvider.fundi.activeJobs,
+  //       badge: '',
+  //     },
+  //     {
+  //       name: 'Completed',
+  //       href: routes.serviceProvider.fundi.completedJobs,
+  //       badge: '',
+  //     },
+  //     {
+  //       name: 'All Jobs',
+  //       href: routes.serviceProvider.fundi.jobs,
+  //       badge: '',
+  //     },
+  //   ]
+  // },
+
+  // {
+  //   name: 'Profile',
+  //   href: routes.serviceProvider.fundi.quotations,
+  //   icon: <PiUserCircleDuotone />,
+  //   dropdownItems: [
+  //     {
+  //       name: 'Create Profile',
+  //       href: routes.serviceProvider.fundi.createProfile,
+  //       badge: '',
+  //     },
+  //     {
+  //       name: 'Edit Profile',
+  //       href: routes.serviceProvider.fundi.editProfile,
+  //       badge: '',
+  //     },
+  //   ]
+  // },
+
+
   // label start
   // {
   //   name: 'Overview',
@@ -133,70 +459,11 @@ export const menuItems: MenuItem[] = [
   //   ],
   // },
 
-  {
-    name: 'Home',
-    href: routes.serviceProvider.fundi.dashboard,
-    icon: <PiHouseDuotone />
-  },
-
-  {
-    name: 'Requisitions',
-    href: routes.serviceProvider.fundi.requisitions,
-    icon: <PiClipboardDuotone />,
-  },
-
-  // {
+    // {
   //   name: 'Make Quotation',
   //   href: routes.serviceProvider.makeQuotation,
   //   icon: <PiNotePencilDuotone />,
   // },
-
-  {
-    name: 'Quotations',
-    href: routes.serviceProvider.fundi.quotations,
-    icon: <PiNoteDuotone />,
-  },
-
-  {
-    name: 'Jobs',
-    href: routes.serviceProvider.fundi.quotations,
-    icon: <PiToolboxDuotone/>,
-    dropdownItems: [
-      {
-        name: 'Active',
-        href: routes.serviceProvider.fundi.activeJobs,
-        badge: '',
-      },
-      {
-        name: 'Completed',
-        href: routes.serviceProvider.fundi.completedJobs,
-        badge: '',
-      },
-      {
-        name: 'All Jobs',
-        href: routes.serviceProvider.fundi.jobs,
-        badge: '',
-      },
-    ]
-  },
-
-  {
-    name: 'Profile',
-    href: routes.serviceProvider.fundi.quotations,
-    icon: <PiUserCircleDuotone />,
-    dropdownItems: [
-      {
-        name: 'Create Profile',
-        href: routes.serviceProvider.fundi.createProfile,
-        badge: '',
-      },
-      {
-        name: 'Edit Profile',
-        href: routes.serviceProvider.fundi.editProfile,
-        badge: '',
-      },
-    ]
-  },
 
   
   // {
@@ -544,4 +811,9 @@ export const menuItems: MenuItem[] = [
   //     },
   //   ],
   // },
-];
+
+
+
+
+
+// ];

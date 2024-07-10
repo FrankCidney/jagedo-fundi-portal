@@ -11,8 +11,8 @@ import { routes } from '@/config/routes';
 import { loginSchema, LoginSchema } from '@/utils/validators/login.schema';
 
 const initialValues: LoginSchema = {
-  email: 'admin@admin.com',
-  password: 'admin',
+  email: 'fundi@fundi.com',
+  password: 'fundi',
   rememberMe: true,
 };
 
@@ -22,9 +22,22 @@ export default function SignInForm() {
 
   const onSubmit: SubmitHandler<LoginSchema> = (data) => {
     console.log(data);
+    console.log(JSON.stringify(data))
+
+
     signIn('credentials', {
       ...data,
     });
+
+
+    
+    if (data.email === 'fundi@fundi.com') {
+      window.sessionStorage.setItem('role', 'fundi')
+    } else if (data.email === 'professional@professional.com') {
+      window.sessionStorage.setItem('role', 'professional')
+    } else if (data.email === 'contractor@contractor.com')  {
+      window.sessionStorage.setItem('role', 'contractor')
+    }
   };
 
   return (

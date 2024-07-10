@@ -4,23 +4,23 @@ import FundiEditProfileNav from '@/app/shared/service-provider/profile/edit-prof
 // import ProfileSettingsNav from '@/app/shared/account-settings/navigation';
 
 const pageHeader = {
-  title: 'Account Settings',
+  title: 'Profile',
   breadcrumb: [
     {
       href: '/',
       name: 'Home',
     },
+    // {
+    //   href: routes.forms.profileSettings,
+    //   name: 'Profile',
+    // },
     {
-      href: routes.forms.profileSettings,
-      name: 'Form',
-    },
-    {
-      name: 'Account Settings',
+      name: 'Profile',
     },
   ],
 };
 
-export default function ProfileSettingsLayout({
+export default function EditProfileLayout({
   children,
 }: {
   children: React.ReactNode;

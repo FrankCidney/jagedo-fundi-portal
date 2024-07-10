@@ -18,9 +18,9 @@ import type { Schema } from 'zod';
 // import { signUpFormSchema, SignUpFormSchema } from '@/utils/validators/custom-signup.schema'
 import { MultiStepFormSteps } from '@/types/custom-types'
 import { Button, Stepper } from 'rizzui';
-import { PiArrowRightBold, PiArrowLeftBold } from 'react-icons/pi';
-import { useRouter } from 'next/navigation';
-import { routes } from '@/config/routes';
+// import { PiArrowRightBold, PiArrowLeftBold } from 'react-icons/pi';
+// import { useRouter } from 'next/navigation';
+// import { routes } from '@/config/routes';
 
 // import { fundiSteps as steps, fundiInitialValues as initialValues } from './fundi-fields/data'
 
@@ -64,11 +64,11 @@ TFormValues extends Record<string, any> = Record<string, any>,
   const [currentStep, setCurrentStep] = useState(0)
   const delta = currentStep - previousStep
 
-  const router = useRouter()
+  // const router = useRouter()
 
-  function redirect() {
-    router.push(routes.auth.otp4)
-  }
+  // function redirect() {
+  //   router.push(routes.auth.otp4)
+  // }
 
   // react hook form
   // const {
@@ -171,9 +171,9 @@ TFormValues extends Record<string, any> = Record<string, any>,
           {currentStep === steps.length - 1 ? (
             <Button 
             className="w-32" 
-            type="button" 
+            type="submit" 
             size="lg"   
-            onClick={redirect}
+            // onClick={redirect}
             // disabled={currentStep === steps.length - 1}
             >
               <span>Submit</span>{' '}

@@ -18,6 +18,8 @@ import {
   county, 
   subCounty, 
 } from "@/app/shared/custom-sign-up/fundi-fields/data";
+import { useRouter } from 'next/navigation';
+import { routes } from '@/config/routes';
 
 
 // export type MultiStepFormProps = {
@@ -40,11 +42,13 @@ const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
 });
 
 export default function FundiSteps() {
+  const router = useRouter()
 
   // submit handler
   const onSubmit: SubmitHandler<FundiSignUpFormSchema> = (data) => {
     console.log(data);
 
+    router.push(routes.auth.otp4)
   };
 
     return (

@@ -18,7 +18,8 @@ import {
   county, 
   subCounty, 
 } from "@/app/shared/service-provider/profile/create-profile/fundi/data";
-
+import { useRouter } from 'next/navigation';
+import { routes } from '@/config/routes';
 
 // dynamic import Select component from rizzui
 const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
@@ -31,10 +32,15 @@ const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
 });
 
 export default function CreateFundiProfileForm() {
+  const router = useRouter()
 
   // submit handler
   const onSubmit: SubmitHandler<FundiProfileSchema> = (data) => {
     console.log(data);
+
+    window.sessionStorage.setItem('profileCreated', 'true')
+    window.location.reload()
+    // router.push(routes.serviceProvider.fundi.profile)
 
   };
 
