@@ -165,15 +165,10 @@ export const getColumns = ({
     width: 100,
     render: (requestType: string, row: any) => (
       <div className="gap-3 pe-3">
-        {(requestType === 'Emergency') ? (
-          <Link href={''}>
-            <Text className="text-sm text-green-600">View Review</Text>
+        
+        <Link href={''}>
+          <Text className="text-sm text-green-600">View Review</Text>
         </Link>
-        ) : (
-          <Link href={''}>
-            <Text className="text-sm text-green-600">View Review</Text>
-          </Link>
-        )}
         
 
         {/* <Tooltip size="sm" content={'View'} placement="top" color="invert">

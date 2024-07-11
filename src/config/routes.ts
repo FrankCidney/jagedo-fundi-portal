@@ -18,46 +18,87 @@ export const routes = {
 
   serviceProvider: {
     fundi: {
-      dashboard: '/service-provider/dashboard/fundi',
-      requisitions: '/service-provider/requisitions/fundi',
+      dashboard: '/service-provider/fundi/dashboard',
+
+      // requisitions
+      requisitions: '/service-provider/fundi/requisitions',
+      rfqEmergency: '/service-provider/fundi/requisitions/rfqs/emergency',
+      rfqStandardOne: '/service-provider/fundi/requisitions/rfqs/standard-one',
+
+      // quotations
       makeQuotation: '/service-provider/fundi/make-quotation',
       quotations: '/service-provider/quotations/fundi',
-      quotationDetails: '/service-provider/quotations/quotation-details/fundi',
-      confirmAvailability: '/service-provider/fundi/confirm-availability',
+      quotationDetails: '/service-provider/quotations/quotation-details/fundi',   
 
       // jobs
-      jobs: '/service-provider/jobs/fundi',
-      activeJobs: '/service-provider/jobs/active/fundi',
-      completedJobs: '/service-provider/jobs/completed/fundi',
-      jobDetails: '/service-provider/jobs/active/job-details/fundi',
+      jobs: '/service-provider/fundi/jobs',
+      activeJobs: '/service-provider/fundi/jobs/active',
+      completedJobs: '/service-provider/fundi/jobs/completed',
+      jobDetails: '/service-provider/fundi/jobs/active/details',
 
       // profile
-      profile: '/service-provider/profile/fundi',
-      // create
+      profile: '/service-provider/profile',
+      // create profile
       createProfile: '/service-provider/profile/create/fundi',
       requiredDetails: '/service-provider/profile/create/fundi/required-details',
-      // edit
+      // edit profile
       editProfile: '/service-provider/profile/edit',
+      accountDetails: '/service-provider/profile/account-details',
+      uploads: '/service-provider/profile/uploads',
+      evaluationForm: '/service-provider/profile/evaluation-form',
       // contactDetails: '/service-provider/profile/edit/fundi/contact-details',
-      accountDetails: '/service-provider/profile/edit/account-details',
-      uploads: '/service-provider/profile/edit/uploads',
-      evaluationForm: '/service-provider/profile/edit/evaluation-form',
+
+      // reviews
+      reviews: '/service-provider/fundi/reviews',
+      viewReview: '/service-provider/fundi/reviews/view',
+
     },
 
     professional: {
-      requisitions: '/service-provider/requisitions/fundi',
-      quotations: '/service-provider/quotations/fundi',
-      activeJobs: '/service-provider/jobs/active/fundi',
-      completedJobs: '/service-provider/jobs/completed/fundi',
+      dashboard: '/service-provider/professional/dashboard',
+
+      // requisitions
+      requisitions: '/service-provider/professional/requisitions',
+      rfqStandardOne: '/service-provider/professional/requisitions/rfqs/standard-one',
+      rfqStandardTWo: '/service-provider/professional/requisitions/rfqs/standard-two',
+
+      // quotations
+      quotations: '/service-provider/professional/quotations',
+
+      // jobs
+      activeJobs: '/service-provider/professional/jobs/active',
+      completedJobs: '/service-provider/professional/jobs/completed',
+      jobDetails: '/service-provider/professional/jobs/active/details',
+
+      reviews: '/service-provider/professional/reviews',
     },
 
     contractor: {
-      requisitions: '/service-provider/requisitions/fundi',
-      quotations: '/service-provider/quotations/fundi',
-      activeJobs: '/service-provider/jobs/active/fundi',
-      completedJobs: '/service-provider/jobs/completed/fundi',
+      dashboard: '/service-provider/contractor/dashboard',
+
+      // requisitions
+      requisitions: '/service-provider/contractor/requisitions',
+      rfqStandardOne: '/service-provider/contractor/requisitions/rfqs/standard-one',
+      rfqStandardTWo: '/service-provider/contractor/requisitions/rfqs/standard-two',
+
+      // quotations
+      quotations: '/service-provider/contractor/quotations',
+
+      // jobs
+      activeJobs: '/service-provider/contractor/jobs/active',
+      completedJobs: '/service-provider/contractor/jobs/completed',
+      jobDetails: '/service-provider/contractor/jobs/active/details',
+      jobReport: '/service-provider/contractor/jobs/completed/report',
+
+      reviews: '/service-provider/contractor/reviews',
+      viewReview: '/service-provider/contractor/reviews/view',
+
     }
   },
+
+
+
+
 
   eCommerce: {
     dashboard: '/ecommerce',

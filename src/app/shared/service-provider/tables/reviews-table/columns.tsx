@@ -63,19 +63,19 @@ export const getColumns = ({
   onHeaderCellClick,
 }: Columns) => [
   {
+    title: <HeaderCell title="No" />,
+    dataIndex: 'number',
+    key: 'number',
+    width: 10,
+    render: (number: string) => <Text>{number}</Text>,
+  },
+
+  {
     title: <HeaderCell title="#" />,
     dataIndex: 'id',
     key: 'id',
     width: 10,
-    render: (id: string) => <Text>#{id}</Text>,
-  },
-
-  {
-    title: <HeaderCell title="Date" className="uppercase" />,
-    dataIndex: 'date',
-    key: 'date',
-    width: 100,
-    render: (date: Date) => <DateCell date={date} />,
+    render: (id: string) => <Text>{id}</Text>,
   },
 
   {
@@ -115,18 +115,6 @@ export const getColumns = ({
   },
 
   {
-    title: <HeaderCell title="Description" />,
-    dataIndex: 'description',
-    key: 'description',
-    width: 100,
-    render: (description: string) => (
-      <Text className="text-sm text-gray-900 dark:text-gray-700">
-        {description}
-      </Text>
-    ),
-  },
-
-  {
     title: <HeaderCell title="Location" />,
     dataIndex: 'location',
     key: 'location',
@@ -139,11 +127,35 @@ export const getColumns = ({
   },
 
   {
-    title: <HeaderCell title="Status" />,
-    dataIndex: 'status',
-    key: 'status',
-    width: 120,
-    render: (value: string) => getStatusBadge(value),
+    title: <HeaderCell title="Job Description" />,
+    dataIndex: 'description',
+    key: 'description',
+    width: 100,
+    render: (description: string) => (
+      <Text className="text-sm text-gray-900 dark:text-gray-700">
+        {description}
+      </Text>
+    ),
+  },
+
+  // {
+  //   title: <HeaderCell title="Status" />,
+  //   dataIndex: 'status',
+  //   key: 'status',
+  //   width: 120,
+  //   render: (value: string) => getStatusBadge(value),
+  // },
+
+  {
+    title: <HeaderCell title="Review By" />,
+    dataIndex: 'reviewBy',
+    key: 'reviewBy',
+    width: 100,
+    render: (reviewBy: string) => (
+      <Text className="text-sm text-gray-900 dark:text-gray-700">
+        {reviewBy}
+      </Text>
+    ),
   },
 
   // {
@@ -165,15 +177,10 @@ export const getColumns = ({
     width: 100,
     render: (requestType: string, row: any) => (
       <div className="gap-3 pe-3">
-        {(requestType === 'Emergency') ? (
-          <Link href={routes.serviceProvider.fundi.jobDetails}>
-            <Text className="text-sm text-green-600">View Job</Text>
+        
+        <Link href={routes.serviceProvider.contractor.viewReview}>
+          <Text className="text-sm text-green-600">View Review</Text>
         </Link>
-        ) : (
-          <Link href={routes.serviceProvider.fundi.jobDetails}>
-            <Text className="text-sm text-green-600">View Job</Text>
-          </Link>
-        )}
         
 
         {/* <Tooltip size="sm" content={'View'} placement="top" color="invert">

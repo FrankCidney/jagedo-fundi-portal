@@ -1,3 +1,5 @@
+'use client'
+
 import { routes } from '@/config/routes';
 import { DUMMY_ID } from '@/config/constants';
 import {
@@ -49,8 +51,11 @@ import {
   PiNotePencilDuotone,
   PiHouseDuotone,
   PiToolboxDuotone,
+  PiDesktopDuotone,
+  PiTrolleyDuotone,
+  PiMoneyDuotone,
 } from 'react-icons/pi';
-import { checkRole } from '@/utils/custom-check-role';
+// import { checkRole } from '@/utils/custom-check-role';
 
 interface MenuItem {
 
@@ -62,7 +67,7 @@ interface MenuItem {
 
 }
 
-const userRole = checkRole()
+const userRole = window.sessionStorage.getItem('role')
 let menuData: MenuItem[] = []
 
 switch(userRole) {
@@ -75,15 +80,25 @@ switch(userRole) {
       },
     
       {
-        name: 'Requisitions',
-        href: routes.serviceProvider.fundi.requisitions,
-        icon: <PiClipboardDuotone />,
+        name: 'My Workspace',
+        href: '#',
+        icon: <PiDesktopDuotone />,
       },
     
       {
-        name: 'Quotations',
-        href: routes.serviceProvider.fundi.quotations,
-        icon: <PiNoteDuotone />,
+        name: 'Shop App',
+        href: '#',
+        icon: <PiTrolleyDuotone />,
+      },
+      {
+        name: 'My Projects',
+        href: '#',
+        icon: <PiBriefcaseDuotone />,
+      },
+      {
+        name: 'Sales',
+        href: '#',
+        icon: <PiMoneyDuotone />,
       },
     
       {
@@ -111,20 +126,20 @@ switch(userRole) {
     
       {
         name: 'Profile',
-        href: routes.serviceProvider.fundi.quotations,
+        href: routes.serviceProvider.fundi.profile,
         icon: <PiUserCircleDuotone />,
-        dropdownItems: [
-          {
-            name: 'Create Profile',
-            href: routes.serviceProvider.fundi.createProfile,
-            badge: '',
-          },
-          {
-            name: 'Edit Profile',
-            href: routes.serviceProvider.fundi.editProfile,
-            badge: '',
-          },
-        ]
+        // dropdownItems: [
+        //   {
+        //     name: 'Create Profile',
+        //     href: routes.serviceProvider.fundi.createProfile,
+        //     badge: '',
+        //   },
+        //   {
+        //     name: 'Edit Profile',
+        //     href: routes.serviceProvider.fundi.editProfile,
+        //     badge: '',
+        //   },
+        // ]
       },
     ];
     break;
@@ -136,18 +151,41 @@ switch(userRole) {
         href: routes.serviceProvider.fundi.dashboard,
         icon: <PiHouseDuotone />
       },
-    
+
       {
-        name: 'Requisitions',
-        href: routes.serviceProvider.fundi.requisitions,
-        icon: <PiClipboardDuotone />,
+        name: 'My Workspace',
+        href: '#',
+        icon: <PiDesktopDuotone />,
       },
     
       {
-        name: 'Quotations',
-        href: routes.serviceProvider.fundi.quotations,
-        icon: <PiNoteDuotone />,
+        name: 'Shop App',
+        href: '#',
+        icon: <PiTrolleyDuotone />,
       },
+      {
+        name: 'My Projects',
+        href: '#',
+        icon: <PiBriefcaseDuotone />,
+      },
+      {
+        name: 'Sales',
+        href: '#',
+        icon: <PiMoneyDuotone />,
+      },
+    
+    
+      // {
+      //   name: 'Requisitions',
+      //   href: routes.serviceProvider.fundi.requisitions,
+      //   icon: <PiClipboardDuotone />,
+      // },
+    
+      // {
+      //   name: 'Quotations',
+      //   href: routes.serviceProvider.fundi.quotations,
+      //   icon: <PiNoteDuotone />,
+      // },
     
       {
         name: 'Jobs',
@@ -156,38 +194,38 @@ switch(userRole) {
         dropdownItems: [
           {
             name: 'Active',
-            href: routes.serviceProvider.fundi.activeJobs,
+            href: routes.serviceProvider.contractor.activeJobs,
             badge: '',
           },
           {
             name: 'Completed',
-            href: routes.serviceProvider.fundi.completedJobs,
+            href: routes.serviceProvider.contractor.completedJobs,
             badge: '',
           },
-          {
-            name: 'All Jobs',
-            href: routes.serviceProvider.fundi.jobs,
-            badge: '',
-          },
+          // {
+          //   name: 'All Jobs',
+          //   href: routes.serviceProvider.fundi.jobs,
+          //   badge: '',
+          // },
         ]
       },
     
       {
         name: 'Profile',
-        href: routes.serviceProvider.fundi.quotations,
+        href: routes.serviceProvider.fundi.profile,
         icon: <PiUserCircleDuotone />,
-        dropdownItems: [
-          {
-            name: 'Create Profile',
-            href: routes.serviceProvider.fundi.createProfile,
-            badge: '',
-          },
-          {
-            name: 'Edit Profile',
-            href: routes.serviceProvider.fundi.editProfile,
-            badge: '',
-          },
-        ]
+        // dropdownItems: [
+        //   {
+        //     name: 'Create Profile',
+        //     href: routes.serviceProvider.fundi.createProfile,
+        //     badge: '',
+        //   },
+        //   {
+        //     name: 'Edit Profile',
+        //     href: routes.serviceProvider.fundi.editProfile,
+        //     badge: '',
+        //   },
+        // ]
       },
     ];
     break;
@@ -195,22 +233,44 @@ switch(userRole) {
   case 'contractor':
     menuData = [
       {
-        name: 'Contractor Home',
+        name: 'Home',
         href: routes.serviceProvider.fundi.dashboard,
         icon: <PiHouseDuotone />
       },
-    
+
       {
-        name: 'Requisitions',
-        href: routes.serviceProvider.fundi.requisitions,
-        icon: <PiClipboardDuotone />,
+        name: 'My Workspace',
+        href: '#',
+        icon: <PiDesktopDuotone />,
       },
     
       {
-        name: 'Quotations',
-        href: routes.serviceProvider.fundi.quotations,
-        icon: <PiNoteDuotone />,
+        name: 'Shop App',
+        href: '#',
+        icon: <PiTrolleyDuotone />,
       },
+      {
+        name: 'My Projects',
+        href: '#',
+        icon: <PiBriefcaseDuotone />,
+      },
+      {
+        name: 'Sales',
+        href: '#',
+        icon: <PiMoneyDuotone />,
+      },
+    
+      // {
+      //   name: 'Requisitions',
+      //   href: routes.serviceProvider.fundi.requisitions,
+      //   icon: <PiClipboardDuotone />,
+      // },
+    
+      // {
+      //   name: 'Quotations',
+      //   href: routes.serviceProvider.fundi.quotations,
+      //   icon: <PiNoteDuotone />,
+      // },
     
       {
         name: 'Jobs',
@@ -219,38 +279,38 @@ switch(userRole) {
         dropdownItems: [
           {
             name: 'Active',
-            href: routes.serviceProvider.fundi.activeJobs,
+            href: routes.serviceProvider.contractor.activeJobs,
             badge: '',
           },
           {
             name: 'Completed',
-            href: routes.serviceProvider.fundi.completedJobs,
+            href: routes.serviceProvider.contractor.completedJobs,
             badge: '',
           },
-          {
-            name: 'All Jobs',
-            href: routes.serviceProvider.fundi.jobs,
-            badge: '',
-          },
+          // {
+          //   name: 'All Jobs',
+          //   href: routes.serviceProvider.contractor.jobs,
+          //   badge: '',
+          // },
         ]
       },
     
       {
         name: 'Profile',
-        href: routes.serviceProvider.fundi.quotations,
+        href: routes.serviceProvider.fundi.profile,
         icon: <PiUserCircleDuotone />,
-        dropdownItems: [
-          {
-            name: 'Create Profile',
-            href: routes.serviceProvider.fundi.createProfile,
-            badge: '',
-          },
-          {
-            name: 'Edit Profile',
-            href: routes.serviceProvider.fundi.editProfile,
-            badge: '',
-          },
-        ]
+        // dropdownItems: [
+        //   {
+        //     name: 'Create Profile',
+        //     href: routes.serviceProvider.fundi.createProfile,
+        //     badge: '',
+        //   },
+        //   {
+        //     name: 'Edit Profile',
+        //     href: routes.serviceProvider.fundi.editProfile,
+        //     badge: '',
+        //   },
+        // ]
       },
     ];
     break;

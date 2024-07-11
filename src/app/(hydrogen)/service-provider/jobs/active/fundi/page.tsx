@@ -1,4 +1,4 @@
-import SpActiveJobsTable from '@/app/shared/service-provider/tables/sp-active-jobs-table';
+import SpActiveJobsTable from '@/app/shared/service-provider/tables/sp-active-jobs-table/professional';
 // import SpJobsTable from '@/app/shared/service-provider/tables/sp-jobs-table';
 import { metaObject } from '@/config/site.config';
 import { Title } from 'rizzui';

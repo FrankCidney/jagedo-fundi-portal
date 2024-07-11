@@ -16,9 +16,9 @@ import SimpleBar from 'simplebar-react';
 import { formatNumber } from '@/utils/format-number';
 import { routes } from '@/config/routes';
 import { useRouter } from 'next/navigation';
-import { checkRole } from '@/utils/custom-check-role';
+// import { checkRole } from '@/utils/custom-check-role';
 
-const userRole = checkRole()
+const userRole = window.sessionStorage.getItem('role')
 
 // function to get the link based on userRole
 // function getLinkByRole(userRole: string, key: string) {
@@ -52,12 +52,12 @@ switch (userRole) {
         fill: '#2B7F75',
         link: routes.serviceProvider.fundi.requisitions,
       },
-      {
-        name: 'Quotations',
-        total: 7,
-        fill: '#FFD66B',
-        link: routes.serviceProvider.fundi.quotations,
-      },
+      // {
+      //   name: 'Quotations',
+      //   total: 7,
+      //   fill: '#FFD66B',
+      //   link: routes.serviceProvider.fundi.quotations,
+      // },
       {
         name: 'Active',
         total: 10,
@@ -74,7 +74,7 @@ switch (userRole) {
         name: 'Reviews',
         total: 5,
         fill: '#702963',
-        link: '##',
+        link: routes.serviceProvider.fundi.reviews,
       },
     ];
     break;
@@ -85,31 +85,31 @@ switch (userRole) {
         name: 'Requisitions',
         total: 8,
         fill: '#2B7F75',
-        link: routes.serviceProvider.professional.requisitions,
+        link: routes.serviceProvider.contractor.requisitions,
       },
       {
         name: 'Quotations',
         total: 9,
         fill: '#FFD66B',
-        link: routes.serviceProvider.professional.quotations,
+        link: routes.serviceProvider.contractor.quotations,
       },
       {
         name: 'Active',
         total: 7,
         fill: '#04364A',
-        link: routes.serviceProvider.professional.activeJobs,
+        link: routes.serviceProvider.contractor.activeJobs,
       },
       {
         name: 'Completed',
         total: 10,
         fill: '#64CCC5',
-        link: routes.serviceProvider.professional.completedJobs,
+        link: routes.serviceProvider.contractor.completedJobs,
       },
       {
         name: 'Reviews',
         total: 7,
         fill: '#702963',
-        link: '##',
+        link: routes.serviceProvider.contractor.reviews,
       },
     ];
     break;
@@ -144,7 +144,7 @@ switch (userRole) {
         name: 'Reviews',
         total: 7,
         fill: '#702963',
-        link: '##',
+        link: routes.serviceProvider.contractor.reviews,
       },
     ];
     break;
