@@ -1,6 +1,7 @@
 // import ServiceProviderRequisitionsTable from '@/app/shared/admin/dashboard/tables/service-provider-requisions';
 // import SpRequisitionsTable from '@/app/shared/service-provider/tables/sp-requisitions-table';
-import ContractorReviewsTable from '@/app/shared/service-provider/tables/reviews-table';
+// import ReviewCard from '@/app/shared/custom-reviews/review-card-view';
+// import ContractorReviewsTable from '@/app/shared/service-provider/tables/reviews-table';
 import ReviewCard from '@/components/cards/review-card';
 // import ContractorQuotationsTable from '@/app/shared/service-provider/tables/sp-quotations-table/contractor';
 // import ContractorRequisitionsTable from '@/app/shared/service-provider/tables/sp-requisitions-table/contractor';
@@ -24,6 +25,7 @@ export default function ReviewsPage() {
             message='Did a good job fixing the wiring'
             date={new Date()}
          />
+         
       </div>
     </>
   )

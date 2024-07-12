@@ -71,6 +71,10 @@ export const routes = {
       jobDetails: '/service-provider/professional/jobs/active/details',
 
       reviews: '/service-provider/professional/reviews',
+
+      profile: '/service-provider/professional/profile',
+      accountDetails: '/service-provider/professional/profile/account-details',
+      uploads: '/service-provider/professional/profile/uploads'
     },
 
     contractor: {
@@ -92,6 +96,10 @@ export const routes = {
 
       reviews: '/service-provider/contractor/reviews',
       viewReview: '/service-provider/contractor/reviews/view',
+
+      profile: '/service-provider/contractor/profile',
+      accountDetails: '/service-provider/contractor/profile/account-details',
+      uploads: '/service-provider/contractor/profile/uploads',
 
     }
   },

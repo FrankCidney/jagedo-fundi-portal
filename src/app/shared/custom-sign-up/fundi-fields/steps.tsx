@@ -4,13 +4,24 @@
 
 import { motion } from "framer-motion";
 import { Input, Loader, Password, Radio, RadioGroup, Text, Checkbox } from "rizzui";
-import { FundiSignUpFormSchema, fundiSignUpFormSchema } from "@/utils/validators/custom-signup.schema";
+import { 
+    FundiSignUpFormSchema,
+    ContractorSignUpFormSchema, 
+    ProfessionalSignUpFormSchema, 
+    fundiSignUpFormSchema,
+    contractorSignUpFormSchema,
+    professionalSignUpFormSchema,
+    refinedSpSignUpFormSchema,
+    RefinedSpSignUpFormSchema, 
+  } from "@/utils/validators/custom-signup.schema";
 import { SubmitHandler, Controller } from "react-hook-form";
 import CustomMultiStepForm from "@/app/shared/custom-multi-step";
 import dynamic from "next/dynamic";
 import Link from 'next/link';
 import { 
-  fundiInitialValues, 
+  // fundiInitialValues, 
+  spInitialValues,
+  category,
   fundiSteps, 
   skill, 
   gender, 
@@ -18,7 +29,7 @@ import {
   county, 
   subCounty, 
 } from "@/app/shared/custom-sign-up/fundi-fields/data";
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { routes } from '@/config/routes';
 
 
@@ -43,9 +54,24 @@ const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
 
 export default function FundiSteps() {
   const router = useRouter()
+  const pathname = usePathname()
+
+  const containsProfessional = pathname.includes('professional')
+  const containsContractor = pathname.includes('contractor')
+
+  // function to get schema
+  // const getSignUpSchema = (pathname) => {
+  //   if (pathname.includes('professional')) {
+  //     return professionalSignUpFormSchema
+  //   } else if (pathname.includes('contractor')) {
+  //     return contractorSignUpFormSchema;
+  //   } else {
+  //     return fundiSignUpFormSchema; // Fallback schema if none match
+  //   }
+  // };
 
   // submit handler
-  const onSubmit: SubmitHandler<FundiSignUpFormSchema> = (data) => {
+  const onSubmit: SubmitHandler<RefinedSpSignUpFormSchema> = (data) => {
     console.log(data);
 
     router.push(routes.auth.otp4)
@@ -54,17 +80,18 @@ export default function FundiSteps() {
     return (
         <>
 
-        <CustomMultiStepForm<FundiSignUpFormSchema>
-          validationSchema={fundiSignUpFormSchema}
+        <CustomMultiStepForm<RefinedSpSignUpFormSchema>
+          validationSchema={refinedSpSignUpFormSchema}
           onSubmit={onSubmit}
           useFormProps={{
             mode: 'onChange',
-            defaultValues: fundiInitialValues,
+            defaultValues: spInitialValues,
           }}
           steps={fundiSteps}
         >
           {({ register, formState: { errors }, control }, currentStep, delta) => (
             <>
+            {console.log(errors)}
 
               {/* Step 1 */}
               {currentStep === 0 && (
@@ -81,30 +108,68 @@ export default function FundiSteps() {
 
                   {/* Inputs */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <Controller
-                      control={control}
-                      name="skill"
-                      render={({ field: { value, onChange } }) => (
-                        <Select 
-                          dropdownClassName="!z-10"
-                          inPortal={false}
-                          placeholder="Select Skill"
-                          label="Skill"
-                          size="lg"
-                          selectClassName="font-medium text-sm"
-                          optionClassName=""
-                          options={skill}
-                          onChange={onChange}
-                          value={value}
-                          className=""
-                          getOptionValue={(option) => option.value}
-                          displayValue={(selected) =>
-                            skill?.find((r) => r.value === selected)?.label ?? ''
-                          }
-                          error={errors?.skill?.message as string}
-                        />
-                      )}
-                    />
+                    {containsProfessional ? (
+                      <Input
+                        placeholder="Profession"
+                        label="Profession"
+                        size="lg"
+                        inputClassName="text-sm"
+                        {...register('profession')}
+                        error={errors.profession?.message}
+                        className="[&>label>span]:font-medium"
+                      />
+                    ) : containsContractor ? (
+                      <Controller
+                        control={control}
+                        name="category"
+                        render={({ field: { value, onChange } }) => (
+                          <Select 
+                            dropdownClassName="!z-10"
+                            inPortal={false}
+                            placeholder="Select Category"
+                            label="Category"
+                            size="lg"
+                            selectClassName="font-medium text-sm"
+                            optionClassName=""
+                            options={category}
+                            onChange={onChange}
+                            value={value}
+                            className=""
+                            getOptionValue={(option) => option.value}
+                            displayValue={(selected) =>
+                              category?.find((r) => r.value === selected)?.label ?? ''
+                            }
+                            error={errors?.category?.message as string}
+                          />
+                        )}
+                      />
+                    ) : (
+                      <Controller
+                        control={control}
+                        name="skill"
+                        render={({ field: { value, onChange } }) => (
+                          <Select 
+                            dropdownClassName="!z-10"
+                            inPortal={false}
+                            placeholder="Select Skill"
+                            label="Skill"
+                            size="lg"
+                            selectClassName="font-medium text-sm"
+                            optionClassName=""
+                            options={skill}
+                            onChange={onChange}
+                            value={value}
+                            className=""
+                            getOptionValue={(option) => option.value}
+                            displayValue={(selected) =>
+                              skill?.find((r) => r.value === selected)?.label ?? ''
+                            }
+                            error={errors?.skill?.message as string}
+                          />
+                        )}
+                      />
+                    )}
+
                     <Input
                       type="email"
                       placeholder="Email"
@@ -362,7 +427,7 @@ export default function FundiSteps() {
                         <Text as="span" className="ps-1 text-gray-500">
                           I agree to the{' '}
                           <Link
-                            href="/"
+                            href="#"
                             className="font-semibold text-gray-700 transition-colors hover:text-primary"
                           >
                             Terms & Conditions
@@ -380,7 +445,7 @@ export default function FundiSteps() {
                         <Text as="span" className="ps-1 text-gray-500">
                           I agree to the{' '}
                           <Link
-                            href="/"
+                            href="#"
                             className="font-semibold text-gray-700 transition-colors hover:text-primary"
                           >
                             Data Privacy Policy
@@ -392,13 +457,13 @@ export default function FundiSteps() {
 
                   <div className="col-span-2 flex items-start text-gray-700 pt-3">
                     <Checkbox
-                      {...register('privacyPolicy')}
+                      {...register('returnsPolicy')}
                       className="[&>label.items-center]:items-start [&>label>div.leading-none]:mt-0.5 [&>label>div.leading-none]:sm:mt-0 [&>label>span]:font-medium"
                       label={
                         <Text as="span" className="ps-1 text-gray-500">
                           I agree to the{' '}
                           <Link
-                            href="/"
+                            href="#"
                             className="font-semibold text-gray-700 transition-colors hover:text-primary"
                           >
                             Refund, Rework & Returns Policy

@@ -101,16 +101,16 @@ TFormValues extends Record<string, any> = Record<string, any>,
     const fields = steps[currentStep].fields as Path<TFormValues>[]
     const output = await methods.trigger(fields, { shouldFocus: true })
     
-    // console.log('before output')
-    // console.log(`Output: ${output}`)
-    // console.log(`Fields: ${fields}`)
+    console.log('before output')
+    console.log(`Output: ${output}`)
+    console.log(`Fields: ${fields}`)
 
     // run the console.log below to check the errors if the stepper is not working
-    // console.log(methods.formState.errors)
+    console.log(methods.formState.errors)
 
     if (!output) return
 
-    // console.log('after output')
+    console.log('after output')
 
     if (currentStep < steps.length - 1) {
 

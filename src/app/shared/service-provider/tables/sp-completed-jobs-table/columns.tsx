@@ -166,7 +166,7 @@ export const getColumns = ({
     render: (requestType: string, row: any) => (
       <div className="gap-3 pe-3">
         
-        <Link href={''}>
+        <Link href={routes.serviceProvider.fundi.viewReview}>
           <Text className="text-sm text-green-600">View Review</Text>
         </Link>
         

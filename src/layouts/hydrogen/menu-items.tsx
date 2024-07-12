@@ -212,7 +212,7 @@ switch(userRole) {
     
       {
         name: 'Profile',
-        href: routes.serviceProvider.fundi.profile,
+        href: routes.serviceProvider.professional.profile,
         icon: <PiUserCircleDuotone />,
         // dropdownItems: [
         //   {
@@ -297,7 +297,7 @@ switch(userRole) {
     
       {
         name: 'Profile',
-        href: routes.serviceProvider.fundi.profile,
+        href: routes.serviceProvider.contractor.profile,
         icon: <PiUserCircleDuotone />,
         // dropdownItems: [
         //   {

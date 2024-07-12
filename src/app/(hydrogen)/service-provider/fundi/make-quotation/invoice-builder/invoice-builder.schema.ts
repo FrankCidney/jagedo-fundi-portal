@@ -39,6 +39,17 @@ export const INVOICE_BUILDER_DEFAULT_VALUE = {
   },
   // Changed between here
   invoiceTableHeader: {
+    billOfQuantity: {
+      billNo: 'Bill No',
+      works: 'Works',
+      amount: 'Amount',
+    },
+    disbursement: {
+      disbursement: 'Bill No',
+      milestoneActivity: 'Works',
+      amount: 'Amount',
+    },
+    
     labourQuote: {
       title: 'Fundi Type',
       quantity: 'Qty/No',

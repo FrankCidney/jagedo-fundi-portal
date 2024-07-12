@@ -11,8 +11,8 @@ import { routes } from '@/config/routes';
 import { loginSchema, LoginSchema } from '@/utils/validators/login.schema';
 
 const initialValues: LoginSchema = {
-  email: 'fundi@fundi.com',
-  password: 'fundi',
+  email: 'contractor@email.com',
+  password: 'contractor',
   rememberMe: true,
 };
 
@@ -31,11 +31,11 @@ export default function SignInForm() {
 
 
     
-    if (data.email === 'fundi@fundi.com') {
+    if (data.email === 'fundi@email.com') {
       window.sessionStorage.setItem('role', 'fundi')
-    } else if (data.email === 'professional@professional.com') {
+    } else if (data.email === 'professional@email.com') {
       window.sessionStorage.setItem('role', 'professional')
-    } else if (data.email === 'contractor@contractor.com')  {
+    } else if (data.email === 'contractor@email.com')  {
       window.sessionStorage.setItem('role', 'contractor')
     }
   };

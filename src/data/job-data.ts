@@ -196,20 +196,46 @@ export const requisitionData = [
 
 export const fundiRequisitionData = [
   {
-    id: 'RFQ005',
-    date: '2023-11-12T06:22:01.621Z',
-    jobDetails: 'Project type: Housing, Description: Repair of faulty wiring system',
-    requestType: 'Emergency',
-    status: 'Pending',
-    requestTypeId: 0,
+    id: 'REQ008',
+    category: 'Water',
+    subCategory: 'Borehole services',
+    requestType: 'Managed by JaGedo',
+    location: 'Transmara, Narok',
+    description: 'Proposes 4No. borehole drilling',
+    status: 'Ongoing',
+    requestTypeId: 1,
   },
 
   {
-    id: 'RFQ004',
-    date: '2023-11-10T06:22:01.621Z',
-    jobDetails: 'Project type: Housing, Description: Repair of sockets, Request Type: Standard',
-    requestType: 'Standard',
-    status: 'Pending',
+    id: 'REQ007',
+    category: 'Housing',
+    subCategory: 'Building',
+    requestType: 'Managed by You',
+    location: 'Ngong, Nairobi',
+    description: 'Proposed 4-storey apartment construction',
+    status: 'Delay',
+    requestTypeId: 2,
+  },
+
+  {
+    id: 'REQ004',
+    category: 'Water',
+    subCategory: 'Steel Tanks',
+    requestType: 'Managed by JaGedo',
+    location: 'Kwandiku, Homa Bay',
+    description: 'Proposed cabro paved road',
+    status: 'Complete',
+    requestTypeId: 1,
+  },
+
+  {
+    id: 'REQ003',
+    category: 'Other Infrastructure',
+    subCategory: 'Roads',
+    requestType: 'Managed by JaGedo',
+    location: 'Kibos, Kisumu',
+    description: 'Spot improvement for access road',
+    status: 'Open',
     requestTypeId: 1,
   }
 ];

@@ -7,14 +7,14 @@ import PageHeader from '@/app/shared/commons/page-header';
 // import CreateEditProduct from '@/app/shared/admin/product/create-edit';
 // import CreateCustomerForm from '@/app/shared/admin/profile/create-profile/customers/page';
 // import CreateFundiProfileForm from '@/app/shared/service-provider/profile/create-profile/fundi';
-import CreateProfessionalProfileForm from '@/app/shared/service-provider/profile/create-profile/professional';
+import CreateContractorProfileForm from '@/app/shared/service-provider/profile/create-profile/contractor';
 
 export const metadata = {
   ...metaObject('Fundi Profile'),
 };
 
 const pageHeader = {
-  title: 'Professional Profile Creation',
+  title: 'Contractor Profile Creation',
   breadcrumb: [
     {
       href: '',
@@ -22,7 +22,7 @@ const pageHeader = {
     },
     {
       href: '',
-      name: 'Professional',
+      name: 'Fundi',
     },
     {
       name: 'Create profile',
@@ -38,7 +38,7 @@ export default function FundiCreateProfilePage() {
         breadcrumb={pageHeader.breadcrumb}
       ></PageHeader>
 
-      <CreateProfessionalProfileForm />
+      <CreateContractorProfileForm />
     </>
   );
 }

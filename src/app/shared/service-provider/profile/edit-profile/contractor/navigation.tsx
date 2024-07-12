@@ -12,25 +12,40 @@ import { useBerylliumSidebars } from '@/layouts/beryllium/beryllium-utils';
 import { routes } from '@/config/routes';
 
 const menuItems = [
-  {
-    label: 'Account Details',
-    value: routes.serviceProvider.fundi.accountDetails,
-  },
-  {
-    label: 'Uploads',
-    value: routes.serviceProvider.fundi.uploads,
-  },
-  {
-    label: 'Evaluation Form',
-    value: routes.serviceProvider.fundi.evaluationForm,
-  },
+    {
+        label: 'Contact Details',
+        value: routes.serviceProvider.contractor.profile,
+    },
+    {
+        label: 'Account Details',
+        value: routes.serviceProvider.contractor.accountDetails,
+    },
+    {
+        label: 'Uploads',
+        value: routes.serviceProvider.contractor.uploads,
+    },
+    // {
+    //     label: 'Evaluation Form',
+    //     value: routes.serviceProvider.fundi.evaluationForm,
+    // },
 //   {
 //     label: 'Password',
 //     value: '/forms/profile-settings/password',
 //   },
 ];
 
-export default function FundiEditProfileNav() {
+// Check if window and sessionStorage are available and if the role is 'fundi'
+// if (typeof window !== 'undefined') {
+//   const role = window.sessionStorage.getItem('role');
+//   if (role === 'fundi') {
+//     menuItems.push({
+//       label: 'Evaluation Form',
+//       value: routes.serviceProvider.fundi.evaluationForm,
+//     });
+//   }
+// }
+
+export default function ContractorEditProfileNav() {
   const pathname = usePathname();
   const { layout } = useLayout();
   const {

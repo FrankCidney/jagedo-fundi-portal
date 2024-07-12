@@ -1,7 +1,7 @@
 import { routes } from '@/config/routes';
 import PageHeader from '@/app/shared/commons/page-header';
 // import FundiEditProfileNav from '@/app/shared/service-provider/profile/edit-profile/navigation';
-import ProfessionalEditProfileNav from '@/app/shared/service-provider/profile/edit-profile/professional/navigation';
+import ContractorEditProfileNav from '@/app/shared/service-provider/profile/edit-profile/contractor/navigation';
 // import ProfileSettingsNav from '@/app/shared/account-settings/navigation';
 
 const pageHeader = {
@@ -30,7 +30,7 @@ export default function EditProfileLayout({
     <>
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb} />
       {/* <ProfileSettingsNav /> */}
-      <ProfessionalEditProfileNav />
+      <ContractorEditProfileNav />
       {children}
     </>
   );

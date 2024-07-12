@@ -73,7 +73,7 @@ export const messages = {
   emailSentSuccessfully: 'Your email has been sent successfully.',
 
   // added these
-  // fundi
+  // service provider
   idNoIsRequired: 'ID/Passport Number is required',
   skillIsRequired: 'Skill is required',
   genderIsRequired: 'Gender is required',
@@ -87,6 +87,8 @@ export const messages = {
   idPicIsRequired: 'ID Picture / Passport is required',
   certificatesIsRequired: 'Certificates required',
   ncaCardIsRequired: 'NCA Registration Card is required',
+  professionIsRequired: 'Profession is required',
+  categoryIsRequired: 'Category is required',
 
   // customer
   typeIsRequired: 'Type is required',

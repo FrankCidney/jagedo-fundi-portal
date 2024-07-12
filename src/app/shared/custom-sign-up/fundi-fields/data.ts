@@ -1,4 +1,4 @@
-import { FundiSignUpFormSchema } from "@/utils/validators/custom-signup.schema"
+import { FundiSignUpFormSchema, RefinedSpSignUpFormSchema } from "@/utils/validators/custom-signup.schema"
 
 // here's where you specify the steps
 // note: if the fields don't match the inputs that you have in the steps file,
@@ -40,7 +40,27 @@ export const fundiSteps = [
 ]
 
 // set initial values for the form fields here
-export const fundiInitialValues: FundiSignUpFormSchema = {
+// export const fundiInitialValues: FundiSignUpFormSchema = {
+//     firstName: '',
+//     lastName: '',
+//     email: '',
+//     password: '',
+//     confirmPassword: '',
+//     skill: '',
+//     phoneNo: '',
+//     idNo: '',
+//     gender: '',
+//     dob: '',
+//     country: '',
+//     county: '',
+//     subCounty: '',
+//     estate: '',
+//     accountVerification: '',
+//     termsAndConditions: false,
+//     privacyPolicy: false,
+//   }
+
+  export const spInitialValues: RefinedSpSignUpFormSchema = {
     firstName: '',
     lastName: '',
     email: '',
@@ -50,7 +70,6 @@ export const fundiInitialValues: FundiSignUpFormSchema = {
     phoneNo: '',
     idNo: '',
     gender: '',
-    dob: '',
     country: '',
     county: '',
     subCounty: '',
@@ -58,10 +77,24 @@ export const fundiInitialValues: FundiSignUpFormSchema = {
     accountVerification: '',
     termsAndConditions: false,
     privacyPolicy: false,
+    returnsPolicy: false,
+    category: '',
+    profession: '',
   }
 
 // if there's any 'Select' inputs, specify the values here
-  export const skill = [
+export const category = [
+  {
+    label: 'Water',
+    value: 'water',
+  },
+  {
+    label: 'Electricity',
+    value: 'electricity',
+  },
+];
+
+export const skill = [
     {
       label: 'Welder',
       value: 'welder',

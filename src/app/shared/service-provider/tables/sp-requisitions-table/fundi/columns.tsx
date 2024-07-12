@@ -71,21 +71,25 @@ export const getColumns = ({
   },
 
   {
-    title: <HeaderCell title="Date Submitted" className="uppercase" />,
-    dataIndex: 'date',
-    key: 'date',
+    title: <HeaderCell title="Category" />,
+    dataIndex: 'category',
+    key: 'category',
     width: 100,
-    render: (date: Date) => <DateCell date={date} />,
+    render: (category: string) => (
+      <Text className="text-sm text-gray-900 dark:text-gray-700">
+        {category}
+      </Text>
+    ),
   },
 
   {
-    title: <HeaderCell title="Job Details" />,
-    dataIndex: 'jobDetails',
-    key: 'jobDetails',
+    title: <HeaderCell title="Sub-category" />,
+    dataIndex: 'subCategory',
+    key: 'subCategory',
     width: 100,
-    render: (jobDetails: string) => (
+    render: (subCategory: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
-        {jobDetails}
+        {subCategory}
       </Text>
     ),
   },
@@ -103,23 +107,36 @@ export const getColumns = ({
   },
 
   {
+    title: <HeaderCell title="Location" />,
+    dataIndex: 'location',
+    key: 'location',
+    width: 100,
+    render: (location: string) => (
+      <Text className="text-sm text-gray-900 dark:text-gray-700">
+        {location}
+      </Text>
+    ),
+  },
+
+  {
+    title: <HeaderCell title="Description" />,
+    dataIndex: 'description',
+    key: 'description',
+    width: 100,
+    render: (description: string) => (
+      <Text className="text-sm text-gray-900 dark:text-gray-700">
+        {description}
+      </Text>
+    ),
+  },
+
+  {
     title: <HeaderCell title="Status" />,
     dataIndex: 'status',
     key: 'status',
     width: 120,
     render: (value: string) => getStatusBadge(value),
   },
-
-  // {
-  //   title: <HeaderCell title="Status" />,
-  //   dataIndex: 'status',
-  //   key: 'status',
-  //   width: 80,
-  //   render: (status: number) => <Text>{status}</Text>,
-  // },
-
-
-
 
   {
     // Need to avoid this issue -> <td> elements in a large <table> do not have table headers.

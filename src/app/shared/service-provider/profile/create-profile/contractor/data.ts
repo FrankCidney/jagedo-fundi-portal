@@ -1,45 +1,69 @@
-import { FundiProfileSchema } from "@/utils/validators/custom-profile.schema";
+import { FundiProfileSchema, ContractorProfileSchema } from "@/utils/validators/custom-profile.schema";
 
 // here's where you specify the steps
 // note: if the fields don't match the inputs that you have in the steps file,
 // the output variable inside custom-multi-step-form/index.tsx will be false,
 // and it won't take you to the next step
 
-export const fundiProfileSteps = [
+export const contractorProfileSteps = [
     {
       id: 'Step 1',
       name: 'Personal Details',
-      fields: ['firstName', 'lastName', 'phoneNo', 'email','gender', 'county', 'subCounty', 'estate']
+      fields: ['firstName', 'lastName', 'email', 'phoneNo', 'county', 'subCounty', 'estate']
     },
     {
       id: 'Step 2',
       name: 'Required Details',
-      fields: ['skill', 'level', 'years', 'idPic', 'certificates', 'resume', 'ncaCard' ]
+      fields: ['category', 'subCategory', 'pinNo', 'companyProfile', 'businessRegistration', 'portfolio', 'ncaCard' ]
     },
 ]
 
 // set initial values for the form fields here
-export const fundiInitialValues: FundiProfileSchema = {
+export const contractorInitialValues: ContractorProfileSchema = {
     firstName: '',
     lastName: '',
     email: '',
-    skill: '',
+    category: '',
     phoneNo: '',
-    gender: '',
     county: '',
     subCounty: '',
     estate: '',
-    level: '',
-    years: '',
-    idPic: '',
-    certificates: '',
+    subCategory: '',
     ncaCard: '',
-    resume: '',
-    dob: '',
+    portfolio: '',
+    pinNo: '',
+    companyProfile: '',
+    businessRegistration: '',
   }
 
 // if there's any 'Select' inputs, specify the values here
-  export const skill = [
+export const category = [
+  {
+    label: 'Water',
+    value: 'water',
+  },
+  {
+    label: 'Electricity',
+    value: 'electricity',
+  },
+];  
+
+export const subCategory = [
+  {
+      label: '8',
+      value: '8',
+  },
+  {
+    label: '5',
+    value: '5',
+  },
+  {
+    label: '2',
+    value: '2',
+  },
+];
+
+export const skill = [
     {
         label: 'Foreman',
         value: 'foreman',

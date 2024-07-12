@@ -57,9 +57,9 @@ export const authOptions: NextAuthOptions = {
         // };
 
         const users = [
-          { email: 'fundi@fundi.com', password: 'fundi' },
-          { email: 'professional@professional.com', password: 'professional' },
-          { email: 'contractor@contractor.com', password: 'contractor' },
+          { email: 'fundi@email.com', password: 'fundi' },
+          { email: 'professional@email.com', password: 'professional' },
+          { email: 'contractor@email.com', password: 'contractor' },
         ];
 
         const user = users.find(user => 
