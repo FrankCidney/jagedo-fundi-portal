@@ -60,7 +60,7 @@ export default function ProgressBarActive({
         <Modal isOpen={modalState} onClose={() => setModalState(false)}>
             <div className='p-10'>
                 <p className='text-center text-lg font-semibold'>Do you confirm completion of this milestone?</p>
-                {/* <Button>Complete Milestone</Button> */}
+                <Button>Yes</Button>
 
                 <div className='flex justify-center mt-6'>
                   <Button onClick={() => setModalState(false)} className='w-32'>Yes</Button>
@@ -72,11 +72,11 @@ export default function ProgressBarActive({
                 </div>
             </div>
         </Modal>
-        {/* <div className='mb-8'>
+        <div className='mb-8'>
         
               <Button onClick={() => setModalState(true)}>Complete Milestone</Button>
           
-        </div> */}
+        </div>
 
         <Timeline data={timelineData} order="desc" />   
       </div>
