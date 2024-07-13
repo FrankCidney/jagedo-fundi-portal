@@ -7,7 +7,7 @@ export const fundiProfileSchema = baseUserFormSchema.extend({
     skill: z.string().min(1, { message: messages.skillIsRequired}),
     level: z.string().min(1, { message: messages.levelIsRequired}),
     years: z.string().min(1, { message: messages.yearsIsRequired}),
-    dob: z.string().min(1, { message: messages.dobIsRequired }),
+    // dob: z.string().min(1, { message: messages.dobIsRequired }),
     // skill: z.string().optional(),
     // level: z.string().optional(),
     // years: z.string().optional(),

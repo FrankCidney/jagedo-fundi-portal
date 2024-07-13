@@ -35,7 +35,6 @@ export const fundiInitialValues: FundiProfileSchema = {
     certificates: '',
     ncaCard: '',
     resume: '',
-    dob: '',
   }
 
 // if there's any 'Select' inputs, specify the values here

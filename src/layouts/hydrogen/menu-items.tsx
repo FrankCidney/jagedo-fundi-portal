@@ -74,7 +74,7 @@ switch(userRole) {
   case 'fundi':
     menuData = [
       {
-        name: 'Fundi Home',
+        name: 'Home',
         href: routes.serviceProvider.fundi.dashboard,
         icon: <PiHouseDuotone />
       },
@@ -147,7 +147,7 @@ switch(userRole) {
   case 'professional':
     menuData = [
       {
-        name: 'Professional Home',
+        name: 'Home',
         href: routes.serviceProvider.fundi.dashboard,
         icon: <PiHouseDuotone />
       },
