@@ -61,6 +61,7 @@ export const routes = {
       requisitions: '/service-provider/professional/requisitions',
       rfqStandardOne: '/service-provider/professional/requisitions/rfqs/standard-one',
       rfqStandardTWo: '/service-provider/professional/requisitions/rfqs/standard-two',
+      rfqStandardTWoMakeQuotation: '/service-provider/professional/requisitions/rfqs/standard-two/make-quotation',
 
       // quotations
       quotations: '/service-provider/professional/quotations',

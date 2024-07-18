@@ -29,18 +29,18 @@ type Columns = {
 
 function getStatusBadge(status: string) {
   switch (status.toLowerCase()) {
-    case 'ongoing':
+    case 'unreviewed':
       return (
         <div className="flex items-center">
           <Badge color="warning" renderAsDot />
           <Text className="ms-2 font-medium text-orange-dark">{status}</Text>
         </div>
       );
-    case 'completed':
+    case 'reviewed':
       return (
         <div className="flex items-center">
-          <Badge color="success" renderAsDot />
-          <Text className="ms-2 font-medium text-green-dark">{status}</Text>
+          <Badge className="bg-gray-400" renderAsDot />
+          <Text className="ms-2 font-medium text-gray-600">{status}</Text>
         </div>
       );
     default:

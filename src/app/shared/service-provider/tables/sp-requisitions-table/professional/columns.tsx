@@ -71,21 +71,25 @@ export const getColumns = ({
   },
 
   {
-    title: <HeaderCell title="Date Submitted" className="uppercase" />,
-    dataIndex: 'date',
-    key: 'date',
+    title: <HeaderCell title="Request Date" />,
+    dataIndex: 'requestDate',
+    key: 'requestDate',
     width: 100,
-    render: (date: Date) => <DateCell date={date} />,
+    render: (requestDate: string) => (
+      <Text className="text-sm text-gray-900 dark:text-gray-700">
+        {requestDate}
+      </Text>
+    ),
   },
 
   {
-    title: <HeaderCell title="Job Details" />,
-    dataIndex: 'jobDetails',
-    key: 'jobDetails',
+    title: <HeaderCell title="Request Number" />,
+    dataIndex: 'requestNumber',
+    key: 'requestNumber',
     width: 100,
-    render: (jobDetails: string) => (
+    render: (requestNumber: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
-        {jobDetails}
+        {requestNumber}
       </Text>
     ),
   },
@@ -98,6 +102,54 @@ export const getColumns = ({
     render: (requestType: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
         {requestType}
+      </Text>
+    ),
+  },
+
+  {
+    title: <HeaderCell title="Category" />,
+    dataIndex: 'category',
+    key: 'category',
+    width: 100,
+    render: (category: string) => (
+      <Text className="text-sm text-gray-900 dark:text-gray-700">
+        {category}
+      </Text>
+    ),
+  },
+
+  {
+    title: <HeaderCell title="Sub-category" />,
+    dataIndex: 'subCategory',
+    key: 'subCategory',
+    width: 100,
+    render: (subCategory: string) => (
+      <Text className="text-sm text-gray-900 dark:text-gray-700">
+        {subCategory}
+      </Text>
+    ),
+  },
+
+  {
+    title: <HeaderCell title="Description" />,
+    dataIndex: 'description',
+    key: 'description',
+    width: 100,
+    render: (description: string) => (
+      <Text className="text-sm text-gray-900 dark:text-gray-700">
+        {description}
+      </Text>
+    ),
+  },
+
+  {
+    title: <HeaderCell title="Location" />,
+    dataIndex: 'location',
+    key: 'location',
+    width: 100,
+    render: (location: string) => (
+      <Text className="text-sm text-gray-900 dark:text-gray-700">
+        {location}
       </Text>
     ),
   },
@@ -118,19 +170,16 @@ export const getColumns = ({
   //   render: (status: number) => <Text>{status}</Text>,
   // },
 
-
-
-
   {
     // Need to avoid this issue -> <td> elements in a large <table> do not have table headers.
-    title: <HeaderCell title="Actions" />,
+    title: <HeaderCell title="Action" />,
     dataIndex: 'requestTypeId',
     key: 'action',
     width: 100,
     render: (requestTypeId: Number, row: any) => (
       <div className="gap-3 pe-3">
         {(requestTypeId === 1) ? (
-          <Link href={routes.serviceProvider.professional.rfqStandardOne}>
+          <Link href={routes.serviceProvider.contractor.rfqStandardOne}>
             <Text className="text-sm text-green-600">View RFQ</Text>
         </Link>
         ) : (

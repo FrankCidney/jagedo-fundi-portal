@@ -10,6 +10,7 @@ import { disbursementData } from '@/data/job-data';
 import { getColumns } from './columns';
 import FilterElement from './filter-element';
 import WidgetCard2 from '@/components/cards/widget-card2';
+import { useForm } from 'react-hook-form';
 
 const filterState = {
   date: [null, null],
@@ -20,6 +21,8 @@ export default function DisbursementTable({
 }: {
   className?: string;
 }) {
+  const { control, handleSubmit } = useForm();
+
   const [pageSize, setPageSize] = useState(7);
 
   const onHeaderCellClick = (value: string) => ({
@@ -63,6 +66,7 @@ export default function DisbursementTable({
         onDeleteItem,
         onChecked: handleRowSelect,
         handleSelectAll,
+        control,
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [

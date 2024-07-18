@@ -1,26 +1,29 @@
 'use client';
 
 import WidgetCard from '@/components/cards/widget-card';
-import { Accordion, Badge, FileInput } from 'rizzui';
+import { Accordion, FileInput } from 'rizzui';
 // import CustomerRequisitionsTable from '../../dashboard/tables/requisitions/customer-requisitions';
-import BillofQuotationsTable from '@/app/shared/service-provider/tables/bill-of-quantity';
-import DisbursementTable from '@/app/shared/service-provider/tables/disbursements';
-import { Collapse } from 'rizzui';
+// import BillofQuotationsTable from '@/app/shared/service-provider/tables/bill-of-quantity';
+// import DisbursementTable from '@/app/shared/service-provider/tables/disbursements';
+// import { Collapse } from 'rizzui';
 import { PiArrowDown, PiArrowDownDuotone } from 'react-icons/pi';
-import cn from '@/utils/class-names';
+// import cn from '@/utils/class-names';
 import { useState } from 'react';
 import ToastButton from '@/components/buttons/toast-button';
 import { routes } from '@/config/routes';
 import { useSearchParams } from 'next/navigation';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import BillOfQuantityTable from './bill-of-quantity';
-import {
-  InvoiceType,
-  invoiceBuilderSchema,
-  INVOICE_BUILDER_DEFAULT_VALUE,
-} from './invoice-builder.schema'
-import { zodResolver } from '@hookform/resolvers/zod';
-import Disbursements from './disbursement';
+// import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+// import BillOfQuantityTable from './bill-of-quantity';
+// import {
+//   InvoiceType,
+//   invoiceBuilderSchema,
+//   INVOICE_BUILDER_DEFAULT_VALUE,
+// } from './invoice-builder.schema'
+// import { zodResolver } from '@hookform/resolvers/zod';
+// import Disbursements from './disbursement';
+import BillOfQuantityTable from '@/app/shared/service-provider/tables/bill-of-quantity';
+import DisbursementTable from '@/app/shared/service-provider/tables/disbursements';
+
 
 
 const data = [
@@ -242,7 +245,8 @@ export default function RfqStandardOne({
           <div className="mb-4">
             <FileInput label="Bill of Quantity" />
           </div>
-          <BillofQuotationsTable />
+          {/* <BillofQuotationsTable /> */}
+          <BillOfQuantityTable />
 
           {/* <FormProvider {...methods}>
             <form

@@ -202,7 +202,7 @@ export const fundiRequisitionData = [
     requestType: 'Managed by JaGedo',
     location: 'Transmara, Narok',
     description: 'Proposes 4No. borehole drilling',
-    status: 'Ongoing',
+    status: 'Open',
     requestTypeId: 1,
   },
 
@@ -213,7 +213,7 @@ export const fundiRequisitionData = [
     requestType: 'Managed by You',
     location: 'Ngong, Nairobi',
     description: 'Proposed 4-storey apartment construction',
-    status: 'Delay',
+    status: 'Open',
     requestTypeId: 2,
   },
 
@@ -224,7 +224,7 @@ export const fundiRequisitionData = [
     requestType: 'Managed by JaGedo',
     location: 'Kwandiku, Homa Bay',
     description: 'Proposed cabro paved road',
-    status: 'Complete',
+    status: 'Closed',
     requestTypeId: 1,
   },
 
@@ -235,29 +235,63 @@ export const fundiRequisitionData = [
     requestType: 'Managed by JaGedo',
     location: 'Kibos, Kisumu',
     description: 'Spot improvement for access road',
-    status: 'Open',
+    status: 'Closed',
     requestTypeId: 1,
   }
 ];
 
 export const professionalRequisitionData = [
   {
-    id: 'RFQ004',
-    date: '2023-11-12T06:22:01.621Z',
-    jobDetails: 'Project type: Housing, Description: Repair of faulty wiring system',
-    requestType: 'Managed by JaGedo',
-    status: 'Pending',
+    id: '1',
+    requestNumber: 'Req008323',
+    requestDate: '11/03/23',
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Emergency',
+    location: 'Transmara, Narok',
+    description: 'Proposes 4No. borehole drilling',
+    status: 'Open',
     requestTypeId: 1,
   },
 
   {
-    id: 'RFQ003',
-    date: '2023-11-10T06:22:01.621Z',
-    jobDetails: 'Project type: Housing, Description: Repair of sockets, Request Type: Standard',
-    requestType: 'Managed by You',
-    status: 'Pending',
+    id: '2',
+    requestNumber: 'Req008323',
+    requestDate: '11/03/23',
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Standard',
+    location: 'Ngong, Nairobi',
+    description: 'Proposed 4-storey apartment construction',
+    status: 'Open',
     requestTypeId: 2,
-  }
+  },
+
+  {
+    id: '3',
+    requestNumber: 'Req008323',
+    requestDate: '11/03/23',
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Standard',
+    location: 'Kwandiku, Homa Bay',
+    description: 'Proposed cabro paved road',
+    status: 'Closed',
+    requestTypeId: 2,
+  },
+
+  {
+    id: '4',
+    requestNumber: 'Req008323',
+    requestDate: '11/03/23',
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Emergency',
+    location: 'Kibos, Kisumu',
+    description: 'Spot improvement for access road',
+    status: 'Closed',
+    requestTypeId: 1,
+  },
 ];
 
 export const contractorRequisitionData = [
@@ -268,7 +302,7 @@ export const contractorRequisitionData = [
     requestType: 'Managed by JaGedo',
     location: 'Transmara, Narok',
     description: 'Proposes 4No. borehole drilling',
-    status: 'Ongoing',
+    status: 'Open',
     requestTypeId: 1,
   },
 
@@ -279,7 +313,7 @@ export const contractorRequisitionData = [
     requestType: 'Managed by You',
     location: 'Ngong, Nairobi',
     description: 'Proposed 4-storey apartment construction',
-    status: 'Delay',
+    status: 'Open',
     requestTypeId: 2,
   },
 
@@ -290,7 +324,7 @@ export const contractorRequisitionData = [
     requestType: 'Managed by JaGedo',
     location: 'Kwandiku, Homa Bay',
     description: 'Proposed cabro paved road',
-    status: 'Complete',
+    status: 'Closed',
     requestTypeId: 1,
   },
 
@@ -301,7 +335,7 @@ export const contractorRequisitionData = [
     requestType: 'Managed by JaGedo',
     location: 'Kibos, Kisumu',
     description: 'Spot improvement for access road',
-    status: 'Open',
+    status: 'Closed',
     requestTypeId: 1,
   }
 ];
@@ -482,7 +516,7 @@ export const contractorActiveJobsData = [
     requestType: 'Managed by JaGedo',
     location: 'Kwandiku, Homa Bay',
     description: 'Proposed Cabro paved road',
-    status: 'Under review'
+    status: 'Ongoing'
   },
 
   {
@@ -492,7 +526,7 @@ export const contractorActiveJobsData = [
     requestType: 'Managed by JaGedo',
     location: 'Kwandiku, Homa Bay',
     description: 'Proposed Cabro paved road',
-    status: 'Open'
+    status: 'Ongoing'
   },
 ];
 
@@ -577,7 +611,7 @@ export const contractorCompletedJobsData = [
     requestType: 'Managed by JaGedo',
     location: 'Kondele, Kisumu',
     description: 'Proposed solar installation',
-    status: 'Complete',
+    status: 'Reviewed',
   },
 
   {
@@ -588,7 +622,7 @@ export const contractorCompletedJobsData = [
     requestType: 'Managed by You',
     location: 'Kondele, Kisumu',
     description: 'Proposed solar installation',
-    status: 'Complete',
+    status: 'Unreviewed',
   },
 ];
 

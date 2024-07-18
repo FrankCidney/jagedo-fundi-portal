@@ -5,6 +5,7 @@ import { Link } from 'react-scroll';
 import { Title, Text } from 'rizzui';
 import cn from '@/utils/class-names';
 import { PiArrowDownBold, PiTriangle } from 'react-icons/pi';
+import UploadZone from '@/components/ui/file-upload/upload-zone';
 
 const statusColors: {
   [key: string]: string;
@@ -117,6 +118,17 @@ export default function Timeline({
                 </Text>
               </div>
             </div>
+            {/* <div>
+              <div>
+                <UploadZone
+                    label="Company Profile"
+                    className="flex-grow"
+                    name="companyProfile"
+                    getValues={() => {}}
+                    setValue={() => {}}
+                />
+              </div>
+            </div> */}
           </div>
         </div>
       ))}

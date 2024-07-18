@@ -6,7 +6,7 @@ import { useTable } from '@/hooks/use-table';
 import ControlledTable from '@/components/controlled-table';
 import { PiMagnifyingGlassBold } from 'react-icons/pi';
 import { Input } from 'rizzui';
-import { requisitionData } from '@/data/job-data';
+import { professionalRequisitionData } from '@/data/job-data';
 import { getColumns } from './columns';
 import FilterElement from './filter-element';
 import WidgetCard2 from '@/components/cards/widget-card2';
@@ -47,12 +47,12 @@ export default function ProfessionalRequisitionsTable({ className }: { className
     handleSelectAll,
     handleDelete,
     handleReset,
-  } = useTable(requisitionData, pageSize, filterState);
+  } = useTable(professionalRequisitionData, pageSize, filterState);
 
   const columns = useMemo(
     () =>
       getColumns({
-        data: requisitionData,
+        data: professionalRequisitionData,
         sortConfig,
         checkedItems: selectedRowKeys,
         onHeaderCellClick,

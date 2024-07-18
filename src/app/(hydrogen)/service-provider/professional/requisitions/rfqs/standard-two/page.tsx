@@ -1,3 +1,4 @@
+import ProfessionalAvailability from '@/app/shared/service-provider/confirm-availability/professional-availability';
 import { metaObject } from '@/config/site.config';
 import { Title } from 'rizzui';
 
@@ -5,12 +6,14 @@ export const metadata = {
   ...metaObject(),
 };
 
-export default function RequisitionsPage() {
+export default function RFQEmergencyFundiPage() {
   return (
     <>
-      <Title as="h4" className="mb-3.5 font-semibold @2xl:mb-5 pb-5">
-        RFQ Standard 2 - Professional
-      </Title>
+        <Title as="h4" className="mb-3.5 font-semibold @2xl:mb-5 pb-5">
+            View Job
+        </Title>
+    
+    <ProfessionalAvailability />
     </>
   )
   

@@ -56,7 +56,7 @@ export default function ProgressBarActive({
 
   return (
     <>
-      <div className='ml-14 lg:ml-28'>
+      <div className='ml-14 lg:ml-20'>
         <Modal isOpen={modalState} onClose={() => setModalState(false)}>
             <div className='p-10'>
                 <p className='text-center text-lg font-semibold'>Do you confirm completion of this milestone?</p>

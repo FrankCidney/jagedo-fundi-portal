@@ -54,6 +54,7 @@ import {
   PiDesktopDuotone,
   PiTrolleyDuotone,
   PiMoneyDuotone,
+  PiGearDuotone,
 } from 'react-icons/pi';
 // import { checkRole } from '@/utils/custom-check-role';
 
@@ -101,46 +102,69 @@ switch(userRole) {
         icon: <PiMoneyDuotone />,
       },
     
+      // {
+      //   name: 'Jobs',
+      //   href: routes.serviceProvider.fundi.quotations,
+      //   icon: <PiToolboxDuotone/>,
+      //   dropdownItems: [
+      //     {
+      //       name: 'Active',
+      //       href: routes.serviceProvider.fundi.activeJobs,
+      //       badge: '',
+      //     },
+      //     {
+      //       name: 'Completed',
+      //       href: routes.serviceProvider.fundi.completedJobs,
+      //       badge: '',
+      //     },
+      //     {
+      //       name: 'All Jobs',
+      //       href: routes.serviceProvider.fundi.jobs,
+      //       badge: '',
+      //     },
+      //   ]
+      // },
+
       {
-        name: 'Jobs',
-        href: routes.serviceProvider.fundi.quotations,
-        icon: <PiToolboxDuotone/>,
+        name: 'Settings',
+        href: '#',
+        icon: <PiGearDuotone />,
         dropdownItems: [
           {
-            name: 'Active',
-            href: routes.serviceProvider.fundi.activeJobs,
+            name: 'Profile',
+            href: routes.serviceProvider.fundi.profile,
+            icon: <PiUserCircleDuotone />,
+          },
+          {
+            name: 'Customer Mode',
+            href: '#',
             badge: '',
           },
           {
-            name: 'Completed',
-            href: routes.serviceProvider.fundi.completedJobs,
-            badge: '',
-          },
-          {
-            name: 'All Jobs',
-            href: routes.serviceProvider.fundi.jobs,
+            name: 'Change Password',
+            href: '#',
             badge: '',
           },
         ]
       },
     
-      {
-        name: 'Profile',
-        href: routes.serviceProvider.fundi.profile,
-        icon: <PiUserCircleDuotone />,
-        // dropdownItems: [
-        //   {
-        //     name: 'Create Profile',
-        //     href: routes.serviceProvider.fundi.createProfile,
-        //     badge: '',
-        //   },
-        //   {
-        //     name: 'Edit Profile',
-        //     href: routes.serviceProvider.fundi.editProfile,
-        //     badge: '',
-        //   },
-        // ]
-      },
+      // {
+      //   name: 'Profile',
+      //   href: routes.serviceProvider.fundi.profile,
+      //   icon: <PiUserCircleDuotone />,
+      //   // dropdownItems: [
+      //   //   {
+      //   //     name: 'Create Profile',
+      //   //     href: routes.serviceProvider.fundi.createProfile,
+      //   //     badge: '',
+      //   //   },
+      //   //   {
+      //   //     name: 'Edit Profile',
+      //   //     href: routes.serviceProvider.fundi.editProfile,
+      //   //     badge: '',
+      //   //   },
+      //   // ]
+      // },
     ];
     break;
 
@@ -187,46 +211,57 @@ switch(userRole) {
       //   icon: <PiNoteDuotone />,
       // },
     
+      // {
+      //   name: 'Jobs',
+      //   href: '#',
+      //   icon: <PiToolboxDuotone/>,
+      //   dropdownItems: [
+      //     {
+      //       name: 'Active',
+      //       href: routes.serviceProvider.contractor.activeJobs,
+      //       badge: '',
+      //     },
+      //     {
+      //       name: 'Completed',
+      //       href: routes.serviceProvider.contractor.completedJobs,
+      //       badge: '',
+      //     },
+      //     // {
+      //     //   name: 'All Jobs',
+      //     //   href: routes.serviceProvider.fundi.jobs,
+      //     //   badge: '',
+      //     // },
+      //   ]
+      // },
+
       {
-        name: 'Jobs',
-        href: routes.serviceProvider.fundi.quotations,
-        icon: <PiToolboxDuotone/>,
+        name: 'Settings',
+        href: '#',
+        icon: <PiGearDuotone />,
         dropdownItems: [
           {
-            name: 'Active',
-            href: routes.serviceProvider.contractor.activeJobs,
+            name: 'Profile',
+            href: routes.serviceProvider.professional.profile,
+            icon: <PiUserCircleDuotone />,
+          },
+          {
+            name: 'Customer Mode',
+            href: '#',
             badge: '',
           },
           {
-            name: 'Completed',
-            href: routes.serviceProvider.contractor.completedJobs,
+            name: 'Change Password',
+            href: '#',
             badge: '',
           },
-          // {
-          //   name: 'All Jobs',
-          //   href: routes.serviceProvider.fundi.jobs,
-          //   badge: '',
-          // },
         ]
       },
     
-      {
-        name: 'Profile',
-        href: routes.serviceProvider.professional.profile,
-        icon: <PiUserCircleDuotone />,
-        // dropdownItems: [
-        //   {
-        //     name: 'Create Profile',
-        //     href: routes.serviceProvider.fundi.createProfile,
-        //     badge: '',
-        //   },
-        //   {
-        //     name: 'Edit Profile',
-        //     href: routes.serviceProvider.fundi.editProfile,
-        //     badge: '',
-        //   },
-        // ]
-      },
+      // {
+      //   name: 'Profile',
+      //   href: routes.serviceProvider.professional.profile,
+      //   icon: <PiUserCircleDuotone />,
+      // },
     ];
     break;
 
@@ -261,6 +296,119 @@ switch(userRole) {
       },
     
       // {
+      //   name: 'Jobs',
+      //   href: '#',
+      //   icon: <PiToolboxDuotone/>,
+      //   dropdownItems: [
+      //     {
+      //       name: 'Active',
+      //       href: routes.serviceProvider.contractor.activeJobs,
+      //       badge: '',
+      //     },
+      //     {
+      //       name: 'Completed',
+      //       href: routes.serviceProvider.contractor.completedJobs,
+      //       badge: '',
+      //     },
+      //     // {
+      //     //   name: 'All Jobs',
+      //     //   href: routes.serviceProvider.contractor.jobs,
+      //     //   badge: '',
+      //     // },
+      //   ]
+      // },
+
+      {
+        name: 'Settings',
+        href: '#',
+        icon: <PiGearDuotone />,
+        dropdownItems: [
+          {
+            name: 'Profile',
+            href: routes.serviceProvider.contractor.profile,
+            icon: <PiUserCircleDuotone />,
+          },
+          {
+            name: 'Customer Mode',
+            href: '#',
+            badge: '',
+          },
+          {
+            name: 'Change Password',
+            href: '#',
+            badge: '',
+          },
+        ]
+      },
+    
+      // {
+      //   name: 'Profile',
+      //   href: routes.serviceProvider.contractor.profile,
+      //   icon: <PiUserCircleDuotone />,
+      // },
+    ];
+    break;
+
+  default:
+    menuData = [
+      {
+        name: 'Default Home',
+        href: routes.serviceProvider.fundi.dashboard,
+        icon: <PiHouseDuotone />
+      },
+
+      {
+        name: 'My Workspace',
+        href: '#',
+        icon: <PiDesktopDuotone />,
+      },
+    
+      {
+        name: 'Shop App',
+        href: '#',
+        icon: <PiTrolleyDuotone />,
+      },
+      {
+        name: 'My Projects',
+        href: '#',
+        icon: <PiBriefcaseDuotone />,
+      },
+      {
+        name: 'Sales',
+        href: '#',
+        icon: <PiMoneyDuotone />,
+      },
+    
+      // {
+      //   name: 'Jobs',
+      //   href: routes.serviceProvider.fundi.quotations,
+      //   icon: <PiToolboxDuotone/>,
+      //   dropdownItems: [
+      //     {
+      //       name: 'Active',
+      //       href: routes.serviceProvider.contractor.activeJobs,
+      //       badge: '',
+      //     },
+      //     {
+      //       name: 'Completed',
+      //       href: routes.serviceProvider.contractor.completedJobs,
+      //       badge: '',
+      //     },
+      //     // {
+      //     //   name: 'All Jobs',
+      //     //   href: routes.serviceProvider.contractor.jobs,
+      //     //   badge: '',
+      //     // },
+      //   ]
+      // },
+    
+      {
+        name: 'Profile',
+        href: routes.serviceProvider.contractor.profile,
+        icon: <PiUserCircleDuotone />,
+      },
+    
+      // {
       //   name: 'Requisitions',
       //   href: routes.serviceProvider.fundi.requisitions,
       //   icon: <PiClipboardDuotone />,
@@ -272,109 +420,46 @@ switch(userRole) {
       //   icon: <PiNoteDuotone />,
       // },
     
-      {
-        name: 'Jobs',
-        href: routes.serviceProvider.fundi.quotations,
-        icon: <PiToolboxDuotone/>,
-        dropdownItems: [
-          {
-            name: 'Active',
-            href: routes.serviceProvider.contractor.activeJobs,
-            badge: '',
-          },
-          {
-            name: 'Completed',
-            href: routes.serviceProvider.contractor.completedJobs,
-            badge: '',
-          },
-          // {
-          //   name: 'All Jobs',
-          //   href: routes.serviceProvider.contractor.jobs,
-          //   badge: '',
-          // },
-        ]
-      },
+      // {
+      //   name: 'Jobs',
+      //   href: routes.serviceProvider.fundi.quotations,
+      //   icon: <PiToolboxDuotone/>,
+      //   dropdownItems: [
+      //     {
+      //       name: 'Active',
+      //       href: routes.serviceProvider.fundi.activeJobs,
+      //       badge: '',
+      //     },
+      //     {
+      //       name: 'Completed',
+      //       href: routes.serviceProvider.fundi.completedJobs,
+      //       badge: '',
+      //     },
+      //     {
+      //       name: 'All Jobs',
+      //       href: routes.serviceProvider.fundi.jobs,
+      //       badge: '',
+      //     },
+      //   ]
+      // },
     
-      {
-        name: 'Profile',
-        href: routes.serviceProvider.contractor.profile,
-        icon: <PiUserCircleDuotone />,
-        // dropdownItems: [
-        //   {
-        //     name: 'Create Profile',
-        //     href: routes.serviceProvider.fundi.createProfile,
-        //     badge: '',
-        //   },
-        //   {
-        //     name: 'Edit Profile',
-        //     href: routes.serviceProvider.fundi.editProfile,
-        //     badge: '',
-        //   },
-        // ]
-      },
-    ];
-    break;
-
-  default:
-    menuData = [
-      {
-        name: 'Default Home',
-        href: routes.serviceProvider.fundi.dashboard,
-        icon: <PiHouseDuotone />
-      },
-    
-      {
-        name: 'Requisitions',
-        href: routes.serviceProvider.fundi.requisitions,
-        icon: <PiClipboardDuotone />,
-      },
-    
-      {
-        name: 'Quotations',
-        href: routes.serviceProvider.fundi.quotations,
-        icon: <PiNoteDuotone />,
-      },
-    
-      {
-        name: 'Jobs',
-        href: routes.serviceProvider.fundi.quotations,
-        icon: <PiToolboxDuotone/>,
-        dropdownItems: [
-          {
-            name: 'Active',
-            href: routes.serviceProvider.fundi.activeJobs,
-            badge: '',
-          },
-          {
-            name: 'Completed',
-            href: routes.serviceProvider.fundi.completedJobs,
-            badge: '',
-          },
-          {
-            name: 'All Jobs',
-            href: routes.serviceProvider.fundi.jobs,
-            badge: '',
-          },
-        ]
-      },
-    
-      {
-        name: 'Profile',
-        href: routes.serviceProvider.fundi.quotations,
-        icon: <PiUserCircleDuotone />,
-        dropdownItems: [
-          {
-            name: 'Create Profile',
-            href: routes.serviceProvider.fundi.createProfile,
-            badge: '',
-          },
-          {
-            name: 'Edit Profile',
-            href: routes.serviceProvider.fundi.editProfile,
-            badge: '',
-          },
-        ]
-      },
+      // {
+      //   name: 'Profile',
+      //   href: routes.serviceProvider.fundi.quotations,
+      //   icon: <PiUserCircleDuotone />,
+      //   dropdownItems: [
+      //     {
+      //       name: 'Create Profile',
+      //       href: routes.serviceProvider.fundi.createProfile,
+      //       badge: '',
+      //     },
+      //     {
+      //       name: 'Edit Profile',
+      //       href: routes.serviceProvider.fundi.editProfile,
+      //       badge: '',
+      //     },
+      //   ]
+      // },
     ];
 
 }

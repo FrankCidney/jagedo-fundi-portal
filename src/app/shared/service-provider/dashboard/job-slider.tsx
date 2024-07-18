@@ -85,13 +85,13 @@ switch (userRole) {
         name: 'Requisitions',
         total: 8,
         fill: '#2B7F75',
-        link: routes.serviceProvider.contractor.requisitions,
+        link: routes.serviceProvider.professional.requisitions,
       },
       {
         name: 'Quotations',
         total: 9,
         fill: '#FFD66B',
-        link: routes.serviceProvider.contractor.quotations,
+        link: routes.serviceProvider.professional.quotations,
       },
       {
         name: 'Active',

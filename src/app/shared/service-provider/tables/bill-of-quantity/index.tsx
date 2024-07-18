@@ -10,16 +10,19 @@ import { billOfQuantityData } from '@/data/job-data';
 import { getColumns } from './columns';
 import FilterElement from './filter-element';
 import WidgetCard2 from '@/components/cards/widget-card2';
+import { useForm } from 'react-hook-form';
 
 const filterState = {
   date: [null, null],
   status: '',
 };
-export default function BillofQuotationsTable({
+export default function BillofQuantityTable({
   className,
 }: {
   className?: string;
 }) {
+  const { control, handleSubmit } = useForm();
+
   const [pageSize, setPageSize] = useState(7);
 
   const onHeaderCellClick = (value: string) => ({
@@ -63,6 +66,7 @@ export default function BillofQuotationsTable({
         onDeleteItem,
         onChecked: handleRowSelect,
         handleSelectAll,
+        control,
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [

@@ -71,10 +71,12 @@ export default function FundiSteps() {
   // };
 
   // submit handler
-  const onSubmit: SubmitHandler<RefinedSpSignUpFormSchema> = (data) => {
+  const onSubmit: SubmitHandler<RefinedSpSignUpFormSchema> = (data, e) => {
+    e?.preventDefault()
+    console.log(e)
     console.log(data);
 
-    router.push(routes.auth.otp4)
+    // router.push(routes.auth.otp4)
   };
 
     return (

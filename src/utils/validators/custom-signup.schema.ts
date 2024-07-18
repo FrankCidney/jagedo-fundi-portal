@@ -26,6 +26,7 @@ export const signUpSchema = baseUserFormSchema.extend({
   // dob: z.string().min(1, { message: messages.dobIsRequired }),
   country: z.string().min(1, { message: messages.countryIsRequired }),
   accountVerification: z.string().min(1, { message: messages.accountVerificationIsRequired }),
+  // accountVerification: z.string().optional(),
   termsAndConditions: z.boolean(),
   privacyPolicy: z.boolean(),
   returnsPolicy: z.boolean(),
