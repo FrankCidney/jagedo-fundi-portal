@@ -1,8 +1,8 @@
 'use client'
 
-import CustomMultiStepForm from "@/app/shared/custom-multi-step";
+// import CustomMultiStepForm from "@/app/shared/custom-multi-step";
 import FundiSteps from "@/app/shared/custom-sign-up/fundi-fields/steps";
-import AuthWrapperFour from '@/app/shared/auth-layout/auth-wrapper-four';
+// import AuthWrapperFour from '@/app/shared/auth-layout/auth-wrapper-four';
 // import { metaObject } from '@/config/site.config';
 import SignUpStepWrapper from "@/app/shared/custom-sign-up/sign-up-step-wrapper";
 // import { useRouter } from "next/router";
