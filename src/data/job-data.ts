@@ -196,48 +196,30 @@ export const requisitionData = [
 
 export const fundiRequisitionData = [
   {
-    id: 'REQ008',
-    category: 'Water',
-    subCategory: 'Borehole services',
-    requestType: 'Managed by JaGedo',
+    number: '1',
+    id: 'REQ0021',
+    date: 'November 12, 2023',
+    category: 'Fundi',
+    subCategory: 'Electrician',
+    requestType: 'Emergency: Managed by JaGedo',
+    description: 'Repair of a faulty wiring system',
     location: 'Transmara, Narok',
-    description: 'Proposes 4No. borehole drilling',
+    status: 'Open',
+    requestTypeId: 0,
+  },
+
+  {
+    number: '2',
+    id: 'REQ0020',
+    date: 'November 11, 2023',
+    category: 'Fundi',
+    subCategory: 'Plumber',
+    requestType: 'Standard: Managed by Self',
+    description: 'Tank reticulation to water point',
+    location: 'Transmara, Narok',
     status: 'Open',
     requestTypeId: 1,
   },
-
-  {
-    id: 'REQ007',
-    category: 'Housing',
-    subCategory: 'Building',
-    requestType: 'Managed by You',
-    location: 'Ngong, Nairobi',
-    description: 'Proposed 4-storey apartment construction',
-    status: 'Open',
-    requestTypeId: 2,
-  },
-
-  {
-    id: 'REQ004',
-    category: 'Water',
-    subCategory: 'Steel Tanks',
-    requestType: 'Managed by JaGedo',
-    location: 'Kwandiku, Homa Bay',
-    description: 'Proposed cabro paved road',
-    status: 'Closed',
-    requestTypeId: 1,
-  },
-
-  {
-    id: 'REQ003',
-    category: 'Other Infrastructure',
-    subCategory: 'Roads',
-    requestType: 'Managed by JaGedo',
-    location: 'Kibos, Kisumu',
-    description: 'Spot improvement for access road',
-    status: 'Closed',
-    requestTypeId: 1,
-  }
 ];
 
 export const professionalRequisitionData = [
@@ -452,26 +434,30 @@ export const activeJobsData = [
 
 export const fundiActiveJobsData = [
   {
-    id: 'JOB0019',
-    date: '2023-11-12T06:22:01.621Z',
+    number: '1',
+    id: 'JOB0021',
+    date: 'November 12, 2023',
     category: 'Fundi',
-    subCategory: 'Mason',
-    description: 'Boundary wall construction',
-    location: 'Nyali, Mombasa',
-    requestType: '2.0',
-    status: 'Ongoing'
+    subCategory: 'Electrician',
+    requestType: 'Emergency: Managed by JaGedo',
+    description: 'Repair of a faulty wiring system',
+    location: 'Transmara, Narok',
+    status: 'Ongoing',
+    requestTypeId: 0,
   },
 
   {
-    id: 'JOB0022',
-    date: '2023-11-10T06:22:01.621Z',
+    number: '2',
+    id: 'JOB0020',
+    date: 'November 11, 2023',
     category: 'Fundi',
-    subCategory: 'Mason',
-    description: 'Boundary wall construction',
-    location: 'Kisumu',
-    requestType: 'Emergency',
-    status: 'Ongoing'
-  }
+    subCategory: 'Plumber',
+    requestType: 'Standard: Managed by Self',
+    description: 'Tank reticulation to water point',
+    location: 'Transmara, Narok',
+    status: 'Ongoing',
+    requestTypeId: 1,
+  },
 ];
 
 export const professionalActiveJobsData = [
@@ -556,26 +542,30 @@ export const completedJobsData = [
 
 export const fundiCompletedJobsData = [
   {
-    id: 'JOB0019',
-    date: '2023-11-12T06:22:01.621Z',
+    number: '1',
+    id: 'JOB0021',
+    date: 'November 12, 2023',
     category: 'Fundi',
-    subCategory: 'Mason',
-    description: 'Boundary wall construction',
-    location: 'Nyali, Mombasa',
-    requestType: '2.0',
-    status: 'Reviewed'
+    subCategory: 'Electrician',
+    requestType: 'Emergency: Managed by JaGedo',
+    description: 'Repair of a faulty wiring system',
+    location: 'Transmara, Narok',
+    status: 'Reviewed',
+    requestTypeId: 0,
   },
 
   {
-    id: 'JOB0022',
-    date: '2023-11-10T06:22:01.621Z',
+    number: '2',
+    id: 'JOB0020',
+    date: 'November 11, 2023',
     category: 'Fundi',
-    subCategory: 'Mason',
-    description: 'Boundary wall construction',
-    location: 'Kisumu',
-    requestType: 'Emergency',
-    status: 'Unreviewed'
-  }
+    subCategory: 'Plumber',
+    requestType: 'Standard: Managed by Self',
+    description: 'Tank reticulation to water point',
+    location: 'Transmara, Narok',
+    status: 'Unreviewed',
+    requestTypeId: 1,
+  },
 ];
 
 export const professionalCompletedJobsData = [
@@ -626,31 +616,35 @@ export const contractorCompletedJobsData = [
   },
 ];
 
-// export const fundiReviewsData = [
-//   {
-//     number: 3,
-//     id: 'JOB006',
-//     category: 'Energy',
-//     subCategory: 'Solar installation',
-//     requestType: 'Managed by JaGedo',
-//     location: 'Kondele, Kisumu',
-//     description: 'Proposed solar installation',
-//     status: 'Complete',
-//     reviewBy: 'John Kamau',
-//   },
+export const fundiReviewsData = [
+  {
+    number: '1',
+    id: 'JOB0021',
+    date: 'November 12, 2023',
+    category: 'Fundi',
+    subCategory: 'Electrician',
+    requestType: 'Emergency: Managed by JaGedo',
+    description: 'Repair of a faulty wiring system',
+    location: 'Transmara, Narok',
+    status: 'Reviewed',
+    reviewBy: 'John Kamau',
+    requestTypeId: 0,
+  },
 
-//   {
-//     number: 7,
-//     id: 'JOB004',
-//     category: 'Energy',
-//     subCategory: 'Solar installation',
-//     requestType: 'Managed by You',
-//     location: 'Kondele, Kisumu',
-//     description: 'Proposed solar installation',
-//     status: 'Complete',
-//     reviewBy: 'Jane Kamau',
-//   },
-// ];
+  {
+    number: '2',
+    id: 'JOB0020',
+    date: 'November 11, 2023',
+    category: 'Fundi',
+    subCategory: 'Plumber',
+    requestType: 'Standard: Managed by Self',
+    description: 'Tank reticulation to water point',
+    location: 'Transmara, Narok',
+    status: 'Reviewed',
+    reviewBy: 'Agnes Wanjiku',
+    requestTypeId: 1,
+  },
+];
 
 export const contractorReviewsData = [
   {

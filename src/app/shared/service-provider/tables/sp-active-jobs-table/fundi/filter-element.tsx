@@ -27,10 +27,10 @@ const statusOptions = [
     label: 'Ongoing',
     value: 'ongoing',
   },
-  {
-    label: 'Completed',
-    value: 'completed',
-  },
+  // {
+  //   label: 'Completed',
+  //   value: 'completed',
+  // },
 ];
 
 type FilterElementProps = {

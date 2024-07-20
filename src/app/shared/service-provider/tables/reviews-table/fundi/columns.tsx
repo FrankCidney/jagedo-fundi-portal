@@ -29,18 +29,18 @@ type Columns = {
 
 function getStatusBadge(status: string) {
   switch (status.toLowerCase()) {
-    case 'open':
+    case 'unreviewed':
       return (
         <div className="flex items-center">
           <Badge color="warning" renderAsDot />
           <Text className="ms-2 font-medium text-orange-dark">{status}</Text>
         </div>
       );
-    case 'closed':
+    case 'reviewed':
       return (
         <div className="flex items-center">
           <Badge className="bg-gray-400" renderAsDot />
-          <Text className="ms-2 font-medium text-gray-dark">{status}</Text>
+          <Text className="ms-2 font-medium text-gray-600">{status}</Text>
         </div>
       );
     default:
@@ -62,7 +62,6 @@ export const getColumns = ({
   handleSelectAll,
   onHeaderCellClick,
 }: Columns) => [
-
   {
     title: <HeaderCell title="No." />,
     dataIndex: 'number',
@@ -79,13 +78,25 @@ export const getColumns = ({
     title: <HeaderCell title="#" />,
     dataIndex: 'id',
     key: 'id',
-    width: 10,
+    width: 50,
     render: (id: string) => (
     // <Text>#{id}</Text>
     <Text className="text-sm text-gray-900 dark:text-gray-700">
       #{id}
     </Text>
   ),
+  },
+
+  {
+    title: <HeaderCell title="Name" />,
+    dataIndex: 'reviewBy',
+    key: 'reviewBy',
+    width: 50,
+    render: (reviewBy: string) => (
+      <Text className="text-sm text-gray-900 dark:text-gray-700">
+        {reviewBy}
+      </Text>
+    ),
   },
 
   {
@@ -140,7 +151,7 @@ export const getColumns = ({
     title: <HeaderCell title="Description" />,
     dataIndex: 'description',
     key: 'description',
-    width: 250,
+    width: 200,
     render: (description: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
         {description}
@@ -167,121 +178,19 @@ export const getColumns = ({
     width: 100,
     render: (value: string) => getStatusBadge(value),
   },
-
+  
   {
     // Need to avoid this issue -> <td> elements in a large <table> do not have table headers.
     title: <HeaderCell title="Action" />,
-    dataIndex: 'requestTypeId',
+    dataIndex: 'status',
     key: 'action',
     width: 100,
-    render: (requestTypeId: number, row: any) => (
-      <div className="gap-3 pe-3">
-        {(requestTypeId === 0) ? (
-          <Link href={routes.serviceProvider.fundi.rfqEmergency}>
-            <Text className="text-sm text-green-600">View</Text>
-        </Link>
-        ) : (
-          <Link href={routes.serviceProvider.fundi.rfqStandardOne}>
-            <Text className="text-sm text-green-600">View</Text>
+    render: (requestType: string, row: any) => (
+        <div className="gap-3 pe-3">        
+          <Link href={routes.serviceProvider.fundi.viewReview}>
+            <Text className="text-sm text-green-600">View Review</Text>
           </Link>
-        )}
-        
-
-        {/* <Tooltip size="sm" content={'View'} placement="top" color="invert">
-          <ActionIcon
-            as="span"
-            size="sm"
-            variant="outline"
-            aria-label={'View Appointment'}
-            className="hover:!border-gray-900 hover:text-gray-700"
-          >
-            <Link href={routes.serviceProvider.confirmAvailability}>
-              <EyeIcon className="h-4 w-4" />
-            </Link>
-          </ActionIcon>
-        </Tooltip> */}
-
-
-        {/* <DeletePopover
-          title={`Remove User`}
-          description={`Are you sure you want to remove this User?`}
-          onDelete={() => onDeleteItem(row.id)}
-        /> */}
-      </div>
-    ),
+        </div>
+      ),
   },
-
-
-
-  // {
-  //   // Need to avoid this issue -> <td> elements in a large <table> do not have table headers.
-  //   title: <HeaderCell title="Actions" />,
-  //   dataIndex: 'action',
-  //   key: 'action',
-  //   width: 100,
-  //   render: (_: string, row: any) => (
-  //     <div className="flex items-center justify-end gap-3 pe-3">
-  //       <Tooltip size="sm" content={'View'} placement="top" color="invert">
-  //         <ActionIcon
-  //           as="span"
-  //           size="sm"
-  //           variant="outline"
-  //           aria-label={'View Appointment'}
-  //           className="hover:!border-gray-900 hover:text-gray-700"
-  //         >
-  //           <EyeIcon className="h-4 w-4" />
-  //         </ActionIcon>
-  //       </Tooltip>
-  //       {/* <DeletePopover
-  //         title={`Remove User`}
-  //         description={`Are you sure you want to remove this User?`}
-  //         onDelete={() => onDeleteItem(row.id)}
-  //       /> */}
-  //     </div>
-  //   ),
-  // },
 ];
-
-// function StatusSelect({ selectItem }: { selectItem?: string }) {
-//   const selectItemValue = statusOptions.find(
-//     (option) => option.value === selectItem
-//   );
-//   const [value, setValue] = useState(selectItemValue);
-//   return (
-//     <Select
-//       dropdownClassName="!z-10"
-//       className="min-w-[140px]"
-//       inPortal={false}
-//       placeholder="Select Role"
-//       options={statusOptions}
-//       value={value}
-//       onChange={setValue}
-//       displayValue={(option: { value: any }) =>
-//         renderOptionDisplayValue(option.value as string)
-//       }
-//     />
-//   );
-// }
-
-// function renderOptionDisplayValue(value: string) {
-//   switch (value) {
-//     case 'Closed':
-//       return (
-//         <div className="flex items-center">
-//           <PiPlusCircle className="shrink-0 rotate-45 fill-red-dark text-lg" />
-//           <Text className="ms-1.5 text-sm font-medium capitalize text-gray-700">
-//             {value}
-//           </Text>
-//         </div>
-//       );
-//     default:
-//       return (
-//         <div className="flex items-center">
-//           <PiCheckCircleBold className="shrink-0 fill-green-dark text-lg" />
-//           <Text className="ms-1.5 text-sm font-medium capitalize text-gray-700">
-//             {value}
-//           </Text>
-//         </div>
-//       );
-//   }
-// }

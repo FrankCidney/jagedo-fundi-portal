@@ -14,7 +14,7 @@ const data = [
     },
   ];
   
-export default function CompletedJobDetails() {
+export default function FundiCompleteJobDetails() {
     const [modalState, setModalState] = useState(false);
 
     return (

@@ -6,7 +6,8 @@ import { useTable } from '@/hooks/use-table';
 import ControlledTable from '@/components/controlled-table';
 import { PiMagnifyingGlassBold } from 'react-icons/pi';
 import { Input } from 'rizzui';
-import { fundiRequisitionData } from '@/data/job-data';
+import { fundiReviewsData } from '@/data/job-data';
+// import FilterElement from './filter-element';
 import { getColumns } from './columns';
 import FilterElement from './filter-element';
 import WidgetCard2 from '@/components/cards/widget-card2';
@@ -15,7 +16,7 @@ const filterState = {
   date: [null, null],
   status: '',
 };
-export default function FundiRequisitionsTable({ className }: { className?: string }) {
+export default function FundiReviewsTable({ className }: { className?: string }) {
   const [pageSize, setPageSize] = useState(7);
 
   const onHeaderCellClick = (value: string) => ({
@@ -47,12 +48,12 @@ export default function FundiRequisitionsTable({ className }: { className?: stri
     handleSelectAll,
     handleDelete,
     handleReset,
-  } = useTable(fundiRequisitionData, pageSize, filterState);
+  } = useTable(fundiReviewsData, pageSize, filterState);
 
   const columns = useMemo(
     () =>
       getColumns({
-        data: fundiRequisitionData,
+        data: fundiReviewsData,
         sortConfig,
         checkedItems: selectedRowKeys,
         onHeaderCellClick,
@@ -79,7 +80,7 @@ export default function FundiRequisitionsTable({ className }: { className?: stri
       className={className}
       headerClassName="mb-2 items-start flex-col @[57rem]:flex-row @[57rem]:items-center"
       actionClassName="grow @[57rem]:ps-11 ps-0 items-center w-full @[42rem]:w-full @[57rem]:w-auto "
-      title="Requests"
+      title="Reviews"
       titleClassName="whitespace-nowrap font-inter"
       action={
         <div className=" mt-4 flex w-full flex-col-reverse items-center justify-between  gap-3  @[42rem]:flex-row @[57rem]:mt-0">

@@ -47,7 +47,7 @@ switch (userRole) {
   case 'fundi':
     data = [
       {
-        name: 'Requisitions',
+        name: 'Requests',
         total: 8,
         fill: '#2B7F75',
         link: routes.serviceProvider.fundi.requisitions,
@@ -82,7 +82,7 @@ switch (userRole) {
   case 'professional':
     data = [
       {
-        name: 'Requisitions',
+        name: 'Requests',
         total: 8,
         fill: '#2B7F75',
         link: routes.serviceProvider.professional.requisitions,
@@ -117,7 +117,7 @@ switch (userRole) {
   case 'contractor':
     data = [
       {
-        name: 'Requisitions',
+        name: 'Requests',
         total: 9,
         fill: '#2B7F75',
         link: routes.serviceProvider.contractor.requisitions,
@@ -152,7 +152,7 @@ switch (userRole) {
   default:
     data = [
       {
-        name: 'Requisitions',
+        name: 'Requests',
         total: 8,
         fill: '#2B7F75',
         link: routes.serviceProvider.fundi.requisitions,
@@ -161,7 +161,7 @@ switch (userRole) {
         name: 'Quotations',
         total: 7,
         fill: '#FFD66B',
-        link: routes.serviceProvider.fundi.quotations,
+        link: '#',
       },
       {
         name: 'Active',
@@ -179,7 +179,7 @@ switch (userRole) {
         name: 'Reviews',
         total: 5,
         fill: '#702963',
-        link: '##',
+        link: routes.serviceProvider.fundi.reviews,
       },
     ];
 }

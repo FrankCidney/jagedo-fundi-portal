@@ -34,7 +34,7 @@ export default function Notifications(
             Messages
           </Title>
           <Link
-            href={''}
+            href={'#'}
             // onClick={() => setIsOpen(false)}
             className="hover:underline"
           >

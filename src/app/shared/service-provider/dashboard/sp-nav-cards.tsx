@@ -79,7 +79,7 @@ const spDashboardNavCardData = [
     style: 'text-[#3872FA]',
     fill: '#3872FA',
     chart: orderData,
-    linkTo: '',
+    linkTo: '#',
   },
   {
     id: '2',
@@ -90,7 +90,7 @@ const spDashboardNavCardData = [
     style: 'text-[#3872FA]',
     fill: '#3872FA',
     chart: orderData,
-    linkTo: '',
+    linkTo: '#',
   },
   {
     id: '3',
@@ -103,7 +103,7 @@ const spDashboardNavCardData = [
     style: 'text-[#3872FA]',
     fill: '#3872FA',
     chart: orderData,
-    linkTo: '',
+    linkTo: '#',
   },
   {
     id: '4',
@@ -116,7 +116,7 @@ const spDashboardNavCardData = [
     style: 'text-[#3872FA]',
     fill: '#3872FA',
     chart: orderData,
-    linkTo: '',
+    linkTo: '#',
   },
 ];
 

@@ -26,8 +26,8 @@ export const routes = {
       rfqStandardOne: '/service-provider/fundi/requisitions/rfqs/standard-one',
 
       // quotations
-      makeQuotation: '/service-provider/fundi/make-quotation',
-      quotations: '/service-provider/quotations/fundi',
+      // makeQuotation: '/service-provider/fundi/make-quotation',
+      // quotations: '/service-provider/quotations/fundi',
       quotationDetails: '/service-provider/quotations/quotation-details/fundi',   
 
       // jobs
@@ -35,22 +35,27 @@ export const routes = {
       activeJobs: '/service-provider/fundi/jobs/active',
       completedJobs: '/service-provider/fundi/jobs/completed',
       jobDetails: '/service-provider/fundi/jobs/active/details',
+      completeJobDetails: '/service-provider/fundi/jobs/completed/report',
 
+      // reviews
+      reviews: '/service-provider/fundi/reviews',
+      viewReview: '/service-provider/fundi/reviews/view',
+
+
+      
       // profile
       profile: '/service-provider/profile',
+
       // create profile
       createProfile: '/service-provider/profile/create/fundi',
       requiredDetails: '/service-provider/profile/create/fundi/required-details',
+
       // edit profile
       editProfile: '/service-provider/profile/edit',
       accountDetails: '/service-provider/profile/account-details',
       uploads: '/service-provider/profile/uploads',
       evaluationForm: '/service-provider/profile/evaluation-form',
       // contactDetails: '/service-provider/profile/edit/fundi/contact-details',
-
-      // reviews
-      reviews: '/service-provider/fundi/reviews',
-      viewReview: '/service-provider/fundi/reviews/view',
 
     },
 
