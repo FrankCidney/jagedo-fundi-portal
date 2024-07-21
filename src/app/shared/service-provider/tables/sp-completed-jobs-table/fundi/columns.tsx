@@ -193,12 +193,12 @@ export const getColumns = ({
   {
     // Need to avoid this issue -> <td> elements in a large <table> do not have table headers.
     title: <HeaderCell title="Action" />,
-    dataIndex: 'status',
+    dataIndex: 'id',
     key: 'action',
     width: 100,
-    render: (requestType: string, row: any) => (
+    render: (id: string, row: any) => (
         <div className="gap-3 pe-3">        
-          <Link href={routes.serviceProvider.fundi.completeJobDetails}>
+          <Link href={{ pathname: routes.serviceProvider.fundi.completeJobDetails, query: { id } }}>
             <Text className="text-sm text-green-600">View</Text>
           </Link>
         </div>

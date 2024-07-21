@@ -11,7 +11,7 @@ export const metadata = {
     return (
         <>
             <Title as="h4" className="mb-3.5 font-semibold @2xl:mb-5 pb-5">
-                Completed Jobs
+                View Job
             </Title>
 
             {/* <div className="@container"> */}

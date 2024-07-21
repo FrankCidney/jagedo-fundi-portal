@@ -7,6 +7,7 @@ import Link from 'next/link';
 import cn from '@/utils/class-names';
 import ProgressBarActive from '@/app/shared/service-provider/progress-bar-fundi';
 import { routes } from '@/config/routes';
+import CustomProgressBar from '@/app/shared/custom-progress-bar';
 
 export const metadata = {
     ...metaObject(),
@@ -22,13 +23,15 @@ export const metadata = {
       <div className={cn('xl:gap-15 grid grid-cols-1 lg:grid-cols-3', className)}>
       <div className='col-span-2'>
         <ActiveJobDetailsCard />
-        <Progressbar
+        <CustomProgressBar />
+
+        {/* <Progressbar
           className="mt-6"
           value={75}
           label="75% Ongoing"
           color="info"
           size="xl"
-        />
+        /> */}
         
         <div className="flex  justify-center">
           <Link href={routes.serviceProvider.fundi.activeJobs}>

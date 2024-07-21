@@ -171,12 +171,16 @@ export const getColumns = ({
   {
     // Need to avoid this issue -> <td> elements in a large <table> do not have table headers.
     title: <HeaderCell title="Action" />,
-    dataIndex: 'requestTypeId',
+    dataIndex: 'id',
     key: 'action',
     width: 100,
-    render: (requestTypeId: number, row: any) => (
+    render: (id: number, row: any) => (
       <div className="gap-3 pe-3">
-        {(requestTypeId === 0) ? (
+        <Link href={{ pathname: routes.serviceProvider.fundi.rfqEmergency, query: { id } }}
+        >
+            <Text className="text-sm text-green-600">View</Text>
+        </Link>
+        {/* {(requestTypeId === 0) ? (
           <Link href={routes.serviceProvider.fundi.rfqEmergency}>
             <Text className="text-sm text-green-600">View</Text>
         </Link>
@@ -184,9 +188,8 @@ export const getColumns = ({
           <Link href={routes.serviceProvider.fundi.rfqStandardOne}>
             <Text className="text-sm text-green-600">View</Text>
           </Link>
-        )}
+        )} */}
         
-
         {/* <Tooltip size="sm" content={'View'} placement="top" color="invert">
           <ActionIcon
             as="span"

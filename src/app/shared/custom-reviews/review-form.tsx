@@ -27,6 +27,7 @@ export default function ReviewForm() {
     >
       {({ register, control, formState: { errors } }) => (
         <>
+          <div className='font-semibold text-lg pb-4 text-center'>Add a review...</div>
           <div className="space-y-6">
             <Controller
               name="rating"
@@ -36,15 +37,17 @@ export default function ReviewForm() {
               )}
             />
             <Textarea
-              placeholder="Review...."
+              placeholder="Description...."
               {...register('review')}
               error={errors.review?.message}
               textareaClassName="h-24"
               className="col-span-2"
             />
-            <Button size="lg" className="px-8" type="submit">
-              Submit
-            </Button>
+            <div className='flex justify-center'>
+              <Button size="lg" className="px-8" type="submit">
+                Submit
+              </Button>
+            </div>
           </div>
         </>
       )}

@@ -9,38 +9,47 @@ import { routes } from '@/config/routes';
 import { useState } from 'react';
 
 const timelineData = [
+  // {
+  //   title: 'Milestone 3',
+  //   text: 'Brick Layering',
+  //   hightlightedText: 'Job complete',
+  //   date: 'May 02, 2023',
+  //   time: '11:30 am',
+  //   icon: '',
+  //   status: '',
+  // },
+  // {
+  //   title: 'Milestone 2',
+  //   text: 'Reinforcements',
+  //   hightlightedText: '',
+  //   date: 'May 02, 2023',
+  //   time: '11:00 am',
+  //   icon: <PiCheckCircle className="h-6 w-6 text-blue" />,
+  //   status: 'ongoing',
+  // },
+  // {
+  //   title: 'Milestone 1',
+  //   text: 'Wall Escavations',
+  //   hightlightedText: '',
+  //   date: 'May 02, 2023',
+  //   time: '09:00 am',
+  //   icon: <PiCheckCircle className="h-6 w-6 text-blue" />,
+  //   status: 'ongoing',
+  // },
   {
-    title: 'Milestone 3',
-    text: 'Brick Layering',
-    hightlightedText: 'Job complete',
-    date: 'May 02, 2023',
-    time: '11:30 am',
+    title: 'Stop',
+    text: '',
+    hightlightedText: '',
+    date: 'April 16, 2024',
+    time: '05:31 am',
     icon: '',
     status: '',
-  },
-  {
-    title: 'Milestone 2',
-    text: 'Reinforcements',
-    hightlightedText: '',
-    date: 'May 02, 2023',
-    time: '11:00 am',
-    icon: <PiCheckCircle className="h-6 w-6 text-blue" />,
-    status: 'ongoing',
-  },
-  {
-    title: 'Milestone 1',
-    text: 'Wall Escavations',
-    hightlightedText: '',
-    date: 'May 02, 2023',
-    time: '09:00 am',
-    icon: <PiCheckCircle className="h-6 w-6 text-blue" />,
-    status: 'ongoing',
   },
   {
     title: 'Start',
     text: '',
     hightlightedText: '',
-    date: 'April 29, 2023',
+    date: 'April 15, 2024',
     time: '05:31 am',
     icon: <PiCheckCircle className="h-6 w-6 text-blue" />,
     status: 'ongoing',
@@ -56,10 +65,10 @@ export default function ProgressBarActive({
 
   return (
     <>
-      <div className='ml-14 lg:ml-28'>
+      <div className='ml-14 lg:ml-20'>
         <Modal isOpen={modalState} onClose={() => setModalState(false)}>
             <div className='p-10'>
-                <p className='text-center text-lg font-semibold'>Do you confirm completion of this milestone?</p>
+                <p className='text-center text-lg font-semibold'>Do you confirm completion of this job?</p>
                 {/* <Button>Yes</Button> */}
 
                 <div className='flex justify-center mt-6'>
@@ -74,7 +83,7 @@ export default function ProgressBarActive({
         </Modal>
         <div className='mb-8'>
         
-              <Button onClick={() => setModalState(true)}>Complete Milestone</Button>
+              <Button onClick={() => setModalState(true)}>Complete Job</Button>
           
         </div>
 
