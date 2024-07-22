@@ -78,7 +78,7 @@ export default function EditProfileContactDetails() {
           </div>
           {/* <PersonalDetailsForm /> */}
 
-          <Button onClick={() => setModalState(true)} as="span" className="h-[38px] shadow md:h-10">
+          <Button onClick={() => setModalState(true)} as="span" className="h-[38px] shadow md:h-10 cursor-pointer">
             Save Changes
           </Button>
 

@@ -11,6 +11,7 @@ import { Text, Checkbox, ActionIcon, Tooltip, Select, Badge } from 'rizzui';
 // import { last } from 'lodash';
 import Link from 'next/link';
 import { routes } from '@/config/routes';
+import { Dispatch, SetStateAction } from 'react';
 
 // const statusOptions = [
 //   { label: 'Live', value: 'Live' },
@@ -25,6 +26,7 @@ type Columns = {
   onDeleteItem: (id: string) => void;
   onHeaderCellClick: (value: string) => void;
   onChecked?: (id: string) => void;
+  setViewReviewsModalState: Dispatch<SetStateAction<boolean>>
 };
 
 function getStatusBadge(status: string) {
@@ -61,6 +63,7 @@ export const getColumns = ({
   onDeleteItem,
   handleSelectAll,
   onHeaderCellClick,
+  setViewReviewsModalState,
 }: Columns) => [
   {
     title: <HeaderCell title="No." />,
@@ -187,10 +190,21 @@ export const getColumns = ({
     width: 100,
     render: (requestType: string, row: any) => (
         <div className="gap-3 pe-3">        
-          <Link href={routes.serviceProvider.fundi.viewReview}>
-            <Text className="text-sm text-green-600">View Review</Text>
-          </Link>
+          {/* <Link href={routes.serviceProvider.fundi.viewReview}> */}
+            <Text onClick={() => setViewReviewsModalState(true)} className="text-sm text-green-600 cursor-pointer">
+              View Review
+            </Text>
+          {/* </Link> */}
         </div>
       ),
   },
 ];
+
+
+
+
+{/* <div className="gap-3 pe-3">        
+          <Link href={routes.serviceProvider.fundi.viewReview}>
+            <Text className="text-sm text-green-600">View Review</Text>
+          </Link>
+        </div> */}

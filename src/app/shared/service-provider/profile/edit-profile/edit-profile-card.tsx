@@ -71,7 +71,7 @@ export default function EditProfileCard() {
         </WidgetCard>
   
         <Link
-          href={routes.serviceProvider.fundi.createProfile}
+          href={'#'}
           className="inline-flex flex-grow"
         >
           <Button as="span" className="h-[38px] shadow md:h-10">

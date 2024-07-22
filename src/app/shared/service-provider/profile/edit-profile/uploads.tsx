@@ -53,6 +53,8 @@ export default function EditProfileUploads({
                             label="Front"
                             size="lg"
                             inputClassName="text-sm"
+                            defaultValue={'olive_id_1.pdf'}
+                            disabled
                             // {...register('idNo')}
                             // error={errors.idNo?.message}
                             className="[&>label>span]:font-medium"
@@ -62,6 +64,8 @@ export default function EditProfileUploads({
                             label="Back"
                             size="lg"
                             inputClassName="text-sm"
+                            defaultValue={'olive_id_2.pdf'}
+                            disabled
                             // {...register('idNo')}
                             // error={errors.idNo?.message}
                             className="[&>label>span]:font-medium"
@@ -71,6 +75,8 @@ export default function EditProfileUploads({
                             label="Certificates*"
                             size="lg"
                             inputClassName="text-sm"
+                            defaultValue={'diploma_certificate1.pdf'}
+                            disabled
                             // {...register('idNo')}
                             // error={errors.idNo?.message}
                             className="[&>label>span]:font-medium"
@@ -80,6 +86,8 @@ export default function EditProfileUploads({
                             label="Resume/CV*"
                             size="lg"
                             inputClassName="text-sm"
+                            defaultValue={'document2.pdf'}
+                            disabled
                             // {...register('idNo')}
                             // error={errors.idNo?.message}
                             className="[&>label>span]:font-medium"

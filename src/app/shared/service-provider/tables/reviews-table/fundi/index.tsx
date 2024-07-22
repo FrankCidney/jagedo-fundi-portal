@@ -5,12 +5,14 @@ import { useColumn } from '@/hooks/use-column';
 import { useTable } from '@/hooks/use-table';
 import ControlledTable from '@/components/controlled-table';
 import { PiMagnifyingGlassBold } from 'react-icons/pi';
-import { Input } from 'rizzui';
+import { Input, Modal } from 'rizzui';
 import { fundiReviewsData } from '@/data/job-data';
 // import FilterElement from './filter-element';
 import { getColumns } from './columns';
 import FilterElement from './filter-element';
 import WidgetCard2 from '@/components/cards/widget-card2';
+import ReviewCard from "@/app/shared/custom-reviews/review-card-view";
+
 
 const filterState = {
   date: [null, null],
@@ -18,6 +20,7 @@ const filterState = {
 };
 export default function FundiReviewsTable({ className }: { className?: string }) {
   const [pageSize, setPageSize] = useState(7);
+  const [viewReviewsModalState, setViewReviewsModalState] = useState(false)
 
   const onHeaderCellClick = (value: string) => ({
     onClick: () => {
@@ -60,6 +63,7 @@ export default function FundiReviewsTable({ className }: { className?: string })
         onDeleteItem,
         onChecked: handleRowSelect,
         handleSelectAll,
+        setViewReviewsModalState,
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [
@@ -76,6 +80,18 @@ export default function FundiReviewsTable({ className }: { className?: string })
   const { visibleColumns } = useColumn(columns);
 
   return (
+    <>
+      <Modal isOpen={viewReviewsModalState} onClose={() => setViewReviewsModalState(false)}>
+          <div className='p-10'>          
+              <ReviewCard
+                  reviewer={{ name: 'Joyce Wasike'}}
+                  message={'Did a good job fixing the wiring'}
+                  date={new Date()}
+                  role={'Customer'}
+              />
+          </div>
+      </Modal>
+
     <WidgetCard2
       className={className}
       headerClassName="mb-2 items-start flex-col @[57rem]:flex-row @[57rem]:items-center"
@@ -121,5 +137,6 @@ export default function FundiReviewsTable({ className }: { className?: string })
         className="-mx-5 lg:-mx-5"
       />
     </WidgetCard2>
+    </>
   );
 }

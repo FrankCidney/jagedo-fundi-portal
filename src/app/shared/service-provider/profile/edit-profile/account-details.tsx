@@ -53,6 +53,8 @@ export default function EditProfileAccountDetails({
                         label="Gender"
                         size="lg"
                         inputClassName="text-sm"
+                        defaultValue={'Female'}
+                        disabled
                         // {...register('email')}
                         // error={errors.email?.message}
                         className="[&>label>span]:font-medium"
@@ -62,6 +64,8 @@ export default function EditProfileAccountDetails({
                         label="Registered As*"
                         size="lg"
                         inputClassName="text-sm"
+                        defaultValue={'Fundi'}
+                        disabled
                         // {...register('firstName')}
                         // error={errors.firstName?.message}
                         className="[&>label>span]:font-medium"
@@ -71,6 +75,8 @@ export default function EditProfileAccountDetails({
                         label="Level/Class"
                         size="lg"
                         inputClassName="text-sm"
+                        defaultValue={'Masterfundi'}
+                        disabled
                         // {...register('lastName')}
                         // error={errors.lastName?.message}
                         className="[&>label>span]:font-medium"
@@ -80,6 +86,8 @@ export default function EditProfileAccountDetails({
                         label="Years of experience"
                         size="lg"
                         inputClassName="text-sm"
+                        defaultValue={'8'}
+                        disabled
                         // {...register('phoneNo')}
                         // error={errors.phoneNo?.message}
                         className="[&>label>span]:font-medium"

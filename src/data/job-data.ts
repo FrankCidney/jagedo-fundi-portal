@@ -627,7 +627,7 @@ export const fundiReviewsData = [
     description: 'Repair of a faulty wiring system',
     location: 'Transmara, Narok',
     status: 'Reviewed',
-    reviewBy: 'John Kamau',
+    reviewBy: 'Joyce Wasike',
     requestTypeId: 0,
   },
 
@@ -641,7 +641,7 @@ export const fundiReviewsData = [
     description: 'Tank reticulation to water point',
     location: 'Transmara, Narok',
     status: 'Reviewed',
-    reviewBy: 'Agnes Wanjiku',
+    reviewBy: 'Floyd Wangari',
     requestTypeId: 1,
   },
 ];
