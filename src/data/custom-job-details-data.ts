@@ -1,3 +1,19 @@
+export const Note = [
+  {
+    NOTE: 'Master Fundi required for this job',
+  },
+];
+
+export const JobDescription = [
+  {
+    'Job Description': 'Repair of faulty wiring system',
+  },
+  {
+    'Job Description': 'Tank reticulation to water point',
+  },
+];
+
+
 export const requestDetailsData = [
     {
       'Request Type': 'Emergency',
@@ -5,7 +21,7 @@ export const requestDetailsData = [
       'Request Number': '#REQ0021',
       
         Location: 'Kome,Homabay',
-      'Job description': 'Repair of faulty wiring system',
+      // 'Job description': 'Repair of faulty wiring system',
       Status: 'Open',
       
       Category: 'Fundi',
@@ -15,6 +31,9 @@ export const requestDetailsData = [
       'Invoice Number': '#3454',
       'Payment Status': 'Paid',
       'Rate': '1000',
+
+      'Start Date': '12/11/2023',
+      'End Date': '13/11/2023',
     },
     {
       'Request Type': 'Standard',
@@ -22,7 +41,7 @@ export const requestDetailsData = [
       'Request Number': '#REQ0020',
       
         Location: 'Kome,Homabay',
-      'Job description': 'Tank reticulation to water point',
+      // 'Job description': 'Tank reticulation to water point',
       Status: 'Open',
       
       Category: 'Fundi',
@@ -32,6 +51,9 @@ export const requestDetailsData = [
       'Invoice Number': '#3454',
       'Payment Status': 'Paid',
       'Rate': '1000',
+
+      'Start Date': '12/11/2023',
+      'End Date': '13/11/2023',
     },
   ]
   ;
@@ -44,7 +66,7 @@ export const requestDetailsData = [
       'Request Number': '#JOB0021',
       
         Location: 'Kome,Homabay',
-      'Job description': 'Repair of faulty wiring system',
+      // 'Job description': 'Repair of faulty wiring system',
       Status: 'Ongoing',
       
       Category: 'Fundi',
@@ -64,7 +86,7 @@ export const requestDetailsData = [
       'Request Number': '#JOB0020',
       
         Location: 'Kome,Homabay',
-      'Job description': 'Tank reticulation to water point',
+      // 'Job description': 'Tank reticulation to water point',
       Status: 'Ongoing',
       
       Category: 'Fundi',
@@ -89,7 +111,7 @@ export const completeJobDetailsData =
     'Request Number': '#JOB0021',
     
       Location: 'Kome,Homabay',
-    'Job description': 'Repair of faulty wiring system',
+    // 'Job description': 'Repair of faulty wiring system',
     Status: 'Reviewed',
     
     Category: 'Fundi',
@@ -109,7 +131,7 @@ export const completeJobDetailsData =
     'Request Number': '#JOB0020',
     
       Location: 'Kome,Homabay',
-    'Job description': 'Tank reticulation to water point',
+    // 'Job description': 'Tank reticulation to water point',
     Status: 'Unreviewed',
     
     Category: 'Fundi',

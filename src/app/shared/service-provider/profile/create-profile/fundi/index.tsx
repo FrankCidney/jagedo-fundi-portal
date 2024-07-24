@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from "framer-motion";
-import { Input, Loader, } from "rizzui";
+import { Input, Loader, Textarea, } from "rizzui";
 import { FundiProfileSchema, fundiProfileSchema } from "@/utils/validators/custom-profile.schema";
 import { SubmitHandler, Controller } from "react-hook-form";
 import CustomMultiStepForm from "@/app/shared/custom-multi-step";
@@ -17,9 +17,16 @@ import {
   years, 
   county, 
   subCounty, 
+  booleanQuestion,
 } from "@/app/shared/service-provider/profile/create-profile/fundi/data";
 import { useRouter } from 'next/navigation';
 import { routes } from '@/config/routes';
+import UploadButtonOutlined from "@/components/buttons/upload-button-outlined";
+import { FileInput } from "@/app/shared/commons/custom-file-input";
+// import UploadButton from "@/app/shared/commons/upload-button";
+const FileUpload = dynamic(() => import('@/app/shared/commons/file-upload'), {
+  ssr: false,
+});
 
 // dynamic import Select component from rizzui
 const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
@@ -40,7 +47,7 @@ export default function CreateFundiProfileForm() {
 
     window.sessionStorage.setItem('profileCreated', 'true')
     window.location.reload()
-    // router.push(routes.serviceProvider.fundi.profile)
+    router.push(routes.serviceProvider.fundi.profile)
 
   };
 
@@ -204,6 +211,118 @@ export default function CreateFundiProfileForm() {
 
               
 
+              {/* Step 3 */}
+              {currentStep === 2 && (
+                <motion.div
+                  initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                >
+                  {/* Title and description */}
+                  <div className="col-span-full @4xl:col-span-4 pb-10">
+                    <h4 className="text-base font-medium">Evaluation Form</h4>
+                    <p className="mt-2">Kindly fill in the details below</p>
+                  </div>
+
+                  {/* Inputs */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">                                     
+                  <Controller
+                      control={control}
+                      name="question1"
+                      render={({ field: { value, onChange } }) => (
+                        <Select 
+                          dropdownClassName="!z-10"
+                          inPortal={false}
+                          placeholder="Yes/No"
+                          label="Have you done any major works in the construction industry?"
+                          size="lg"
+                          selectClassName="font-medium text-sm"
+                          optionClassName=""
+                          options={booleanQuestion}
+                          onChange={onChange}
+                          value={value}
+                          className=""
+                          getOptionValue={(option) => option.value}
+                          displayValue={(selected) =>
+                            booleanQuestion?.find((r) => r.value === selected)?.label ?? ''
+                          }
+                          error={errors?.question1?.message as string}
+                        />
+                      )}
+                    />
+
+                    {/* <Textarea
+                      label="Message"
+                      value={'state'}
+                      maxLength={236}
+                      rows={1}
+                      size="lg"
+                      className=""
+                      // onChange={(e) => setState(e.target.value)}
+                      // renderCharacterCount={({ characterCount, maxLength }) => (
+                      //   <div className="text-right text-sm opacity-70 rtl:text-left">
+                      //     {characterCount}/{maxLength}
+                      //   </div>
+                      // )}
+                    /> */}
+
+                    <Input
+                      placeholder="E.g., cement, bricks"
+                      label="State the materials that you have been using mostly for your jobs"
+                      size="lg"
+                      inputClassName="text-sm"
+                      {...register('question2')}
+                      error={errors.question2?.message}
+                      className="[&>label>span]:font-medium"
+                    />
+
+                    <Input
+                      placeholder="E.g., plumb bomb, tape measure"
+                      label="Name essential equipment that you have been using for your job"
+                      size="lg"
+                      inputClassName="text-sm"
+                      {...register('question3')}
+                      error={errors.question3?.message}
+                      className="[&>label>span]:font-medium"
+                    />
+
+                    <Input
+                      placeholder="Answer here"
+                      label="How do you always formulate your quotations?"
+                      size="lg"
+                      inputClassName="text-sm"
+                      {...register('question4')}
+                      error={errors.question4?.message}
+                      className="[&>label>span]:font-medium"
+                    />
+
+                    {/* <div className="flex items-center">
+                      <p className="font-medium py-auto">Please share with us 3 photos of your previous jobs</p>
+                    </div>
+                    <UploadButton modalView={<FileUpload />} /> */}
+
+                    
+
+                    <div className="mt-4">
+                      <p className="font-medium mb-1">Please share with us 3 photos of your previous jobs</p>
+                      <FileInput />
+                      {/* <UploadButtonOutlined modalView={<FileUpload />} /> */}
+
+                      {/* <div className="border border-gray-300 border-2 rounded-lg">
+                        <div className="w-40 -pt-4 flex">                    
+                          <UploadButtonOutlined modalView={<FileUpload />} />
+                        </div>
+                      </div> */}
+                    </div>
+
+                    {/* <FileInput /> */}
+                            
+                  </div>
+                  {/* </div> */}
+
+                </motion.div>
+              )}       
+
               {/* Step 2 */}
               {currentStep === 1 && (
                 <motion.div
@@ -341,7 +460,7 @@ export default function CreateFundiProfileForm() {
                   {/* </div> */}
 
                 </motion.div>
-              )}         
+              )}    
             </>
           )}
         </CustomMultiStepForm>

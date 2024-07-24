@@ -1,8 +1,12 @@
+'use client'
+
 import Image from 'next/image';
 import { Title, Text, Button, Modal } from 'rizzui';
 import cn from '@/utils/class-names';
 import { routes } from '@/config/routes';
 import Link from 'next/link';
+import { Dispatch, SetStateAction } from 'react';
+import Rate from '@/components/ui/rate';
 
 function WidgetCard({
     title,
@@ -35,10 +39,15 @@ return (
 );
 }
 
-  
-export default function EditProfileCard() {
+interface Props {
+  editMode: boolean;
+  setEditMode: Dispatch<SetStateAction<boolean>>;
+  setModalState: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function EditProfileCard({ editMode, setEditMode, setModalState }: Props) {
     return (
-      <div className="space-y-7 pt-8 @container @5xl:col-span-4 @5xl:space-y-10 @5xl:pt-0 @6xl:col-span-3">
+      <div className="space-y-7 pt-8 @container @5xl:col-span-1 @5xl:space-y-10 @5xl:pt-0 @6xl:col-span-1">
         <WidgetCard
           className="mb-7.5 @5xl:mb-5"
           title="Fundi Details"
@@ -67,17 +76,37 @@ export default function EditProfileCard() {
             <Text as="p" className="mb-2 last:mb-0">
               (316) 555-0116
             </Text>
+            <Rate value={3.5} allowHalf={true} disabled={true} />
           </div>
         </WidgetCard>
   
-        <Link
+        {/* <Link
           href={'#'}
           className="inline-flex flex-grow"
-        >
-          <Button as="span" className="h-[38px] shadow md:h-10">
+        > */}
+          {/* <Button onClick={() => setEditMode(true)} as="span" className="h-[38px] shadow md:h-10">
             Edit Profile
+          </Button> */}
+        {/* </Link> */}
+
+        {!editMode? (
+          <Button onClick={() => {
+            setEditMode(true)
+          }} 
+          as="span" 
+          className="h-[38px] shadow md:h-10 cursor-pointer">
+                Edit Profile
           </Button>
-        </Link>
+        ) : (
+          <Button onClick={() => {
+            setEditMode(false)
+            setModalState(true)
+          }} 
+          as="span" 
+          className="h-[38px] shadow md:h-10 cursor-pointer">
+                Save Changes
+          </Button>
+        )}
       </div>
     )
   }

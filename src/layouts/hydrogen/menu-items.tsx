@@ -55,6 +55,7 @@ import {
   PiTrolleyDuotone,
   PiMoneyDuotone,
   PiGearDuotone,
+  PiStarDuotone,
 } from 'react-icons/pi';
 // import { checkRole } from '@/utils/custom-check-role';
 
@@ -101,6 +102,12 @@ switch(userRole) {
         href: '#',
         icon: <PiMoneyDuotone />,
       },
+      {
+        name: 'Review',
+        href: routes.serviceProvider.fundi.reviews,
+        icon: <PiStarDuotone />,
+      },
+    
     
       // {
       //   name: 'Jobs',
@@ -140,11 +147,11 @@ switch(userRole) {
             href: '#',
             badge: '',
           },
-          {
-            name: 'Change Password',
-            href: '#',
-            badge: '',
-          },
+          // {
+          //   name: 'Change Password',
+          //   href: '#',
+          //   badge: '',
+          // },
         ]
       },
     

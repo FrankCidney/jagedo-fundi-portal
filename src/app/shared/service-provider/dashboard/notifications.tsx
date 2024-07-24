@@ -31,7 +31,7 @@ export default function Notifications(
         {/* the title bar */}
         <div className="mb-2 ps-2 pe-3 flex items-center justify-between">
           <Title as="h5" fontWeight="semibold">
-            Messages
+            Notifications
           </Title>
           <Link
             href={'#'}

@@ -10,8 +10,8 @@ import UserDetailsCard from '@/app/shared/custom-user-details-card';
 import { activeJobDetailsData } from "@/data/custom-job-details-data";
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
-import { PiCaretDownBold } from 'react-icons/pi';
-import { Accordion } from 'rizzui';
+// import { PiAcorn, PiCaretDownBold } from 'react-icons/pi';
+// import { Accordion, Stepper } from 'rizzui';
 
 
 // const data = [
@@ -49,9 +49,41 @@ export default function ActiveJobDetailsCard() {
 
   return (
     <>
-      <h3 className="mb-4">Job Details</h3>
+      {/* <h3 className="mb-4">Job Details</h3> */}
 
-      <Accordion
+      <div className='mb-4'>
+        <UserDetailsCard />
+      </div>
+
+      <div className='mb-4'>
+        <ChunkedGrid data={jobId === 'JOB0021'? activeJobDetailsData[0] : activeJobDetailsData[1]} dataChunkSize={8} className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6' />
+      </div>
+
+      {/* <Stepper currentIndex={2} className="w-full">
+      <Stepper.Step
+        variant="outline"
+        title="Login"
+        icon={<PiAcorn className="h-5 w-5" />}
+        description={'This is a description, a long long long long long one'}
+      />
+      <Stepper.Step
+        variant="outline"
+        title="Verification"
+        icon={<PiAcorn className="h-5 w-5" />}
+      />
+      <Stepper.Step
+        variant="outline"
+        title="Pay"
+        icon={<PiAcorn className="h-5 w-5" />}
+      />
+      <Stepper.Step
+        variant="outline"
+        title="Done"
+        icon={<PiAcorn className="h-5 w-5" />}
+      />
+    </Stepper> */}
+
+      {/* <Accordion
         className=''
         defaultOpen={true}
       >
@@ -70,14 +102,12 @@ export default function ActiveJobDetailsCard() {
         </Accordion.Header>
 
         <Accordion.Body>
-          <div className='mb-4'>
-            <ChunkedGrid data={jobId === 'JOB0021'? activeJobDetailsData[0] : activeJobDetailsData[1]} dataChunkSize={3} className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6' />
-          </div>
+          
          
         </Accordion.Body>
-      </Accordion>
+      </Accordion> */}
 
-      <Accordion
+      {/* <Accordion
         className='mt-2 mb-8'
       >
         <Accordion.Header>
@@ -100,7 +130,7 @@ export default function ActiveJobDetailsCard() {
           </div>
          
         </Accordion.Body>
-      </Accordion>
+      </Accordion> */}
       
       {/* <div className='my-4'>
         <ChunkedGrid data={jobId === 'JOB0021'? activeJobDetailsData[0] : activeJobDetailsData[1]} dataChunkSize={3} className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6' />

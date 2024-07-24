@@ -33,21 +33,21 @@ export default function Timeline({
 
   return (
     <>
-    {/* <div className={cn('relative @container flex', className)}>
+    <div className={cn('relative @container flex justify-between', className)}>
       {data.map((timeline: any, index: number) => (
-        <div className="flex items-center justify-between" key={`timeline-${index}`}>
-          <div className="hidden w-[147px] flex-shrink-0 @lg:block">
+        <div className="flex items-start justify-between flex-grow" key={`timeline-${index}`}>
+          {/* <div className="hidden w-[147px] flex-shrink-0 @lg:block border-t border-muted py-5">
             
-          </div>
+          </div> */}
           <div
             className={cn(
-              'relative flex-grow border-t border-muted py-5 ps-10 before:absolute before:-left-[3px] before:-top-[3px] before:h-1.5 before:w-1.5 before:rounded-full before:bg-gray-200 dark:border-gray-700 dark:before:bg-gray-900 rtl:before:-right-[3px]',
+              'relative flex-grow border-t border-muted py-5 ps-10 pr-10 before:absolute before:-left-[3px] before:-top-[3px] before:h-1.5 before:w-1.5 before:rounded-full before:bg-gray-200 dark:border-gray-700 dark:before:bg-gray-900 rtl:before:-right-[3px]',
               index !== 0 && 'before:hidden',
               index === data.length - 1 &&
-                'before:-bottom-[3px] before:top-auto before:block'
+                'before:left-auto before:block'
             )}
           >
-              <span className="absolute -top-2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-gray-0 dark:bg-gray-50 rtl:-right-3">
+              <span className="absolute -top-[1px] flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-gray-0 dark:bg-gray-50 rtl:-right-3">
                 {timeline.icon ? (
                   timeline.icon
                 ) : order === 'asc' ? (
@@ -67,17 +67,28 @@ export default function Timeline({
               >
                 {timeline.title}
               </Title>
+              <div className="relative -ms-10">
+              <div className="ps-10">
+                <Text className=" text-sm font-normal leading-loose text-gray-500">
+                  {timeline.text}
+                  <Text as="span" className="block font-medium text-gray-700">
+                    {timeline.hightlightedText}
+                  </Text>{' '}
+                  {`${timeline.date} ${timeline.time}`}
+                </Text>
+              </div>
+            </div>
           </div>
         </div>
       ))}
-    </div> */}
+    </div>
 
-    <div className={cn('relative @container', className)}>
+    {/* <div className={cn('relative @container', className)}>
       {data.map((timeline: any, index: number) => (
         <div className="flex items-center" key={`timeline-${index}`}>
-          {/* <div className="hidden w-[147px] flex-shrink-0 @lg:block">
+          <div className="hidden w-[147px] flex-shrink-0 @lg:block">
             
-          </div> */}
+          </div>
           <div
             className={cn(
               'relative flex-grow border-s border-muted py-5 ps-10 before:absolute before:-left-[3px] before:-top-[3px] before:h-1.5 before:w-1.5 before:rounded-full before:bg-gray-200 dark:border-gray-700 dark:before:bg-gray-900 rtl:before:-right-[3px]',
@@ -120,7 +131,7 @@ export default function Timeline({
           </div>
         </div>
       ))}
-    </div>
+    </div> */}
     </>
   );
 }

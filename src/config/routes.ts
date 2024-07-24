@@ -44,7 +44,7 @@ export const routes = {
 
       
       // profile
-      profile: '/service-provider/profile',
+      profile: '/service-provider/fundi/profile',
 
       // create profile
       createProfile: '/service-provider/profile/create/fundi',

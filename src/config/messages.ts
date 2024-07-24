@@ -89,6 +89,7 @@ export const messages = {
   ncaCardIsRequired: 'NCA Registration Card is required',
   professionIsRequired: 'Profession is required',
   categoryIsRequired: 'Category is required',
+  fieldIsRequired: 'This field is required',
 
   // customer
   typeIsRequired: 'Type is required',

@@ -52,12 +52,12 @@ switch (userRole) {
         fill: '#2B7F75',
         link: routes.serviceProvider.fundi.requisitions,
       },
-      {
-        name: 'Quotations',
-        total: 7,
-        fill: '#FFD66B',
-        link: '#',
-      },
+      // {
+      //   name: 'Quotations',
+      //   total: 7,
+      //   fill: '#FFD66B',
+      //   link: '#',
+      // },
       {
         name: 'Active',
         total: 10,

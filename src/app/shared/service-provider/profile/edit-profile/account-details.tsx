@@ -33,11 +33,11 @@ export default function EditProfileAccountDetails({
 
   return (
     <div className='@container'>
-        <div className="items-start pt-5 @5xl:grid @5xl:grid-cols-12 @5xl:gap-7 @6xl:grid-cols-10 @7xl:gap-10">
+        <div className="items-start pt-5 @xl:grid-cols-3 @5xl:grid @5xl:grid-cols-3 @5xl:gap-7 @6xl:grid-cols-3 @7xl:gap-10">
 
-            <EditProfileCard />
+            {/* <EditProfileCard /> */}
 
-            <div className="space-y-6 pt-14 @5xl:pt-0 @5xl:col-span-8 @5xl:space-y-10 @6xl:col-span-7">
+            <div className="space-y-6 pt-14 @5xl:pt-0 col-span-2 @5xl:col-span-2 @5xl:space-y-10 @6xl:col-span-2">
                 <form>     
                     <div className="mb-3.5 @5xl:mb-5">
                       <Title as="h3" className="text-base font-semibold @7xl:text-lg">

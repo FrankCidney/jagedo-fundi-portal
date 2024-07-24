@@ -16,6 +16,10 @@ export const fundiProfileSchema = baseUserFormSchema.extend({
     ncaCard: z.any().refine(value => value !== undefined, { message: messages.ncaCardIsRequired}),
     gender: z.string().min(1, { message: messages.genderIsRequired }),
     resume: z.any().optional(),
+    question1: z.string().min(1, { message: messages.fieldIsRequired }),
+    question2: z.string().min(1, { message: messages.fieldIsRequired }),
+    question3: z.string().min(1, { message: messages.fieldIsRequired }),
+    question4: z.string().min(1, { message: messages.fieldIsRequired }),
 })
 
 export const contractorProfileSchema = baseUserFormSchema.extend({

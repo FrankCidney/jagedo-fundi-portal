@@ -5,6 +5,7 @@ import ReviewSlider from './review-slider';
 // import CustomMessagesList from '@/app/shared/custom-messages-list';
 // import RequisitionAlerts from './requisition-alerts';
 import Notifications from './notifications';
+import WalletCard from './wallet';
 
 export default function ServiceProviderDashboard() {
   return (
@@ -14,8 +15,14 @@ export default function ServiceProviderDashboard() {
         <JobSlider />
         {/* <RequisitionAlerts /> */}
         <Notifications />
+        <WalletCard
+          balance={
+            '232,000.00'
+          } /* className="h-[300px] @sm:h-[320px]   @7xl:col-span-4 @7xl:col-start-auto @7xl:row-start-auto" */
+        />
         <BidsStatus /* className="h-[300px] @sm:h-[320px]   @7xl:col-span-4 @7xl:col-start-auto @7xl:row-start-auto" */ />
-        <ReviewSlider />
+
+        {/* <ReviewSlider /> */}
       </div>
       {/* <div className="pt-10 grid grid-cols-1 gap-6 @4xl:grid-cols-3 @7xl:grid-cols-12 3xl:gap-8">
         

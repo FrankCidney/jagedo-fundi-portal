@@ -150,7 +150,7 @@ TFormValues extends Record<string, any> = Record<string, any>,
       </nav>
       
       {/* Form */}
-      <form className='mt-8 py-3' onSubmit={methods.handleSubmit(onSubmit)}>
+      <form className='mt-8 py-3' /*onSubmit={methods.handleSubmit(onSubmit)}*/>
           {children(methods, currentStep, delta)}
       
 
@@ -171,9 +171,12 @@ TFormValues extends Record<string, any> = Record<string, any>,
           {currentStep === steps.length - 1 ? (
             <Button 
             className="w-32" 
-            type="submit" 
+            type="button" 
             size="lg"   
-            // onClick={redirect}
+            onClick={() => {
+              methods.handleSubmit(onSubmit)()
+              // console.log('Clicked')
+            }}
             // disabled={currentStep === steps.length - 1}
             >
               <span>Submit</span>{' '}

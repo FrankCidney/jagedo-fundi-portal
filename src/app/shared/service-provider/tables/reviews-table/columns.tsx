@@ -181,28 +181,6 @@ export const getColumns = ({
         <Link href={routes.serviceProvider.contractor.viewReview}>
           <Text className="text-sm text-green-600">View Review</Text>
         </Link>
-        
-
-        {/* <Tooltip size="sm" content={'View'} placement="top" color="invert">
-          <ActionIcon
-            as="span"
-            size="sm"
-            variant="outline"
-            aria-label={'View Appointment'}
-            className="hover:!border-gray-900 hover:text-gray-700"
-          >
-            <Link href={routes.serviceProvider.confirmAvailability}>
-              <EyeIcon className="h-4 w-4" />
-            </Link>
-          </ActionIcon>
-        </Tooltip> */}
-
-
-        {/* <DeletePopover
-          title={`Remove User`}
-          description={`Are you sure you want to remove this User?`}
-          onDelete={() => onDeleteItem(row.id)}
-        /> */}
       </div>
     ),
   },

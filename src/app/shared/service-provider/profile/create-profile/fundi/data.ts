@@ -16,25 +16,34 @@ export const fundiProfileSteps = [
       name: 'Required Details',
       fields: ['skill', 'level', 'years', 'idPic', 'certificates', 'resume', 'ncaCard' ]
     },
+    {
+      id: 'Step 3',
+      name: 'Evaluation Form',
+      fields: ['question']
+    },
 ]
 
 // set initial values for the form fields here
 export const fundiInitialValues: FundiProfileSchema = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    skill: '',
-    phoneNo: '',
-    gender: '',
-    county: '',
-    subCounty: '',
-    estate: '',
-    level: '',
-    years: '',
+    firstName: 'Olive',
+    lastName: 'Wangari',
+    email: 'olivewangari@gmail.com',
+    skill: 'mason',
+    phoneNo: '0704093284',
+    gender: 'female',
+    county: 'kisumu',
+    subCounty: 'kisumu central',
+    estate: 'Tom Mboya',
+    level: 'masterfundi',
+    years: '8',
     idPic: '',
     certificates: '',
     ncaCard: '',
     resume: '',
+    question1: '',
+    question2: '',
+    question3: '',
+    question4: '',
   }
 
 // if there's any 'Select' inputs, specify the values here
@@ -50,6 +59,10 @@ export const fundiInitialValues: FundiProfileSchema = {
     {
       label: 'Builder',
       value: 'builder',
+    },
+    {
+      label: 'Mason',
+      value: 'mason',
     },
   ];
 
@@ -109,5 +122,16 @@ export const fundiInitialValues: FundiProfileSchema = {
     {
       label: '2',
       value: '2',
+    },
+  ];
+
+  export const booleanQuestion = [
+    {
+        label: 'Yes',
+        value: 'yes',
+      },
+    {
+      label: 'No',
+      value: 'no',
     },
   ];
