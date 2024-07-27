@@ -6,7 +6,7 @@ import { useTable } from '@/hooks/use-table';
 import ControlledTable from '@/components/controlled-table';
 import { PiMagnifyingGlassBold } from 'react-icons/pi';
 import { Input } from 'rizzui';
-import { completedJobsData } from '@/data/job-data';
+import { professionalCompletedJobsData } from '@/data/job-data';
 // import FilterElement from './filter-element';
 import { getColumns } from './columns';
 import FilterElement from './filter-element';
@@ -48,12 +48,12 @@ export default function SpCompletedJobsTable({ className }: { className?: string
     handleSelectAll,
     handleDelete,
     handleReset,
-  } = useTable(completedJobsData, pageSize, filterState);
+  } = useTable(professionalCompletedJobsData, pageSize, filterState);
 
   const columns = useMemo(
     () =>
       getColumns({
-        data: completedJobsData,
+        data: professionalCompletedJobsData,
         sortConfig,
         checkedItems: selectedRowKeys,
         onHeaderCellClick,
@@ -80,7 +80,7 @@ export default function SpCompletedJobsTable({ className }: { className?: string
       className={className}
       headerClassName="mb-2 items-start flex-col @[57rem]:flex-row @[57rem]:items-center"
       actionClassName="grow @[57rem]:ps-11 ps-0 items-center w-full @[42rem]:w-full @[57rem]:w-auto "
-      title="Jobs"
+      title="Completed Jobs"
       titleClassName="whitespace-nowrap font-inter"
       action={
         <div className=" mt-4 flex w-full flex-col-reverse items-center justify-between  gap-3  @[42rem]:flex-row @[57rem]:mt-0">

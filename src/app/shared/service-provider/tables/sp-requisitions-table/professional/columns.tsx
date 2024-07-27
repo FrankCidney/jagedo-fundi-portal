@@ -29,7 +29,7 @@ type Columns = {
 
 function getStatusBadge(status: string) {
   switch (status.toLowerCase()) {
-    case 'under review':
+    case 'open':
       return (
         <div className="flex items-center">
           <Badge color="warning" renderAsDot />
@@ -39,8 +39,8 @@ function getStatusBadge(status: string) {
     case 'closed':
       return (
         <div className="flex items-center">
-          <Badge color="success" renderAsDot />
-          <Text className="ms-2 font-medium text-green-dark">{status}</Text>
+          <Badge renderAsDot className="bg-gray-400" />
+          <Text className="ms-2 font-medium text-gray-600">{status}</Text>
         </div>
       );
     default:
@@ -63,45 +63,38 @@ export const getColumns = ({
   onHeaderCellClick,
 }: Columns) => [
   {
+    title: <HeaderCell title="No." />,
+    dataIndex: 'number',
+    key: 'number',
+    width: 50,
+    render: (number: string) => (
+      <Text className="text-sm text-gray-900 dark:text-gray-700">
+        {number}
+      </Text>
+    ),
+  },
+
+  {
     title: <HeaderCell title="#" />,
     dataIndex: 'id',
     key: 'id',
     width: 10,
-    render: (id: string) => <Text>#{id}</Text>,
+    render: (id: string) => (
+    // <Text>#{id}</Text>
+    <Text className="text-sm text-gray-900 dark:text-gray-700">
+      #{id}
+    </Text>
+  ),
   },
 
   {
-    title: <HeaderCell title="Request Date" />,
-    dataIndex: 'requestDate',
-    key: 'requestDate',
+    title: <HeaderCell title="Date" className="uppercase" />,
+    dataIndex: 'date',
+    key: 'date',
     width: 100,
-    render: (requestDate: string) => (
+    render: (date: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
-        {requestDate}
-      </Text>
-    ),
-  },
-
-  {
-    title: <HeaderCell title="Request Number" />,
-    dataIndex: 'requestNumber',
-    key: 'requestNumber',
-    width: 100,
-    render: (requestNumber: string) => (
-      <Text className="text-sm text-gray-900 dark:text-gray-700">
-        {requestNumber}
-      </Text>
-    ),
-  },
-
-  {
-    title: <HeaderCell title="Request Type" />,
-    dataIndex: 'requestType',
-    key: 'requestType',
-    width: 100,
-    render: (requestType: string) => (
-      <Text className="text-sm text-gray-900 dark:text-gray-700">
-        {requestType}
+        {date}
       </Text>
     ),
   },
@@ -131,10 +124,22 @@ export const getColumns = ({
   },
 
   {
+    title: <HeaderCell title="Request Type" />,
+    dataIndex: 'requestType',
+    key: 'requestType',
+    width: 150,
+    render: (requestType: string) => (
+      <Text className="text-sm text-gray-900 dark:text-gray-700">
+        {requestType}
+      </Text>
+    ),
+  },
+
+  {
     title: <HeaderCell title="Description" />,
     dataIndex: 'description',
     key: 'description',
-    width: 100,
+    width: 250,
     render: (description: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
         {description}
@@ -158,17 +163,9 @@ export const getColumns = ({
     title: <HeaderCell title="Status" />,
     dataIndex: 'status',
     key: 'status',
-    width: 120,
+    width: 100,
     render: (value: string) => getStatusBadge(value),
   },
-
-  // {
-  //   title: <HeaderCell title="Status" />,
-  //   dataIndex: 'status',
-  //   key: 'status',
-  //   width: 80,
-  //   render: (status: number) => <Text>{status}</Text>,
-  // },
 
   {
     // Need to avoid this issue -> <td> elements in a large <table> do not have table headers.
@@ -179,12 +176,12 @@ export const getColumns = ({
     render: (requestTypeId: Number, row: any) => (
       <div className="gap-3 pe-3">
         {(requestTypeId === 1) ? (
-          <Link href={routes.serviceProvider.contractor.rfqStandardOne}>
-            <Text className="text-sm text-green-600">View RFQ</Text>
+          <Link href={routes.serviceProvider.professional.rfqStandardTWo}>
+            <Text className="text-sm text-green-600">View</Text>
         </Link>
         ) : (
           <Link href={routes.serviceProvider.professional.rfqStandardTWo}>
-            <Text className="text-sm text-green-600">View RFQ</Text>
+            <Text className="text-sm text-green-600">View</Text>
           </Link>
         )}
         

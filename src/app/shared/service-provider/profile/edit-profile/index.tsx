@@ -23,8 +23,8 @@ const data: Data = {
   'Registered As': 'Fundi',
   'Level/Class': 'Masterfundi',
   'Years of experience': '8',
-  'Front': 'Wangari_id_1.pdf',
-  'Back': 'Wangari_id_2.pdf',
+  'ID': 'Wangari_id_1.pdf',
+  // 'Back': 'Wangari_id_2.pdf',
   'Certificate': 'diploma certificate1.pdf',
   'Resume/CV': 'Document_2.pdf'
 }
@@ -41,7 +41,7 @@ const splitData = (data: Data, keys: string[]) => {
 };
 
 const accountDetailsKeys = ['Gender', 'Registered As', 'Level/Class', 'Years of experience'];
-const uploadsKeys = ['Front', 'Back', 'Certificate', 'Resume/CV'];
+const uploadsKeys = ['ID', 'Certificate', 'Resume/CV'];
 
 const accountDetails = splitData(data, accountDetailsKeys);
 const uploads = splitData(data, uploadsKeys);

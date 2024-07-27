@@ -7,8 +7,8 @@ import UserDetailsCard from '@/app/shared/custom-user-details-card';
 // import { useRouter } from 'next/navigation';
 // import { PiTrashDuotone, PiUpload } from 'react-icons/pi';
 // import { Badge, Button } from 'rizzui';
-import { activeJobDetailsData } from "@/data/custom-job-details-data";
-import { useSearchParams } from 'next/navigation';
+import { activeJobDetailsData, professionalActiveJobDetailsData } from "@/data/custom-job-details-data";
+import { usePathname, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 // import { PiAcorn, PiCaretDownBold } from 'react-icons/pi';
 // import { Accordion, Stepper } from 'rizzui';
@@ -35,8 +35,10 @@ import { useState } from 'react';
 export default function ActiveJobDetailsCard() {
   // const router = useRouter();
   const searchParams = useSearchParams()
+  const pathname = usePathname()
 
   const jobId = searchParams.get('id')
+  const professional = pathname.includes('professional')
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -56,7 +58,14 @@ export default function ActiveJobDetailsCard() {
       </div>
 
       <div className='mb-4'>
-        <ChunkedGrid data={jobId === 'JOB0021'? activeJobDetailsData[0] : activeJobDetailsData[1]} dataChunkSize={8} className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6' />
+        {
+          professional? (
+            <ChunkedGrid data={jobId === 'JOB0021'? professionalActiveJobDetailsData[0] : professionalActiveJobDetailsData[1]} dataChunkSize={6} className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6' />
+          ) : (
+            <ChunkedGrid data={jobId === 'JOB0021'? activeJobDetailsData[0] : activeJobDetailsData[1]} dataChunkSize={6} className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6' />
+          )
+        }
+        {/* <ChunkedGrid data={jobId === 'JOB0021'? activeJobDetailsData[0] : activeJobDetailsData[1]} dataChunkSize={6} className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6' /> */}
       </div>
 
       {/* <Stepper currentIndex={2} className="w-full">

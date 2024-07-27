@@ -5,19 +5,22 @@ import { useColumn } from '@/hooks/use-column';
 import { useTable } from '@/hooks/use-table';
 import ControlledTable from '@/components/controlled-table';
 import { PiMagnifyingGlassBold } from 'react-icons/pi';
-import { Input } from 'rizzui';
-import { fundiActiveJobsData } from '@/data/job-data';
+import { Input, Modal } from 'rizzui';
+import { professionalReviewsData } from '@/data/job-data';
 // import FilterElement from './filter-element';
 import { getColumns } from './columns';
 import FilterElement from './filter-element';
 import WidgetCard2 from '@/components/cards/widget-card2';
+import ReviewCard from "@/app/shared/custom-reviews/review-card-view";
+
 
 const filterState = {
   date: [null, null],
   status: '',
 };
-export default function FundiActiveJobsTable({ className }: { className?: string }) {
+export default function ProfessionalReviewsTable({ className }: { className?: string }) {
   const [pageSize, setPageSize] = useState(7);
+  const [viewReviewsModalState, setViewReviewsModalState] = useState(false)
 
   const onHeaderCellClick = (value: string) => ({
     onClick: () => {
@@ -48,18 +51,19 @@ export default function FundiActiveJobsTable({ className }: { className?: string
     handleSelectAll,
     handleDelete,
     handleReset,
-  } = useTable(fundiActiveJobsData, pageSize, filterState);
+  } = useTable(professionalReviewsData, pageSize, filterState);
 
   const columns = useMemo(
     () =>
       getColumns({
-        data: fundiActiveJobsData,
+        data: professionalReviewsData,
         sortConfig,
         checkedItems: selectedRowKeys,
         onHeaderCellClick,
         onDeleteItem,
         onChecked: handleRowSelect,
         handleSelectAll,
+        setViewReviewsModalState,
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [
@@ -76,21 +80,32 @@ export default function FundiActiveJobsTable({ className }: { className?: string
   const { visibleColumns } = useColumn(columns);
 
   return (
+    <>
+      <Modal isOpen={viewReviewsModalState} onClose={() => setViewReviewsModalState(false)}>
+          <div className='p-10'>          
+              <ReviewCard
+                  reviewer={{ name: 'Joyce Wasike'}}
+                  message={'Did a good job fixing the wiring'}
+                  date={new Date()}
+                  role={'Customer'}
+              />
+          </div>
+      </Modal>
+
     <WidgetCard2
       className={className}
       headerClassName="mb-2 items-start flex-col @[57rem]:flex-row @[57rem]:items-center"
       actionClassName="grow @[57rem]:ps-11 ps-0 items-center w-full @[42rem]:w-full @[57rem]:w-auto "
-      title="Active Jobs"
+      title="Reviews"
       titleClassName="whitespace-nowrap font-inter"
       action={
         <div className=" mt-4 flex w-full flex-col-reverse items-center justify-between  gap-3  @[42rem]:flex-row @[57rem]:mt-0">
-          {/* <FilterElement
+          <FilterElement
             isFiltered={isFiltered}
             filters={filters}
             updateFilter={updateFilter}
             handleReset={handleReset}
-          /> */}
-          <div></div>
+          />
           <Input
             className="w-full @[42rem]:w-auto @[70rem]:w-80"
             type="search"
@@ -122,5 +137,6 @@ export default function FundiActiveJobsTable({ className }: { className?: string
         className="-mx-5 lg:-mx-5"
       />
     </WidgetCard2>
+    </>
   );
 }

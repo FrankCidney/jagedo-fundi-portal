@@ -2,10 +2,10 @@
 
 import React from "react";
 import cn from '@/utils/class-names';
-import { PiAcorn, PiHammer, PiHammerBold, PiWrench, PiWrenchBold } from "react-icons/pi";
+// import { PiAcorn, PiHammer, PiHammerBold, PiWrench, PiWrenchBold } from "react-icons/pi";
 import { Title } from "rizzui";
 import JobDescriptionChunked from "../job-description-chunked";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { JobDescription, Note } from "@/data/custom-job-details-data";
 
 interface Item {
@@ -23,8 +23,8 @@ interface Data {
 }
 
 const ChunkedGrid: React.FC<Props> = ({ data, className, dataChunkSize }) => {
-  const pathname = usePathname()
-  const requestDetailsPage = pathname.includes('requisitions')
+  // const pathname = usePathname()
+  // const requestDetailsPage = pathname.includes('requisitions')
 
   const searchParams = useSearchParams();
 
@@ -70,7 +70,7 @@ const ChunkedGrid: React.FC<Props> = ({ data, className, dataChunkSize }) => {
                   // <span className="font-semibold text-gray-900 mr-2">{key}:</span>
                   // <span className="text-end">{value}</span>
                   // </li>
-                <div key={itemIndex} className="flex items-center">
+                <div key={itemIndex} className="flex items-start">
                   {/* <div
                     className={cn(
                       'flex h-10 w-10 flex-shrink-0 items-center justify-center rounded',
@@ -103,14 +103,12 @@ const ChunkedGrid: React.FC<Props> = ({ data, className, dataChunkSize }) => {
         ))}
         </div>
 
-        {!requestDetailsPage && (
-          <JobDescriptionChunked
-            className="mt-4"
-            data={Note[0]}
-            dataChunkSize={1}
-            // className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-          />
-        )}
+        <JobDescriptionChunked
+          className="mt-4"
+          data={Note[0]}
+          dataChunkSize={1}
+          // className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        />
     </div>
   );
 };

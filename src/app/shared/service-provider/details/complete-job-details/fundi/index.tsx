@@ -98,7 +98,7 @@ export default function FundiCompleteJobDetails() {
             {/* <UserDetailsCard /> */}
 
             <div className="mb-4">
-                <ChunkedGrid data={jobId === 'JOB0021'? completeJobDetailsData[0] : completeJobDetailsData[1]} dataChunkSize={8}/>
+                <ChunkedGrid data={jobId === 'JOB0021'? completeJobDetailsData[0] : completeJobDetailsData[1]} dataChunkSize={6}/>
             </div>
 
             {/* <div className="grid items-start rounded-xl border border-gray-300 p-2 @2xl:grid-cols-2 @3xl:grid-cols-3 @3xl:p-5 @5xl:grid-cols-4">

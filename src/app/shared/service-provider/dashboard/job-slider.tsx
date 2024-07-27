@@ -97,19 +97,19 @@ switch (userRole) {
         name: 'Active',
         total: 7,
         fill: '#04364A',
-        link: routes.serviceProvider.contractor.activeJobs,
+        link: routes.serviceProvider.professional.activeJobs,
       },
       {
         name: 'Completed',
         total: 10,
         fill: '#64CCC5',
-        link: routes.serviceProvider.contractor.completedJobs,
+        link: routes.serviceProvider.professional.completedJobs,
       },
       {
         name: 'Reviews',
         total: 7,
         fill: '#702963',
-        link: routes.serviceProvider.contractor.reviews,
+        link: routes.serviceProvider.professional.reviews,
       },
     ];
     break;

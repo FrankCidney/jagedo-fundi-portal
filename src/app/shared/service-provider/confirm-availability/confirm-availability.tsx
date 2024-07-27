@@ -6,11 +6,14 @@ import Link from "next/link";
 import { Button, Checkbox } from "rizzui";
 import { requestDetailsData } from "@/data/custom-job-details-data";
 import ChunkedGrid from "../../custom-chunked-grid";
-import UserDetailsCard from "../../custom-user-details-card";
-import { useSearchParams } from "next/navigation";
+// import UserDetailsCard from "../../custom-user-details-card";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export default function ConfirmAvailability() {
   const searchParams = useSearchParams()
+  const pathname = usePathname()
+
+  const emergency = pathname.includes('emergency')
 
   const requestId = searchParams.get('id')
   // const data = requestDetailsData.find((request) => {
@@ -29,10 +32,10 @@ export default function ConfirmAvailability() {
             info="Repairing a faulty wiring system"
         /> */}
 
-        <UserDetailsCard />
+        {/* <UserDetailsCard /> */}
 
         <div className="my-4">
-          <ChunkedGrid data={requestId === 'REQ0021'? requestDetailsData[0] : requestDetailsData[1]} dataChunkSize={8} />
+          <ChunkedGrid data={requestId === 'REQ0021'? requestDetailsData[0] : requestDetailsData[1]} dataChunkSize={6} />
         </div>
 
         {/* <div className="flex rounded-xl border border-gray-300 p-3">
@@ -53,9 +56,8 @@ export default function ConfirmAvailability() {
 
         </div> */}
 
-        <p className="w-full text-center font-bold pt-5">Please be advised that for this job, the customer will be the one to manage the works.</p>
-        {/* <p className="w-full text-center font-bold pt-5">Confirm your availability for this job.</p> */}
-
+        {!emergency && <p className="w-full text-center font-bold pt-5">Please be advised that for this job, the customer will be the one to manage the works.</p>}
+        
         <div className="flex pt-5 justify-center">
             <p className="text-center font-bold mr-4">Confirm your availability for this job.</p>
             <Checkbox

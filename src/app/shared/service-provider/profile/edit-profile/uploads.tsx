@@ -35,7 +35,7 @@ export default function EditProfileUploads({
     <div className='@container'>
         <div className="items-start pt-5 @5xl:grid @5xl:grid-cols-12 @5xl:gap-7 @6xl:grid-cols-10 @7xl:gap-10">
 
-            <EditProfileCard />
+            {/* <EditProfileCard /> */}
 
                 <div className="space-y-6 @5xl:col-span-8 @5xl:space-y-10 @6xl:col-span-7">
                 <form >

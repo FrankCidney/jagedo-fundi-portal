@@ -417,20 +417,20 @@ export default function CreateFundiProfileForm() {
                   {/* <div className="flex"> */}
                     {/* <div> */}
                       <UploadZone
-                          label="ID Picture/Passport Front:*"
+                          label="ID Picture/Passport*"
                           className="flex-grow"
                           name="idFront"
                           getValues={getValues}
                           setValue={setValue}
                       />
 
-                      <UploadZone
+                      {/* <UploadZone
                           label="ID Picture/Passport Back:*"
                           className="flex-grow"
                           name="idBack"
                           getValues={getValues}
                           setValue={setValue}
-                      />
+                      /> */}
                     {/* </div> */}
 
                     <UploadZone
@@ -441,16 +441,16 @@ export default function CreateFundiProfileForm() {
                         setValue={setValue}
                     />
 
-                    <UploadZone
+                    {/* <UploadZone
                         label="Resume/CV*"
                         className="flex-grow"
                         name="resume"
                         getValues={getValues}
                         setValue={setValue}
-                    />
+                    /> */}
 
                     <UploadZone
-                        label="NCA Registration Card*"
+                        label="NCA Registration Card"
                         className="flex-grow"
                         name="ncaCard"
                         getValues={getValues}

@@ -103,7 +103,7 @@ switch(userRole) {
         icon: <PiMoneyDuotone />,
       },
       {
-        name: 'Review',
+        name: 'Reviews',
         href: routes.serviceProvider.fundi.reviews,
         icon: <PiStarDuotone />,
       },
@@ -203,6 +203,11 @@ switch(userRole) {
         name: 'Sales',
         href: '#',
         icon: <PiMoneyDuotone />,
+      },
+      {
+        name: 'Reviews',
+        href: routes.serviceProvider.professional.reviews,
+        icon: <PiStarDuotone />,
       },
     
     

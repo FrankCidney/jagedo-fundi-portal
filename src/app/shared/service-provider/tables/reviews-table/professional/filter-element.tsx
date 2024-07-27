@@ -24,13 +24,13 @@ import { PiTrashDuotone } from 'react-icons/pi';
 
 const statusOptions = [
   {
-    label: 'Open',
-    value: 'open',
+    label: 'Reviewed',
+    value: 'reviewed',
   },
-  {
-    label: 'Closed',
-    value: 'closed',
-  },
+  // {
+  //   label: 'Completed',
+  //   value: 'completed',
+  // },
 ];
 
 type FilterElementProps = {

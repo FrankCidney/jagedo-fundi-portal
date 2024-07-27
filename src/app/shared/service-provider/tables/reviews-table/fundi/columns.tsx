@@ -91,7 +91,7 @@ export const getColumns = ({
   },
 
   {
-    title: <HeaderCell title="Name" />,
+    title: <HeaderCell title="Review By" />,
     dataIndex: 'reviewBy',
     key: 'reviewBy',
     width: 50,

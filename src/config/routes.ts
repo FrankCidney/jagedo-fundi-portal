@@ -70,6 +70,7 @@ export const routes = {
 
       // quotations
       quotations: '/service-provider/professional/quotations',
+      quotationDetails: '/service-provider/quotations/quotation-details/fundi',   
 
       // jobs
       activeJobs: '/service-provider/professional/jobs/active',

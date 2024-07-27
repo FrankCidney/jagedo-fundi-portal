@@ -2,6 +2,8 @@ import MetricCard from "@/components/cards/metric-card";
 import { routes } from "@/config/routes";
 import Link from "next/link";
 import { Button, Checkbox, Textarea } from "rizzui";
+import ChunkedGrid from "../../custom-chunked-grid";
+import { professionalRequestDetailsData } from "@/data/custom-job-details-data";
 
 const data = [
     {
@@ -30,13 +32,17 @@ export default function ProfessionalAvailability() {
             View RFQ
         </Title> */}
 
+        <div className="my-4">
+          <ChunkedGrid data={professionalRequestDetailsData[0]} dataChunkSize={6} />
+        </div>
+
         {/* <MetricCard 
             title="#89MJ3"
             metric="Repair work in Kisumu"
             info="Repairing a faulty wiring system"
         /> */}
 
-        <div className="grid items-start rounded-xl border border-gray-300 p-5 md:grid-cols-2 gap-6 @2xl:grid-cols-2 @3xl:grid-cols-3 @3xl:p-8 @5xl:grid-cols-4">
+        {/* <div className="grid items-start rounded-xl border border-gray-300 p-5 md:grid-cols-2 gap-6 @2xl:grid-cols-2 @3xl:grid-cols-3 @3xl:p-8 @5xl:grid-cols-4">
 
             {data.map((item, index) => (
               <ul key={index} className="mt-3 grid gap-2 @5xl:mt-0">
@@ -56,7 +62,7 @@ export default function ProfessionalAvailability() {
         <Textarea
             label="Notes"
             className="mt-4"
-        />
+        /> */}
 
         <div className="flex pt-8 justify-center">
             <p className="text-center font-bold mr-4">Confirm your availability for this job.</p>

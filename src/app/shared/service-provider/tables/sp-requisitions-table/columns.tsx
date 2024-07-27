@@ -130,11 +130,11 @@ export const getColumns = ({
     render: (requestType: string, row: any) => (
       <div className="gap-3 pe-3">
         {(requestType === 'Emergency') ? (
-          <Link href={routes.serviceProvider.fundi.confirmAvailability}>
+          <Link href={'#'}>
             <Text className="text-sm text-green-600">View RFQ</Text>
         </Link>
         ) : (
-          <Link href={routes.serviceProvider.fundi.makeQuotation}>
+          <Link href={'#'}>
             <Text className="text-sm text-green-600">View RFQ</Text>
           </Link>
         )}

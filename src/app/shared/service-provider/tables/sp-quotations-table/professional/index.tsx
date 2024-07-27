@@ -6,7 +6,7 @@ import { useTable } from '@/hooks/use-table';
 import ControlledTable from '@/components/controlled-table';
 import { PiMagnifyingGlassBold } from 'react-icons/pi';
 import { Input } from 'rizzui';
-import { requisitionData } from '@/data/job-data';
+import { professionalQuotationData } from '@/data/job-data';
 import { getColumns } from './columns';
 import FilterElement from './filter-element';
 import WidgetCard2 from '@/components/cards/widget-card2';
@@ -15,7 +15,7 @@ const filterState = {
   date: [null, null],
   status: '',
 };
-export default function ProfessionalRequisitionsTable({ className }: { className?: string }) {
+export default function ProfessionalQuotationsTable({ className }: { className?: string }) {
   const [pageSize, setPageSize] = useState(7);
 
   const onHeaderCellClick = (value: string) => ({
@@ -47,12 +47,12 @@ export default function ProfessionalRequisitionsTable({ className }: { className
     handleSelectAll,
     handleDelete,
     handleReset,
-  } = useTable(requisitionData, pageSize, filterState);
+  } = useTable(professionalQuotationData, pageSize, filterState);
 
   const columns = useMemo(
     () =>
       getColumns({
-        data: requisitionData,
+        data: professionalQuotationData,
         sortConfig,
         checkedItems: selectedRowKeys,
         onHeaderCellClick,
@@ -79,7 +79,7 @@ export default function ProfessionalRequisitionsTable({ className }: { className
       className={className}
       headerClassName="mb-2 items-start flex-col @[57rem]:flex-row @[57rem]:items-center"
       actionClassName="grow @[57rem]:ps-11 ps-0 items-center w-full @[42rem]:w-full @[57rem]:w-auto "
-      title="Requisitions"
+      title="Quotations"
       titleClassName="whitespace-nowrap font-inter"
       action={
         <div className=" mt-4 flex w-full flex-col-reverse items-center justify-between  gap-3  @[42rem]:flex-row @[57rem]:mt-0">

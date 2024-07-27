@@ -224,25 +224,25 @@ export const fundiRequisitionData = [
 
 export const professionalRequisitionData = [
   {
-    id: '1',
-    requestNumber: 'Req008323',
-    requestDate: '11/03/23',
+    number: '1',
+    id: 'REQ0021',
+    date: 'November 12, 2023',
     category: 'Professional',
     subCategory: 'Architect',
-    requestType: 'Emergency',
-    location: 'Transmara, Narok',
+    requestType: 'Emergency: Managed by JaGedo',
     description: 'Proposes 4No. borehole drilling',
+    location: 'Transmara, Narok',
     status: 'Open',
     requestTypeId: 1,
   },
 
   {
-    id: '2',
-    requestNumber: 'Req008323',
-    requestDate: '11/03/23',
+    number: '2',
+    id: 'REQ0020',
+    date: 'November 11, 2023',
     category: 'Professional',
     subCategory: 'Architect',
-    requestType: 'Standard',
+    requestType: 'Standard: Managed By Self',
     location: 'Ngong, Nairobi',
     description: 'Proposed 4-storey apartment construction',
     status: 'Open',
@@ -250,29 +250,29 @@ export const professionalRequisitionData = [
   },
 
   {
-    id: '3',
-    requestNumber: 'Req008323',
-    requestDate: '11/03/23',
+    number: '3',
+    id: 'REQ0019',
+    date: 'November 08, 2023',
     category: 'Professional',
     subCategory: 'Architect',
-    requestType: 'Standard',
+    requestType: 'Emergency: Managed By JaGedo',
     location: 'Kwandiku, Homa Bay',
     description: 'Proposed cabro paved road',
-    status: 'Closed',
-    requestTypeId: 2,
+    status: 'Open',
+    requestTypeId: 1,
   },
 
   {
-    id: '4',
-    requestNumber: 'Req008323',
-    requestDate: '11/03/23',
+    number: '4',
+    id: 'REQ0018',
+    date: 'November 06, 2023',
     category: 'Professional',
     subCategory: 'Architect',
-    requestType: 'Emergency',
+    requestType: 'Standard: Managed By Self',
     location: 'Kibos, Kisumu',
     description: 'Spot improvement for access road',
-    status: 'Closed',
-    requestTypeId: 1,
+    status: 'Open',
+    requestTypeId: 2,
   },
 ];
 
@@ -336,6 +336,60 @@ export const quotationData = [
     jobDetails: 'Project type: Housing, Description: Repair of sockets, Request Type: Standard',
     status: 'Under Review'
   }
+];
+
+export const professionalQuotationData = [
+  {
+    number: '1',
+    id: 'REQ0021',
+    date: 'November 12, 2023',
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Emergency: Managed by JaGedo',
+    description: 'Proposes 4No. borehole drilling',
+    location: 'Transmara, Narok',
+    status: 'Under review',
+    requestTypeId: 1,
+  },
+
+  {
+    number: '2',
+    id: 'REQ0020',
+    date: 'November 11, 2023',
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Standard: Managed By Self',
+    location: 'Ngong, Nairobi',
+    description: 'Proposed 4-storey apartment construction',
+    status: 'Under review',
+    requestTypeId: 2,
+  },
+
+  {
+    number: '3',
+    id: 'REQ0019',
+    date: 'November 08, 2023',
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Emergency: Managed By JaGedo',
+    location: 'Kwandiku, Homa Bay',
+    description: 'Proposed cabro paved road',
+    status: 'Under review',
+    requestTypeId: 1,
+  },
+
+  {
+    number: '4',
+    id: 'REQ0018',
+    date: 'November 06, 2023',
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Standard: Managed By Self',
+    location: 'Kibos, Kisumu',
+    description: 'Spot improvement for access road',
+    status: 'Under review',
+    requestTypeId: 2,
+  },
 ];
 
 export const contractorQuotationData = [
@@ -461,27 +515,68 @@ export const fundiActiveJobsData = [
 ];
 
 export const professionalActiveJobsData = [
+  // {
+  //   id: 'JOB0019',
+  //   date: '2023-11-12T06:22:01.621Z',
+  //   category: 'Fundi',
+  //   subCategory: 'Mason',
+  //   description: 'Boundary wall construction',
+  //   location: 'Nyali, Mombasa',
+  //   requestType: '2.0',
+  //   status: 'Ongoing'
+  // },
+
   {
-    id: 'JOB0019',
+    number: '1',
+    id: 'JOB0021',
     date: '2023-11-12T06:22:01.621Z',
-    category: 'Fundi',
-    subCategory: 'Mason',
-    description: 'Boundary wall construction',
-    location: 'Nyali, Mombasa',
-    requestType: '2.0',
-    status: 'Ongoing'
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Emergency: Managed by JaGedo',
+    description: 'Proposes 4No. borehole drilling',
+    location: 'Transmara, Narok',
+    status: 'Ongoing',
+    requestTypeId: 1,
   },
 
   {
-    id: 'JOB0022',
-    date: '2023-11-10T06:22:01.621Z',
-    category: 'Fundi',
-    subCategory: 'Mason',
-    description: 'Boundary wall construction',
-    location: 'Kisumu',
-    requestType: 'Emergency',
-    status: 'Ongoing'
-  }
+    number: '2',
+    id: 'JOB0020',
+    date: '2023-11-11T06:22:01.621Z',
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Standard: Managed By Self',
+    location: 'Ngong, Nairobi',
+    description: 'Proposed 4-storey apartment construction',
+    status: 'Ongoing',
+    requestTypeId: 2,
+  },
+
+  {
+    number: '3',
+    id: 'JOB0019',
+    date: '2023-11-08T06:22:01.621Z',
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Emergency: Managed By JaGedo',
+    location: 'Kwandiku, Homa Bay',
+    description: 'Proposed cabro paved road',
+    status: 'Ongoing',
+    requestTypeId: 1,
+  },
+
+  {
+    number: '4',
+    id: 'JOB0018',
+    date: '2023-11-06T06:22:01.621Z',
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Standard: Managed By Self',
+    location: 'Kibos, Kisumu',
+    description: 'Spot improvement for access road',
+    status: 'Ongoing',
+    requestTypeId: 2,
+  },
 ];
 
 export const contractorActiveJobsData = [
@@ -570,26 +665,56 @@ export const fundiCompletedJobsData = [
 
 export const professionalCompletedJobsData = [
   {
-    id: 'JOB0019',
+    number: '1',
+    id: 'JOB0021',
     date: '2023-11-12T06:22:01.621Z',
-    category: 'Fundi',
-    subCategory: 'Mason',
-    description: 'Boundary wall construction',
-    location: 'Nyali, Mombasa',
-    requestType: '2.0',
-    status: 'Reviewed'
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Emergency: Managed by JaGedo',
+    description: 'Proposes 4No. borehole drilling',
+    location: 'Transmara, Narok',
+    status: 'Reviewed',
+    requestTypeId: 1,
   },
 
   {
-    id: 'JOB0022',
-    date: '2023-11-10T06:22:01.621Z',
-    category: 'Fundi',
-    subCategory: 'Mason',
-    description: 'Boundary wall construction',
-    location: 'Kisumu',
-    requestType: 'Emergency',
-    status: 'Unreviewed'
-  }
+    number: '2',
+    id: 'JOB0020',
+    date: '2023-11-11T06:22:01.621Z',
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Standard: Managed By Self',
+    location: 'Ngong, Nairobi',
+    description: 'Proposed 4-storey apartment construction',
+    status: 'Unreviewed',
+    requestTypeId: 2,
+  },
+
+  {
+    number: '3',
+    id: 'JOB0019',
+    date: '2023-11-08T06:22:01.621Z',
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Emergency: Managed By JaGedo',
+    location: 'Kwandiku, Homa Bay',
+    description: 'Proposed cabro paved road',
+    status: 'Unreviewed',
+    requestTypeId: 1,
+  },
+
+  {
+    number: '4',
+    id: 'JOB0018',
+    date: '2023-11-06T06:22:01.621Z',
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Standard: Managed By Self',
+    location: 'Kibos, Kisumu',
+    description: 'Spot improvement for access road',
+    status: 'Reviewed',
+    requestTypeId: 2,
+  },
 ];
 
 export const contractorCompletedJobsData = [
@@ -671,5 +796,35 @@ export const contractorReviewsData = [
     reviewBy: 'Jane Kamau',
   },
 ];
+
+export const professionalReviewsData = [
+  {
+    number: '1',
+    id: 'JOB0021',
+    date: '2023-11-12T06:22:01.621Z',
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Emergency: Managed by JaGedo',
+    description: 'Proposes 4No. borehole drilling',
+    location: 'Transmara, Narok',
+    status: 'Reviewed',
+    reviewBy: 'Floyd Wangari',
+    requestTypeId: 1,
+  },
+
+  {
+    number: '4',
+    id: 'JOB0018',
+    date: '2023-11-06T06:22:01.621Z',
+    category: 'Professional',
+    subCategory: 'Architect',
+    requestType: 'Standard: Managed By Self',
+    location: 'Kibos, Kisumu',
+    description: 'Spot improvement for access road',
+    status: 'Reviewed',
+    reviewBy: 'Joyce Wasike',
+    requestTypeId: 2,
+  },
+]
 
 
