@@ -39,7 +39,6 @@ export const fundiInitialValues: FundiProfileSchema = {
     idPic: '',
     certificates: '',
     ncaCard: '',
-    resume: '',
     question1: '',
     question2: '',
     question3: '',

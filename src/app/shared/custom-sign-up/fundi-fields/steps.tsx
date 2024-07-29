@@ -5,12 +5,6 @@
 import { motion } from "framer-motion";
 import { Input, Loader, Password, Radio, RadioGroup, Text, Checkbox } from "rizzui";
 import { 
-    FundiSignUpFormSchema,
-    ContractorSignUpFormSchema, 
-    ProfessionalSignUpFormSchema, 
-    fundiSignUpFormSchema,
-    contractorSignUpFormSchema,
-    professionalSignUpFormSchema,
     refinedSpSignUpFormSchema,
     RefinedSpSignUpFormSchema, 
   } from "@/utils/validators/custom-signup.schema";
@@ -30,7 +24,7 @@ import {
   subCounty, 
 } from "@/app/shared/custom-sign-up/fundi-fields/data";
 import { usePathname, useRouter } from 'next/navigation';
-import { routes } from '@/config/routes';
+// import { routes } from '@/config/routes';
 
 
 // export type MultiStepFormProps = {

@@ -20,17 +20,17 @@ export const professionalProfileSteps = [
 
 // set initial values for the form fields here
 export const professionalInitialValues: ProfessionalProfileSchema = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phoneNo: '',
-    county: '',
-    subCounty: '',
-    estate: '',
-    profession: '',
-    field: '',
-    level: '',
-    years: '',
+    firstName: 'Olive',
+    lastName: 'Wangari',
+    email: 'olivewangari@gmail.com',
+    phoneNo: '0702767638',
+    county: 'kisumu',
+    subCounty: 'kisumu central',
+    estate: 'Tom Mboya',
+    profession: 'Architect',
+    field: 'foreman',
+    level: 'graduate',
+    years: '8',
     idPic: '',
     kcse: '',
     degree: '',
@@ -107,13 +107,13 @@ export const field = [
 
   export const level = [
     {
-      label: 'Masterfundi',
-      value: 'masterfundi',
+      label: 'Graduate',
+      value: 'graduate',
     },
-    {
-      label: 'Intermediatefundi',
-      value: 'intermediatefundi',
-    },
+    // {
+    //   label: 'Intermediatefundi',
+    //   value: 'intermediatefundi',
+    // },
   ];
 
   export const years = [

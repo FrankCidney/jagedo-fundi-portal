@@ -71,7 +71,7 @@ export default function EditProfileCard({ editMode, setEditMode, setModalState }
               Olive Wangari
             </Title>
             <Text as="p" className="mb-2 break-all last:mb-0">
-              mailto:olive.wangari@example.com
+              olive.wangari@example.com
             </Text>
             <Text as="p" className="mb-2 last:mb-0">
               (316) 555-0116

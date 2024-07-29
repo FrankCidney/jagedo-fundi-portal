@@ -153,7 +153,7 @@ export default function InvoiceBuilder() {
       <div className="p-5" />
 
       <div className="flex justify-center space-x-4 pt-5">
-        <Link href={routes.serviceProvider.fundi.quotations}>
+        <Link href={'#'}>
             <Button className="w-32">
                 Submit
             </Button>

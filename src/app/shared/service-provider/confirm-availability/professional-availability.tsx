@@ -64,18 +64,18 @@ export default function ProfessionalAvailability() {
             className="mt-4"
         /> */}
 
-        <div className="flex pt-8 justify-center">
+        {/* <div className="flex pt-8 justify-center">
             <p className="text-center font-bold mr-4">Confirm your availability for this job.</p>
             <Checkbox
                 // {...register('termsAndConditions')}
                 className="[&>label.items-center]:items-start [&>label>div.leading-none]:mt-0.5 [&>label>div.leading-none]:sm:mt-0 [&>label>span]:font-medium"           
             />
-        </div>
+        </div> */}
 
         <div className="flex justify-center space-x-4 pt-5">
-          <Link href={routes.serviceProvider.professional.rfqStandardTWoMakeQuotation}>
-            <Button className="w-32">
-                Accept Job
+          <Link href={routes.serviceProvider.professional.rfqStandardOne}>
+            <Button className="w-62">
+                Create Quotation
             </Button>
           </Link>
 

@@ -176,11 +176,11 @@ export const getColumns = ({
     render: (requestTypeId: Number, row: any) => (
       <div className="gap-3 pe-3">
         {(requestTypeId === 1) ? (
-          <Link href={routes.serviceProvider.professional.rfqStandardTWo}>
+          <Link href={routes.serviceProvider.professional.requisitionDetails}>
             <Text className="text-sm text-green-600">View</Text>
         </Link>
         ) : (
-          <Link href={routes.serviceProvider.professional.rfqStandardTWo}>
+          <Link href={routes.serviceProvider.professional.requisitionDetails}>
             <Text className="text-sm text-green-600">View</Text>
           </Link>
         )}
