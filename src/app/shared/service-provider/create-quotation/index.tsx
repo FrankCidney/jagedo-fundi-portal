@@ -28,6 +28,7 @@ import AttachmentsBlock from './attachments-block';
 import { usePathname, useRouter } from 'next/navigation';
 import FormFooter from '@/components/custom-form-footer';
 import Link from 'next/link';
+import ViewAttachmentsBlock from './view-attachments-block';
 
 // import ThirdTableTwo from './third-table-two';
 
@@ -113,7 +114,37 @@ export default function CreateQuotationComponent() {
               {/* <TotalsBlock /> */}
               <ThirdTable />
               <FourthTable />
-              <AttachmentsBlock />
+
+
+              {viewQuotation? (
+                <ViewAttachmentsBlock />
+              ) : (
+                <>
+                  <AttachmentsBlock />
+
+                  <div className="col-span-2 flex items-start text-gray-700 mt-3 mb-8 ps-2">
+                    <Checkbox
+                      // {...register('termsAndConditions')}
+                      className="[&>label.items-center]:items-start [&>label>div.leading-none]:mt-0.5 [&>label>div.leading-none]:sm:mt-0 [&>label>span]:font-medium"
+                      label={
+                        <Text as="span" className="ps-1 text-gray-500">
+                          I agree to the{' '}
+                          <Link
+                            href="#"
+                            className="font-semibold text-gray-700 transition-colors hover:text-primary"
+                          >
+                            Professional Terms & Conditions
+                          </Link>
+                        </Text>
+                      }
+                    />
+                  </div>
+                </>
+              )}
+
+
+
+              {/* <AttachmentsBlock />
 
               <div className="col-span-2 flex items-start text-gray-700 mt-3 mb-8 ps-2">
                 <Checkbox
@@ -131,7 +162,7 @@ export default function CreateQuotationComponent() {
                     </Text>
                   }
                 />
-              </div>
+              </div> */}
 
 
               {/* <ThirdTableTwo /> */}
