@@ -12,7 +12,7 @@ export default function UploadButtonOutlined({ modalView }: ExportButtonProps) {
   const { openModal } = useModal();
   return (
     <Button
-      className="w-full @lg:mt-0 @lg:w-auto border-2"
+      className="w-full @lg:mt-0 @lg:w-auto border"
       variant='outline'
       onClick={() =>
         openModal({

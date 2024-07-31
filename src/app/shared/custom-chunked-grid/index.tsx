@@ -2,15 +2,21 @@
 
 import React from "react";
 import cn from '@/utils/class-names';
-// import { PiAcorn, PiHammer, PiHammerBold, PiWrench, PiWrenchBold } from "react-icons/pi";
+import { PiDownloadSimple, } from "react-icons/pi";
 import { Title } from "rizzui";
 import JobDescriptionChunked from "../job-description-chunked";
 import { useSearchParams } from "next/navigation";
 import { JobDescription, Note } from "@/data/custom-job-details-data";
 
+// interface Item {
+//   [key: string]: string;
+// }
+
 interface Item {
-  [key: string]: string;
+  [key: string]: string | string[];
 }
+
+// [key: string]: string | string[];
 
 interface Props {
   data: Item;
@@ -37,7 +43,7 @@ const ChunkedGrid: React.FC<Props> = ({ data, className, dataChunkSize }) => {
   // console.log(dataArray)
 
   // Helper function to chunk the data into subarrays of a specified size
-  const chunkArray = (array: [string, string][], chunkSize: number) => {
+  const chunkArray = (array: [string, string | string[]][], chunkSize: number) => {
     const result = [];
     for (let i = 0; i < array.length; i += chunkSize) {
       result.push(array.slice(i, i + chunkSize));
@@ -86,9 +92,22 @@ const ChunkedGrid: React.FC<Props> = ({ data, className, dataChunkSize }) => {
                       <Title as="h4" className="mb-1 text-sm font-semibold whitespace-nowrap">
                         {key}
                       </Title>
-                      <div className="text-gray-500">
-                        {value}
+                      {key === 'Attachments' ? (
+                      <div className="flex flex-wrap gap-6 text-gray-500">
+                        {(value as unknown as string[]).map(
+                          (imgSrc, imgIndex) => (
+                            <a key={imgIndex} href={imgSrc} download>
+                              <PiDownloadSimple className="h-5 w-5 text-blue-500" />
+                            </a>
+                          )
+                        )}
                       </div>
+                    ) : (
+                      <div className="text-gray-500">{value}</div>
+                    )}
+                      {/* <div className="text-gray-500">
+                        {value}
+                      </div> */}
                     </div>
                     {/* <div
                       as="span"

@@ -72,12 +72,13 @@ export const routes = {
 
       // quotations
       quotations: '/service-provider/professional/quotations',
-      quotationDetails: '/service-provider/quotations/quotation-details/fundi',   
+      quotationDetails: '/service-provider/professional/quotations/details',   
 
       // jobs
       activeJobs: '/service-provider/professional/jobs/active',
       completedJobs: '/service-provider/professional/jobs/completed',
       jobDetails: '/service-provider/professional/jobs/active/details',
+      completeJobDetails: '/service-provider/professional/jobs/completed/report',
 
       reviews: '/service-provider/professional/reviews',
 

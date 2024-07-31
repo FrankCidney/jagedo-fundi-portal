@@ -1,9 +1,10 @@
 'use client';
 
 // import { useParams } from 'next/navigation';
-import { PiCheckCircle, } from 'react-icons/pi';
+import { PiCheckCircle, PiCloudArrowDown, PiCloudArrowUp  } from 'react-icons/pi';
 import Timeline from './timeline';
 import { usePathname } from 'next/navigation';
+import { Button } from 'rizzui';
 // import { Button, Modal } from 'rizzui';
 // import Link from 'next/link';
 // import { routes } from '@/config/routes';
@@ -84,6 +85,7 @@ const timelineDataProfessional = [
     time: '09:00 am',
     icon: <PiCheckCircle className="h-6 w-6 text-blue" />,
     status: 'ongoing',
+    upload: <PiCloudArrowUp className="ml-2 h-6 w-6 text-gray-500 group-hover:text-blue-500" />,
   },
   {
     title: 'Milestone 2',
@@ -93,17 +95,37 @@ const timelineDataProfessional = [
     time: '11:00 am',
     icon: <PiCheckCircle className="h-6 w-6 text-blue" />,
     status: 'ongoing',
+    upload: <PiCloudArrowUp className="ml-2 h-6 w-6 text-gray-500 group-hover:text-blue-500" />,
   },
+  // {
+  //   title: 'Milestone 3',
+  //   text: 'Brick Layering',
+  //   hightlightedText: 'Job complete',
+  //   date: 'May 02, 2023',
+  //   time: '11:30 am',
+  //   icon: '',
+  //   status: '',
+  // },
   {
-    title: 'Milestone 3',
-    text: 'Brick Layering',
-    hightlightedText: 'Job complete',
-    date: 'May 02, 2023',
-    time: '11:30 am',
+    title: 'Stop',
+    text: '',
+    hightlightedText: '',
+    date: 'May 29, 2023',
+    time: '05:31 am',
     icon: '',
     status: '',
   },
 ];
+
+
+{/* <Button
+              variant="text"
+              onClick={() => {}}
+              className="flex w-full items-center justify-start px-4 py-2.5 focus:outline-none"
+            >
+              <PiCloudArrowDown className="h-6 w-6 text-gray-500" />
+            </Button> */}
+
 
 export default function ProgressBarActive({
   className,

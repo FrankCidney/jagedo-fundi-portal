@@ -30,27 +30,30 @@ export default function FirstTable() {
   }
 
   return (
-    <div className="relative">
-      <div className="grid grid-cols-8 gap-2 rounded-t-md bg-gray-100 p-2 dark:bg-gray-900">
-        <TableHeaderCell className="col-span-2 ps-4 py-2">
-          <Text className='text-start font-semibold text-gray-500'>SERVICE PROVIDER</Text>
+    <div className="relative px-2 pt-6 pb-14 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
+
+      <p className='mb-4 ps-4 text-lg text-gray-900 font-semibold'>Professional Fees</p>
+
+      <div className="grid grid-cols-10 gap-2 rounded-t-md bg-gray-100 p-2 dark:bg-gray-900">
+        <TableHeaderCell className="col-span-2 ps-4 py-2 flex items-center justify-center">
+          <Text className='text-center font-semibold text-gray-500'>SERVICE PROVIDER</Text>
         </TableHeaderCell>
-        <TableHeaderCell className="col-span-1 py-2">
+        <TableHeaderCell className="col-span-2 py-2 flex items-center justify-center">
           <Text className='text-center font-semibold text-gray-500'>NAME</Text>
         </TableHeaderCell>
-        <TableHeaderCell className="col-span-1 py-2">
+        <TableHeaderCell className="col-span-2 py-2 flex items-center justify-center">
           <Text className='text-center font-semibold text-gray-500'>EMAIL ADDRESS</Text>
         </TableHeaderCell>
-        <TableHeaderCell className="col-span-1 py-2">
+        <TableHeaderCell className="col-span-1 py-2 flex items-center justify-center">
           <Text className='text-center font-semibold text-gray-500'>UNIQUE ID</Text>
         </TableHeaderCell>
-        <TableHeaderCell className="col-span-1 py-2">
+        <TableHeaderCell className="col-span-1 py-2 flex items-center justify-center">
           <Text className='text-center font-semibold text-gray-500'>NO. OF HOURS</Text>
         </TableHeaderCell>
-        <TableHeaderCell className="col-span-1 py-2">
+        <TableHeaderCell className="col-span-1 py-2 flex items-center justify-center">
           <Text className='text-center font-semibold text-gray-500'>RATE/HR (KES)</Text>
         </TableHeaderCell>
-        <TableHeaderCell className="col-span-1 py-2">
+        <TableHeaderCell className="col-span-1 py-2 flex items-center justify-center">
           <Text className='text-center font-semibold text-gray-500'>AMOUNT</Text>
         </TableHeaderCell>
       </div>
@@ -63,28 +66,28 @@ export default function FirstTable() {
             return (
               <Fragment key={`first-table-${index}`}>
                 <SortableList.Item id={field.id}>
-                  <div className="group grid min-h-10 grid-cols-8 gap-0 border-b border-muted dark:border-muted/20">
+                  <div className="group grid min-h-10 grid-cols-10 gap-0 border-b border-muted dark:border-muted/20">
                     <div className="col-span-2 py-2 ps-4 pe-2">
                       <QuoteInput
                         // rows={2}
                         // className="grow"
                         // variant="outline"
-                        inputClassName="[&_input]:text-start"
+                        inputClassName="[&_input]:text-center"
                         placeholder="Service Provider"
                         {...register(`firstTable.${index}.serviceProvider`)}
                       />
                     </div>
-                    <div className="col-span-1 p-2 pb-4">
+                    <div className="col-span-2 p-2 pb-4">
                       <QuoteInput
                         inputClassName="[&_input]:text-center"
                         placeholder="Name"
                         {...register(`firstTable.${index}.name`)}
                       />
                     </div>
-                    <div className="col-span-1 p-2">
+                    <div className="col-span-2 p-2">
                       <QuoteInput
                         inputClassName="[&_input]:text-center"
-                        placeholder="Email Address"
+                        placeholder="johndoe@email.com"
                         {...register(`firstTable.${index}.emailAddress`)}
                       />
                     </div>
@@ -151,7 +154,7 @@ export default function FirstTable() {
       <Button
         type="button"
         variant="text"
-        className="absolute bottom-0 start-0 translate-y-full gap-2 ps-0 active:enabled:translate-y-full dark:text-gray-400"
+        className="absolute bottom-14 start-2 translate-y-full gap-2 ps-0 active:enabled:translate-y-full dark:text-gray-400"
         onClick={() =>
           append({
             serviceProvider: '',

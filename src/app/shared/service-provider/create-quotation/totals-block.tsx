@@ -7,9 +7,9 @@ const TotalsBlock = () => {
 
     return (  
         <>
-        <div className="group grid grid-cols-2 gap-0 border-b border-muted dark:border-muted/20 mt-12">
+        <div className="grid grid-cols-2 b-2 mt-12 min-h-10 grid-cols-2 gap-0 border-b border-t border-muted dark:border-muted/20">
             <div className="col-span-1 p-2">
-                <Text className='text-center font-semibold text-gray-500'>Total Expenses Cost</Text>
+                <Text className='text-center font-semibold text-gray-900'>Total Expenses Cost</Text>
             </div>
             <div className="col-span-1 p-2">
                 <QuoteInput
@@ -19,9 +19,9 @@ const TotalsBlock = () => {
                 />
             </div>    
         </div>
-        <div className="group grid grid-cols-2 gap-0 border-b border-muted dark:border-muted/20">
+        <div className="grid grid-cols-2 min-h-10 grid-cols-2 gap-0">
             <div className="col-span-1 p-2">
-                <Text className='text-center font-semibold text-gray-500'>Grand Total</Text>
+                <Text className='text-center font-semibold text-gray-900'>Grand Total</Text>
             </div>
             <div className="col-span-1 p-2">
                 <QuoteInput
@@ -34,5 +34,6 @@ const TotalsBlock = () => {
         </>
     );
 }
+{/* <div className="group grid grid-cols-2 gap-0 border-b border-muted dark:border-muted/20"> */}
  
 export default TotalsBlock;

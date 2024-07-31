@@ -21,9 +21,9 @@ import { z } from 'zod';
 export const FIRST_TABLE_DEFAULT_VALUE = [
   {
     serviceProvider: 'Lead Consultant',
-    name: '',
-    emailAddress: '',
-    uniqueId: '',
+    name: 'Olive Wangari',
+    emailAddress: 'olivewangari@gmail.com',
+    uniqueId: 'id',
     numberOfHours: 0,
     ratePerHour: 0,
     // amount: 0,
@@ -45,15 +45,19 @@ export const SECOND_TABLE_DEFAULT_VALUE = [
       amount: 0,
     },
     {
-      expenses: 'Other',
+      expenses: 'Printing',
+      amount: 0,
+    },
+    {
+      expenses: 'Stationary',
       amount: 0,
     },
 ];
 
 export const THIRD_TABLE_DEFAULT_VALUE = [
     {
-        item: '',
-        professionalName: '',
+        // item: '1',
+        professionalName: 'Olive Wangari',
         professionalFees: 0,
         expenses: 0,
         totalAmount: 0,
@@ -64,6 +68,21 @@ export const THIRD_TABLE_DEFAULT_VALUE = [
     },
 ];
 
+export const FOURTH_TABLE_DEFAULT_VALUE = [
+  {
+    milestone: 'A',
+    percentageDisbursement: 50,
+    milestoneActivity: 'First Draft',
+    amount: 0,
+  },
+  {
+    milestone: 'B',
+    percentageDisbursement: 50,
+    milestoneActivity: 'Final Draft',
+    amount: 0,
+  },
+];
+
 export const CREATE_QUOTATION_DEFAULT_VALUE = {
     firstTable: FIRST_TABLE_DEFAULT_VALUE,
     secondTable: SECOND_TABLE_DEFAULT_VALUE,
@@ -71,6 +90,7 @@ export const CREATE_QUOTATION_DEFAULT_VALUE = {
     totalExpensesCost: 0,
     grandTotal: 0,
     thirdTable: THIRD_TABLE_DEFAULT_VALUE,
+    fourthTable: FOURTH_TABLE_DEFAULT_VALUE,
     
 }
 
@@ -108,18 +128,26 @@ export const createQuotationSchema = z.object({
     totalExpensesCost: z.number(),
     grandTotal: z.number(),
     thirdTable: z.array(
-        z.object({
-            item: z.string(),
-            professionalName: z.string(),
-            professionalFees: z.number(),
-            expenses: z.number(),
-            totalAmount: z.number(),
-            withholdingTax: z.number(),
-            payableByClient: z.number(),
-            jagedoCommission: z.number(),
-            payableToServiceProvider: z.number(),
-        })
-      ),
+      z.object({
+        // item: z.string(),
+        professionalName: z.string(),
+        professionalFees: z.number(),
+        expenses: z.number(),
+        totalAmount: z.number(),
+        withholdingTax: z.number(),
+        payableByClient: z.number(),
+        jagedoCommission: z.number(),
+        payableToServiceProvider: z.number(),
+      }),
+    ),
+    fourthTable: z.array(
+      z.object({
+        milestone: z.string(),
+        percentageDisbursement: z.number(),
+        milestoneActivity: z.string(),
+        amount: z.number(),
+      })
+    ),
 })
 
 // export type FirstTableType = z.infer<typeof firstTableSchema>

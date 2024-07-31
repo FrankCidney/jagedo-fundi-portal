@@ -59,16 +59,21 @@ export const requestDetailsData = [
 
   export const professionalRequestDetailsData = [
     {
-      'Request Type': 'Standard 1: Managed by JaGedo',
+      'Request Type': 'Standard 1',
       'Request Date': '12/11/2023',
       'Request Number': 'REQ0021',
       
-        Location: 'Kome,Homabay',
+        // Location: 'Kome,Homabay',
       // 'Job description': 'Repair of faulty wiring system',
       Status: 'Open',
       
       Category: 'Professional',
-      'Sub-Category': 'Architect',
+      ManagedBy: 'JaGedo',
+      County: 'Busia',
+      'Sub-County': 'Nambale',
+      'Estate/Village': 'Nambale',
+      Profession: 'Architect',
+      // 'Sub-Category': 'Architect',
       // 'Deadline for availability': '20/04/2024',    
     
       'Invoice Number': '#3454',
@@ -77,18 +82,28 @@ export const requestDetailsData = [
 
       'Start Date': '12/11/2023',
       'End Date': '10/12/2023',
+      Attachments: [
+        '/images/image1.jpg',
+        '/images/image2.jpg',
+        '/images/image3.jpg',
+      ],
     },
     {
-      'Request Type': 'Standard 2: Managed By Self',
+      'Request Type': 'Standard 2',
       'Request Date': '11/11/2023',
       'Request Number': 'REQ0020',
       
-        Location: 'Kome,Homabay',
+        // Location: 'Kome,Homabay',
       // 'Job description': 'Tank reticulation to water point',
       Status: 'Open',
       
       Category: 'Professional',
-      'Sub-Category': 'Architect',
+      ManagedBy: 'Self',
+      County: 'Busia',
+      'Sub-County': 'Nambale',
+      'Estate/Village': 'Nambale',
+      Profession: 'Architect',
+      // 'Sub-Category': 'Architect',
       // 'Deadline for availability': '20/04/2024',    
     
       'Invoice Number': '#3454',
@@ -97,6 +112,11 @@ export const requestDetailsData = [
 
       'Start Date': '12/11/2023',
       'End Date': '10/12/2023',
+      Attachments: [
+        '/images/image1.jpg',
+        '/images/image2.jpg',
+        '/images/image3.jpg',
+      ],
     },
   ];
 
@@ -148,16 +168,21 @@ export const requestDetailsData = [
 
 export const professionalActiveJobDetailsData = [
   {
-    'Request Type': 'Standard 1: Managed by JaGedo',
+    'Request Type': 'Standard 1',
     'Request Date': '12/11/2023',
     'Request Number': 'JOB0021',
     
-      Location: 'Kome,Homabay',
+      // Location: 'Kome,Homabay',
     // 'Job description': 'Repair of faulty wiring system',
     Status: 'Open',
     
     Category: 'Professional',
-    'Sub-Category': 'Architect',
+    ManagedBy: 'JaGedo',
+      County: 'Busia',
+      'Sub-County': 'Nambale',
+      'Estate/Village': 'Nambale',
+      Profession: 'Architect',
+      // 'Sub-Category': 'Architect',
     // 'Deadline for availability': '20/04/2024',    
   
     'Invoice Number': '#3454',
@@ -166,18 +191,28 @@ export const professionalActiveJobDetailsData = [
 
     'Start Date': '12/11/2023',
     'End Date': '10/12/2023',
+    Attachments: [
+      '/images/image1.jpg',
+      '/images/image2.jpg',
+      '/images/image3.jpg',
+    ],
   },
   {
-    'Request Type': 'Standard 2: Managed By Self',
+    'Request Type': 'Standard 2',
     'Request Date': '11/11/2023',
     'Request Number': 'JOB0020',
     
-      Location: 'Kome,Homabay',
+      // Location: 'Kome,Homabay',
     // 'Job description': 'Tank reticulation to water point',
     Status: 'Open',
     
     Category: 'Professional',
-    'Sub-Category': 'Architect',
+    ManagedBy: 'JaGedo',
+      County: 'Busia',
+      'Sub-County': 'Nambale',
+      'Estate/Village': 'Nambale',
+      Profession: 'Architect',
+      // 'Sub-Category': 'Architect',
     // 'Deadline for availability': '20/04/2024',    
   
     'Invoice Number': '#3454',
@@ -186,6 +221,11 @@ export const professionalActiveJobDetailsData = [
 
     'Start Date': '12/11/2023',
     'End Date': '10/12/2023',
+    Attachments: [
+      '/images/image1.jpg',
+      '/images/image2.jpg',
+      '/images/image3.jpg',
+    ],
   },
 ];
 
@@ -231,8 +271,70 @@ export const completeJobDetailsData =
     'Start Date': '12/11/2023',
     'End Date': '13/11/2023',
   },
-]
-;
+];
+
+export const professionalCompleteJobDetailsData = [
+  {
+    'Request Type': 'Standard 1',
+    'Request Date': '12/11/2023',
+    'Request Number': 'JOB0021',
+    
+      // Location: 'Kome,Homabay',
+    // 'Job description': 'Repair of faulty wiring system',
+    Status: 'Reviewed',
+    
+    Category: 'Professional',
+    ManagedBy: 'JaGedo',
+      County: 'Busia',
+      'Sub-County': 'Nambale',
+      'Estate/Village': 'Nambale',
+      Profession: 'Architect',
+      // 'Sub-Category': 'Architect',
+    // 'Deadline for availability': '20/04/2024',    
+  
+    'Invoice Number': '#3454',
+    'Payment Status': 'Paid',
+    'Rate': '1000',
+
+    'Start Date': '12/11/2023',
+    'End Date': '10/12/2023',
+    Attachments: [
+      '/images/image1.jpg',
+      '/images/image2.jpg',
+      '/images/image3.jpg',
+    ],
+  },
+  {
+    'Request Type': 'Standard 2',
+    'Request Date': '11/11/2023',
+    'Request Number': 'JOB0020',
+    
+      // Location: 'Kome,Homabay',
+    // 'Job description': 'Tank reticulation to water point',
+    Status: 'Unreviewed',
+    
+    Category: 'Professional',
+    ManagedBy: 'JaGedo',
+      County: 'Busia',
+      'Sub-County': 'Nambale',
+      'Estate/Village': 'Nambale',
+      Profession: 'Architect',
+      // 'Sub-Category': 'Architect',
+    // 'Deadline for availability': '20/04/2024',    
+  
+    'Invoice Number': '#3454',
+    'Payment Status': 'Paid',
+    'Rate': '1000',
+
+    'Start Date': '12/11/2023',
+    'End Date': '10/12/2023',
+    Attachments: [
+      '/images/image1.jpg',
+      '/images/image2.jpg',
+      '/images/image3.jpg',
+    ],
+  },
+];
 
 
 //   export const requestDetailsData = [

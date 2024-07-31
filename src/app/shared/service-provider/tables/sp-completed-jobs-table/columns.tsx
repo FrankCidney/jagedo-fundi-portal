@@ -172,7 +172,7 @@ export const getColumns = ({
     width: 100,
     render: (id: string, row: any) => (
       <div className="gap-3 pe-3">        
-        <Link href={{ pathname: routes.serviceProvider.fundi.completeJobDetails, query: { id } }}>
+        <Link href={{ pathname: routes.serviceProvider.professional.completeJobDetails, query: { id } }}>
           <Text className="text-sm text-green-600">View</Text>
         </Link>
       </div>

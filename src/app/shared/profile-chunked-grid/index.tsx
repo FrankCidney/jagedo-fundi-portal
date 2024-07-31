@@ -1,6 +1,6 @@
 import React from "react";
 import cn from '@/utils/class-names';
-import { PiAcorn, PiHammer, PiHammerBold, PiWrench, PiWrenchBold } from "react-icons/pi";
+// import { PiAcorn, PiHammer, PiHammerBold, PiWrench, PiWrenchBold } from "react-icons/pi";
 import { Input, Title } from "rizzui";
 
 interface Item {

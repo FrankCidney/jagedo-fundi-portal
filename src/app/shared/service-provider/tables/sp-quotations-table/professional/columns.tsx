@@ -127,7 +127,7 @@ export const getColumns = ({
     title: <HeaderCell title="Request Type" />,
     dataIndex: 'requestType',
     key: 'requestType',
-    width: 100,
+    width: 150,
     render: (requestType: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
         {requestType}
