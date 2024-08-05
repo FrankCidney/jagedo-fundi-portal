@@ -1,23 +1,9 @@
 'use client';
 
 import { HeaderCell } from '@/components/ui/table';
-import { Text, Checkbox, ActionIcon, Tooltip, Select, Badge } from 'rizzui';
-// import PencilIcon from '@/components/icons/pencil';
-// import EyeIcon from '@/components/icons/eye';
-// import DeletePopover from '@/app/shared/commons/delete-popover';
-// import DateCell from '@/components/ui/date-cell';
-// import { useState } from 'react';
-// import { PiCheckCircleBold, PiPlusCircle } from 'react-icons/pi';
-// import { last } from 'lodash';
-import Link from 'next/link';
-import { routes } from '@/config/routes';
+import { Text, Badge } from 'rizzui';
 import { Dispatch, SetStateAction } from 'react';
 import DateCell from '@/components/ui/date-cell';
-
-// const statusOptions = [
-//   { label: 'Live', value: 'Live' },
-//   { label: 'Closed', value: 'Closed' },
-// ];
 
 type Columns = {
   data: any[];
@@ -198,12 +184,3 @@ export const getColumns = ({
       ),
   },
 ];
-
-
-
-
-{/* <div className="gap-3 pe-3">        
-          <Link href={routes.serviceProvider.fundi.viewReview}>
-            <Text className="text-sm text-green-600">View Review</Text>
-          </Link>
-        </div> */}

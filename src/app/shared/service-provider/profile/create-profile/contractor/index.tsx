@@ -11,14 +11,14 @@ import UploadZone from '@/components/ui/file-upload/upload-zone';
 import { 
   contractorInitialValues, 
   contractorProfileSteps, 
-  level,
   county, 
   subCounty, 
   category,
   subCategory,
 } from "@/app/shared/service-provider/profile/create-profile/contractor/data";
 import { useRouter } from 'next/navigation';
-import { routes } from '@/config/routes';
+// import { routes } from '@/config/routes';
+
 
 // dynamic import Select component from rizzui
 const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
@@ -113,10 +113,6 @@ export default function CreateContractorProfileForm() {
                       className="[&>label>span]:font-medium"
                     />
 
-                    
-
-        
-
                     <Controller
                       control={control}
                       name="county"
@@ -204,8 +200,8 @@ export default function CreateContractorProfileForm() {
                         <Select 
                           dropdownClassName="!z-10"
                           inPortal={false}
-                          placeholder="Select Category"
-                          label="Category"
+                          placeholder="Select Contractor"
+                          label="Contractor"
                           size="lg"
                           selectClassName="font-medium text-sm"
                           optionClassName=""
@@ -222,6 +218,18 @@ export default function CreateContractorProfileForm() {
                       )}
                     />
 
+                    {/* <label htmlFor="category">Category:</label>
+                    <select id="category" {...register('category')} multiple
+                      className="block w-full mt-1 p-2 bg-white border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    >
+                      {category.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.category && <p>{errors.category.message}</p>} */}
+
                     <Controller
                       control={control}
                       name="subCategory"
@@ -229,7 +237,7 @@ export default function CreateContractorProfileForm() {
                         <Select 
                           dropdownClassName="!z-10"
                           inPortal={false}
-                          placeholder="Select level/class"
+                          placeholder="Select Class"
                           label="Level/Class*"
                           size="lg"
                           selectClassName="font-medium text-sm"

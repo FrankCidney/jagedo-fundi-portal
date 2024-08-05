@@ -63,11 +63,38 @@ export const getColumns = ({
   onHeaderCellClick,
 }: Columns) => [
   {
+    title: <HeaderCell title="No." />,
+    dataIndex: 'number',
+    key: 'number',
+    width: 50,
+    render: (number: string) => (
+      <Text className="text-sm text-gray-900 dark:text-gray-700">
+        {number}
+      </Text>
+    ),
+  },
+
+  {
     title: <HeaderCell title="#" />,
     dataIndex: 'id',
     key: 'id',
     width: 10,
-    render: (id: string) => <Text>#{id}</Text>,
+    render: (id: string) => (
+    // <Text>#{id}</Text>
+    <Text className="text-sm text-gray-900 dark:text-gray-700">
+      #{id}
+    </Text>
+  ),
+  },
+
+  {
+    title: <HeaderCell title="Date" className="uppercase" />,
+    dataIndex: 'date',
+    key: 'date',
+    width: 100,
+    render: (date: Date) => (
+      <DateCell date={date} />
+    ),
   },
 
   {
@@ -83,7 +110,7 @@ export const getColumns = ({
   },
 
   {
-    title: <HeaderCell title="Sub-Category" />,
+    title: <HeaderCell title="Sub-category" />,
     dataIndex: 'subCategory',
     key: 'subCategory',
     width: 100,
@@ -98,10 +125,22 @@ export const getColumns = ({
     title: <HeaderCell title="Request Type" />,
     dataIndex: 'requestType',
     key: 'requestType',
-    width: 100,
+    width: 150,
     render: (requestType: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
         {requestType}
+      </Text>
+    ),
+  },
+
+  {
+    title: <HeaderCell title="Description" />,
+    dataIndex: 'description',
+    key: 'description',
+    width: 250,
+    render: (description: string) => (
+      <Text className="text-sm text-gray-900 dark:text-gray-700">
+        {description}
       </Text>
     ),
   },
@@ -119,103 +158,30 @@ export const getColumns = ({
   },
 
   {
-    title: <HeaderCell title="Description" />,
-    dataIndex: 'description',
-    key: 'description',
-    width: 100,
-    render: (description: string) => (
-      <Text className="text-sm text-gray-900 dark:text-gray-700">
-        {description}
-      </Text>
-    ),
-  },
-
-  {
     title: <HeaderCell title="Status" />,
     dataIndex: 'status',
     key: 'status',
-    width: 120,
+    width: 100,
     render: (value: string) => getStatusBadge(value),
   },
-
-  // {
-  //   title: <HeaderCell title="Status" />,
-  //   dataIndex: 'status',
-  //   key: 'status',
-  //   width: 80,
-  //   render: (status: number) => <Text>{status}</Text>,
-  // },
-
 
 
 
   {
     // Need to avoid this issue -> <td> elements in a large <table> do not have table headers.
     title: <HeaderCell title="Action" />,
-    dataIndex: 'requestType',
+    dataIndex: 'id',
     key: 'action',
     width: 100,
-    render: (requestType: string, row: any) => (
+    render: (id: string, row: any) => (
       <div className="gap-3 pe-3">
 
-        <Link href={routes.serviceProvider.contractor.jobDetails}>
-            <Text className="text-sm text-green-600">View Job</Text>
+        <Link href={{ pathname: routes.serviceProvider.contractor.jobDetails, query: { id } }}>
+            <Text className="text-sm text-green-600">View</Text>
         </Link>
-        
-
-        {/* <Tooltip size="sm" content={'View'} placement="top" color="invert">
-          <ActionIcon
-            as="span"
-            size="sm"
-            variant="outline"
-            aria-label={'View Appointment'}
-            className="hover:!border-gray-900 hover:text-gray-700"
-          >
-            <Link href={routes.serviceProvider.confirmAvailability}>
-              <EyeIcon className="h-4 w-4" />
-            </Link>
-          </ActionIcon>
-        </Tooltip> */}
-
-
-        {/* <DeletePopover
-          title={`Remove User`}
-          description={`Are you sure you want to remove this User?`}
-          onDelete={() => onDeleteItem(row.id)}
-        /> */}
       </div>
     ),
   },
-
-
-
-  // {
-  //   // Need to avoid this issue -> <td> elements in a large <table> do not have table headers.
-  //   title: <HeaderCell title="Actions" />,
-  //   dataIndex: 'action',
-  //   key: 'action',
-  //   width: 100,
-  //   render: (_: string, row: any) => (
-  //     <div className="flex items-center justify-end gap-3 pe-3">
-  //       <Tooltip size="sm" content={'View'} placement="top" color="invert">
-  //         <ActionIcon
-  //           as="span"
-  //           size="sm"
-  //           variant="outline"
-  //           aria-label={'View Appointment'}
-  //           className="hover:!border-gray-900 hover:text-gray-700"
-  //         >
-  //           <EyeIcon className="h-4 w-4" />
-  //         </ActionIcon>
-  //       </Tooltip>
-  //       {/* <DeletePopover
-  //         title={`Remove User`}
-  //         description={`Are you sure you want to remove this User?`}
-  //         onDelete={() => onDeleteItem(row.id)}
-  //       /> */}
-  //     </div>
-  //   ),
-  // },
 ];
 
 // function StatusSelect({ selectItem }: { selectItem?: string }) {

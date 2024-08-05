@@ -23,8 +23,9 @@ export const fundiProfileSchema = baseUserFormSchema.extend({
 })
 
 export const contractorProfileSchema = baseUserFormSchema.extend({
-    category: z.string().min(1, { message: 'Category is required'}),
-    subCategory: z.string().min(1, { message: 'Sub-category is required'}),
+    // category: z.string().min(1, { message: 'Category is required'}),
+    category: z.array(z.string()).nonempty({ message: 'Category is required' }),
+    subCategory: z.string().min(1, { message: 'Class is required'}),
     ncaCard: z.any().refine(value => value !== undefined, { message: messages.ncaCardIsRequired}),
     portfolio: z.any().optional(),
     pinNo: z.any().optional(),

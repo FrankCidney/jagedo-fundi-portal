@@ -56,14 +56,14 @@ export default function SecondTable() {
                     <div className="col-span-1 p-2 pb-4">
                       <QuoteInput
                         inputClassName="[&_input]:text-center"
-                        placeholder="Expense"
+                        placeholder="E.g., Communication"
                         {...register(`secondTable.${index}.expenses`)}
                       />
                     </div>
                     <div className="col-span-1 p-2 relative">
                       <QuoteInput
                         type="number"
-                        placeholder="1"
+                        placeholder="0"
                         inputClassName="[&_input]:text-center"
                         {...register(`secondTable.${index}.amount`, {
                           valueAsNumber: true,

@@ -20,38 +20,50 @@ import { z } from 'zod';
 
 export const FIRST_TABLE_DEFAULT_VALUE = [
   {
-    serviceProvider: 'Lead Consultant',
-    name: 'Olive Wangari',
-    emailAddress: 'olivewangari@gmail.com',
-    uniqueId: 'id',
-    numberOfHours: 0,
-    ratePerHour: 0,
-    // amount: 0,
-  },
-  {
-    serviceProvider: 'Associate Consultant',
+    serviceProvider: '',
     name: '',
     emailAddress: '',
     uniqueId: '',
-    numberOfHours: 0,
-    ratePerHour: 0,
-    // amount: 0,
+    numberOfHours: undefined,
+    ratePerHour: undefined,
   },
+  // {
+  //   serviceProvider: 'Lead Consultant',
+  //   name: 'Olive Wangari',
+  //   emailAddress: 'olivewangari@gmail.com',
+  //   uniqueId: 'id',
+  //   numberOfHours: 0,
+  //   ratePerHour: 0,
+  //   // amount: 0,
+  // },
+  // {
+  //   serviceProvider: 'Associate Consultant',
+  //   name: '',
+  //   emailAddress: '',
+  //   uniqueId: '',
+  //   numberOfHours: 0,
+  //   ratePerHour: 0,
+  //   // amount: 0,
+  // },
 ];
 
 export const SECOND_TABLE_DEFAULT_VALUE = [
-    {
-      expenses: 'Communication',
-      amount: 0,
-    },
-    {
-      expenses: 'Printing',
-      amount: 0,
-    },
-    {
-      expenses: 'Stationary',
-      amount: 0,
-    },
+  {
+    expenses: '',
+    amount: undefined,
+  },
+    // {
+    //   expenses: 'Communication',
+    //   amount: 0,
+    // },
+    // {
+    //   expenses: 'Printing',
+    //   amount: 0,
+    // },
+    // {
+    //   expenses: 'Stationary',
+    //   amount: 0,
+    // },
 ];
 
 export const THIRD_TABLE_DEFAULT_VALUE = [

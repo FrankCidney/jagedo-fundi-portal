@@ -92,17 +92,19 @@ export const routes = {
 
       // requisitions
       requisitions: '/service-provider/contractor/requisitions',
+      requisitionDetails: '/service-provider/contractor/requisitions/details',
       rfqStandardOne: '/service-provider/contractor/requisitions/rfqs/standard-one',
       rfqStandardTWo: '/service-provider/contractor/requisitions/rfqs/standard-two',
 
       // quotations
       quotations: '/service-provider/contractor/quotations',
+      quotationDetails: '/service-provider/contractor/quotations/details',   
 
       // jobs
       activeJobs: '/service-provider/contractor/jobs/active',
       completedJobs: '/service-provider/contractor/jobs/completed',
       jobDetails: '/service-provider/contractor/jobs/active/details',
-      jobReport: '/service-provider/contractor/jobs/completed/report',
+      completeJobDetails: '/service-provider/contractor/jobs/completed/report',
 
       reviews: '/service-provider/contractor/reviews',
       viewReview: '/service-provider/contractor/reviews/view',

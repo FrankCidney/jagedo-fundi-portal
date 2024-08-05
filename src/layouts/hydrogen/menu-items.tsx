@@ -102,35 +102,35 @@ switch(userRole) {
         href: '#',
         icon: <PiMoneyDuotone />,
       },
+          
+      {
+        name: 'Jobs',
+        href: '#',
+        icon: <PiToolboxDuotone/>,
+        dropdownItems: [
+          {
+            name: 'Active',
+            href: routes.serviceProvider.fundi.activeJobs,
+            badge: '',
+          },
+          {
+            name: 'Completed',
+            href: routes.serviceProvider.fundi.completedJobs,
+            badge: '',
+          },
+          // {
+          //   name: 'All Jobs',
+          //   href: routes.serviceProvider.fundi.jobs,
+          //   badge: '',
+          // },
+        ]
+      },
+
       {
         name: 'Reviews',
         href: routes.serviceProvider.fundi.reviews,
         icon: <PiStarDuotone />,
       },
-    
-    
-      // {
-      //   name: 'Jobs',
-      //   href: routes.serviceProvider.fundi.quotations,
-      //   icon: <PiToolboxDuotone/>,
-      //   dropdownItems: [
-      //     {
-      //       name: 'Active',
-      //       href: routes.serviceProvider.fundi.activeJobs,
-      //       badge: '',
-      //     },
-      //     {
-      //       name: 'Completed',
-      //       href: routes.serviceProvider.fundi.completedJobs,
-      //       badge: '',
-      //     },
-      //     {
-      //       name: 'All Jobs',
-      //       href: routes.serviceProvider.fundi.jobs,
-      //       badge: '',
-      //     },
-      //   ]
-      // },
 
       {
         name: 'Settings',
@@ -204,13 +204,7 @@ switch(userRole) {
         href: '#',
         icon: <PiMoneyDuotone />,
       },
-      {
-        name: 'Reviews',
-        href: routes.serviceProvider.professional.reviews,
-        icon: <PiStarDuotone />,
-      },
-    
-    
+
       // {
       //   name: 'Requisitions',
       //   href: routes.serviceProvider.fundi.requisitions,
@@ -223,28 +217,34 @@ switch(userRole) {
       //   icon: <PiNoteDuotone />,
       // },
     
-      // {
-      //   name: 'Jobs',
-      //   href: '#',
-      //   icon: <PiToolboxDuotone/>,
-      //   dropdownItems: [
-      //     {
-      //       name: 'Active',
-      //       href: routes.serviceProvider.contractor.activeJobs,
-      //       badge: '',
-      //     },
-      //     {
-      //       name: 'Completed',
-      //       href: routes.serviceProvider.contractor.completedJobs,
-      //       badge: '',
-      //     },
-      //     // {
-      //     //   name: 'All Jobs',
-      //     //   href: routes.serviceProvider.fundi.jobs,
-      //     //   badge: '',
-      //     // },
-      //   ]
-      // },
+      {
+        name: 'Jobs',
+        href: '#',
+        icon: <PiToolboxDuotone/>,
+        dropdownItems: [
+          {
+            name: 'Active',
+            href: routes.serviceProvider.professional.activeJobs,
+            badge: '',
+          },
+          {
+            name: 'Completed',
+            href: routes.serviceProvider.professional.completedJobs,
+            badge: '',
+          },
+          // {
+          //   name: 'All Jobs',
+          //   href: routes.serviceProvider.fundi.jobs,
+          //   badge: '',
+          // },
+        ]
+      },
+
+      {
+        name: 'Reviews',
+        href: routes.serviceProvider.professional.reviews,
+        icon: <PiStarDuotone />,
+      },
 
       {
         name: 'Settings',
@@ -261,11 +261,11 @@ switch(userRole) {
             href: '#',
             badge: '',
           },
-          {
-            name: 'Change Password',
-            href: '#',
-            badge: '',
-          },
+          // {
+          //   name: 'Change Password',
+          //   href: '#',
+          //   badge: '',
+          // },
         ]
       },
     
@@ -307,28 +307,34 @@ switch(userRole) {
         icon: <PiMoneyDuotone />,
       },
     
-      // {
-      //   name: 'Jobs',
-      //   href: '#',
-      //   icon: <PiToolboxDuotone/>,
-      //   dropdownItems: [
-      //     {
-      //       name: 'Active',
-      //       href: routes.serviceProvider.contractor.activeJobs,
-      //       badge: '',
-      //     },
-      //     {
-      //       name: 'Completed',
-      //       href: routes.serviceProvider.contractor.completedJobs,
-      //       badge: '',
-      //     },
-      //     // {
-      //     //   name: 'All Jobs',
-      //     //   href: routes.serviceProvider.contractor.jobs,
-      //     //   badge: '',
-      //     // },
-      //   ]
-      // },
+      {
+        name: 'Jobs',
+        href: '#',
+        icon: <PiToolboxDuotone/>,
+        dropdownItems: [
+          {
+            name: 'Active',
+            href: routes.serviceProvider.contractor.activeJobs,
+            badge: '',
+          },
+          {
+            name: 'Completed',
+            href: routes.serviceProvider.contractor.completedJobs,
+            badge: '',
+          },
+          // {
+          //   name: 'All Jobs',
+          //   href: routes.serviceProvider.contractor.jobs,
+          //   badge: '',
+          // },
+        ]
+      },
+
+      {
+        name: 'Reviews',
+        href: routes.serviceProvider.contractor.reviews,
+        icon: <PiStarDuotone />,
+      },
 
       {
         name: 'Settings',
@@ -345,11 +351,11 @@ switch(userRole) {
             href: '#',
             badge: '',
           },
-          {
-            name: 'Change Password',
-            href: '#',
-            badge: '',
-          },
+          // {
+          //   name: 'Change Password',
+          //   href: '#',
+          //   badge: '',
+          // },
         ]
       },
     

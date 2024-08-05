@@ -142,39 +142,6 @@ export const jobData = [
   },
 ];
 
-
-
-
-
-
-export const billOfQuantityData = [
-  {
-    billNo: '1',
-    works: 'Preliminaries',
-    amount: '50,000',
-  },
-
-  {
-    billNo: '2',
-    works: 'Builders work',
-    amount: '3,000,000',
-  }
-];
-
-export const disbursementData = [
-  {
-    percentage: '45',
-    milestoneActivity: 'Drilling & Flushing',
-    amount: '1,050,000',
-  },
-
-  {
-    percentage: '45',
-    milestoneActivity: 'Construction & Development',
-    amount: '1,050,000',
-  },
-];
-
 // note to remove this after updating and confirming fundi and professional requisition data
 export const requisitionData = [
   {
@@ -278,48 +245,52 @@ export const professionalRequisitionData = [
 
 export const contractorRequisitionData = [
   {
-    id: 'REQ008',
-    category: 'Water',
-    subCategory: 'Borehole services',
-    requestType: 'Managed by JaGedo',
-    location: 'Transmara, Narok',
+    number: '1',
+    id: 'REQ0021',
+    date: 'November 12, 2023',
+    category: 'Contractor',
+    subCategory: 'Water',
+    requestType: 'Standard 1: Managed by JaGedo',
     description: 'Proposes 4No. borehole drilling',
+    location: 'Transmara, Narok',
     status: 'Open',
     requestTypeId: 1,
   },
 
   {
-    id: 'REQ007',
-    category: 'Housing',
-    subCategory: 'Building',
-    requestType: 'Managed by You',
+    number: '2',
+    id: 'REQ0020',
+    date: 'November 11, 2023',
+    category: 'Contractor',
+    subCategory: 'Energy',
+    requestType: 'Standard 2: Managed By Self',
     location: 'Ngong, Nairobi',
     description: 'Proposed 4-storey apartment construction',
     status: 'Open',
     requestTypeId: 2,
   },
 
-  {
-    id: 'REQ004',
-    category: 'Water',
-    subCategory: 'Steel Tanks',
-    requestType: 'Managed by JaGedo',
-    location: 'Kwandiku, Homa Bay',
-    description: 'Proposed cabro paved road',
-    status: 'Closed',
-    requestTypeId: 1,
-  },
+  // {
+  //   id: 'REQ008',
+  //   category: 'Water',
+  //   subCategory: 'Borehole services',
+  //   requestType: 'Managed by JaGedo',
+  //   location: 'Transmara, Narok',
+  //   description: 'Proposes 4No. borehole drilling',
+  //   status: 'Open',
+  //   requestTypeId: 1,
+  // },
 
-  {
-    id: 'REQ003',
-    category: 'Other Infrastructure',
-    subCategory: 'Roads',
-    requestType: 'Managed by JaGedo',
-    location: 'Kibos, Kisumu',
-    description: 'Spot improvement for access road',
-    status: 'Closed',
-    requestTypeId: 1,
-  }
+  // {
+  //   id: 'REQ007',
+  //   category: 'Housing',
+  //   subCategory: 'Building',
+  //   requestType: 'Managed by You',
+  //   location: 'Ngong, Nairobi',
+  //   description: 'Proposed 4-storey apartment construction',
+  //   status: 'Open',
+  //   requestTypeId: 2,
+  // },
 ];
 
 export const quotationData = [
@@ -394,48 +365,30 @@ export const professionalQuotationData = [
 
 export const contractorQuotationData = [
   {
-    id: 'REQ008',
-    category: 'Water',
-    subCategory: 'Borehole services',
-    requestType: 'Managed by JaGedo',
-    location: 'Transmara, Narok',
+    number: '1',
+    id: 'QTN0021',
+    date: 'November 12, 2023',
+    category: 'Contractor',
+    subCategory: 'Water',
+    requestType: 'Standard 1: Managed by JaGedo',
     description: 'Proposes 4No. borehole drilling',
-    status: 'Under Review',
-    requestTypeId: 1,
-  },
-
-  {
-    id: 'REQ007',
-    category: 'Housing',
-    subCategory: 'Building',
-    requestType: 'Managed by You',
-    location: 'Ngong, Nairobi',
-    description: 'Proposed 4-storey apartment construction',
-    status: 'Under Review',
-    requestTypeId: 2,
-  },
-
-  {
-    id: 'REQ004',
-    category: 'Water',
-    subCategory: 'Steel Tanks',
-    requestType: 'Managed by JaGedo',
-    location: 'Kwandiku, Homa Bay',
-    description: 'Proposed cabro paved road',
+    location: 'Transmara, Narok',
     status: 'Under review',
     requestTypeId: 1,
   },
 
   {
-    id: 'REQ003',
-    category: 'Other Infrastructure',
-    subCategory: 'Roads',
-    requestType: 'Managed by JaGedo',
-    location: 'Kibos, Kisumu',
-    description: 'Spot improvement for access road',
-    status: 'Under Review',
-    requestTypeId: 1,
-  }
+    number: '2',
+    id: 'QTN0020',
+    date: 'November 11, 2023',
+    category: 'Contractor',
+    subCategory: 'Energy',
+    requestType: 'Standard 2: Managed By Self',
+    location: 'Ngong, Nairobi',
+    description: 'Proposed 4-storey apartment construction',
+    status: 'Under review',
+    requestTypeId: 2,
+  },
 ];
 
 export const jobsData = [
@@ -581,33 +534,29 @@ export const professionalActiveJobsData = [
 
 export const contractorActiveJobsData = [
   {
-    id: 'JB005',
-    category: 'Other infrastructure',
-    subCategory: 'Roads',
-    requestType: 'Managed by JaGedo',
-    location: 'Kwandiku, Homa Bay',
-    description: 'Proposed Cabro paved road',
-    status: 'Ongoing'
+    number: '1',
+    id: 'JOB0021',
+    date: '2023-11-12T06:22:01.621Z',
+    category: 'Contractor',
+    subCategory: 'Water',
+    requestType: 'Standard 1: Managed by JaGedo',
+    description: 'Proposes 4No. borehole drilling',
+    location: 'Transmara, Narok',
+    status: 'Ongoing',
+    requestTypeId: 1,
   },
 
   {
-    id: 'JB005',
-    category: 'Water',
-    subCategory: 'Roads',
-    requestType: 'Managed by JaGedo',
-    location: 'Kwandiku, Homa Bay',
-    description: 'Proposed Cabro paved road',
-    status: 'Ongoing'
-  },
-
-  {
-    id: 'JB005',
-    category: 'Energy',
-    subCategory: 'Roads',
-    requestType: 'Managed by JaGedo',
-    location: 'Kwandiku, Homa Bay',
-    description: 'Proposed Cabro paved road',
-    status: 'Ongoing'
+    number: '2',
+    id: 'JOB0020',
+    date: '2023-11-11T06:22:01.621Z',
+    category: 'Contractor',
+    subCategory: 'Energy',
+    requestType: 'Standard 2: Managed By Self',
+    location: 'Ngong, Nairobi',
+    description: 'Proposed 4-storey apartment construction',
+    status: 'Ongoing',
+    requestTypeId: 2,
   },
 ];
 
@@ -719,25 +668,29 @@ export const professionalCompletedJobsData = [
 
 export const contractorCompletedJobsData = [
   {
-    number: 3,
-    id: 'JOB006',
-    category: 'Energy',
-    subCategory: 'Solar installation',
-    requestType: 'Managed by JaGedo',
-    location: 'Kondele, Kisumu',
-    description: 'Proposed solar installation',
+    number: '1',
+    id: 'JOB0021',
+    date: '2023-11-12T06:22:01.621Z',
+    category: 'Contractor',
+    subCategory: 'Water',
+    requestType: 'Standard 1: Managed by JaGedo',
+    description: 'Proposes 4No. borehole drilling',
+    location: 'Transmara, Narok',
     status: 'Reviewed',
+    requestTypeId: 1,
   },
 
   {
-    number: 7,
-    id: 'JOB004',
-    category: 'Energy',
-    subCategory: 'Solar installation',
-    requestType: 'Managed by You',
-    location: 'Kondele, Kisumu',
-    description: 'Proposed solar installation',
+    number: '2',
+    id: 'JOB0020',
+    date: '2023-11-11T06:22:01.621Z',
+    category: 'Contractor',
+    subCategory: 'Energy',
+    requestType: 'Standard 2: Managed By Self',
+    location: 'Ngong, Nairobi',
+    description: 'Proposed 4-storey apartment construction',
     status: 'Unreviewed',
+    requestTypeId: 2,
   },
 ];
 
@@ -773,27 +726,31 @@ export const fundiReviewsData = [
 
 export const contractorReviewsData = [
   {
-    number: 3,
-    id: 'JOB006',
-    category: 'Energy',
-    subCategory: 'Solar installation',
-    requestType: 'Managed by JaGedo',
-    location: 'Kondele, Kisumu',
-    description: 'Proposed solar installation',
-    status: 'Complete',
-    reviewBy: 'John Kamau',
+    number: '1',
+    id: 'JOB0021',
+    date: '2023-11-12T06:22:01.621Z',
+    category: 'Contractor',
+    subCategory: 'Water',
+    requestType: 'Standard 1: Managed by JaGedo',
+    description: 'Proposes 4No. borehole drilling',
+    location: 'Transmara, Narok',
+    status: 'Reviewed',
+    reviewBy: 'Floyd Wangari',
+    requestTypeId: 1,
   },
 
   {
-    number: 7,
-    id: 'JOB004',
-    category: 'Energy',
-    subCategory: 'Solar installation',
-    requestType: 'Managed by You',
-    location: 'Kondele, Kisumu',
-    description: 'Proposed solar installation',
-    status: 'Complete',
-    reviewBy: 'Jane Kamau',
+    number: '2',
+    id: 'JOB0018',
+    date: '2023-11-11T06:22:01.621Z',
+    category: 'Contractor',
+    subCategory: 'Energy',
+    requestType: 'Standard 2: Managed By Self',
+    location: 'Ngong, Nairobi',
+    description: 'Proposed 4-storey apartment construction',
+    status: 'Reviewed',
+    reviewBy: 'Joyce Wasike',
+    requestTypeId: 2,
   },
 ];
 

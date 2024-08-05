@@ -20,14 +20,14 @@ export const contractorProfileSteps = [
 
 // set initial values for the form fields here
 export const contractorInitialValues: ContractorProfileSchema = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    category: '',
-    phoneNo: '',
-    county: '',
-    subCounty: '',
-    estate: '',
+    firstName: 'Olive',
+    lastName: 'Wangari',
+    email: 'olivewangari@gmail.com',
+    category: ['water'],
+    phoneNo: '0734932467',
+    county: 'kisumu',
+    subCounty: 'kisumu central',
+    estate: 'tom mboya',
     subCategory: '',
     ncaCard: '',
     portfolio: '',
@@ -43,23 +43,43 @@ export const category = [
     value: 'water',
   },
   {
-    label: 'Electricity',
-    value: 'electricity',
+    label: 'Energy',
+    value: 'energy',
+  },
+  {
+    label: 'Housing',
+    value: 'housing',
+  },
+  {
+    label: 'Mechanical',
+    value: 'mechanical',
+  },
+  {
+    label: 'Roads',
+    value: 'roads',
+  },
+  {
+    label: 'NCA',
+    value: 'nca',
   },
 ];  
 
 export const subCategory = [
   {
-      label: '8',
-      value: '8',
+      label: 'Borehole Services',
+      value: 'borehole services',
   },
   {
-    label: '5',
-    value: '5',
+    label: 'Building',
+    value: 'building',
   },
   {
-    label: '2',
-    value: '2',
+    label: 'Solar Installation',
+    value: 'solar installation',
+  },
+  {
+    label: 'Steel Tanks',
+    value: 'steel tanks',
   },
 ];
 
@@ -108,17 +128,6 @@ export const skill = [
     {
       label: 'Kisumu East',
       value: 'kisumu east',
-    },
-  ];
-
-  export const level = [
-    {
-      label: 'Masterfundi',
-      value: 'masterfundi',
-    },
-    {
-      label: 'Intermediatefundi',
-      value: 'intermediatefundi',
     },
   ];
 

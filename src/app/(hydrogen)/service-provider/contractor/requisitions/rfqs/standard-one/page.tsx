@@ -1,19 +1,31 @@
-import RfqStandardOne from '@/app/shared/service-provider/rfq/rfqStandard1';
+import CreateQuotationComponent from '@/app/shared/service-provider/create-quotation';
 import { metaObject } from '@/config/site.config';
-import { Title } from 'rizzui';
+import PageHeader from '@/app/shared/commons/page-header';
 
 export const metadata = {
   ...metaObject(),
 };
 
-export default function RequisitionsPage() {
+const pageHeader = {
+  title: 'Create Quotation',
+  breadcrumb: [
+    {
+      href: '#',
+      name: 'Home',
+    },
+    {
+      href: '#',
+      name: 'Quotations',
+    },
+  ],
+};
+
+export default function RfqStandardOnePage() {
   return (
     <>
-      <Title as="h4" className="mb-3.5 font-semibold @2xl:mb-5 pb-5">
-        RFQ
-      </Title>
-      <RfqStandardOne />
+      <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb} />
+
+      <CreateQuotationComponent />
     </>
   )
-  
 }

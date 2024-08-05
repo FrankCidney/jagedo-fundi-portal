@@ -1,4 +1,5 @@
 import { FileInput } from "@/app/shared/commons/custom-file-input";
+import UploadZone from "@/components/ui/file-upload/upload-zone";
 
 const AttachmentsBlock = () => {
     return (  
@@ -6,6 +7,13 @@ const AttachmentsBlock = () => {
             <p className='mb-4 ps-4 text-lg text-gray-900 font-semibold'>Add Attachments</p>
             {/* <p className="font-medium mb-1">Please share with us 3 photos of your previous jobs</p> */}
             <FileInput />
+            {/* <UploadZone
+                label=""
+                className="flex-grow"
+                name="certificates"
+                getValues={() => {}}
+                setValue={() => {}}
+            /> */}
         </div>
     );
 }

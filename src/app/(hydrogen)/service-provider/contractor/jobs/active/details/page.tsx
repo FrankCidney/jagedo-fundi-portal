@@ -1,16 +1,18 @@
+'use client'
+
 import ActiveJobDetailsCard from '@/app/shared/service-provider/details/sp-job-details';
-import SpActiveJobsTable from '@/app/shared/service-provider/tables/sp-active-jobs-table/professional';
-// import SpJobsTable from '@/app/shared/service-provider/tables/sp-jobs-table';
-import { metaObject } from '@/config/site.config';
-import { Button, Progressbar } from 'rizzui';
+// import { metaObject } from '@/config/site.config';
+import { Button, Modal, Progressbar } from 'rizzui';
 import Link from 'next/link';
 import cn from '@/utils/class-names';
-import ProgressBarActive from '@/app/shared/service-provider/progress-bar';
+import ProgressBarActive from '@/app/shared/service-provider/progress-bar-fundi';
 import { routes } from '@/config/routes';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-export const metadata = {
-    ...metaObject(),
-  };
+// export const metadata = {
+//     ...metaObject(),
+//   };
 
   type PageProps = {
     className: string;
@@ -18,27 +20,45 @@ export const metadata = {
   };
   
   export default function JobDetailsPage({ className }: PageProps) {
+    const [modalState, setModalState] = useState(false);
+    const router = useRouter()
+    const handleBackBtn = () => router.back()
+
     return (
-      <div className={cn('xl:gap-15 grid grid-cols-1 lg:grid-cols-3', className)}>
-      <div className='col-span-2'>
+      <>
+      <div className='flex justify-between'>
+      <h3 className="mb-4">Job Details</h3>
+      <div className=''>     
+            <Button onClick={() => setModalState(true)}>Complete Milestone</Button>       
+      </div>
+      </div>
+      
+      
+      <div className={cn('xl:gap-15 grid grid-cols-1 lg:grid-cols-1', className)}>
+        <Modal isOpen={modalState} onClose={() => setModalState(false)}>
+              <div className='p-10'>
+                  <p className='text-center text-lg font-semibold'>Do you confirm completion of this milestone?</p>
+
+                  <div className='flex justify-center mt-6'>
+                    <Button onClick={() => setModalState(false)} className='w-32'>Yes</Button>
+                      <Button variant="outline" onClick={() => setModalState(false)} className="w-32 ml-4">
+                          No
+                      </Button>
+                  </div>
+              </div>
+          </Modal>
+
+        <ProgressBarActive />
+
         <ActiveJobDetailsCard />
-        <Progressbar
-          className="mt-6"
-          value={75}
-          label="75% Ongoing"
-          color="info"
-          size="xl"
-        />
         
         <div className="flex  justify-center">
-          <Link href={routes.serviceProvider.contractor.activeJobs}>
-              <Button className="mt-6">Back</Button>
-          </Link>
+          {/* <Link href={routes.serviceProvider.fundi.activeJobs}> */}
+              <Button className="mt-6" onClick={handleBackBtn}>Back</Button>
+          {/* </Link> */}
         </div>
-      </div>
-      <div className="">
-        <ProgressBarActive />
-      </div>
+      
     </div>
+    </>
     )
   }

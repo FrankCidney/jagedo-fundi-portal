@@ -73,14 +73,14 @@ export default function FirstTable() {
                         // className="grow"
                         // variant="outline"
                         inputClassName="[&_input]:text-center"
-                        placeholder="Service Provider"
+                        placeholder="E.g., Lead Consultant"
                         {...register(`firstTable.${index}.serviceProvider`)}
                       />
                     </div>
                     <div className="col-span-2 p-2 pb-4">
                       <QuoteInput
                         inputClassName="[&_input]:text-center"
-                        placeholder="Name"
+                        placeholder="John Doe"
                         {...register(`firstTable.${index}.name`)}
                       />
                     </div>
@@ -101,7 +101,7 @@ export default function FirstTable() {
                     <div className="col-span-1 p-2">
                       <QuoteInput
                         type="number"
-                        placeholder="1"
+                        placeholder="0"
                         inputClassName="[&_input]:text-center"
                         {...register(`firstTable.${index}.numberOfHours`, {
                           valueAsNumber: true,
@@ -111,7 +111,7 @@ export default function FirstTable() {
                     <div className="col-span-1 p-2">
                       <QuoteInput
                         type="number"
-                        placeholder="1"
+                        placeholder="0"
                         inputClassName="[&_input]:text-center"
                         {...register(`firstTable.${index}.ratePerHour`, {
                           valueAsNumber: true,

@@ -58,6 +58,7 @@ export default function CreateQuotationComponent() {
 
   const pathname = usePathname()
   const viewQuotation = pathname.includes('quotations')
+  const contractor = pathname.includes('contractor')
 
   const methods = useForm<CreateQuotationType>({
     mode: 'onChange',
@@ -67,7 +68,11 @@ export default function CreateQuotationComponent() {
 
   const handleAltBtn = () => { router.back() }
   const handleSubmitBtn = () => { 
-    router.push(routes.serviceProvider.professional.quotations)
+    if (contractor) {
+      router.push(routes.serviceProvider.contractor.quotations)
+    } else {
+      router.push(routes.serviceProvider.professional.quotations)
+    }
    }
 
   const onSubmit: SubmitHandler<CreateQuotationType> = (data) => {
@@ -85,21 +90,6 @@ export default function CreateQuotationComponent() {
 
   return (
     <>
-      {/* <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}>
-        <div className="mt-4 flex items-center gap-3 @lg:mt-0">
-          <PrintButton onClick={handlePrint} />
-          <Button className="w-full @lg:w-auto">
-            <PiDownloadSimpleBold className="me-1.5 h-[17px] w-[17px]" />
-            Download
-          </Button>
-        </div>
-      </PageHeader> */}
-      {/* <InvoicePrint
-        ref={printRef}
-        subTotal={subTotal}
-        totalTax={totalTax}
-        data={methods.watch()}
-      /> */}
       <div className="rounded-2xl @container">
         {/* <SimpleBar className="w-full"> */}
           <FormProvider {...methods}>
@@ -142,36 +132,6 @@ export default function CreateQuotationComponent() {
                 </>
               )}
 
-
-
-              {/* <AttachmentsBlock />
-
-              <div className="col-span-2 flex items-start text-gray-700 mt-3 mb-8 ps-2">
-                <Checkbox
-                  // {...register('termsAndConditions')}
-                  className="[&>label.items-center]:items-start [&>label>div.leading-none]:mt-0.5 [&>label>div.leading-none]:sm:mt-0 [&>label>span]:font-medium"
-                  label={
-                    <Text as="span" className="ps-1 text-gray-500">
-                      I agree to the{' '}
-                      <Link
-                        href="#"
-                        className="font-semibold text-gray-700 transition-colors hover:text-primary"
-                      >
-                        Professional Terms & Conditions
-                      </Link>
-                    </Text>
-                  }
-                />
-              </div> */}
-
-
-              {/* <ThirdTableTwo /> */}
-              {/* <CalcPayBlock subTotal={subTotal} totalTax={totalTax} /> */}
-              {/* <OthersBlock /> */}
-              {/* <CustomFormFooter
-                // isLoading={isLoading}
-                submitBtnText="Submit"
-              /> */}
               {viewQuotation? (
                 <FormFooter
                   // isLoading={isLoading}
