@@ -7,6 +7,8 @@ import { SubmitHandler, Controller } from "react-hook-form";
 import CustomMultiStepForm from "@/app/shared/custom-multi-step";
 import dynamic from "next/dynamic";
 import UploadZone from '@/components/ui/file-upload/upload-zone';
+import MultiSelect from 'multiselect-react-dropdown';
+
 // import Link from 'next/link';
 import { 
   contractorInitialValues, 
@@ -238,7 +240,7 @@ export default function CreateContractorProfileForm() {
                           dropdownClassName="!z-10"
                           inPortal={false}
                           placeholder="Select Class"
-                          label="Level/Class*"
+                          label="Class*"
                           size="lg"
                           selectClassName="font-medium text-sm"
                           optionClassName=""
@@ -254,6 +256,22 @@ export default function CreateContractorProfileForm() {
                         />
                       )}
                     />
+
+                    {/* <Controller
+                      name="subCategory"
+                      control={control}
+                      render={({ field: { onChange, onBlur, value, name, ref } }) => (
+                        <MultiSelect
+                          options={subCategory} // Options for the multiselect
+                          selectedValues={value} // Controlled value
+                          onSelect={onChange} // Update the form state on selection
+                          onRemove={onChange} // Update the form state on removal
+                          displayValue="label" // Property to display
+                          // closeDropdownOnSelect={false} // Optional: keep dropdown open after selection
+                          ref={ref} // Forward ref to the component
+                        />
+                      )}
+                    /> */}
 
                   {/* </div> */}
 

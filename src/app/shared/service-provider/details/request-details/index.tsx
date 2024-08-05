@@ -4,7 +4,7 @@
 import { routes } from "@/config/routes";
 import Link from "next/link";
 import { Button, } from "rizzui";
-import { professionalRequestDetailsData } from "@/data/custom-job-details-data";
+import { contractorRequestDetailsData } from "@/data/custom-job-details-data";
 import { usePathname, useSearchParams } from "next/navigation";
 import ChunkedGrid from "@/app/shared/custom-chunked-grid";
 
@@ -18,7 +18,7 @@ export default function RequestDetails() {
   return (
     <>
         <div className="my-4">
-          <ChunkedGrid data={requestId === 'REQ0021'? professionalRequestDetailsData[0] : professionalRequestDetailsData[1]} dataChunkSize={8} />
+          <ChunkedGrid data={requestId === 'REQ0021'? contractorRequestDetailsData[0] : contractorRequestDetailsData[1]} dataChunkSize={8} />
         </div>
 
         <div className="flex justify-center space-x-4 pt-5">
