@@ -18,17 +18,22 @@ import FirstTable from './first-table';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { CREATE_QUOTATION_DEFAULT_VALUE, createQuotationSchema, CreateQuotationType } from '@/utils/create-quotation.schema';
-import SecondTable from './second-table';
-// import TotalsBlock from './totals-block';
-import ThirdTable from './third-table';
-import FourthTable from './fourth-table';
-import CustomFormFooter from '@/components/custom-form-footer-with-upload';
-// import FormFooter from '@/components/form-footer';
-import AttachmentsBlock from './attachments-block';
+
+
+
+
+// import SecondTable from './second-table';
+// import ThirdTable from './third-table';
+// import FourthTable from './fourth-table';
+// import AttachmentsBlock from './attachments-block';
+// import ViewAttachmentsBlock from './view-attachments-block';
+
+
+
+
 import { usePathname, useRouter } from 'next/navigation';
 import FormFooter from '@/components/custom-form-footer';
 import Link from 'next/link';
-import ViewAttachmentsBlock from './view-attachments-block';
 
 // import ThirdTableTwo from './third-table-two';
 
@@ -100,13 +105,13 @@ export default function CreateQuotationComponent() {
               {/* <FirstBlock setValue={methods.setValue} /> */}
               {/* <SecondBlock /> */}
               <FirstTable />
-              <SecondTable />
+              {/* <SecondTable /> */}
               {/* <TotalsBlock /> */}
-              <ThirdTable />
-              <FourthTable />
+              {/* <ThirdTable />
+              <FourthTable /> */}
 
 
-              {viewQuotation? (
+              {/* {viewQuotation? (
                 <ViewAttachmentsBlock />
               ) : (
                 <>
@@ -123,14 +128,14 @@ export default function CreateQuotationComponent() {
                             href="#"
                             className="font-semibold text-gray-700 transition-colors hover:text-primary"
                           >
-                            Professional Agreement
+                            Professional Terms & Conditions
                           </Link>
                         </Text>
                       }
                     />
                   </div>
                 </>
-              )}
+              )} */}
 
               {viewQuotation? (
                 <FormFooter

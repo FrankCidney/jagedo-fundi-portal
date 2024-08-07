@@ -2,91 +2,37 @@
 
 import { useRef } from 'react';
 import { Text, Checkbox } from 'rizzui';
-// import SimpleBar from 'simplebar-react';
 import { routes } from '@/config/routes';
-// import { useReactToPrint } from 'react-to-print';
-// import PageHeader from '@/app/shared/commons/page-header';
-// import PrintButton from '@/app/shared/commons/print-button';
-// import { PiDownloadSimpleBold } from 'react-icons/pi';
-import FirstTable from './first-table';
-// import CalcPayBlock from './calc-pay-block';
-// import {
-//   InvoiceType,
-//   invoiceBuilderSchema,
-//   INVOICE_BUILDER_DEFAULT_VALUE,
-// } from '@/utils/validators/invoice-builder.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { CREATE_QUOTATION_DEFAULT_VALUE, createQuotationSchema, CreateQuotationType } from '@/utils/create-quotation.schema';
-import SecondTable from './second-table';
-// import TotalsBlock from './totals-block';
-import ThirdTable from './third-table';
-import FourthTable from './fourth-table';
-import CustomFormFooter from '@/components/custom-form-footer-with-upload';
-// import FormFooter from '@/components/form-footer';
-import AttachmentsBlock from './attachments-block';
 import { usePathname, useRouter } from 'next/navigation';
 import FormFooter from '@/components/custom-form-footer';
 import Link from 'next/link';
-import ViewAttachmentsBlock from './view-attachments-block';
+import { CREATE_CONTRACTOR_QUOTATION_DEFAULT_VALUE, createContractorQuotationSchema, CreateContractorQuotationType } from '@/utils/create-contractor-quotation.schema';
+import Bill from './bill';
 
-// import ThirdTableTwo from './third-table-two';
-
-// const pageHeader = {
-//   title: 'Invoice Builder',
-//   breadcrumb: [
-//     {
-//       href: routes.eCommerce.dashboard,
-//       name: 'Home',
-//     },
-//     {
-//       href: routes.invoice.home,
-//       name: 'Invoice',
-//     },
-//     {
-//       name: 'Builder',
-//     },
-//   ],
-// };
-
-export default function CreateQuotationComponent() {
-  const printRef = useRef(null);
-  // const handlePrint = useReactToPrint({
-  //   content: () => printRef.current,
-  // });
+export default function CreateContractorQuotationComponent() {
   const router = useRouter()
 
   const pathname = usePathname()
   const viewQuotation = pathname.includes('quotations')
-  const contractor = pathname.includes('contractor')
 
-  const methods = useForm<CreateQuotationType>({
+  const methods = useForm<CreateContractorQuotationType>({
     mode: 'onChange',
-    defaultValues: CREATE_QUOTATION_DEFAULT_VALUE,
-    resolver: zodResolver(createQuotationSchema),
+    defaultValues: CREATE_CONTRACTOR_QUOTATION_DEFAULT_VALUE,
+    resolver: zodResolver(createContractorQuotationSchema),
   });
 
   const handleAltBtn = () => { router.back() }
   const handleSubmitBtn = () => { 
-    if (contractor) {
-      router.push(routes.serviceProvider.contractor.quotations)
-    } else {
-      router.push(routes.serviceProvider.professional.quotations)
-    }
+    router.push(routes.serviceProvider.contractor.quotations)
    }
 
-  const onSubmit: SubmitHandler<CreateQuotationType> = (data) => {
+  const onSubmit: SubmitHandler<CreateContractorQuotationType> = (data) => {
     // router.push(routes.serviceProvider.professional.quotations)
   };
 
-  // let subTotal = methods.watch('invoiceTable').reduce((acc, item) => {
-  //   if (!item.quantity || !item.rate) return acc;
-  //   return acc + item.quantity * item.rate;
-  // }, 0);
-
-  // let totalTax = methods.watch('invoiceTable').reduce((acc, item) => {
-  //   return acc + item.tax;
-  // }, 0);
 
   return (
     <>
@@ -97,17 +43,13 @@ export default function CreateQuotationComponent() {
               onSubmit={methods.handleSubmit(onSubmit)}
               className="rounded-xl bg-white"
             >
-              {/* <FirstBlock setValue={methods.setValue} /> */}
-              {/* <SecondBlock /> */}
-              <FirstTable />
-              <SecondTable />
-              {/* <TotalsBlock /> */}
-              <ThirdTable />
-              <FourthTable />
+              
+              <Bill />
 
 
-              {viewQuotation? (
-                <ViewAttachmentsBlock />
+              {/* {viewQuotation? (
+                <ViewAttachmentsBlock /> 
+                <div></div>
               ) : (
                 <>
                   <AttachmentsBlock />
@@ -123,16 +65,16 @@ export default function CreateQuotationComponent() {
                             href="#"
                             className="font-semibold text-gray-700 transition-colors hover:text-primary"
                           >
-                            Professional Agreement
+                            Contractor Agreement
                           </Link>
                         </Text>
                       }
                     />
                   </div>
                 </>
-              )}
+              )} */}
 
-              {viewQuotation? (
+              {/* {viewQuotation? (
                 <FormFooter
                   // isLoading={isLoading}
                   submitBtnText="Back"
@@ -146,7 +88,9 @@ export default function CreateQuotationComponent() {
                 handleSubmitBtn={handleSubmitBtn}
                 submitBtnText="Submit"
               />
-              )}
+              )} */}
+
+
               {/* <FormFooter
               //   // isLoading={isLoading}
                 altBtnText="Back"

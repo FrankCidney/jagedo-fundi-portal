@@ -12,6 +12,7 @@ import {
   UseFormProps,
   FieldValues, 
   Path,
+  FormProvider,
 } from 'react-hook-form';
 import type { Schema } from 'zod';
 
@@ -101,16 +102,16 @@ TFormValues extends Record<string, any> = Record<string, any>,
     const fields = steps[currentStep].fields as Path<TFormValues>[]
     const output = await methods.trigger(fields, { shouldFocus: true })
     
-    console.log('before output')
-    console.log(`Output: ${output}`)
-    console.log(`Fields: ${fields}`)
+    // console.log('before output')
+    // console.log(`Output: ${output}`)
+    // console.log(`Fields: ${fields}`)
 
     // run the console.log below to check the errors if the stepper is not working
-    console.log(methods.formState.errors)
+    // console.log(methods.formState.errors)
 
     if (!output) return
 
-    console.log('after output')
+    // console.log('after output')
 
     if (currentStep < steps.length - 1) {
 
@@ -149,58 +150,57 @@ TFormValues extends Record<string, any> = Record<string, any>,
         {/* </div> */}
       </nav>
       
-      {/* Form */}
-      <form className='mt-8 py-3' /*onSubmit={methods.handleSubmit(onSubmit)}*/>
-          {children(methods, currentStep, delta)}
-      
-
-      {/* Navigation */}
-      <div className='mt-16 pt-5'>
-        <div className='flex justify-between'>
-          <Button 
-            className="w-32" 
-            type="button" 
-            size="lg"
-            onClick={prev}
-            disabled={currentStep === 0}
-          >
-            {/* <PiArrowLeftBold className="ms-2 mt-0.5 h-5 w-5" /> */}
-            <span>Back</span>{' '}
-          </Button>
-
-          {currentStep === steps.length - 1 ? (
-            <Button 
-            className="w-32" 
-            type="button" 
-            size="lg"   
-            onClick={() => {
-              methods.handleSubmit(onSubmit)()
-              // console.log('Clicked')
-            }}
-            // disabled={currentStep === steps.length - 1}
-            >
-              <span>Submit</span>{' '}
-              {/* <PiArrowRightBold className="ms-2 mt-0.5 h-5 w-5" /> */}
-            </Button> 
-          ) : (
-            <Button 
-              className="w-32" 
-              type="button" 
-              size="lg"
-              onClick={next}
-              // disabled={currentStep === steps.length - 1}
-            >
-              <span>Next</span>{' '}
-              {/* <PiArrowRightBold className="ms-2 mt-0.5 h-5 w-5" /> */}
-            </Button>
-          )}
+      <FormProvider {...methods}>
+        {/* Form */}
+        <form className='mt-8 py-3' /*onSubmit={methods.handleSubmit(onSubmit)}*/>
+            {children(methods, currentStep, delta)}
           
-    
-           
-        </div>
-        
-      </div>
-      </form>
+
+          {/* Navigation */}
+          <div className='mt-16 pt-5'>
+            <div className='flex justify-between'>
+              <Button 
+                className="w-32" 
+                type="button" 
+                size="lg"
+                onClick={prev}
+                disabled={currentStep === 0}
+              >
+                {/* <PiArrowLeftBold className="ms-2 mt-0.5 h-5 w-5" /> */}
+                <span>Back</span>{' '}
+              </Button>
+
+              {currentStep === steps.length - 1 ? (
+                <Button 
+                className="w-32" 
+                type="button" 
+                size="lg"   
+                onClick={() => {
+                  methods.handleSubmit(onSubmit)()
+                  // console.log('Clicked')
+                }}
+                // disabled={currentStep === steps.length - 1}
+                >
+                  <span>Submit</span>{' '}
+                  {/* <PiArrowRightBold className="ms-2 mt-0.5 h-5 w-5" /> */}
+                </Button> 
+              ) : (
+                <Button 
+                  className="w-32" 
+                  type="button" 
+                  size="lg"
+                  onClick={next}
+                  // disabled={currentStep === steps.length - 1}
+                >
+                  <span>Next</span>{' '}
+                  {/* <PiArrowRightBold className="ms-2 mt-0.5 h-5 w-5" /> */}
+                </Button>
+              )}  
+            </div>
+            
+          </div>
+        </form>
+      </FormProvider>
     </section>
   )
 }

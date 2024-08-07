@@ -14,26 +14,37 @@ export const contractorProfileSteps = [
     {
       id: 'Step 2',
       name: 'Required Details',
-      fields: ['category', 'subCategory', 'pinNo', 'companyProfile', 'businessRegistration', 'portfolio', 'ncaCard' ]
+      fields: ['category', 'subCategory', 'pinNo', 'companyProfile', 'businessRegistration', 'portfolio', 'ncaCard']
+    },
+    {
+      id: 'Step 3',
+      name: 'NCA Category',
+      fields: ['category', 'subCategory', 'ncaCard']
     },
 ]
 
 // set initial values for the form fields here
+const CATEGORIES_TABLE_DEFAULT_VALUE = [
+  {
+    category: 'water',
+    subCategory: '5',
+    ncaCard: '',
+  },
+];
+
 export const contractorInitialValues: ContractorProfileSchema = {
     firstName: 'Olive',
     lastName: 'Wangari',
     email: 'olivewangari@gmail.com',
-    category: 'water',
     phoneNo: '0734932467',
     county: 'kisumu',
     subCounty: 'kisumu central',
     estate: 'Tom Mboya',
-    subCategory: 'steel tanks',
-    ncaCard: '',
     portfolio: '',
     pinNo: '',
     companyProfile: '',
     businessRegistration: '',
+    categoriesTable: CATEGORIES_TABLE_DEFAULT_VALUE,
   }
 
 // if there's any 'Select' inputs, specify the values here
@@ -66,20 +77,36 @@ export const category = [
 
 export const subCategory = [
   {
-      label: 'Borehole Services',
-      value: 'borehole services',
+    label: '1',
+    value: '1',
   },
   {
-    label: 'Building',
-    value: 'building',
+    label: '2',
+    value: '2',
   },
   {
-    label: 'Solar Installation',
-    value: 'solar installation',
+    label: '3',
+    value: '3',
   },
   {
-    label: 'Steel Tanks',
-    value: 'steel tanks',
+    label: '4',
+    value: '4',
+  },
+  {
+    label: '5',
+    value: '5',
+  },
+  {
+    label: '6',
+    value: '6',
+  },
+  {
+    label: '7',
+    value: '7',
+  },
+  {
+    label: '8',
+    value: '8',
   },
 ];
 

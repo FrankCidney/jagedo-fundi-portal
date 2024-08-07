@@ -7,7 +7,6 @@ import { SubmitHandler, Controller } from "react-hook-form";
 import CustomMultiStepForm from "@/app/shared/custom-multi-step";
 import dynamic from "next/dynamic";
 import UploadZone from '@/components/ui/file-upload/upload-zone';
-import MultiSelect from 'multiselect-react-dropdown';
 
 // import Link from 'next/link';
 import { 
@@ -18,7 +17,8 @@ import {
   category,
   subCategory,
 } from "@/app/shared/service-provider/profile/create-profile/contractor/data";
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
+import CategoriesTable from "./categories-table";
 // import { routes } from '@/config/routes';
 
 
@@ -33,7 +33,7 @@ const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
 });
 
 export default function CreateContractorProfileForm() {
-  const router = useRouter()
+  // const router = useRouter()
 
   // submit handler
   const onSubmit: SubmitHandler<ContractorProfileSchema> = (data) => {
@@ -41,7 +41,7 @@ export default function CreateContractorProfileForm() {
 
     window.sessionStorage.setItem('profileCreated', 'true')
     window.location.reload()
-    // router.push(routes.serviceProvider.fundi.profile)
+    // router.push()
 
   };
 
@@ -195,7 +195,7 @@ export default function CreateContractorProfileForm() {
 
                   {/* Inputs */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">                                     
-                  <Controller
+                  {/* <Controller
                       control={control}
                       name="category"
                       render={({ field: { value, onChange } }) => (
@@ -218,7 +218,7 @@ export default function CreateContractorProfileForm() {
                           error={errors?.category?.message as string}
                         />
                       )}
-                    />
+                    /> */}
 
                     {/* <label htmlFor="category">Category:</label>
                     <select id="category" {...register('category')} multiple
@@ -232,7 +232,7 @@ export default function CreateContractorProfileForm() {
                     </select>
                     {errors.category && <p>{errors.category.message}</p>} */}
 
-                    <Controller
+                    {/* <Controller
                       control={control}
                       name="subCategory"
                       render={({ field: { value, onChange } }) => (
@@ -255,7 +255,7 @@ export default function CreateContractorProfileForm() {
                           error={errors?.subCategory?.message as string}
                         />
                       )}
-                    />
+                    /> */}
 
                     {/* <Controller
                       name="subCategory"
@@ -310,18 +310,38 @@ export default function CreateContractorProfileForm() {
                         setValue={setValue}
                     />
 
-                    <UploadZone
+                    {/* <UploadZone
                         label="NCA License"
                         className="flex-grow"
                         name="ncaCard"
                         getValues={getValues}
                         setValue={setValue}
-                    />                               
+                    />                                */}
                   </div>
                   {/* </div> */}
 
                 </motion.div>
-              )}         
+              )}   
+
+              {/* Step 3 */}
+              {currentStep === 2 && (
+                <motion.div
+                  initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                >
+                  {/* Title and description */}
+                  <div className="col-span-full @4xl:col-span-4 pb-10">
+                    <h4 className="text-base font-medium">NCA Category</h4>
+                    <p className="mt-2">Add one or more</p>
+                  </div>
+
+                  {/* Inputs */}
+                  <div>
+                    <CategoriesTable />
+                  </div>
+                </motion.div>
+              )}      
             </>
           )}
         </CustomMultiStepForm>

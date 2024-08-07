@@ -43,6 +43,7 @@ export default function SecondTable() {
           <Text className='text-center font-semibold text-gray-500'>AMOUNT</Text>
         </TableHeaderCell>
       </div>
+      
       <ul className='relative'>
         <SortableList items={fields} onChange={handleChange}>
           {fields?.map((field, index) => {
@@ -88,6 +89,7 @@ export default function SecondTable() {
             );
           })} 
         </SortableList>
+
         <Button
           type="button"
           variant="text"
