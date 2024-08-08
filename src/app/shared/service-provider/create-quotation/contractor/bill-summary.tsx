@@ -113,11 +113,11 @@ export default function BillSummary() {
 
                 <div className="grid grid-cols-4 items-center gap-2 py-4">
                     <div className='col-span-3 ps-6 font-semibold'>
-                        TOTAL
+                        Total
                     </div>
                     <div className="text-start text-gray-900 dark:text-gray-0 font-semibold">
                         {/* {totalTax ? `$${totalTax}` : '--'} */}
-                        2,100,000
+                        10,000,000
                     </div>
                 </div>
 
@@ -141,7 +141,7 @@ export default function BillSummary() {
 
                 <div className="grid grid-cols-4 items-center gap-2 py-4">
                     <div className='col-span-3 ps-6 font-semibold'>
-                        JAGEDO
+                        JaGedo
                     </div>
                     <div className="text-start text-gray-900 dark:text-gray-0">
                         50,000
@@ -150,7 +150,7 @@ export default function BillSummary() {
 
                 <div className="grid grid-cols-4 items-center gap-2 py-4">
                     <div className='col-span-3 ps-6 font-semibold'>
-                        PAYABLE TO SERVICE PROVIDER
+                        Payable To Service Provider
                     </div>
                     <div className="text-start font-semibold text-gray-900 dark:text-gray-0">
                         1,700,000
