@@ -17,15 +17,15 @@ import FirstTable from './first-table';
 // } from '@/utils/validators/invoice-builder.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { CREATE_QUOTATION_DEFAULT_VALUE, createQuotationSchema, CreateQuotationType } from '@/utils/create-quotation.schema';
+import { CREATE_QUOTATION_DEFAULT_VALUE, CREATE_QUOTATION_VIEW_VALUE, createQuotationSchema, CreateQuotationType } from '@/utils/create-quotation.schema';
 import SecondTable from './second-table';
 // import TotalsBlock from './totals-block';
 import ThirdTable from './third-table';
 import FourthTable from './fourth-table';
-import CustomFormFooter from '@/components/custom-form-footer-with-upload';
+// import CustomFormFooter from '@/components/custom-form-footer-with-upload';
 // import FormFooter from '@/components/form-footer';
 import AttachmentsBlock from './attachments-block';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import FormFooter from '@/components/custom-form-footer';
 import Link from 'next/link';
 import ViewAttachmentsBlock from './view-attachments-block';
@@ -50,19 +50,25 @@ import ViewAttachmentsBlock from './view-attachments-block';
 // };
 
 export default function CreateQuotationComponent() {
+  const searchParams = useSearchParams()
   const printRef = useRef(null);
   // const handlePrint = useReactToPrint({
   //   content: () => printRef.current,
   // });
   const router = useRouter()
+  const jobId = searchParams.get('jobId')
 
   const pathname = usePathname()
   const viewQuotation = pathname.includes('quotations')
   const contractor = pathname.includes('contractor')
+  const defaultValues =
+    jobId === '3420'
+      ? CREATE_QUOTATION_DEFAULT_VALUE
+      : CREATE_QUOTATION_VIEW_VALUE;
 
   const methods = useForm<CreateQuotationType>({
     mode: 'onChange',
-    defaultValues: CREATE_QUOTATION_DEFAULT_VALUE,
+    defaultValues: defaultValues,
     resolver: zodResolver(createQuotationSchema),
   });
 

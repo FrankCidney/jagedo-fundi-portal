@@ -31,6 +31,7 @@ import { useSearchParams } from "next/navigation";
 export default function ProfessionalAvailability() {
   const searchParams = useSearchParams()
   const requestId = searchParams.get('id')
+  const jobId = '3420'
   
   return (
     <>
@@ -80,7 +81,7 @@ export default function ProfessionalAvailability() {
 
         <div className="flex justify-center space-x-4 pt-5">
           {requestId === 'REQ0021'? (
-            <Link href={routes.serviceProvider.professional.rfqStandardOne}>
+            <Link href={{ pathname: routes.serviceProvider.professional.rfqStandardOne, query: { jobId } }}>             
               <Button className="w-62">
                   Create Quotation
               </Button>

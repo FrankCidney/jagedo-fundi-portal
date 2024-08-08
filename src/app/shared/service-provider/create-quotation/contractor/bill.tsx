@@ -33,13 +33,13 @@ export default function Bill() {
                 return  (
                     <Fragment key={`bill-${index}`}>
                         <li id={field.id}>
-                            <div className="mb-20">
+                            <div className="mb-8 px-2 pt-6 pb-14 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
                                 <div className="">
                                     <div className="flex justify-between">
                                         <div className="flex">
                                             {/* <p className="mb-4 ps-4 text-lg text-gray-700 font-semibold">Bill No. {index + 1}:</p> */}
                                             <QuoteInput
-                                                inputClassName="[&_input]:text-gray-700 font-semibold text-lg mb-4 w-24 px-0"
+                                                inputClassName="[&_input]:text-gray-700 font-semibold text-lg mb-4 w-24 px-0 ps-4"
                                                 placeholder="0"
                                                 value={`Bill No. ${index + 1} :`}
                                             />
@@ -52,7 +52,7 @@ export default function Bill() {
                                         </div>
 
                                         <div>
-                                            <Button
+                                            {/* <Button
                                                 type="button"
                                                 variant="text"
                                                 className="gap-2 ps-0 dark:text-gray-400"
@@ -72,9 +72,9 @@ export default function Bill() {
                                             >
                                                 <PiPlusCircle className="size-5 text-green-dark dark:text-green" />
                                                 Add Bill
-                                            </Button>
+                                            </Button> */}
 
-                                            <Button
+                                            {/* <Button
                                                 type="button"
                                                 variant="text"
                                                 className="gap-2 ps-0 dark:text-gray-400 ml-4"
@@ -82,7 +82,7 @@ export default function Bill() {
                                             >
                                                 <PiTrashBold className="size-5 text-red-dark dark:text-red" />
                                                 Delete
-                                            </Button>
+                                            </Button> */}
                                         </div>
                                     </div>
                                     {/* <div className=" grid-cols-1 gap-0 overflow-hidden rounded-md border bg-white shadow-[0px_1px_4px_rgba(0,0,0,0.16)] group-hover:grid dark:border-muted/20">

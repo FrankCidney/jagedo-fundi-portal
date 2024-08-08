@@ -101,6 +101,7 @@ export default function BillTable({ index }: Props) {
 
                     <div className="col-span-1 p-2 pb-4">
                       <QuoteInput
+                        type="number"
                         inputClassName="[&_input]:text-center"
                         placeholder="0"
                         {...register(`bill.${index}.billTable.${index}.quantity`, {
@@ -147,6 +148,18 @@ export default function BillTable({ index }: Props) {
               </Fragment>
             );
           })}
+
+        <div className="ms-auto w-full max-w-xs divide-y dark:divide-muted/20">
+            <div className="grid grid-cols-2 items-center gap-2 py-4">
+                <div className='font-semibold'>
+                    Subtotal:
+                </div>
+                <div className="text-center font-semibold dark:text-gray-0">
+                    {/* {totalTax ? `$${totalTax}` : '--'} */}
+                    2,100,000
+                </div>
+            </div>
+        </div>
         </>
       </ul>
 

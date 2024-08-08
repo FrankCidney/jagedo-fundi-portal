@@ -1,4 +1,4 @@
-import { FileInput } from "@/app/shared/commons/custom-file-input";
+// import { FileInput } from "@/app/shared/commons/custom-file-input";
 import UploadZone from "@/components/ui/file-upload/upload-zone";
 
 const AttachmentsBlock = () => {
