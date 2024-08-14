@@ -2,6 +2,7 @@
 // import SpRequisitionsTable from '@/app/shared/service-provider/tables/sp-requisitions-table';
 // import ReviewCard from '@/app/shared/custom-reviews/review-card-view';
 // import ContractorReviewsTable from '@/app/shared/service-provider/tables/reviews-table';
+import AddReviewComponent from '@/app/shared/service-provider/details/reviews/add-review';
 import ReviewCard from '@/components/cards/review-card';
 // import ContractorQuotationsTable from '@/app/shared/service-provider/tables/sp-quotations-table/contractor';
 // import ContractorRequisitionsTable from '@/app/shared/service-provider/tables/sp-requisitions-table/contractor';
@@ -19,14 +20,15 @@ export default function ReviewsPage() {
         Review
       </Title>
 
-      <div className="@container">
+      {/* <div className="@container">
         <ReviewCard
             customer={{ name: 'Floyd Wangari'}}
             message='Did a good job fixing the wiring'
             date={new Date()}
          />
          
-      </div>
+      </div> */}
+      <AddReviewComponent />
     </>
   )
   

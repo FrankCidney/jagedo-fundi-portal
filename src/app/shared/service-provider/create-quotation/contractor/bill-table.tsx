@@ -32,7 +32,7 @@ export default function BillTable({ index }: Props) {
 //     move(oldIndex, newIndex);
 //   }
 
-  console.log({billIndexForTable: index})
+  // console.log({billIndexForTable: index})
 
   return (
     <>
@@ -78,7 +78,7 @@ export default function BillTable({ index }: Props) {
             let quantity = getValues(`bill.${index}.billTable.${index}.quantity`);
             let amount = rate * quantity;
 
-            console.log({billTableIndex: index})
+            // console.log({billTableIndex: index})
             return (
               <Fragment key={`bill-table-${index}`}>
                 <li id={field.id}>

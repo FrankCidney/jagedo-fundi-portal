@@ -63,7 +63,7 @@ export const getColumns = ({
   },
 
   {
-    title: <HeaderCell title="#" />,
+    title: <HeaderCell title="QTN No." />,
     dataIndex: 'id',
     key: 'id',
     width: 10,
@@ -115,7 +115,7 @@ export const getColumns = ({
     title: <HeaderCell title="Request Type" />,
     dataIndex: 'requestType',
     key: 'requestType',
-    width: 150,
+    width: 200,
     render: (requestType: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
         {requestType}
@@ -124,25 +124,25 @@ export const getColumns = ({
   },
 
   {
-    title: <HeaderCell title="Description" />,
-    dataIndex: 'description',
-    key: 'description',
-    width: 250,
-    render: (description: string) => (
+    title: <HeaderCell title="County" />,
+    dataIndex: 'county',
+    key: 'county',
+    width: 100,
+    render: (county: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
-        {description}
+        {county}
       </Text>
     ),
   },
 
   {
-    title: <HeaderCell title="Location" />,
-    dataIndex: 'location',
-    key: 'location',
+    title: <HeaderCell title="Sub-County" />,
+    dataIndex: 'subCounty',
+    key: 'subCounty',
     width: 100,
-    render: (location: string) => (
+    render: (subCounty: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
-        {location}
+        {subCounty}
       </Text>
     ),
   },

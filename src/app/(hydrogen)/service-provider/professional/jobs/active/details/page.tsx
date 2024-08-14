@@ -8,6 +8,7 @@ import cn from '@/utils/class-names';
 import ProgressBarActive from '@/app/shared/service-provider/progress-bar-fundi';
 import { routes } from '@/config/routes';
 import { useState } from 'react';
+import ActiveJobDetailsAttachments from '@/app/shared/service-provider/details/sp-job-details/attachments';
 
 // export const metadata = {
 //     ...metaObject(),
@@ -24,7 +25,7 @@ import { useState } from 'react';
     return (
       <>
       <div className='flex justify-between'>
-      <h3 className="mb-4">Job Details</h3>
+      <h3 className="mb-4">JOB0021</h3>
       <div className=''>     
             <Button onClick={() => setModalState(true)}>Complete Milestone</Button>       
       </div>
@@ -46,7 +47,7 @@ import { useState } from 'react';
           </Modal>
 
         <ProgressBarActive />
-
+        <ActiveJobDetailsAttachments />
         <ActiveJobDetailsCard />
         
         <div className="flex  justify-center">

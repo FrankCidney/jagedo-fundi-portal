@@ -6,24 +6,28 @@ export const Bill_TABLE_DEFAULT_VALUE = [
         quantity: undefined,
         units: '',
         rate: undefined,
+        amount: undefined,
     },
     {
         description: 'default description',
         quantity: undefined,
         units: '',
         rate: undefined,
+        amount: undefined,
     },
     {
         description: 'default description',
         quantity: undefined,
         units: '',
         rate: undefined,
+        amount: undefined,
     },
     {
         description: 'default description',
         quantity: undefined,
         units: '',
         rate: undefined,
+        amount: undefined,
     },
 ]
 
@@ -63,13 +67,19 @@ export const MILESTONES_TABLE_DEFAULT_VALUE = [
       milestoneActivity: 'Final Draft',
       amount: 0,
     },
-  ];
+];
+
+export const ATTACHMENTS_TABLE_DEFAULT_VALUE = [
+    {
+      docName: '',
+      attachment: '',
+    },
+];
 
 export const CREATE_CONTRACTOR_QUOTATION_DEFAULT_VALUE = {
     bill: BILL_DEFAULT_VALUE,
     milestonesTable: MILESTONES_TABLE_DEFAULT_VALUE,
-    // billTable: Bill_TABLE_DEFAULT_VALUE,
-    // billTableTitle: '',
+    attachmentsTable: ATTACHMENTS_TABLE_DEFAULT_VALUE,
 }
 
 export const createContractorQuotationSchema = z.object({
@@ -82,6 +92,7 @@ export const createContractorQuotationSchema = z.object({
                     quantity: z.number(),
                     units: z.string(),
                     rate: z.number(),
+                    amount: z.number(),
                 })
             )
         })
@@ -94,15 +105,12 @@ export const createContractorQuotationSchema = z.object({
           amount: z.number(),
         })
     ),
-    // billTableTitle: z.string(),
-    // billTable: z.array(
-    //     z.object({
-    //         description: z.string(),
-    //         quantity: z.number(),
-    //         units: z.number(),
-    //         rate: z.number(),
-    //     })
-    // ),
+    attachmentsTable: z.array(
+        z.object({
+            docName: z.string(),
+            attachment: z.any(),
+        })
+    ),
 })
 
 export type CreateContractorQuotationType = z.infer<typeof createContractorQuotationSchema>

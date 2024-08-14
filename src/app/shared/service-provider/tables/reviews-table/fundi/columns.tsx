@@ -31,14 +31,14 @@ type Columns = {
 
 function getStatusBadge(status: string) {
   switch (status.toLowerCase()) {
-    case 'unreviewed':
+    case 'under review':
       return (
         <div className="flex items-center">
           <Badge color="warning" renderAsDot />
           <Text className="ms-2 font-medium text-orange-dark">{status}</Text>
         </div>
       );
-    case 'reviewed':
+    case 'open':
       return (
         <div className="flex items-center">
           <Badge className="bg-gray-400" renderAsDot />
@@ -78,7 +78,7 @@ export const getColumns = ({
   },
 
   {
-    title: <HeaderCell title="#" />,
+    title: <HeaderCell title="Job No." />,
     dataIndex: 'id',
     key: 'id',
     width: 50,
@@ -88,18 +88,6 @@ export const getColumns = ({
       #{id}
     </Text>
   ),
-  },
-
-  {
-    title: <HeaderCell title="Review By" />,
-    dataIndex: 'reviewBy',
-    key: 'reviewBy',
-    width: 50,
-    render: (reviewBy: string) => (
-      <Text className="text-sm text-gray-900 dark:text-gray-700">
-        {reviewBy}
-      </Text>
-    ),
   },
 
   {
@@ -142,7 +130,7 @@ export const getColumns = ({
     title: <HeaderCell title="Request Type" />,
     dataIndex: 'requestType',
     key: 'requestType',
-    width: 150,
+    width: 200,
     render: (requestType: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
         {requestType}
@@ -151,25 +139,25 @@ export const getColumns = ({
   },
 
   {
-    title: <HeaderCell title="Description" />,
-    dataIndex: 'description',
-    key: 'description',
-    width: 200,
-    render: (description: string) => (
+    title: <HeaderCell title="County" />,
+    dataIndex: 'county',
+    key: 'county',
+    width: 100,
+    render: (county: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
-        {description}
+        {county}
       </Text>
     ),
   },
 
   {
-    title: <HeaderCell title="Location" />,
-    dataIndex: 'location',
-    key: 'location',
+    title: <HeaderCell title="Sub-county" />,
+    dataIndex: 'subCounty',
+    key: 'subCounty',
     width: 100,
-    render: (location: string) => (
+    render: (subCounty: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
-        {location}
+        {subCounty}
       </Text>
     ),
   },
@@ -192,7 +180,7 @@ export const getColumns = ({
         <div className="gap-3 pe-3">        
           {/* <Link href={routes.serviceProvider.fundi.viewReview}> */}
             <Text onClick={() => setViewReviewsModalState(true)} className="text-sm text-green-600 cursor-pointer">
-              View Review
+              View
             </Text>
           {/* </Link> */}
         </div>

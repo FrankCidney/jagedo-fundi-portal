@@ -85,17 +85,11 @@ export default function Timeline({
                 </Text>
 
 
-                <span className="flex">
+                {/* <span className="flex">
                   {timeline.upload ? (
-                    <>
-                    {/* <Text className=" text-sm font-normal leading-loose text-gray-500">
-                      Add attachment                   
-                    </Text>
-                    {timeline.upload} */}
-                    
+                    <>                   
                      <Button
                       variant="text"
-                      // variant='outline'
                       onClick={() => {
                         openModal({
                           view: <FileUpload />,
@@ -106,15 +100,13 @@ export default function Timeline({
                       Add attachment
                       {timeline.upload}
                     </Button>
-                    </>
-                    // timeline.upload
-                    
+                    </>                   
                   ) : (
                     <Text as="span" className="block font-medium text-gray-700">
                     
                     </Text> 
                   )}
-                </span>
+                </span> */}
 
 
               </div>

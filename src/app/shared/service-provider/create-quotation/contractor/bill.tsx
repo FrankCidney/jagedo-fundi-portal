@@ -28,12 +28,12 @@ export default function Bill() {
         <ul>
             <>
             {fields?.map((field, index) => {
-                console.log({billIndex: index})
+                // console.log({billIndex: index})
 
                 return  (
                     <Fragment key={`bill-${index}`}>
                         <li id={field.id}>
-                            <div className="mb-8 px-2 pt-6 pb-14 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
+                            <div className="px-2 pt-6 pb-14 mb-8 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
                                 <div className="">
                                     <div className="flex justify-between">
                                         <div className="flex">

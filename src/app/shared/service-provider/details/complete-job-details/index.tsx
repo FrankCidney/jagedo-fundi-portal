@@ -119,7 +119,7 @@ export default function CompleteJobDetails() {
                     Add Review
                 </Button>
 
-                {jobId === 'JOB0021'? (
+                {/* {jobId === 'JOB0021'? (
                     <Button onClick={() => setViewReviewsModalState(true)} className="ml-4">
                         View Reviews
                     </Button>
@@ -127,11 +127,13 @@ export default function CompleteJobDetails() {
                     <Button onClick={() => setRequestReviewsModalState(true)} className="ml-4">
                         Request Review
                     </Button>
+                    
                 ): (
                     <Button onClick={() => setViewReviewsModalState(true)} className="ml-4">
                         View Reviews
                     </Button>
-                )}
+                   
+                )} */}
                 
             </div>
         </div>

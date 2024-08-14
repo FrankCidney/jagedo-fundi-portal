@@ -1,15 +1,37 @@
 import { metaObject } from '@/config/site.config';
-// import CreateQuotationComponent from '@/app/shared/service-provider/create-quotation';
-import CreateContractorQuotationComponent from '@/app/shared/service-provider/create-quotation/contractor';
+import ViewContractorQuotationComponent from '@/app/shared/service-provider/view-quotation/contractor';
+import PageHeader from '@/app/shared/commons/page-header';
 
 export const metadata = {
     ...metaObject(),
-  };
+};
+
+const pageHeader = {
+  title: 'Create Quotation',
+  breadcrumb: [
+    {
+      href: '#',
+      name: 'Home',
+    },
+    {
+      href: '#',
+      name: 'Quotations',
+    },
+    {
+      href: '#',
+      name: 'Details',
+    },
+  ],
+};
+
+
   
-  export default function QuotationDetailsPage() {
-    return (
-        <>
-            <CreateContractorQuotationComponent />
-        </>
-    )
-  }
+export default function QuotationDetailsPage() {
+  return (
+      <>
+          <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb} />
+
+          <ViewContractorQuotationComponent />
+      </>
+  )
+}

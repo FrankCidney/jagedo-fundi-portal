@@ -2,13 +2,13 @@
 
 import { HeaderCell } from '@/components/ui/table';
 import { Text, Checkbox, ActionIcon, Tooltip, Select, Badge } from 'rizzui';
-import PencilIcon from '@/components/icons/pencil';
-import EyeIcon from '@/components/icons/eye';
-import DeletePopover from '@/app/shared/commons/delete-popover';
-import DateCell from '@/components/ui/date-cell';
-import { useState } from 'react';
-import { PiCheckCircleBold, PiPlusCircle } from 'react-icons/pi';
-import { last } from 'lodash';
+// import PencilIcon from '@/components/icons/pencil';
+// import EyeIcon from '@/components/icons/eye';
+// import DeletePopover from '@/app/shared/commons/delete-popover';
+// import DateCell from '@/components/ui/date-cell';
+// import { useState } from 'react';
+// import { PiCheckCircleBold, PiPlusCircle } from 'react-icons/pi';
+// import { last } from 'lodash';
 import Link from 'next/link';
 import { routes } from '@/config/routes';
 
@@ -71,7 +71,7 @@ export const getColumns = ({
   },
 
   {
-    title: <HeaderCell title="#" />,
+    title: <HeaderCell title="Job No." />,
     dataIndex: 'id',
     key: 'id',
     width: 50,
@@ -131,7 +131,7 @@ export const getColumns = ({
     title: <HeaderCell title="Request Type" />,
     dataIndex: 'requestType',
     key: 'requestType',
-    width: 100,
+    width: 200,
     render: (requestType: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
         {requestType}
@@ -140,25 +140,25 @@ export const getColumns = ({
   },
 
   {
-    title: <HeaderCell title="Description" />,
-    dataIndex: 'description',
-    key: 'description',
-    width: 250,
-    render: (description: string) => (
+    title: <HeaderCell title="County" />,
+    dataIndex: 'county',
+    key: 'county',
+    width: 100,
+    render: (county: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
-        {description}
+        {county}
       </Text>
     ),
   },
 
   {
-    title: <HeaderCell title="Location" />,
-    dataIndex: 'location',
-    key: 'location',
+    title: <HeaderCell title="Sub-county" />,
+    dataIndex: 'subCounty',
+    key: 'subCounty',
     width: 100,
-    render: (location: string) => (
+    render: (subCounty: string) => (
       <Text className="text-sm text-gray-900 dark:text-gray-700">
-        {location}
+        {subCounty}
       </Text>
     ),
   },

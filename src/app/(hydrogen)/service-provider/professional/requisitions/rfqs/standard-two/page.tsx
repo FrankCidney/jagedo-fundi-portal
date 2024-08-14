@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic';
-import CreateQuotationComponent from '@/app/shared/service-provider/create-quotation';
 import { metaObject } from '@/config/site.config';
 import { Title } from 'rizzui';
 import UploadButton from '@/app/shared/commons/upload-button';
 import PageHeader from '@/app/shared/commons/page-header';
+import ProfessionalCreateQuotationComponent from '@/app/shared/service-provider/create-quotation/professional';
 const FileUpload = dynamic(() => import('@/app/shared/commons/file-upload'), {
     ssr: false,
   });
@@ -44,7 +44,7 @@ export default function RfqStandardTwoPage() {
         {/* <UploadButton modalView={<FileUpload />} /> */}
       </PageHeader>
 
-      <CreateQuotationComponent />
+      <ProfessionalCreateQuotationComponent />
     </>
   )
   

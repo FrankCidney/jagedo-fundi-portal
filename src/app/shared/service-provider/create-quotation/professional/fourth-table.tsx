@@ -5,7 +5,7 @@ import { Fragment } from 'react';
 import cn from '@/utils/class-names';
 import { DragEndEvent } from '@dnd-kit/core';
 // import { createId } from '@paralleldrive/cuid2';
-import { QuoteInput } from './quote-forms/quote-input';
+import { QuoteInput } from '../quote-forms/quote-input';
 import { useFieldArray, useFormContext } from 'react-hook-form';
 import { SortableList } from '@/components/dnd-sortable/dnd-sortable-list';
 // import {

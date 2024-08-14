@@ -1,4 +1,4 @@
-import { QuoteInput } from "./quote-forms/quote-input";
+import { QuoteInput } from "../quote-forms/quote-input";
 import { Text } from 'rizzui';
 import { useFormContext } from 'react-hook-form';
 

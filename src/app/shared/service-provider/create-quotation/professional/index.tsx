@@ -4,52 +4,22 @@ import { useRef } from 'react';
 import { Text, Checkbox } from 'rizzui';
 // import SimpleBar from 'simplebar-react';
 import { routes } from '@/config/routes';
-// import { useReactToPrint } from 'react-to-print';
-// import PageHeader from '@/app/shared/commons/page-header';
-// import PrintButton from '@/app/shared/commons/print-button';
-// import { PiDownloadSimpleBold } from 'react-icons/pi';
 import FirstTable from './first-table';
-// import CalcPayBlock from './calc-pay-block';
-// import {
-//   InvoiceType,
-//   invoiceBuilderSchema,
-//   INVOICE_BUILDER_DEFAULT_VALUE,
-// } from '@/utils/validators/invoice-builder.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { CREATE_QUOTATION_DEFAULT_VALUE, CREATE_QUOTATION_VIEW_VALUE, createQuotationSchema, CreateQuotationType } from '@/utils/create-quotation.schema';
 import SecondTable from './second-table';
-// import TotalsBlock from './totals-block';
 import ThirdTable from './third-table';
 import FourthTable from './fourth-table';
 // import CustomFormFooter from '@/components/custom-form-footer-with-upload';
 // import FormFooter from '@/components/form-footer';
-import AttachmentsBlock from './attachments-block';
+import AttachmentsBlock from '../attachments-block';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import FormFooter from '@/components/custom-form-footer';
 import Link from 'next/link';
-import ViewAttachmentsBlock from './view-attachments-block';
+import ViewAttachmentsBlock from '../view-attachments-block';
 
-// import ThirdTableTwo from './third-table-two';
-
-// const pageHeader = {
-//   title: 'Invoice Builder',
-//   breadcrumb: [
-//     {
-//       href: routes.eCommerce.dashboard,
-//       name: 'Home',
-//     },
-//     {
-//       href: routes.invoice.home,
-//       name: 'Invoice',
-//     },
-//     {
-//       name: 'Builder',
-//     },
-//   ],
-// };
-
-export default function CreateQuotationComponent() {
+export default function ProfessionalCreateQuotationComponent() {
   const searchParams = useSearchParams()
   const printRef = useRef(null);
   // const handlePrint = useReactToPrint({
@@ -103,11 +73,8 @@ export default function CreateQuotationComponent() {
               onSubmit={methods.handleSubmit(onSubmit)}
               className="rounded-xl bg-white"
             >
-              {/* <FirstBlock setValue={methods.setValue} /> */}
-              {/* <SecondBlock /> */}
               <FirstTable />
               <SecondTable />
-              {/* <TotalsBlock /> */}
               <ThirdTable />
               <FourthTable />
 
@@ -120,7 +87,6 @@ export default function CreateQuotationComponent() {
 
                   <div className="col-span-2 flex items-start text-gray-700 mt-3 mb-8 ps-2">
                     <Checkbox
-                      // {...register('termsAndConditions')}
                       className="[&>label.items-center]:items-start [&>label>div.leading-none]:mt-0.5 [&>label>div.leading-none]:sm:mt-0 [&>label>span]:font-medium"
                       label={
                         <Text as="span" className="ps-1 text-gray-500">

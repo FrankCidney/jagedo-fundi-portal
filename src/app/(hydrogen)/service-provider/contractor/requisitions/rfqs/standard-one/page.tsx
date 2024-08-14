@@ -1,4 +1,3 @@
-import CreateQuotationComponent from '@/app/shared/service-provider/create-quotation';
 import { metaObject } from '@/config/site.config';
 import PageHeader from '@/app/shared/commons/page-header';
 import CreateContractorQuotationComponent from '@/app/shared/service-provider/create-quotation/contractor';
