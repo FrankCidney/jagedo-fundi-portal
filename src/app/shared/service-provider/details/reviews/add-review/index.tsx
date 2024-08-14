@@ -1,8 +1,9 @@
 'use client';
 
-import { Button, Checkbox, Text, Textarea } from 'rizzui';
+import { AdvancedRadio, Button, Checkbox, Radio, RadioGroup, Text, Textarea } from 'rizzui';
 import { Fragment } from 'react';
 import cn from '@/utils/class-names';
+import { useForm } from 'react-hook-form';
 // import { useFieldArray, useFormContext } from 'react-hook-form';
 // import { BillTableType } from './view-bill';
 
@@ -30,6 +31,11 @@ const data = [
 ]
 
 export default function AddReviewComponent() {
+  // const { control, handleSubmit } = useForm<>()
+
+  // const onSubmit = (data) => {
+  //   console.log('Form Submitted:', data);
+  // };
 //   const { control, register, getValues } = useFormContext();
 //   const { fields, append, remove, } = useFieldArray({
 //     control: control,
@@ -52,12 +58,12 @@ export default function AddReviewComponent() {
 
       {/* <p className='mb-4 ps-4 text-lg text-gray-900 font-semibold'>Professional Fees</p> */}
 
-      <div className="grid grid-cols-12 gap-2 rounded-t-md bg-gray-100 p-2 dark:bg-gray-900">
+      <div className="grid grid-cols-10 gap-2 rounded-t-md bg-gray-100 p-2 dark:bg-gray-900">
         <TableHeaderCell className="col-span-1 py-2 flex items-center justify-center">
           <Text className='font-semibold text-gray-500'>No.</Text>
         </TableHeaderCell>
 
-        <TableHeaderCell className="col-span-6 p-1 py-2 flex items-center">
+        <TableHeaderCell className="col-span-4 p-1 py-2 flex items-center">
           <Text className='font-semibold text-gray-500'>Question</Text>
         </TableHeaderCell>
 
@@ -82,87 +88,51 @@ export default function AddReviewComponent() {
         </TableHeaderCell>
       </div>
 
-      <ul>
-        <>
+      <>
+        <form>
           {data.map((field, index) => {
 
             return (
               <Fragment key={`add-review-table-${index}`}>
                 <li>
-                  <div className="group grid min-h-10 grid-cols-12 gap-0 border-b border-muted dark:border-muted/20">
+                  <div className="group grid min-h-10 grid-cols-10 gap-0 border-b border-muted dark:border-muted/20">
                     
                     <div className="col-span-1 w-full p-2 pe-4 pt-3 text-center text-gray-900 dark:text-gray-0">
                         {index + 1}
                     </div>  
 
-                    <div className="col-span-6 py-2 pe-2">
+                    <div className="col-span-4 py-2 pe-2">
                         <Text className='text-gray-900 dark:text-gray-0'>{ field.question }</Text>
                     </div>
 
-                    <div className="col-span-1 p-2 pb-4">
-                        <Checkbox
-                            className="[&>label>span]:font-medium"
-                        />
-                    </div>
-
-                    <div className="col-span-1 p-2">
-                        <Checkbox
-                            className="[&>label>span]:font-medium"
-                        />
-                    </div>
-                    
-                    <div className="col-span-1 p-2">
-                        <Checkbox
-                            className="[&>label>span]:font-medium"
-                        />
-                    </div>
-
-                    <div className="col-span-1 p-2">
-                        <Checkbox
-                            className="[&>label>span]:font-medium"
-                        />
-                    </div>
-
-                    <div className="col-span-1 p-2">
-                        <Checkbox
-                            className="[&>label>span]:font-medium"
-                        />
-                    </div>
-
-                    {/* <div className="relative col-span-1 w-full p-2 pe-4 pt-3 text-center text-gray-900 dark:text-gray-0">
-                        <Text className='text-center text-gray-900 dark:text-gray-0'>{ field.amount }</Text>
-                    </div> */}
+                    {/* <RadioGroup value='' setValue={}>
+                      <Radio value={1} className='col-span-1 p-2 ps-4' />
+                      <Radio value={2} className='col-span-1 p-2 ps-4' />
+                      <Radio value={3} className='col-span-1 p-2 ps-4' />
+                      <Radio value={4} className='col-span-1 p-2 ps-4' />
+                      <Radio value={5} className='col-span-1 p-2 ps-4' />
+                    </RadioGroup>           */}
                   </div>
                 </li>
               </Fragment>
             );
           })}
+        </form>
+      </>
 
-        {/* <div className="ms-auto w-full max-w-xs divide-y dark:divide-muted/20">
-            <div className="grid grid-cols-2 items-center gap-2 pt-4">
-                <div className='font-semibold'>
-                    Subtotal:
-                </div>
-                <div className="text-center font-semibold dark:text-gray-0">
-                    2,100,000
-                </div>
-            </div>
-        </div> */}
-        </>
-      </ul>
-
-      <div className='flex mt-8 mb-8'>
-        <p className='font-semibold mr-8'>Comments</p>
+      {/* <div className='flex mt-8 mb-8'> */}
+        {/* <p className='font-semibold mr-8 flex-shrink-0'>Comments</p> */}
         <Textarea
           placeholder="Add comments..."
           // {...register('review')}
           // error={errors.review?.message}
-          textareaClassName="h-24 flex-grow"
-          className=""
+          textareaClassName="h-24 w-full"
+          className="mt-8"
+          label="Comments"
         />
-      </div>
+      {/* </div> */}
 
-      <div className='flex justify-center'>
+      <div className='flex justify-center mt-8'>
         <Button className="px-8" type="submit">
           Submit
         </Button>
