@@ -23,6 +23,13 @@ export const fundiProfileSteps = [
     },
 ]
 
+export const ATTACHMENTS_TABLE_DEFAULT_VALUE = [
+  {
+    docName: '',
+    attachment: '',
+  },
+];
+
 // set initial values for the form fields here
 export const fundiInitialValues: FundiProfileSchema = {
     firstName: 'Olive',
@@ -43,6 +50,7 @@ export const fundiInitialValues: FundiProfileSchema = {
     question2: '',
     question3: '',
     question4: '',
+    attachmentsTable: ATTACHMENTS_TABLE_DEFAULT_VALUE,
   }
 
 // if there's any 'Select' inputs, specify the values here

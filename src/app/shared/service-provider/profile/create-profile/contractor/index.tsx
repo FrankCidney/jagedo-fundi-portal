@@ -75,6 +75,47 @@ export default function CreateContractorProfileForm() {
                   {/* Inputs */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <Input
+                      placeholder="Company Name"
+                      label="Company Name"
+                      size="lg"
+                      inputClassName="text-sm"
+                      {...register('companyName')}
+                      error={errors.companyName?.message}
+                      className="[&>label>span]:font-medium"
+                    />
+
+                    <Input
+                      type="email"
+                      placeholder="Company Email Address"
+                      label="Company Email Address"
+                      size="lg"
+                      inputClassName="text-sm"
+                      {...register('email')}
+                      error={errors.email?.message}
+                      className="[&>label>span]:font-medium"
+                    />
+
+                    <Input
+                      placeholder="Company Number"
+                      label="Company Number"
+                      size="lg"
+                      inputClassName="text-sm"
+                      {...register('companyNumber')}
+                      error={errors.companyNumber?.message}
+                      className="[&>label>span]:font-medium"
+                    />
+
+                    <Input
+                      placeholder="Registration Number"
+                      label="Registration Number"
+                      size="lg"
+                      inputClassName="text-sm"
+                      {...register('registrationNumber')}
+                      error={errors.registrationNumber?.message}
+                      className="[&>label>span]:font-medium"
+                    />
+
+                    <Input
                       placeholder="Contact Person First Name"
                       label="Contact Person First Name"
                       size="lg"
@@ -95,19 +136,8 @@ export default function CreateContractorProfileForm() {
                     />
 
                     <Input
-                      type="email"
-                      placeholder="Company Email Address"
-                      label="Company Email Address"
-                      size="lg"
-                      inputClassName="text-sm"
-                      {...register('email')}
-                      error={errors.email?.message}
-                      className="[&>label>span]:font-medium"
-                    />
-
-                    <Input
-                      placeholder="Company Number"
-                      label="Company Number"
+                      placeholder="Phone Number"
+                      label="Phone Number"
                       size="lg"
                       inputClassName="text-sm"
                       {...register('phoneNo')}
@@ -166,8 +196,8 @@ export default function CreateContractorProfileForm() {
                     />  
 
                     <Input
-                      placeholder="Estate"
-                      label="Estate"
+                      placeholder="Village/Estate"
+                      label="Village/Estate"
                       size="lg"
                       inputClassName="text-sm"
                       {...register('estate')}
@@ -278,7 +308,7 @@ export default function CreateContractorProfileForm() {
                   {/* <div className="flex"> */}
                     {/* <div> */}
                       <UploadZone
-                          label="PIN No."
+                          label="PIN Certificate"
                           className="flex-grow"
                           name="pinNo"
                           getValues={getValues}

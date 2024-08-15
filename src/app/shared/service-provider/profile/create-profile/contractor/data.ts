@@ -9,12 +9,12 @@ export const contractorProfileSteps = [
     {
       id: 'Step 1',
       name: 'Personal Details',
-      fields: ['firstName', 'lastName', 'email', 'phoneNo', 'county', 'subCounty', 'estate']
+      fields: ['companyName', 'firstName', 'lastName', 'email', 'phoneNo', 'companyNumber', 'registrationNumber', 'county', 'subCounty', 'estate']
     },
     {
       id: 'Step 2',
       name: 'Required Details',
-      fields: ['category', 'subCategory', 'pinNo', 'companyProfile', 'businessRegistration', 'portfolio', 'ncaCard']
+      fields: ['category', 'subCategory', 'pinCertificate', 'companyProfile', 'businessRegistration', 'portfolio', 'ncaCard']
     },
     {
       id: 'Step 3',
@@ -33,15 +33,18 @@ const CATEGORIES_TABLE_DEFAULT_VALUE = [
 ];
 
 export const contractorInitialValues: ContractorProfileSchema = {
+    companyName: 'Company A',  
     firstName: 'Olive',
     lastName: 'Wangari',
     email: 'olivewangari@gmail.com',
     phoneNo: '0734932467',
+    companyNumber: '07438298934',
+    registrationNumber: '54635',
     county: 'kisumu',
     subCounty: 'kisumu central',
     estate: 'Tom Mboya',
     portfolio: '',
-    pinNo: '',
+    pinCertificate: '',
     companyProfile: '',
     businessRegistration: '',
     categoriesTable: CATEGORIES_TABLE_DEFAULT_VALUE,

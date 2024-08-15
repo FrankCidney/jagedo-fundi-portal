@@ -18,6 +18,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import FormFooter from '@/components/custom-form-footer';
 import Link from 'next/link';
 import ViewAttachmentsBlock from '../view-attachments-block';
+import ContractorAttachments from '../contractor/attachments';
 
 export default function ProfessionalCreateQuotationComponent() {
   const searchParams = useSearchParams()
@@ -83,7 +84,8 @@ export default function ProfessionalCreateQuotationComponent() {
                 <ViewAttachmentsBlock />
               ) : (
                 <>
-                  <AttachmentsBlock />
+                  {/* <AttachmentsBlock /> */}
+                  <ContractorAttachments />
 
                   <div className="col-span-2 flex items-start text-gray-700 mt-3 mb-8 ps-2">
                     <Checkbox

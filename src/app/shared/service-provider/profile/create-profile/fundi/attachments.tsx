@@ -5,7 +5,7 @@ import { Fragment } from 'react';
 import cn from '@/utils/class-names';
 import { DragEndEvent } from '@dnd-kit/core';
 import dynamic from "next/dynamic";
-import { Controller, useFieldArray, useForm, } from 'react-hook-form';
+import { useFieldArray, useFormContext, } from 'react-hook-form';
 import { SortableList } from '@/components/dnd-sortable/dnd-sortable-list';
 import {
   PiPlusCircle,
@@ -13,8 +13,6 @@ import {
   PiArrowsOutCardinalBold,
 } from 'react-icons/pi';
 import CustomUploadZone from '@/components/ui/file-upload/custom-upload-zone';
-import { ACTIVE_JOBS_DEFAULT_VALUE, activeJobsSchema, ActiveJobsType } from '@/utils/active-jobs.schema';
-import { zodResolver } from '@hookform/resolvers/zod';
 
 // dynamic import Select component from rizzui
 const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
@@ -32,15 +30,14 @@ const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
 //     errors: FieldErrors<ContractorProfileSchema>
 // }
 
-export default function ActiveJobDetailsAttachments() {
-//   const { control, register, getValues, setValue, formState: { errors } } = useForm();
-  
-
-  const { control, register, getValues, setValue, formState: { errors } } = useForm<ActiveJobsType>({
-    mode: 'onChange',
-    defaultValues: ACTIVE_JOBS_DEFAULT_VALUE,
-    resolver: zodResolver(activeJobsSchema),
-  });
+export default function FundiEvaluationFormAttachments() {
+    const { control, register, getValues, setValue, formState: { errors } } = useFormContext();
+    
+//   const { control, register, getValues, setValue, formState: { errors } } = useForm<ActiveJobsType>({
+//     mode: 'onChange',
+//     defaultValues: ACTIVE_JOBS_DEFAULT_VALUE,
+//     resolver: zodResolver(activeJobsSchema),
+//   });
 
   const { fields, append, remove, move } = useFieldArray({
     control: control,
@@ -58,9 +55,9 @@ export default function ActiveJobDetailsAttachments() {
   return (
     <div className='@container mb-4'>
         {/* <div> */}
-        <div className="px-2 pt-6 pb-16 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
+        {/* <div className="px-2 pt-6 pb-16 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50"> */}
 
-          <p className='mb-4 ps-4 text-lg text-gray-900 font-semibold'>Attachments</p>
+          {/* <p className='mb-4 ps-4 text-lg text-gray-900 font-semibold'>Attachments</p> */}
 
           <div className="grid grid-cols-5 gap-2 rounded-t-md bg-gray-100 p-2 dark:bg-gray-900">
             <TableHeaderCell className="col-span-1 ps-4 py-2">
@@ -171,7 +168,7 @@ export default function ActiveJobDetailsAttachments() {
               Add Item
             </Button> 
           </div>     
-        </div>
+        {/* </div> */}
     </div>
   );
 }

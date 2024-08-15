@@ -7,6 +7,7 @@ import { Title } from "rizzui";
 import JobDescriptionChunked from "../job-description-chunked";
 import { useSearchParams } from "next/navigation";
 import { JobDescription, Note } from "@/data/custom-job-details-data";
+import ViewAttachments from "../service-provider/details/request-details/view-attachments";
 
 // interface Item {
 //   [key: string]: string;
@@ -122,12 +123,15 @@ const ChunkedGrid: React.FC<Props> = ({ data, className, dataChunkSize }) => {
         ))}
         </div>
 
+        <ViewAttachments />
+
         <JobDescriptionChunked
           className="mt-4"
           data={Note[0]}
           dataChunkSize={1}
           // className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         />
+
     </div>
   );
 };

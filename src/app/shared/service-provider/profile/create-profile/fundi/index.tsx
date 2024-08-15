@@ -23,6 +23,7 @@ import { useRouter } from 'next/navigation';
 import { routes } from '@/config/routes';
 import UploadButtonOutlined from "@/components/buttons/upload-button-outlined";
 import { FileInput } from "@/app/shared/commons/custom-file-input";
+import FundiEvaluationFormAttachments from "./attachments";
 // import UploadButton from "@/app/shared/commons/upload-button";
 const FileUpload = dynamic(() => import('@/app/shared/commons/file-upload'), {
   ssr: false,
@@ -300,26 +301,20 @@ export default function CreateFundiProfileForm() {
                       <p className="font-medium py-auto">Please share with us 3 photos of your previous jobs</p>
                     </div>
                     <UploadButton modalView={<FileUpload />} /> */}
-
-                    
-
-                    <div className="mt-4">
-                      <p className="font-medium mb-1">Please share with us 3 photos of your previous jobs</p>
-                      <FileInput />
-                      {/* <UploadButtonOutlined modalView={<FileUpload />} /> */}
-
-                      {/* <div className="border border-gray-300 border-2 rounded-lg">
-                        <div className="w-40 -pt-4 flex">                    
-                          <UploadButtonOutlined modalView={<FileUpload />} />
-                        </div>
-                      </div> */}
-                    </div>
-
-                    {/* <FileInput /> */}
-                            
                   </div>
-                  {/* </div> */}
 
+                  <div className="mt-12">
+                    <p className="font-medium mb-1">Please share with us 3 photos of your previous jobs</p>
+                    {/* <FileInput /> */}
+                    <FundiEvaluationFormAttachments />
+                    {/* <UploadButtonOutlined modalView={<FileUpload />} /> */}
+
+                    {/* <div className="border border-gray-300 border-2 rounded-lg">
+                      <div className="w-40 -pt-4 flex">                    
+                        <UploadButtonOutlined modalView={<FileUpload />} />
+                      </div>
+                    </div> */}
+                  </div>
                 </motion.div>
               )}       
 

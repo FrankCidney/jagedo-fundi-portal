@@ -180,6 +180,7 @@ export const getColumns = ({
         >
             <Text className="text-sm text-green-600">View</Text>
         </Link>
+        
         {/* {(requestTypeId === 0) ? (
           <Link href={routes.serviceProvider.fundi.rfqEmergency}>
             <Text className="text-sm text-green-600">View</Text>

@@ -67,11 +67,19 @@ export default function ConfirmAvailability() {
         </div>
 
         <div className="flex justify-center space-x-4 pt-5">
-          <Link href={routes.serviceProvider.fundi.activeJobs}>
-            <Button className="w-32">
-                Accept Job
-            </Button>
-          </Link>
+          {requestId === 'REQ0021'? (
+            <Link href={routes.serviceProvider.fundi.activeJobs}>
+              <Button className="w-32">
+                  Accept Job
+              </Button>
+            </Link>
+          ) : (
+            <Link href={routes.serviceProvider.fundi.completedJobs}>
+              <Button className="w-32">
+                  Accept Job
+              </Button>
+            </Link>
+          )}         
 
           <Link href={routes.serviceProvider.fundi.requisitions}>
             <Button variant="outline" className="w-32">

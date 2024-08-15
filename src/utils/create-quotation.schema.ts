@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { ATTACHMENTS_TABLE_DEFAULT_VALUE } from './create-contractor-quotation.schema';
 // import { createId } from '@paralleldrive/cuid2';
 
 // export const INVOICE_TABLE_DEFAULT_DATA = [
@@ -20,12 +21,22 @@ import { z } from 'zod';
 
 export const FIRST_TABLE_DEFAULT_VALUE = [
   {
-    serviceProvider: '',
+    serviceProvider: 'Lead Consultant',
+    name: 'Olive Wangari',
+    emailAddress: 'olivewangari@gmail.com',
+    uniqueId: 'id',
+    numberOfHours: undefined,
+    ratePerHour: undefined,
+    // amount: 0,
+  },
+  {
+    serviceProvider: 'Associate Consultant',
     name: '',
     emailAddress: '',
     uniqueId: '',
     numberOfHours: undefined,
     ratePerHour: undefined,
+    // amount: 0,
   },
 ];
 
@@ -52,7 +63,15 @@ export const FIRST_TABLE_VIEW_VALUE = [
 
 export const SECOND_TABLE_DEFAULT_VALUE = [
   {
-    expenses: '',
+    expenses: 'Communication',
+    amount: undefined,
+  },
+  {
+    expenses: 'Travel',
+    amount: undefined,
+  },
+  {
+    expenses: 'Printing & Stationary',
     amount: undefined,
   },
 ];
@@ -136,6 +155,7 @@ export const CREATE_QUOTATION_DEFAULT_VALUE = {
   grandTotal: 0,
   thirdTable: THIRD_TABLE_DEFAULT_VALUE,
   fourthTable: FOURTH_TABLE_DEFAULT_VALUE,
+  attachmentsTable: ATTACHMENTS_TABLE_DEFAULT_VALUE,
 };
 
 export const CREATE_QUOTATION_VIEW_VALUE = {
@@ -200,6 +220,12 @@ export const createQuotationSchema = z.object({
       percentageDisbursement: z.number(),
       milestoneActivity: z.string(),
       amount: z.number(),
+    })
+  ),
+  attachmentsTable: z.array(
+    z.object({
+        docName: z.string(),
+        attachment: z.any(),
     })
   ),
 });

@@ -81,7 +81,7 @@ export default function CategoriesTable(/*{ register, control, errors } : FormPr
             </TableHeaderCell>
 
             <TableHeaderCell className="col-span-2 py-2">
-              <Text className='text-start font-semibold text-gray-500'>License/Certificate</Text>
+              <Text className='text-start font-semibold text-gray-500'>Certificate</Text>
             </TableHeaderCell>
           </div>
 

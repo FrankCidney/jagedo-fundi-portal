@@ -13,6 +13,7 @@ import {
   PiTrashBold,
   PiArrowsOutCardinalBold,
 } from 'react-icons/pi';
+import { Bill_TABLE_DEFAULT_VALUE } from '@/utils/create-contractor-quotation.schema';
 
 type Props = {
     index: number;
@@ -24,6 +25,7 @@ export default function BillTable({ index }: Props) {
     name: `bill.${index}.billTable`,
   });
 
+  const initialFieldCount = Bill_TABLE_DEFAULT_VALUE.length
 //   function handleChange(event: DragEndEvent) {
 //     const { active, over } = event;
 //     if (!active || !over) return;
@@ -130,18 +132,21 @@ export default function BillTable({ index }: Props) {
 
                     <div className="relative col-span-1 w-full p-2 pe-4 pt-3 text-center text-gray-900 dark:text-gray-0">
                       {amount ? amount : 0}
-                      <div className="absolute end-0 top-0 hidden translate-x-full grid-cols-1 gap-0 overflow-hidden rounded-md border bg-white shadow-[0px_1px_4px_rgba(0,0,0,0.16)] group-hover:grid dark:border-muted/20">
-                        {/* <SortableList.DragHandle className="flex h-auto w-full items-center justify-center p-1.5 text-lg hover:bg-gray-100 dark:text-gray-50 dark:hover:bg-gray-700">
-                          <PiArrowsOutCardinalBold className="size-4" />
-                        </SortableList.DragHandle> */}
-                        <button
-                          type="button"
-                          className="flex h-full w-full items-center justify-center p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700"
-                          onClick={() => remove(index)}
-                        >
-                          <PiTrashBold className="size-4 text-red-dark dark:text-red" />
-                        </button>
-                      </div>
+
+                      {index >= initialFieldCount && (
+                        <div className="absolute end-0 top-0 hidden translate-x-full grid-cols-1 gap-0 overflow-hidden rounded-md border bg-white shadow-[0px_1px_4px_rgba(0,0,0,0.16)] group-hover:grid dark:border-muted/20">
+                          {/* <SortableList.DragHandle className="flex h-auto w-full items-center justify-center p-1.5 text-lg hover:bg-gray-100 dark:text-gray-50 dark:hover:bg-gray-700">
+                            <PiArrowsOutCardinalBold className="size-4" />
+                          </SortableList.DragHandle> */}
+                          <button
+                            type="button"
+                            className="flex h-full w-full items-center justify-center p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700"
+                            onClick={() => remove(index)}
+                          >
+                            <PiTrashBold className="size-4 text-red-dark dark:text-red" />
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </li>

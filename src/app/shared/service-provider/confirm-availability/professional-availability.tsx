@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Button, Checkbox, Textarea } from "rizzui";
 import ChunkedGrid from "../../custom-chunked-grid";
 import { professionalRequestDetailsData } from "@/data/custom-job-details-data";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 // const data = [
 //     {
@@ -30,6 +30,7 @@ import { useSearchParams } from "next/navigation";
 
 export default function ProfessionalAvailability() {
   const searchParams = useSearchParams()
+  const router = useRouter()
   const requestId = searchParams.get('id')
   const jobId = '3420'
   
@@ -42,42 +43,6 @@ export default function ProfessionalAvailability() {
         <div className="my-4">
           <ChunkedGrid data={requestId === 'REQ0021'? professionalRequestDetailsData[0] : professionalRequestDetailsData[1]} dataChunkSize={8} />
         </div>
-        
-        {/* <MetricCard 
-            title="#89MJ3"
-            metric="Repair work in Kisumu"
-            info="Repairing a faulty wiring system"
-        /> */}
-
-        {/* <div className="grid items-start rounded-xl border border-gray-300 p-5 md:grid-cols-2 gap-6 @2xl:grid-cols-2 @3xl:grid-cols-3 @3xl:p-8 @5xl:grid-cols-4">
-
-            {data.map((item, index) => (
-              <ul key={index} className="mt-3 grid gap-2 @5xl:mt-0">
-                {Object.entries(item).map(([key, value]) => (
-                  <li
-                    key={key}
-                    className="flex items-center gap-3 whitespace-nowrap"
-                  >
-                    <span className="font-semibold text-gray-900">{key} :</span>
-                    <span>{value}</span>
-                  </li>
-                ))}
-              </ul>
-            ))}
-        </div>
-
-        <Textarea
-            label="Notes"
-            className="mt-4"
-        /> */}
-
-        {/* <div className="flex pt-8 justify-center">
-            <p className="text-center font-bold mr-4">Confirm your availability for this job.</p>
-            <Checkbox
-                // {...register('termsAndConditions')}
-                className="[&>label.items-center]:items-start [&>label>div.leading-none]:mt-0.5 [&>label>div.leading-none]:sm:mt-0 [&>label>span]:font-medium"           
-            />
-        </div> */}
 
         <div className="flex justify-center space-x-4 pt-5">
           {requestId === 'REQ0021'? (
@@ -87,7 +52,7 @@ export default function ProfessionalAvailability() {
               </Button>
             </Link>
             ) : (
-              <Link href={routes.serviceProvider.professional.rfqStandardTWo}>
+              <Link href={{ pathname: routes.serviceProvider.professional.rfqStandardTWo, query: { jobId } }}>
               <Button className="w-62">
                   Create Quotation
               </Button>
@@ -100,11 +65,11 @@ export default function ProfessionalAvailability() {
             </Button>
           </Link> */}
 
-          <Link href={routes.serviceProvider.professional.requisitions}>
-            <Button variant="outline" className="w-32">
+          {/* <Link href={routes.serviceProvider.professional.requisitions}> */}
+            <Button onClick={() => router.back()} variant="outline" className="w-32">
                 Back
             </Button>
-          </Link>
+          {/* </Link> */}
         </div>
     </>
   )

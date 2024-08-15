@@ -90,6 +90,10 @@ export const messages = {
   professionIsRequired: 'Profession is required',
   categoryIsRequired: 'Category is required',
   fieldIsRequired: 'This field is required',
+  companyNameIsRequired: 'Company name is required',
+  companyNumberIsRequired: 'Company number is required',
+  registrationNumberIsRequired: 'Registration number is required',
+  classIsRequired: 'Class is required',
 
   // customer
   typeIsRequired: 'Type is required',

@@ -1,11 +1,10 @@
 'use client'
 
-// import MetricCard from "@/components/cards/metric-card";
 import { routes } from "@/config/routes";
 import Link from "next/link";
 import { Button, } from "rizzui";
 import { contractorRequestDetailsData } from "@/data/custom-job-details-data";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import ChunkedGrid from "@/app/shared/custom-chunked-grid";
 
 
