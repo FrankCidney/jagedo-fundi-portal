@@ -7,7 +7,7 @@ import ViewMilestonesTable from './view-milestones-table';
 export default function ViewSubmissions() {
     return (
         <>
-        <Collapse
+        {/* <Collapse
             defaultOpen={false}
             className={cn('py-5 md:py-7')}
             header={({ open, toggle }) => (
@@ -25,10 +25,10 @@ export default function ViewSubmissions() {
                 />
             </button>
             )}
-        >
+        > */}
             <ViewAttachmentsBlock />
             <ViewMilestonesTable />
-        </Collapse>
+        {/* </Collapse> */}
         </>
     )
 }

@@ -635,7 +635,8 @@ export const fundiReviewsData = [
     // description: 'Repair of a faulty wiring system',
     county: 'Narok',
     subCounty: 'Transmara',
-    status: 'Open',
+    // status: 'Open',
+    rating: 4,
     requestTypeId: 0,
   },
 
@@ -648,7 +649,8 @@ export const fundiReviewsData = [
     requestType: 'Package 2: Managed by Self',
     county: 'Narok',
     subCounty: 'Transmara',
-    status: 'Under review',
+    // status: 'Under review',
+    rating: 5,
     requestTypeId: 1,
   },
 
@@ -661,7 +663,8 @@ export const fundiReviewsData = [
     requestType: 'Package 2: Managed by Self',
     county: 'Narok',
     subCounty: 'Transmara',
-    status: 'Closed',
+    // status: 'Closed',
+    rating: 5,
     requestTypeId: 1,
   },
 ];
@@ -707,7 +710,8 @@ export const contractorReviewsData = [
     // description: 'Proposes 4No. borehole drilling',
     county: 'Narok',
     subCounty: 'Transmara',
-    status: 'Open',
+    // status: 'Open',
+    rating: 5,
     requestTypeId: 1,
   },
 
@@ -721,7 +725,8 @@ export const contractorReviewsData = [
     county: 'Nairobi',
     subCounty: 'Ngong',
     // description: 'Proposed 4-storey apartment construction',
-    status: 'Under review',
+    // status: 'Under review',
+    rating: 2,
     requestTypeId: 2,
   },
 
@@ -735,7 +740,8 @@ export const contractorReviewsData = [
     county: 'Kisumu',
     subCounty: 'Kisumu Central',
     // description: 'Proposed 4-storey apartment construction',
-    status: 'Closed',
+    // status: 'Closed',
+    rating: 4,
     requestTypeId: 2,
   },
 ];
@@ -780,7 +786,8 @@ export const professionalReviewsData = [
     requestType: 'Package 1: Managed by JaGedo',
     county: 'Narok',
     subCounty: 'Transmara',
-    status: 'Open',
+    // status: 'Open',
+    rating: 5,
     requestTypeId: 1,
   },
 
@@ -793,7 +800,8 @@ export const professionalReviewsData = [
     requestType: 'Package 2: Managed By Self',
     county: 'Nairobi',
     subCounty: 'Ngong',
-    status: 'Under review',
+    // status: 'Under review',
+    rating: 4,
     requestTypeId: 2,
   },
 
@@ -806,7 +814,8 @@ export const professionalReviewsData = [
     requestType: 'Package 2: Managed By Self',
     county: 'Nairobi',
     subCounty: 'Ngong',
-    status: 'Closed',
+    // status: 'Closed',
+    rating: 3,
     requestTypeId: 2,
   },
 ];

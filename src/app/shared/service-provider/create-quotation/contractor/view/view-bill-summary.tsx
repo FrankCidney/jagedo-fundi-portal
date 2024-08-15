@@ -10,7 +10,7 @@ export default function ViewBillSummary() {
     
     return (
         <>
-        <Collapse
+        {/* <Collapse
             defaultOpen={false}
             className={cn('py-5 md:py-7')}
             header={({ open, toggle }) => (
@@ -28,11 +28,11 @@ export default function ViewBillSummary() {
                 />
             </button>
             )}
-        >  
+        >   */}
             <div className='mt-4'>
                 <BillSummary />
             </div>
-        </Collapse>
+        {/* </Collapse> */}
 
         {/* {quotationView? (
             <div className='mt-8'>

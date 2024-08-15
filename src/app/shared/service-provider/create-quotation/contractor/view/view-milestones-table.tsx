@@ -38,7 +38,7 @@ export default function ViewMilestonesTable() {
           </button>
         )}
       > */}
-        <div className="relative mt-4 mb-8 px-2 pt-6 pb-10 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
+        <div className="relative mt-4 mb-4 px-2 pt-6 pb-10 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
             <p className='mb-4 ps-4 text-lg text-gray-900 font-semibold'>Milestones</p>
 
             <div className="grid grid-cols-12 gap-4 rounded-t-md bg-gray-100 p-2 dark:bg-gray-900">

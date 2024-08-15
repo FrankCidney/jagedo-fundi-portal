@@ -11,6 +11,7 @@ import { Text, Checkbox, ActionIcon, Tooltip, Select, Badge } from 'rizzui';
 // import { last } from 'lodash';
 import Link from 'next/link';
 import { routes } from '@/config/routes';
+import Rate from '@/components/ui/rate';
 import { Dispatch, SetStateAction } from 'react';
 
 // const statusOptions = [
@@ -163,12 +164,28 @@ export const getColumns = ({
   },
 
   {
-    title: <HeaderCell title="Status" />,
-    dataIndex: 'status',
-    key: 'status',
-    width: 100,
-    render: (value: string) => getStatusBadge(value),
+    title: <HeaderCell title="Rating" className="uppercase" />,
+    dataIndex: 'rating',
+    key: 'rating',
+    width: 150,
+    render: (rating: number) => (
+      <Rate
+        size="sm"
+        allowHalf={true}
+        defaultValue={rating}
+        disabled={true}
+        tooltips={['terrible', 'bad', 'normal', 'good', 'wonderful']}
+      />
+    ),
   },
+
+  // {
+  //   title: <HeaderCell title="Status" />,
+  //   dataIndex: 'status',
+  //   key: 'status',
+  //   width: 100,
+  //   render: (value: string) => getStatusBadge(value),
+  // },
   
   {
     // Need to avoid this issue -> <td> elements in a large <table> do not have table headers.

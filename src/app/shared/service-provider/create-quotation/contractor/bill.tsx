@@ -1,17 +1,21 @@
 import { useFieldArray, useFormContext } from "react-hook-form";
 // import { DragEndEvent } from '@dnd-kit/core';
-import { Fragment } from "react";
+import { Dispatch, Fragment, SetStateAction } from "react";
 // import { SortableList } from "@/components/dnd-sortable/dnd-sortable-list";
-import { PiArrowsOutCardinalBold, PiPlusCircle, PiTrashBold } from "react-icons/pi";
-import { Button, Input } from "rizzui";
+// import { PiArrowsOutCardinalBold, PiPlusCircle, PiTrashBold } from "react-icons/pi";
+// import { Button, Input } from "rizzui";
 import BillTable from "./bill-table";
 import { QuoteInput } from "../quote-forms/quote-input";
 import { BillTableType } from "@/utils/create-contractor-quotation.schema";
 
+// type Props = {
+//     subTotal: any
+//     // setSubTotal: Dispatch<any>
+// }
 
 export default function Bill() {
     const { control, register, watch } = useFormContext();
-    const { fields, append, remove, } = useFieldArray({
+    const { fields } = useFieldArray({
         control: control,
         name: 'bill',
     });
@@ -31,16 +35,18 @@ export default function Bill() {
         <ul>
             <>
             {fields?.map((field, index) => {
-                // console.log({billIndex: index})
+
                 let subTotal = watch(`bill.${index}.billTable`).reduce((acc: number, item: BillTableType) => {
                     if (!item.quantity || !item.rate) return acc;
                     return acc + item.quantity * item.rate;
                 }, 0);
 
+                // setSubTotal(subTotalValue)
+
                 return  (
                     <Fragment key={`bill-${index}`}>
                         <li id={field.id}>
-                            <div className="px-2 pt-6 pb-14 mb-8 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
+                            <div className="px-2 pt-6 pb-8 mb-8 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
                                 {/* <div className=""> */}
                                 <div className="flex justify-between">
                                     <div className="flex">
@@ -97,7 +103,7 @@ export default function Bill() {
 
                             <BillTable billIndex={index} />
                             <div className="ms-auto w-full max-w-xs divide-y dark:divide-muted/20">
-                                <div className="grid grid-cols-2 items-center gap-2 py-4">
+                                <div className="grid grid-cols-2 items-center gap-2">
                                     <div className='font-semibold'>
                                         Subtotal:
                                     </div>

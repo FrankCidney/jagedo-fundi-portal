@@ -19,7 +19,7 @@ export default function ViewQuotation({ setModalState }: Props) {
 
     return (
         <>
-        <div className=''>
+        <div className='pb-4'>
             {setModalState && (
                 <div className='flex justify-between px-4 py-5 md:py-5 lg:px-8 border-b border-muted'>
                     <h4 className='text-xl'>Quotation Preview</h4>
@@ -30,8 +30,8 @@ export default function ViewQuotation({ setModalState }: Props) {
                     
             <div className={customClassName}>
                 <ViewBill />
-                <ViewBillSummary />
-                <ViewSubmissions />
+                {/* <ViewBillSummary />
+                <ViewSubmissions /> */}
             </div>
         </div>
         </>

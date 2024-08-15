@@ -31,7 +31,7 @@ export default function QuotationDetailsPage() {
   return (
       <>
           {/* <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb} /> */}
-          <Title as="h4" className="mb-3.5 font-semibold @2xl:mb-5 pb-5">
+          <Title as="h4" className="mb-2 font-semibold @2xl:mb-5 pb-5">
                 QTN0021
           </Title>
 

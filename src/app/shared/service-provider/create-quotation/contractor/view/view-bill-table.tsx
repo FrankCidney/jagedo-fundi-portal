@@ -3,29 +3,13 @@
 import { Button, Text } from 'rizzui';
 import { Fragment } from 'react';
 import cn from '@/utils/class-names';
-// import { useFieldArray, useFormContext } from 'react-hook-form';
-import { BillTableType } from './view-bill';
+import { BillTableType } from '@/utils/create-contractor-quotation.schema';
 
 type Props = {
     index: number;
     billTableValues: BillTableType[]
 }
 export default function ViewBillTable({ index, billTableValues }: Props) {
-//   const { control, register, getValues } = useFormContext();
-//   const { fields, append, remove, } = useFieldArray({
-//     control: control,
-//     name: `bill.${index}.billTable`,
-//   });
-
-//   function handleChange(event: DragEndEvent) {
-//     const { active, over } = event;
-//     if (!active || !over) return;
-//     const oldIndex = fields.findIndex((item) => item.id === active.id);
-//     const newIndex = fields.findIndex((item) => item.id === over.id);
-//     move(oldIndex, newIndex);
-//   }
-
-  // console.log({billIndexForTable: index})
 
   return (
     <>
@@ -81,7 +65,7 @@ export default function ViewBillTable({ index, billTableValues }: Props) {
                     </div>
 
                     <div className="col-span-1 p-2 pb-4">
-                        <Text className='text-center text-gray-900 dark:text-gray-0'>{ field.quantity }</Text>
+                        <Text className='text-center text-gray-900 dark:text-gray-0'>{ field.quantity ? field.quantity : 0 }</Text>
                     </div>
 
                     <div className="col-span-1 p-2">
@@ -89,11 +73,11 @@ export default function ViewBillTable({ index, billTableValues }: Props) {
                     </div>
                     
                     <div className="col-span-1 p-2">
-                        <Text className='text-center text-gray-900 dark:text-gray-0'>{ field.rate }</Text>
+                        <Text className='text-center text-gray-900 dark:text-gray-0'>{ field.rate ? field.rate : 0 }</Text>
                     </div>
 
                     <div className="relative col-span-1 w-full p-2 pe-4 pt-3 text-center text-gray-900 dark:text-gray-0">
-                        <Text className='text-center text-gray-900 dark:text-gray-0'>{ field.amount }</Text>
+                        <Text className='text-center text-gray-900 dark:text-gray-0'>{ field.quantity && field.rate ? field.quantity * field.rate : 0 }</Text>
                     </div>
                   </div>
                 </li>
@@ -101,17 +85,17 @@ export default function ViewBillTable({ index, billTableValues }: Props) {
             );
           })}
 
-        <div className="ms-auto w-full max-w-xs divide-y dark:divide-muted/20">
+        {/* <div className="ms-auto w-full max-w-xs divide-y dark:divide-muted/20">
             <div className="grid grid-cols-2 items-center gap-2 pt-4">
                 <div className='font-semibold'>
                     Subtotal:
                 </div>
                 <div className="text-center font-semibold dark:text-gray-0">
-                    {/* {totalTax ? `$${totalTax}` : '--'} */}
+                    
                     2,100,000
                 </div>
             </div>
-        </div>
+        </div> */}
         </>
       </ul>
       </div>

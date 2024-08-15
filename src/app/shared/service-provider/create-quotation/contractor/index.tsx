@@ -9,7 +9,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { usePathname, useRouter } from 'next/navigation';
 import FormFooter from '@/components/custom-form-footer';
 import Link from 'next/link';
-import { CREATE_CONTRACTOR_QUOTATION_DEFAULT_VALUE, createContractorQuotationSchema, CreateContractorQuotationType } from '@/utils/create-contractor-quotation.schema';
+import { BillTableType, BillType, CREATE_CONTRACTOR_QUOTATION_DEFAULT_VALUE, createContractorQuotationSchema, CreateContractorQuotationType } from '@/utils/create-contractor-quotation.schema';
 import Bill from './bill';
 import BillSummary from './bill-summary';
 import MilestonesTable from './milestones-table';
@@ -24,6 +24,7 @@ import { useState } from 'react';
 
 export default function CreateContractorQuotationComponent() {
   const [modalState, setModalState] = useState(false);
+  // const [subTotal, setSubTotal] = useState<any>(0)
   // const { openModal } = useModal();
   const router = useRouter()
 
@@ -43,11 +44,14 @@ export default function CreateContractorQuotationComponent() {
 
   const onSubmit: SubmitHandler<CreateContractorQuotationType> = (data) => {
     console.log(data)
-    alert('form submitted')
+    // alert('form submitted')
     // router.push(routes.serviceProvider.contractor.quotations)
   };
 
   const handleRedirect = () => router.push(routes.serviceProvider.contractor.quotations)
+  // let subTotal: any
+
+  
 
 
   return (
@@ -62,12 +66,32 @@ export default function CreateContractorQuotationComponent() {
           steps={contractorCreateQuotationSteps}
           setModalState={setModalState}
           redirect={handleRedirect}
+          fieldName='bill'
         >
           {( methods, currentStep, delta ) => {
             // let subTotal = methods.watch('bill').reduce((acc, item) => {
             //   if (!item.quantity || !item.rate) return acc;
             //   return acc + item.quantity * item.rate;
             // }, 0);
+
+            // const { fields } = useFieldArray({
+            //   control: methods.control,
+            //   name: 'bill',
+            // });
+
+            // {fields?.map((field: BillType, index: number) => {
+              // setSubTotal(
+              //   methods.watch(`bill.${index}.billTable`).reduce((acc: number, item: BillTableType) => {
+              //   if (!item.quantity || !item.rate) return acc;
+              //   return acc + item.quantity * item.rate;
+              //   }, 0)
+              // )
+
+              // subTotal = methods.watch(`bill.${index}.billTable`).reduce((acc: number, item: BillTableType) => {
+              //     if (!item.quantity || !item.rate) return acc;
+              //     return acc + item.quantity * item.rate;
+              // }, 0);
+            // })}
 
             return (
             <>           
@@ -78,7 +102,7 @@ export default function CreateContractorQuotationComponent() {
               customSize="1080px"
               // size='xl'
               // overlayClassName="backdrop-blur"
-              containerClassName="!max-w-4xl !shadow-2xl"
+              containerClassName="!max-w-4xl !shadow-2xl !max-h-screen !overflow-y-auto"
             >
               <ViewQuotation setModalState={setModalState} />
             </Modal>

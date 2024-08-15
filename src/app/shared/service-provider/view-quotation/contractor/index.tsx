@@ -46,7 +46,7 @@ export default function ViewContractorQuotationComponent() {
                         submitBtnText="Back"
                         handleSubmitBtn={handleAltBtn}
                     /> */}
-                    <div className='flex justify-center'>
+                    <div className='sticky bottom-0 left-0 right-0 z-10 mt-8 -mb-8 flex items-center justify-center gap-4 border-t bg-white px-4 py-2 md:px-5 lg:px-6 3xl:px-8 4xl:px-10 dark:bg-gray-50'>
                       <Button onClick={handleAltBtn}>
                           Back
                       </Button>

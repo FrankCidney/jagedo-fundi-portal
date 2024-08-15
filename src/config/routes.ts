@@ -40,6 +40,7 @@ export const routes = {
       // reviews
       reviews: '/service-provider/fundi/reviews',
       viewReview: '/service-provider/fundi/reviews/view',
+      addReview: '/service-provider/fundi/reviews/add',
 
 
       
@@ -81,6 +82,8 @@ export const routes = {
       completeJobDetails: '/service-provider/professional/jobs/completed/report',
 
       reviews: '/service-provider/professional/reviews',
+      viewReview: '/service-provider/professional/reviews/view',
+      addReview: '/service-provider/professional/reviews/add',
 
       profile: '/service-provider/professional/profile',
       accountDetails: '/service-provider/professional/profile/account-details',
@@ -108,6 +111,7 @@ export const routes = {
 
       reviews: '/service-provider/contractor/reviews',
       viewReview: '/service-provider/contractor/reviews/view',
+      addReview: '/service-provider/contractor/reviews/add',
 
       profile: '/service-provider/contractor/profile',
       accountDetails: '/service-provider/contractor/profile/account-details',

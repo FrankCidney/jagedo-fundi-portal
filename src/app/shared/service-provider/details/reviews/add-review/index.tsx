@@ -1,9 +1,12 @@
 'use client';
 
 import { AdvancedRadio, Button, Checkbox, Radio, RadioGroup, Text, Textarea } from 'rizzui';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import cn from '@/utils/class-names';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
+import Link from 'next/link';
+import { routes } from '@/config/routes';
+import { usePathname } from 'next/navigation';
 // import { useFieldArray, useFormContext } from 'react-hook-form';
 // import { BillTableType } from './view-bill';
 
@@ -31,7 +34,16 @@ const data = [
 ]
 
 export default function AddReviewComponent() {
-  // const { control, handleSubmit } = useForm<>()
+  // const { control, handleSubmit } = useForm()
+  const pathname = usePathname()
+  const professional = pathname.includes('professional')
+  const contractor = pathname.includes('contractor')
+  const fundi = pathname.includes('fundi')
+
+  const [answers, setAnswers] = useState([{
+    question: '',
+    value: 0
+  }])
 
   // const onSubmit = (data) => {
   //   console.log('Form Submitted:', data);
@@ -94,26 +106,40 @@ export default function AddReviewComponent() {
 
             return (
               <Fragment key={`add-review-table-${index}`}>
-                <li>
-                  <div className="group grid min-h-10 grid-cols-10 gap-0 border-b border-muted dark:border-muted/20">
+                <div>
+                  <div className="group grid py-2 min-h-10 grid-cols-10 gap-0 border-b border-muted dark:border-muted/20">
                     
-                    <div className="col-span-1 w-full p-2 pe-4 pt-3 text-center text-gray-900 dark:text-gray-0">
+                    <div className="col-span-1 w-full p-2 pe-4 text-center text-gray-900 dark:text-gray-0">
                         {index + 1}
                     </div>  
 
-                    <div className="col-span-4 py-2 pe-2">
+                    <div className="col-span-4 p-2">
                         <Text className='text-gray-900 dark:text-gray-0'>{ field.question }</Text>
                     </div>
 
-                    {/* <RadioGroup value='' setValue={}>
-                      <Radio value={1} className='col-span-1 p-2 ps-4' />
-                      <Radio value={2} className='col-span-1 p-2 ps-4' />
-                      <Radio value={3} className='col-span-1 p-2 ps-4' />
-                      <Radio value={4} className='col-span-1 p-2 ps-4' />
-                      <Radio value={5} className='col-span-1 p-2 ps-4' />
-                    </RadioGroup>           */}
+                    {/* <RadioGroup value='' setValue={setAnswers([...answers, { question: field.question, value: 5}])}> */}
+                      <Radio value={1} name={`review-q${index}`} className='col-span-1 p-2 ps-4' />
+                      <Radio value={2} name={`review-q${index}`} className='col-span-1 p-2 ps-4' />
+                      <Radio value={3} name={`review-q${index}`} className='col-span-1 p-2 ps-4' />
+                      <Radio value={4} name={`review-q${index}`} className='col-span-1 p-2 ps-4' />
+                      <Radio value={5} name={`review-q${index}`} className='col-span-1 p-2 ps-4' />
+                    {/* </RadioGroup>           */}
+
+                    {/* <Controller
+                      name="radioValue" // Replace "radioValue" with your desired field name
+                      control={control}
+                      render={({ field: { onChange, value } }) => (
+                        <RadioGroup value={value} setValue={onChange}>
+                          <Radio value={1} className='col-span-1 p-2 ps-4'>Option 1</Radio>
+                          <Radio value={2} className='col-span-1 p-2 ps-4'>Option 2</Radio>
+                          <Radio value={3} className='col-span-1 p-2 ps-4'>Option 3</Radio>
+                          <Radio value={4} className='col-span-1 p-2 ps-4'>Option 4</Radio>
+                          <Radio value={5} className='col-span-1 p-2 ps-4'>Option 5</Radio>
+                        </RadioGroup>
+                      )}
+                    /> */}
                   </div>
-                </li>
+                </div>
               </Fragment>
             );
           })}
@@ -132,11 +158,43 @@ export default function AddReviewComponent() {
         />
       {/* </div> */}
 
-      <div className='flex justify-center mt-8'>
-        <Button className="px-8" type="submit">
-          Submit
-        </Button>
-      </div>
+      {contractor && (
+        <div className='flex justify-center mt-8'>
+          <Link href={routes.serviceProvider.contractor.reviews}>
+            <Button className="px-8" type="submit">
+              Submit
+            </Button>
+          </Link>
+        </div>
+      )}
+
+      {professional && (
+        <div className='flex justify-center mt-8'>
+          <Link href={routes.serviceProvider.professional.reviews}>
+            <Button className="px-8" type="submit">
+              Submit
+            </Button>
+          </Link>
+        </div>
+      )}
+
+      {fundi && (
+        <div className='flex justify-center mt-8'>
+          <Link href={routes.serviceProvider.fundi.reviews}>
+            <Button className="px-8" type="submit">
+              Submit
+            </Button>
+          </Link>
+        </div>
+      )}
+
+      {/* <div className='flex justify-center mt-8'>
+        <Link href={routes.serviceProvider.contractor.reviews}>
+          <Button className="px-8" type="submit">
+            Submit
+          </Button>
+        </Link>
+      </div> */}
      
       </div>
     </>

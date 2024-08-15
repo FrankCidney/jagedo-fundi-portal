@@ -13,6 +13,8 @@ import {
   FieldValues, 
   Path,
   FormProvider,
+  useFieldArray,
+  ArrayPath,
 } from 'react-hook-form';
 import type { Schema } from 'zod';
 
@@ -50,6 +52,7 @@ type FormProps<TFormValues extends FieldValues> = {
   steps: MultiStepFormSteps[];
   setModalState: Dispatch<SetStateAction<boolean>>;
   redirect: () => void
+  fieldName: ArrayPath<TFormValues>
   // className?: string;
 };
 
@@ -63,7 +66,7 @@ TFormValues extends Record<string, any> = Record<string, any>,
     validationSchema,
     steps,
     setModalState,
-    redirect
+    redirect,
    }: FormProps<TFormValues>
 ) {
 
@@ -71,29 +74,15 @@ TFormValues extends Record<string, any> = Record<string, any>,
   const [currentStep, setCurrentStep] = useState(0)
   const delta = currentStep - previousStep
 
-  // const router = useRouter()
-
-  // function redirect() {
-  //   router.push(routes.auth.otp4)
-  // }
-
-  // react hook form
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   watch,
-  //   reset,
-  //   trigger,
-  //   formState: { errors }
-  // } = useForm<SignUpFormSchema>({
-  //   defaultValues: initialValues,
-  //   resolver: zodResolver(signUpFormSchema)
-  // })
-
   const methods = useForm<TFormValues>({
     ...useFormProps,
     ...(validationSchema && { resolver: zodResolver(validationSchema) }),
   })
+
+  // const { fields } = useFieldArray({
+  //   control: methods.control,
+  //   name: fieldName,
+  // });
 
   // form submit handler
   // const handleFormSubmit: SubmitHandler<TFormValues> = data => {
@@ -167,7 +156,7 @@ TFormValues extends Record<string, any> = Record<string, any>,
             {/* <div className='flex justify-between'> */}
             <div
               className={cn(
-                'sticky bottom-0 left-0 right-0 z-10 mt-8 -mb-8 flex items-center justify-end gap-4 border-t bg-white px-4 py-2 md:px-5 lg:px-6 3xl:px-8 4xl:px-10 dark:bg-gray-50',
+                'sticky bottom-0 left-0 right-0 z-10 mt-8 -mb-8 flex items-center justify-center gap-4 border-t bg-white px-4 py-2 md:px-5 lg:px-6 3xl:px-8 4xl:px-10 dark:bg-gray-50',
                 negMargin
               )}
             >
