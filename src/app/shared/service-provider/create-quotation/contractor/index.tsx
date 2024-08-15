@@ -63,8 +63,14 @@ export default function CreateContractorQuotationComponent() {
           setModalState={setModalState}
           redirect={handleRedirect}
         >
-          {({ register, formState: { errors }, control, getValues, setValue }, currentStep, delta) => (
-            <>
+          {( methods, currentStep, delta ) => {
+            // let subTotal = methods.watch('bill').reduce((acc, item) => {
+            //   if (!item.quantity || !item.rate) return acc;
+            //   return acc + item.quantity * item.rate;
+            // }, 0);
+
+            return (
+            <>           
             <Modal 
               isOpen={modalState} 
               onClose={() => 
@@ -168,7 +174,7 @@ export default function CreateContractorQuotationComponent() {
             )}
 
             </>
-          )}
+          )}}
       </CustomMultiStepComponent>
 
 

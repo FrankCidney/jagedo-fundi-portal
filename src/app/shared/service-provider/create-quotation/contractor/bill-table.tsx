@@ -1,7 +1,7 @@
 'use client';
 
 import { Button, Text } from 'rizzui';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import cn from '@/utils/class-names';
 // import { DragEndEvent } from '@dnd-kit/core';
 // import { createId } from '@paralleldrive/cuid2';
@@ -14,18 +14,22 @@ import {
   PiArrowsOutCardinalBold,
 } from 'react-icons/pi';
 import { Bill_TABLE_DEFAULT_VALUE } from '@/utils/create-contractor-quotation.schema';
+// import { createId } from '@paralleldrive/cuid2';
 
 type Props = {
-    index: number;
+    billIndex: number;
 }
-export default function BillTable({ index }: Props) {
-  const { control, register, getValues } = useFormContext();
+export default function BillTable({ billIndex }: Props) {
+  // const [amount, setAmount] = useState(0)
+  const { control, register, getValues, watch } = useFormContext();
   const { fields, append, remove, } = useFieldArray({
     control: control,
-    name: `bill.${index}.billTable`,
+    name: `bill.${billIndex}.billTable`,
   });
 
   const initialFieldCount = Bill_TABLE_DEFAULT_VALUE.length
+  let subTotal = 0
+
 //   function handleChange(event: DragEndEvent) {
 //     const { active, over } = event;
 //     if (!active || !over) return;
@@ -76,9 +80,15 @@ export default function BillTable({ index }: Props) {
       <ul>
         <>
           {fields?.map((field, index) => {
-            let rate = getValues(`bill.${index}.billTable.${index}.rate`);
-            let quantity = getValues(`bill.${index}.billTable.${index}.quantity`);
+            // let rate = getValues(`bill.${billIndex}.billTable.${index}.rate`);
+            // let quantity = getValues(`bill.${billIndex}.billTable.${index}.quantity`);
+
+            let rate = watch(`bill.${billIndex}.billTable.${index}.rate`)
+            let quantity = watch(`bill.${billIndex}.billTable.${index}.quantity`);
+
             let amount = rate * quantity;
+            // setAmount(rate * quantity)
+            // subTotal += amount
 
             // console.log({billTableIndex: index})
             return (
@@ -97,7 +107,7 @@ export default function BillTable({ index }: Props) {
                         // variant="outline"
                         inputClassName="[&_input]:text-center"
                         placeholder="E.g., Gypsum Board"
-                        {...register(`bill.${index}.billTable.${index}.description`)}
+                        {...register(`bill.${billIndex}.billTable.${index}.description`)}
                       />
                     </div>
 
@@ -106,7 +116,7 @@ export default function BillTable({ index }: Props) {
                         type="number"
                         inputClassName="[&_input]:text-center"
                         placeholder="0"
-                        {...register(`bill.${index}.billTable.${index}.quantity`, {
+                        {...register(`bill.${billIndex}.billTable.${index}.quantity`, {
                             valueAsNumber: true,
                           })}
                       />
@@ -115,7 +125,7 @@ export default function BillTable({ index }: Props) {
                       <QuoteInput
                         inputClassName="[&_input]:text-center"
                         placeholder="Enter units"
-                        {...register(`bill.${index}.billTable.${index}.units`)}
+                        {...register(`bill.${billIndex}.billTable.${index}.units`)}
                       />
                     </div>
                     
@@ -124,14 +134,24 @@ export default function BillTable({ index }: Props) {
                         type="number"
                         placeholder="0"
                         inputClassName="[&_input]:text-center"
-                        {...register(`bill.${index}.billTable.${index}.rate`, {
+                        {...register(`bill.${billIndex}.billTable.${index}.rate`, {
                           valueAsNumber: true,
                         })}
                       />
                     </div>
 
                     <div className="relative col-span-1 w-full p-2 pe-4 pt-3 text-center text-gray-900 dark:text-gray-0">
-                      {amount ? amount : 0}
+                      {/* {amount ? amount : 0} */}
+
+                      <QuoteInput
+                        type="number"
+                        placeholder="0"
+                        inputClassName="[&_input]:text-center"
+                        {...register(`bill.${billIndex}.billTable.${index}.amount`, {
+                          valueAsNumber: true,
+                        })}
+                        value={amount}
+                      />
 
                       {index >= initialFieldCount && (
                         <div className="absolute end-0 top-0 hidden translate-x-full grid-cols-1 gap-0 overflow-hidden rounded-md border bg-white shadow-[0px_1px_4px_rgba(0,0,0,0.16)] group-hover:grid dark:border-muted/20">
@@ -154,17 +174,16 @@ export default function BillTable({ index }: Props) {
             );
           })}
 
-        <div className="ms-auto w-full max-w-xs divide-y dark:divide-muted/20">
+        {/* <div className="ms-auto w-full max-w-xs divide-y dark:divide-muted/20">
             <div className="grid grid-cols-2 items-center gap-2 py-4">
                 <div className='font-semibold'>
                     Subtotal:
                 </div>
                 <div className="text-center font-semibold dark:text-gray-0">
-                    {/* {totalTax ? `$${totalTax}` : '--'} */}
-                    2,100,000
+                    {subTotal ? `${subTotal}` : '--'}
                 </div>
             </div>
-        </div>
+        </div> */}
         </>
       </ul>
 

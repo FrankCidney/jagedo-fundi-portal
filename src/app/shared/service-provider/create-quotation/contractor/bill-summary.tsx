@@ -6,7 +6,8 @@ import cn from '@/utils/class-names';
 // import { DragEndEvent } from '@dnd-kit/core';
 // import { createId } from '@paralleldrive/cuid2';
 // import { QuoteInput } from '../quote-forms/quote-input';
-// import { useFieldArray, useFormContext } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
+import { BillType } from '@/utils/create-contractor-quotation.schema';
 // // import { SortableList } from '@/components/dnd-sortable/dnd-sortable-list';
 // import {
 //   PiPlusCircle,
@@ -34,19 +35,8 @@ const data = [
 ]
 
 export default function BillSummary() {
-//   const { control, register, getValues } = useFormContext();
-//   const { fields, append, remove, } = useFieldArray({
-//     control: control,
-//     name: `bill.${index}.billTable`,
-//   });
-
-//   function handleChange(event: DragEndEvent) {
-//     const { active, over } = event;
-//     if (!active || !over) return;
-//     const oldIndex = fields.findIndex((item) => item.id === active.id);
-//     const newIndex = fields.findIndex((item) => item.id === over.id);
-//     move(oldIndex, newIndex);
-//   }
+  const { control, register, getValues } = useFormContext();
+  const values = getValues()
 
   return (
     <>
@@ -70,7 +60,7 @@ export default function BillSummary() {
 
       <ul>
         <>
-          {data?.map((field, index) => {
+          {values?.bill.map((field: BillType, index: number) => {
             // let rate = getValues(`bill.${index}.billTable.${index}.rate`);
             // let quantity = getValues(`bill.${index}.billTable.${index}.quantity`);
             let amount = '300,000';
@@ -81,14 +71,15 @@ export default function BillSummary() {
                   <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
                     
                     <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
-                        {field.billNo}
+                        {index + 1}
                     </div>  
 
                     <div className="col-span-2 py-2 pt-3 text-center">
-                      {field.description}
+                      {field.billTableTitle}
                     </div>
 
                     <div className="col-span-1 py-2 pt-3 pb-4 text-center">
+                      {/* {field.subTotal} */}
                       {amount}
                     </div>
    

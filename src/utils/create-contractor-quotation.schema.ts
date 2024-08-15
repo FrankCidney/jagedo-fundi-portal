@@ -1,5 +1,19 @@
 import { z } from 'zod';
 
+export type BillTableType = {
+    description: string
+    quantity: number
+    units: string
+    rate: number
+    amount: number
+}
+
+export type BillType = {
+    billTableTitle: string
+    billTable: BillTableType[]
+    subTotal: number
+}
+
 export const Bill_TABLE_DEFAULT_VALUE = [
     {
         description: 'default description',
@@ -35,22 +49,27 @@ export const BILL_DEFAULT_VALUE = [
     {
         billTableTitle: 'MATERIALS', 
         billTable: Bill_TABLE_DEFAULT_VALUE,
+        subTotal: undefined,
     },
     {
         billTableTitle: 'LABOUR', 
         billTable: Bill_TABLE_DEFAULT_VALUE,
+        subTotal: undefined,
     },
     {
         billTableTitle: 'WALLING', 
         billTable: Bill_TABLE_DEFAULT_VALUE,
+        subTotal: undefined,
     },
     {
         billTableTitle: 'EQUIPMENT', 
         billTable: Bill_TABLE_DEFAULT_VALUE,
+        subTotal: undefined,
     },
     {
         billTableTitle: 'ROOFING', 
         billTable: Bill_TABLE_DEFAULT_VALUE,
+        subTotal: undefined,
     },
 ]
 
@@ -94,7 +113,8 @@ export const createContractorQuotationSchema = z.object({
                     rate: z.number(),
                     amount: z.number(),
                 })
-            )
+            ),
+            subTotal: z.number()
         })
     ),
     milestonesTable: z.array(

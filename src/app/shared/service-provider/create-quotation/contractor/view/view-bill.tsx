@@ -6,21 +6,22 @@ import ViewBillTable from './view-bill-table';
 import { Collapse } from 'rizzui';
 import { PiCaretDownBold } from 'react-icons/pi';
 import cn from '@/utils/class-names';
+import { BillType } from '@/utils/create-contractor-quotation.schema';
 // import { usePathname } from 'next/navigation';
 
 
-export type BillTableType = {
-    description: string
-    quantity: number
-    units: string
-    rate: number
-    amount: number
-}
+// export type BillTableType = {
+//     description: string
+//     quantity: number
+//     units: string
+//     rate: number
+//     amount: number
+// }
 
-type BillType = {
-    billTableTitle: string,
-    billTable: BillTableType[]
-}
+// type BillType = {
+//     billTableTitle: string,
+//     billTable: BillTableType[]
+// }
 
 export default function ViewBill() {
     const { getValues } = useFormContext();
