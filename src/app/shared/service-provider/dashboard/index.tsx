@@ -1,11 +1,12 @@
 import SpNavCards from './sp-nav-cards';
 import BidsStatus from './pie-chart';
 import JobSlider from './job-slider';
-import ReviewSlider from './review-slider';
+// import ReviewSlider from './review-slider';
 // import CustomMessagesList from '@/app/shared/custom-messages-list';
 // import RequisitionAlerts from './requisition-alerts';
 import Notifications from './notifications';
 import WalletCard from './wallet';
+import walletImage from '../../../../../public/wallets.png';
 
 export default function ServiceProviderDashboard() {
   return (
@@ -18,7 +19,9 @@ export default function ServiceProviderDashboard() {
         <WalletCard
           balance={
             '232,000.00'
-          } /* className="h-[300px] @sm:h-[320px]   @7xl:col-span-4 @7xl:col-start-auto @7xl:row-start-auto" */
+          }
+          image={walletImage}
+           /* className="h-[300px] @sm:h-[320px]   @7xl:col-span-4 @7xl:col-start-auto @7xl:row-start-auto" */
         />
         <BidsStatus /* className="h-[300px] @sm:h-[320px]   @7xl:col-span-4 @7xl:col-start-auto @7xl:row-start-auto" */ />
 

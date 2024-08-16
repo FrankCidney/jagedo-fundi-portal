@@ -97,7 +97,7 @@ export default function ViewBill() {
                                                 Subtotal:
                                             </div>
                                             <div className="text-center font-semibold dark:text-gray-0">
-                                                {subTotal}
+                                                {subTotal ? subTotal : 25000}
                                             </div>
                                         </div>
                                     </div>
@@ -153,7 +153,7 @@ export default function ViewBill() {
                                                 Subtotal:
                                             </div>
                                             <div className="text-center font-semibold dark:text-gray-0">
-                                                {subTotal}
+                                                {subTotal ? subTotal : 25000}
                                             </div>
                                         </div>
                                     </div>

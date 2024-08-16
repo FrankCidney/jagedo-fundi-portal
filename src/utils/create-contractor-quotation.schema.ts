@@ -45,6 +45,37 @@ export const Bill_TABLE_DEFAULT_VALUE = [
     },
 ]
 
+export const Bill_TABLE_VIEW_VALUE = [
+    {
+        description: 'default description',
+        quantity: 50,
+        units: 'cubic meters',
+        rate: 10,
+        amount: 500,
+    },
+    {
+        description: 'default description',
+        quantity: 35,
+        units: 'square meters',
+        rate: 8,
+        amount: 280,
+    },
+    {
+        description: 'default description',
+        quantity: 5,
+        units: 'tons',
+        rate: 9,
+        amount: 45,
+    },
+    {
+        description: 'default description',
+        quantity: 54,
+        units: 'linear meters',
+        rate: 12,
+        amount: 648,
+    },
+]
+
 export const BILL_DEFAULT_VALUE = [
     {
         billTableTitle: 'MATERIALS', 
@@ -76,27 +107,27 @@ export const BILL_DEFAULT_VALUE = [
 export const BILL_VIEW_VALUE = [
     {
         billTableTitle: 'MATERIALS', 
-        billTable: Bill_TABLE_DEFAULT_VALUE,
+        billTable: Bill_TABLE_VIEW_VALUE,
         subTotal: 27000,
     },
     {
         billTableTitle: 'LABOUR', 
-        billTable: Bill_TABLE_DEFAULT_VALUE,
+        billTable: Bill_TABLE_VIEW_VALUE,
         subTotal: 30000,
     },
     {
         billTableTitle: 'WALLING', 
-        billTable: Bill_TABLE_DEFAULT_VALUE,
+        billTable: Bill_TABLE_VIEW_VALUE,
         subTotal: 20000,
     },
     {
         billTableTitle: 'EQUIPMENT', 
-        billTable: Bill_TABLE_DEFAULT_VALUE,
+        billTable: Bill_TABLE_VIEW_VALUE,
         subTotal: 48000,
     },
     {
         billTableTitle: 'ROOFING', 
-        billTable: Bill_TABLE_DEFAULT_VALUE,
+        billTable: Bill_TABLE_VIEW_VALUE,
         subTotal: 39000,
     },
 ]

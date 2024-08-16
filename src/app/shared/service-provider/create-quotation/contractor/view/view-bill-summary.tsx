@@ -72,10 +72,10 @@ export default function ViewBillSummary(/*{ subTotal }: Props*/) {
             // let quantity = getValues(`bill.${index}.billTable.${index}.quantity`);
             // let amount = '300,000';
 
-            // subTotal = watch(`bill.${index}.billTable`).reduce((acc: number, item: BillTableType) => {
-            //   if (!item.quantity || !item.rate) return acc;
-            //   return acc + item.quantity * item.rate;
-            // }, 0);
+            let subTotal = watch(`bill.${index}.billTable`).reduce((acc: number, item: BillTableType) => {
+              if (!item.quantity || !item.rate) return acc;
+              return acc + item.quantity * item.rate;
+            }, 0);
 
             // total += subTotal
 
@@ -99,8 +99,8 @@ export default function ViewBillSummary(/*{ subTotal }: Props*/) {
 
                     <div className="col-span-1 py-2 pt-3 pb-4 text-center">
                       {/* {subTotal} */}
-                      {/* {subTotal ? `${subTotal}` : '--'} */}
-                      20000
+                      {subTotal ? `${subTotal}` : 22000}
+                      {/* 20000 */}
                       {/* {amount} */}
                     </div>
    
