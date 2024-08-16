@@ -1,9 +1,23 @@
 import { QuoteInput } from "../quote-forms/quote-input";
 import { Text } from 'rizzui';
 import { useFormContext } from 'react-hook-form';
+import { FirstTableType, SecondTableType } from "@/utils/create-quotation.schema";
 
 const TotalsBlock = () => {
-    const { register } = useFormContext();
+    const { register, watch } = useFormContext();
+
+    let totalExpenses = watch(`secondTable`).reduce((acc: number, item: SecondTableType) => {
+        // if (!item.numberOfHours || !item.ratePerHour) return acc;
+        return acc + item.amount
+    }, 0);
+
+    let subTotal = watch(`firstTable`).reduce((acc: number, item: FirstTableType) => {
+    if (!item.numberOfHours || !item.ratePerHour) return acc;
+    return acc + item.numberOfHours * item.ratePerHour;
+    }, 0);
+
+    let grandTotal = totalExpenses + subTotal
+    
 
     return (  
         <>
@@ -16,6 +30,7 @@ const TotalsBlock = () => {
                 inputClassName="[&_input]:text-center"
                 placeholder="total"
                 {...register(`totalExpensesCost`)}
+                value={totalExpenses}
                 />
             </div>    
         </div>
@@ -28,6 +43,7 @@ const TotalsBlock = () => {
                 inputClassName="[&_input]:text-center"
                 placeholder="total"
                 {...register(`grandTotal`)}
+                value={grandTotal}
                 />
             </div>    
         </div>

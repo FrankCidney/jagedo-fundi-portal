@@ -18,11 +18,13 @@ export default function ViewThirdTable() {
   const pathname = usePathname()
   const standardTwo = pathname.includes('standard-two')
 
-  const thirdTableKeys = Object.keys(CREATE_QUOTATION_DEFAULT_VALUE.thirdTable)
-  const fieldNamesStandardOne = ['Professional Fees', 'Total Expenses', 'Total Amount', 'WHT 5%', 'WHT VAT 2%', 'Payable By Client','JaGedo Commission', 'Payable To Service Provider']
-  const fieldNamesStandardTwo = ['Professional Fees', 'Total Expenses', 'Total Amount', 'WHT 5%', 'WHT VAT 2%', 'Payable By Client','Discount', 'Payable To Service Provider']
+  // const thirdTableKeys = Object.keys(CREATE_QUOTATION_DEFAULT_VALUE.thirdTable)
+  // const fieldNamesStandardOne = ['Professional Fees', 'Total Expenses', 'Total Amount', 'WHT 5%', 'WHT VAT 2%', 'Payable By Client','JaGedo Commission', 'Payable To Service Provider']
+  // const fieldNamesStandardTwo = ['Professional Fees', 'Total Expenses', 'Total Amount', 'WHT 5%', 'WHT VAT 2%', 'Payable By Client','Discount', 'Payable To Service Provider']
   const values = CREATE_QUOTATION_VIEW_VALUE.thirdTable
-  type ValueKeys = keyof typeof values
+  // type ValueKeys = keyof typeof values
+  const keys = ['professionalFees', 'expenses']
+  const fieldNames = ['Professional Fees', 'Total Expenses']
 
   return (
     <div className="relative px-2 pt-6 pb-10 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
@@ -46,7 +48,7 @@ export default function ViewThirdTable() {
       <ul>
         <Fragment>
           <>
-          {thirdTableKeys.map((field, index) => {
+          {/* {keys.map((field, index) => {
 
             return (
               <>
@@ -55,34 +57,88 @@ export default function ViewThirdTable() {
                     {index + 1}
                 </div>  
                 <div className="col-span-2 py-2 pt-3 text-center">
-                  {standardTwo? fieldNamesStandardTwo[index] : fieldNamesStandardOne[index]}
+                  { fieldNames[index] }
                 </div>
                 <div className="col-span-1 p-2 pb-4">
-                  {/* <QuoteInput
-                    inputClassName="[&_input]:text-center"
-                    placeholder="Name"
-                    {...register(`thirdTable.${field}`)}
-                  /> */}
-                  {/* <QuoteInput
-                    type="number"
-                    placeholder="0"
-                    inputClassName="[&_input]:text-center"
-                    {...register(`thirdTable.${field}`, {
-                      valueAsNumber: true,
-                    })}
-                  /> */}
-                    <Text className='text-center text-gray-900 dark:text-gray-0'>{ values[field as ValueKeys] }</Text>
+                    <Text className='text-center text-gray-900 dark:text-gray-0'>{ values[field] }</Text>
                 </div>
               </div>
               </>
             )
-          })}
+          })} */}
 
-          {/* <div className="group grid min-h-10 grid-cols-12 gap-0 border-b border-muted dark:border-muted/20"> */}
-          
-          
-          
-          
+          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
+            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
+                1
+            </div>  
+            <div className="col-span-2 py-2 pt-3 text-center">
+              Professional Fees
+            </div>
+            <div className="col-span-1 p-2 pb-4">
+                <Text className='text-center text-gray-900 dark:text-gray-0'>{ values.professionalFees }</Text>
+            </div>
+          </div>
+
+
+          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
+            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
+                2
+            </div>  
+            <div className="col-span-2 py-2 pt-3 text-center">
+              Expenses
+            </div>
+            <div className="col-span-1 p-2 pb-4">
+                <Text className='text-center text-gray-900 dark:text-gray-0'>{ values.expenses }</Text>
+            </div>
+          </div>
+
+          <div className="w-full divide-y border-b dark:divide-muted/20">
+
+          <div className="grid grid-cols-2 gap-2 py-4">
+            <div className='col-span-1 ps-6 font-semibold text-center'>
+                Grand Total                
+            </div>
+            <div className="text-gray-900 dark:text-gray-0 text-center">
+              <Text className='text-center text-gray-900 dark:text-gray-0'>{ values.totalAmount }</Text>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 py-4 border-t">
+            <div className='col-span-1 ps-6 font-semibold text-center'>
+                WHT 5%                
+            </div>
+            <div className="text-gray-900 dark:text-gray-0 text-center">
+              <Text className='text-center text-gray-900 dark:text-gray-0'>{ values.withholdingTax }</Text>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 py-4 border-t">
+            <div className='col-span-1 ps-6 font-semibold text-center'>
+                WHT VAT 5%                
+            </div>
+            <div className="text-gray-900 dark:text-gray-0 text-center">
+              <Text className='text-center text-gray-900 dark:text-gray-0'>{ values.whtVat }</Text>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 py-4 border-t">
+            <div className='col-span-1 ps-6 font-semibold text-center'>
+                JaGedo               
+            </div>
+            <div className="text-gray-900 dark:text-gray-0 text-center">
+              <Text className='text-center text-gray-900 dark:text-gray-0'>{ values.jagedoCommission }</Text>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 py-4 border-t">
+            <div className='col-span-1 ps-6 font-semibold text-center'>
+                Payable To Service Provider              
+            </div>
+            <div className="text-gray-900 dark:text-gray-0 text-center">
+              <Text className='text-center text-gray-900 dark:text-gray-0'>{ values.payableToServiceProvider }</Text>
+            </div>
+          </div>
+
           {/* <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
             <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
                 1
@@ -91,146 +147,15 @@ export default function ViewThirdTable() {
               Professional Name
             </div>
             <div className="col-span-1 p-2 pb-4">
-              <QuoteInput
-                inputClassName="[&_input]:text-center"
-                placeholder="Name"
-                {...register(`thirdTable.professionalName`)}
-              />
-            </div>
-          </div>
-
-          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
-            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
-                1
-            </div>  
-            <div className="col-span-2 py-2 pt-3 text-center">
-              Professional Name
-            </div>
-            <div className="col-span-1 p-2 pb-4">
-              <QuoteInput
-                type="number"
-                placeholder="0"
-                inputClassName="[&_input]:text-center"
-                {...register(`thirdTable.professionalFees`, {
-                  valueAsNumber: true,
-                })}
-              />
-            </div>
-          </div>
-
-          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
-            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
-                1
-            </div>  
-            <div className="col-span-2 py-2 pt-3 text-center">
-              Professional Name
-            </div>
-            <div className="col-span-1 p-2 pb-4">
-              <QuoteInput
-                type="number"
-                placeholder="0"
-                inputClassName="[&_input]:text-center"
-                {...register(`thirdTable.expenses`, {
-                  valueAsNumber: true,
-                })}
-              />
-            </div>
-          </div>
-
-          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
-            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
-                1
-            </div>  
-            <div className="col-span-2 py-2 pt-3 text-center">
-              Professional Name
-            </div>
-            <div className="col-span-1 p-2 pb-4">
-              <QuoteInput
-                type="number"
-                placeholder="0"
-                inputClassName="[&_input]:text-center"
-                {...register(`thirdTable.totalAmount`, {
-                  valueAsNumber: true,
-                })}
-              />
-            </div>
-          </div>
-
-          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
-            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
-                1
-            </div>  
-            <div className="col-span-2 py-2 pt-3 text-center">
-              Professional Name
-            </div>
-            <div className="col-span-1 p-2 pb-4">
-              <QuoteInput
-                type="number"
-                placeholder="5%"
-                inputClassName="[&_input]:text-center"
-                {...register(`thirdTable.withholdingTax`, {
-                  valueAsNumber: true,
-                })}
-              />
-            </div>
-          </div>
-
-          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
-            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
-                1
-            </div>  
-            <div className="col-span-2 py-2 pt-3 text-center">
-              Professional Name
-            </div>
-            <div className="col-span-1 p-2 pb-4">
-              <QuoteInput
-                type="number"
-                placeholder="0"
-                inputClassName="[&_input]:text-center"
-                {...register(`thirdTable.payableByClient`, {
-                  valueAsNumber: true,
-                })}
-              />
-            </div>
-          </div>
-
-          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
-            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
-                1
-            </div>  
-            <div className="col-span-2 py-2 pt-3 text-center">
-              Professional Name
-            </div>
-            <div className="col-span-1 p-2 pb-4">
-              <QuoteInput
-                type="number"
-                placeholder="0"
-                inputClassName="[&_input]:text-center"
-                {...register(`thirdTable.jagedoCommission`, {
-                  valueAsNumber: true,
-                })}
-              />
-            </div>
-          </div>
-
-          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
-            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
-                1
-            </div>  
-            <div className="col-span-2 py-2 pt-3 text-center">
-              Professional Name
-            </div>
-            <div className="col-span-1 p-2 pb-4">
-              <QuoteInput
-                type="number"
-                placeholder="0"
-                inputClassName="[&_input]:text-center"
-                {...register(`thirdTable.payableToServiceProvider`, {
-                  valueAsNumber: true,
-                })}
-              />
+              
             </div>
           </div> */}
+
+        </div>
+              
+
+          {/* <div className="group grid min-h-10 grid-cols-12 gap-0 border-b border-muted dark:border-muted/20"> */}
+          
 
           {/* </div> */}
           </>

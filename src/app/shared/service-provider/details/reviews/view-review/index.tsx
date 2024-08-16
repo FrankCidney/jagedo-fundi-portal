@@ -20,14 +20,14 @@ import { reviewComments } from '@/data/custom-job-details-data';
 const data = [
     {
         question: 'Question 1 goes here',
-        customerValue: 5,
-        spValue: 5,
+        customerValue: 3,
+        spValue: 4,
         adminValue: undefined,
         average: 5,
     },
     {
         question: 'Question 2 goes here',
-        customerValue: 5,
+        customerValue: 2,
         spValue: 5,
         adminValue: undefined,
         average: 4,
@@ -35,21 +35,21 @@ const data = [
     {
         question: 'Question 3 goes here',
         customerValue: 5,
-        spValue: 5,
+        spValue: 4,
         adminValue: undefined,
         average: 3.5,
     },
     {
         question: 'Question 4 goes here',
         customerValue: 5,
-        spValue: 5,
+        spValue: 2,
         adminValue: undefined,
         average: 2.7,
     },
     {
         question: 'Question 5 goes here',
-        customerValue: 5,
-        spValue: 5,
+        customerValue: 4,
+        spValue: 3,
         adminValue: 4,
         average: 24,
     }
@@ -69,6 +69,8 @@ export default function ViewReviewComponent() {
   }])
 
   const handleBack = () => router.back()
+
+  let score = 0
 
   // const onSubmit = (data) => {
   //   console.log('Form Submitted:', data);
@@ -95,7 +97,7 @@ export default function ViewReviewComponent() {
 
       <p className='mb-4 ps-4 text-lg text-gray-900 font-semibold'>Job Review</p>
 
-      <div className="grid grid-cols-8 gap-2 rounded-t-md bg-gray-100 p-2 dark:bg-gray-900">
+      <div className="grid grid-cols-7 gap-2 rounded-t-md bg-gray-100 p-2 dark:bg-gray-900">
         <TableHeaderCell className="col-span-1 py-2 flex items-center justify-center">
           <Text className='font-semibold text-gray-500'>No.</Text>
         </TableHeaderCell>
@@ -112,9 +114,9 @@ export default function ViewReviewComponent() {
           <Text className='font-semibold text-gray-500'>Service Provider</Text>
         </TableHeaderCell>
 
-        <TableHeaderCell className="col-span-1 p-1 py-2 flex items-center">
+        {/* <TableHeaderCell className="col-span-1 p-1 py-2 flex items-center">
           <Text className='font-semibold text-gray-500'>Admin</Text>
-        </TableHeaderCell>
+        </TableHeaderCell> */}
 
         <TableHeaderCell className="col-span-1 p-1 py-2 flex items-center">
           <Text className='font-semibold text-gray-500'>Average</Text>
@@ -124,11 +126,14 @@ export default function ViewReviewComponent() {
       <>
         <form>
           {data.map((field, index) => {
+            let reviewTotal = field.customerValue + field.spValue
+            let reviewAverage = reviewTotal / 2
+            score += reviewAverage
 
             return (
               <Fragment key={`add-review-table-${index}`}>
                 <div>
-                  <div className="group grid py-2 min-h-10 grid-cols-8 gap-0 border-b border-muted dark:border-muted/20">
+                  <div className="group grid py-2 min-h-10 grid-cols-7 gap-0 border-b border-muted dark:border-muted/20">
                     
                     <div className="col-span-1 w-full p-2 pe-4 text-center text-gray-900 dark:text-gray-0">
                         {index + 1}
@@ -146,12 +151,13 @@ export default function ViewReviewComponent() {
                         <Text className='text-gray-900 dark:text-gray-0'>{ field.spValue ? `${field.spValue}` : '--' }</Text>
                     </div>
 
-                    <div className="col-span-1 p-2">
+                    {/* <div className="col-span-1 p-2">
                         <Text className='text-gray-900 dark:text-gray-0'>{ field.adminValue ? `${field.adminValue}` : '--' }</Text>
-                    </div>
+                    </div> */}
 
                     <div className="col-span-1 p-2">
-                        <Text className='text-gray-900 dark:text-gray-0'>{ field.average ? `${field.average}` : '--' }</Text>
+                        {/* <Text className='text-gray-900 dark:text-gray-0'>{ field.average ? `${field.average}` : '--' }</Text> */}
+                        <Text className='text-gray-900 dark:text-gray-0'>{ reviewAverage }</Text>
                     </div>
 
                   </div>
@@ -166,8 +172,8 @@ export default function ViewReviewComponent() {
                     Score:
                 </div>
                 <div className="text-center font-semibold dark:text-gray-0">
-                    {/* {subTotal ? `${subTotal}` : '0'} */}
-                    4.2
+                    {score ? `${score / data.length}` : '0'}
+                    {/* 4.2 */}
                 </div>
             </div>
         </div>

@@ -73,6 +73,34 @@ export const BILL_DEFAULT_VALUE = [
     },
 ]
 
+export const BILL_VIEW_VALUE = [
+    {
+        billTableTitle: 'MATERIALS', 
+        billTable: Bill_TABLE_DEFAULT_VALUE,
+        subTotal: 27000,
+    },
+    {
+        billTableTitle: 'LABOUR', 
+        billTable: Bill_TABLE_DEFAULT_VALUE,
+        subTotal: 30000,
+    },
+    {
+        billTableTitle: 'WALLING', 
+        billTable: Bill_TABLE_DEFAULT_VALUE,
+        subTotal: 20000,
+    },
+    {
+        billTableTitle: 'EQUIPMENT', 
+        billTable: Bill_TABLE_DEFAULT_VALUE,
+        subTotal: 48000,
+    },
+    {
+        billTableTitle: 'ROOFING', 
+        billTable: Bill_TABLE_DEFAULT_VALUE,
+        subTotal: 39000,
+    },
+]
+
 export const MILESTONES_TABLE_DEFAULT_VALUE = [
     {
       milestone: 'A',
@@ -97,6 +125,12 @@ export const ATTACHMENTS_TABLE_DEFAULT_VALUE = [
 
 export const CREATE_CONTRACTOR_QUOTATION_DEFAULT_VALUE = {
     bill: BILL_DEFAULT_VALUE,
+    milestonesTable: MILESTONES_TABLE_DEFAULT_VALUE,
+    attachmentsTable: ATTACHMENTS_TABLE_DEFAULT_VALUE,
+}
+
+export const CREATE_CONTRACTOR_QUOTATION_VIEW_VALUE = {
+    bill: BILL_VIEW_VALUE,
     milestonesTable: MILESTONES_TABLE_DEFAULT_VALUE,
     attachmentsTable: ATTACHMENTS_TABLE_DEFAULT_VALUE,
 }

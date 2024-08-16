@@ -11,6 +11,11 @@ export type FirstTableType = {
   ratePerHour: undefined
 }
 
+export type SecondTableType = {
+  expenses: string
+  amount: number
+}
+
 export const FIRST_TABLE_DEFAULT_VALUE = [
   {
     serviceProvider: 'Lead Consultant',
@@ -90,7 +95,7 @@ export const THIRD_TABLE_VIEW_VALUE = {
     totalAmount: 250000,
     withholdingTax: 5000,
     whtVat: 2000,
-    payableByClient: 76000,
+    // payableByClient: 76000,
     jagedoCommission: 20000,
     payableToServiceProvider: 150000,
   }
@@ -103,7 +108,7 @@ export const THIRD_TABLE_DEFAULT_VALUE = {
     totalAmount: 0,
     withholdingTax: 0,
     whtVat: 0,
-    payableByClient: 0,
+    // payableByClient: 0,
     jagedoCommission: 0,
     payableToServiceProvider: 0,
   }
@@ -189,7 +194,7 @@ export const createQuotationSchema = z.object({
       totalAmount: z.number(),
       withholdingTax: z.number(),
       whtVat: z.number(),
-      payableByClient: z.number(),
+      // payableByClient: z.number(),
       jagedoCommission: z.number(),
       payableToServiceProvider: z.number(),
     }),

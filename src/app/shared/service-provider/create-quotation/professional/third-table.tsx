@@ -14,10 +14,10 @@ import {
   PiArrowsOutCardinalBold,
 } from 'react-icons/pi';
 import { usePathname } from 'next/navigation';
-import { CREATE_QUOTATION_DEFAULT_VALUE } from '@/utils/create-quotation.schema';
+import { CREATE_QUOTATION_DEFAULT_VALUE, FirstTableType, SecondTableType } from '@/utils/create-quotation.schema';
 
 export default function ThirdTable() {
-  const { control, register, } = useFormContext();
+  const { control, register, watch } = useFormContext();
   // const { fields, move } = useFieldArray({
   //   control: control,
   //   name: 'thirdTable',
@@ -34,9 +34,27 @@ export default function ThirdTable() {
   //   move(oldIndex, newIndex);
   // }
 
-  const thirdTableKeys = Object.keys(CREATE_QUOTATION_DEFAULT_VALUE.thirdTable)
-  const fieldNamesStandardOne = ['Professional Fees', 'Total Expenses', 'Total Amount', 'WHT 5%', 'WHT VAT 2%', 'Payable By Client','JaGedo Commission', 'Payable To Service Provider']
-  const fieldNamesStandardTwo = ['Professional Fees', 'Total Expenses', 'Total Amount', 'WHT 5%', 'WHT VAT 2%', 'Payable By Client','Discount', 'Payable To Service Provider']
+  // const thirdTableKeys = Object.keys(CREATE_QUOTATION_DEFAULT_VALUE.thirdTable)
+  const keys = ['professionalFees', 'expenses']
+  const fieldNames = ['Professional Fees', 'Total Expenses']
+  // const fieldNamesStandardOne = ['Professional Fees', 'Total Expenses', 'Total Amount', 'WHT 5%', 'WHT VAT 2%', 'Payable By Client','JaGedo Commission', 'Payable To Service Provider']
+  // const fieldNamesStandardTwo = ['Professional Fees', 'Total Expenses', 'Total Amount', 'WHT 5%', 'WHT VAT 2%', 'Payable By Client','Discount', 'Payable To Service Provider']
+
+  let totalExpenses = watch(`secondTable`).reduce((acc: number, item: SecondTableType) => {
+    // if (!item.numberOfHours || !item.ratePerHour) return acc;
+    return acc + item.amount
+  }, 0);
+
+  let subTotal = watch(`firstTable`).reduce((acc: number, item: FirstTableType) => {
+  if (!item.numberOfHours || !item.ratePerHour) return acc;
+  return acc + item.numberOfHours * item.ratePerHour;
+  }, 0);
+
+  let grandTotal = totalExpenses + subTotal
+  let wht = 0.05 * grandTotal
+  let whtVatTax = 0.02 * grandTotal
+  let jagedoComm = 0.1 * grandTotal
+  let spPayable = grandTotal - wht - whtVatTax - jagedoComm
 
   return (
     <div className="relative px-2 pt-6 pb-10 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
@@ -60,7 +78,7 @@ export default function ThirdTable() {
       <ul>
         <Fragment>
           <>
-          {thirdTableKeys.map((field, index) => {
+          {/* {keys.map((field, index) => {
 
             return (
               <>
@@ -69,14 +87,9 @@ export default function ThirdTable() {
                     {index + 1}
                 </div>  
                 <div className="col-span-2 py-2 pt-3 text-center">
-                  {standardTwo? fieldNamesStandardTwo[index] : fieldNamesStandardOne[index]}
+                  { fieldNames[index] }
                 </div>
                 <div className="col-span-1 p-2 pb-4">
-                  {/* <QuoteInput
-                    inputClassName="[&_input]:text-center"
-                    placeholder="Name"
-                    {...register(`thirdTable.${field}`)}
-                  /> */}
                   <QuoteInput
                     type="number"
                     placeholder="0"
@@ -89,13 +102,139 @@ export default function ThirdTable() {
               </div>
               </>
             )
-          })}
+          })} */}
 
-          {/* <div className="group grid min-h-10 grid-cols-12 gap-0 border-b border-muted dark:border-muted/20"> */}
-          
-          
-          
-          
+
+          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
+            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
+                1
+            </div>  
+            <div className="col-span-2 py-2 pt-3 text-center">
+              Professional Fees
+            </div>
+            <div className="col-span-1 p-2 pb-4">
+              <QuoteInput
+                type="number"
+                placeholder="0"
+                inputClassName="[&_input]:text-center"
+                value={subTotal}
+                {...register(`thirdTable.professionalFees`, {
+                  valueAsNumber: true,
+                })}
+              />
+            </div>
+          </div>
+
+
+          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
+            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
+                2
+            </div>  
+            <div className="col-span-2 py-2 pt-3 text-center">
+              Expenses
+            </div>
+            <div className="col-span-1 p-2 pb-4">
+              <QuoteInput
+                type="number"
+                placeholder="0"
+                inputClassName="[&_input]:text-center"
+                value={totalExpenses}
+                {...register(`thirdTable.professionalFees`, {
+                  valueAsNumber: true,
+                })}
+              />
+            </div>
+          </div>
+
+          {/* <div className="group grid min-h-10 grid-cols-12 gap-0 border-b border-muted dark:border-muted/20">                             */}
+
+        <div className="w-full divide-y border-b dark:divide-muted/20">
+
+          <div className="grid grid-cols-2 gap-2 py-4">
+            <div className='col-span-1 ps-6 font-semibold text-center'>
+                Grand Total                
+            </div>
+            <div className="text-gray-900 dark:text-gray-0 text-center">
+              <QuoteInput
+                type="number"
+                placeholder="0"
+                inputClassName="[&_input]:text-center"
+                value={grandTotal}
+                {...register(`thirdTable.totalAmount`, {
+                  valueAsNumber: true,
+                })}
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 py-4 border-t">
+            <div className='col-span-1 ps-6 font-semibold text-center'>
+                WHT 5%                
+            </div>
+            <div className="text-gray-900 dark:text-gray-0 text-center">
+            <QuoteInput
+                type="number"
+                placeholder="5%"
+                inputClassName="[&_input]:text-center"
+                value={wht}
+                {...register(`thirdTable.withholdingTax`, {
+                  valueAsNumber: true,
+                })}
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 py-4 border-t">
+            <div className='col-span-1 ps-6 font-semibold text-center'>
+                WHT VAT 2%                
+            </div>
+            <div className="text-gray-900 dark:text-gray-0 text-center">
+            <QuoteInput
+                type="number"
+                placeholder="2%"
+                inputClassName="[&_input]:text-center"
+                value={whtVatTax}
+                {...register(`thirdTable.whtVat`, {
+                  valueAsNumber: true,
+                })}
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 py-4 border-t">
+            <div className='col-span-1 ps-6 font-semibold text-center'>
+                JaGedo               
+            </div>
+            <div className="text-gray-900 dark:text-gray-0 text-center">
+            <QuoteInput
+                type="number"
+                placeholder="0"
+                inputClassName="[&_input]:text-center"
+                value={jagedoComm}
+                {...register(`thirdTable.jagedoCommission`, {
+                  valueAsNumber: true,
+                })}
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 py-4 border-t">
+            <div className='col-span-1 ps-6 font-semibold text-center'>
+                Payable To Service Provider              
+            </div>
+            <div className="text-gray-900 dark:text-gray-0 text-center">
+            <QuoteInput
+                type="number"
+                placeholder="0"
+                inputClassName="[&_input]:text-center"
+                value={spPayable}
+                {...register(`thirdTable.payableToServiceProvider`, {
+                  valueAsNumber: true,
+                })}
+              />
+            </div>
+          </div>
+
           {/* <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
             <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
                 1
@@ -104,148 +243,11 @@ export default function ThirdTable() {
               Professional Name
             </div>
             <div className="col-span-1 p-2 pb-4">
-              <QuoteInput
-                inputClassName="[&_input]:text-center"
-                placeholder="Name"
-                {...register(`thirdTable.professionalName`)}
-              />
-            </div>
-          </div>
-
-          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
-            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
-                1
-            </div>  
-            <div className="col-span-2 py-2 pt-3 text-center">
-              Professional Name
-            </div>
-            <div className="col-span-1 p-2 pb-4">
-              <QuoteInput
-                type="number"
-                placeholder="0"
-                inputClassName="[&_input]:text-center"
-                {...register(`thirdTable.professionalFees`, {
-                  valueAsNumber: true,
-                })}
-              />
-            </div>
-          </div>
-
-          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
-            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
-                1
-            </div>  
-            <div className="col-span-2 py-2 pt-3 text-center">
-              Professional Name
-            </div>
-            <div className="col-span-1 p-2 pb-4">
-              <QuoteInput
-                type="number"
-                placeholder="0"
-                inputClassName="[&_input]:text-center"
-                {...register(`thirdTable.expenses`, {
-                  valueAsNumber: true,
-                })}
-              />
-            </div>
-          </div>
-
-          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
-            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
-                1
-            </div>  
-            <div className="col-span-2 py-2 pt-3 text-center">
-              Professional Name
-            </div>
-            <div className="col-span-1 p-2 pb-4">
-              <QuoteInput
-                type="number"
-                placeholder="0"
-                inputClassName="[&_input]:text-center"
-                {...register(`thirdTable.totalAmount`, {
-                  valueAsNumber: true,
-                })}
-              />
-            </div>
-          </div>
-
-          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
-            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
-                1
-            </div>  
-            <div className="col-span-2 py-2 pt-3 text-center">
-              Professional Name
-            </div>
-            <div className="col-span-1 p-2 pb-4">
-              <QuoteInput
-                type="number"
-                placeholder="5%"
-                inputClassName="[&_input]:text-center"
-                {...register(`thirdTable.withholdingTax`, {
-                  valueAsNumber: true,
-                })}
-              />
-            </div>
-          </div>
-
-          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
-            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
-                1
-            </div>  
-            <div className="col-span-2 py-2 pt-3 text-center">
-              Professional Name
-            </div>
-            <div className="col-span-1 p-2 pb-4">
-              <QuoteInput
-                type="number"
-                placeholder="0"
-                inputClassName="[&_input]:text-center"
-                {...register(`thirdTable.payableByClient`, {
-                  valueAsNumber: true,
-                })}
-              />
-            </div>
-          </div>
-
-          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
-            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
-                1
-            </div>  
-            <div className="col-span-2 py-2 pt-3 text-center">
-              Professional Name
-            </div>
-            <div className="col-span-1 p-2 pb-4">
-              <QuoteInput
-                type="number"
-                placeholder="0"
-                inputClassName="[&_input]:text-center"
-                {...register(`thirdTable.jagedoCommission`, {
-                  valueAsNumber: true,
-                })}
-              />
-            </div>
-          </div>
-
-          <div className="group grid min-h-10 grid-cols-4 gap-0 border-b border-muted dark:border-muted/20">
-            <div className="col-span-1 w-full p-2 pt-3 text-center text-gray-900 dark:text-gray-0">
-                1
-            </div>  
-            <div className="col-span-2 py-2 pt-3 text-center">
-              Professional Name
-            </div>
-            <div className="col-span-1 p-2 pb-4">
-              <QuoteInput
-                type="number"
-                placeholder="0"
-                inputClassName="[&_input]:text-center"
-                {...register(`thirdTable.payableToServiceProvider`, {
-                  valueAsNumber: true,
-                })}
-              />
+              
             </div>
           </div> */}
 
-          {/* </div> */}
+        </div>
           </>
         </Fragment>
       </ul>

@@ -9,7 +9,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 // import FormFooter from '@/components/custom-form-footer';
 // import Link from 'next/link';
-import { CREATE_CONTRACTOR_QUOTATION_DEFAULT_VALUE, createContractorQuotationSchema, CreateContractorQuotationType } from '@/utils/create-contractor-quotation.schema';
+import { CREATE_CONTRACTOR_QUOTATION_DEFAULT_VALUE, CREATE_CONTRACTOR_QUOTATION_VIEW_VALUE, createContractorQuotationSchema, CreateContractorQuotationType } from '@/utils/create-contractor-quotation.schema';
 import ViewQuotation from '@/app/shared/service-provider/create-quotation/contractor/view/view-quotation'
 
 export default function ViewContractorQuotationComponent() {
@@ -20,7 +20,7 @@ export default function ViewContractorQuotationComponent() {
 
   const methods = useForm<CreateContractorQuotationType>({
     mode: 'onChange',
-    defaultValues: CREATE_CONTRACTOR_QUOTATION_DEFAULT_VALUE,
+    defaultValues: CREATE_CONTRACTOR_QUOTATION_VIEW_VALUE,
     resolver: zodResolver(createContractorQuotationSchema),
   });
 

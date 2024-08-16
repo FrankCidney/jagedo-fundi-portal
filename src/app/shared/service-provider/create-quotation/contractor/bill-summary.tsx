@@ -117,9 +117,9 @@ export default function BillSummary(/*{ subTotal }: Props*/) {
                         Contingency @5%                
                     </div>
                     <div className="text-gray-900 dark:text-gray-0 text-center">
-                        {contingency ? `${contingency}` : '--'}
+                        {/* {contingency ? `${contingency}` : '--'} */}
                         {/* { contingency } */}
-                        {/* 100,000 */}
+                        100,000
                     </div>
                 </div>
 
