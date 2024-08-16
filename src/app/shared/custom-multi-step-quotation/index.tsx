@@ -52,7 +52,7 @@ type FormProps<TFormValues extends FieldValues> = {
   steps: MultiStepFormSteps[];
   setModalState: Dispatch<SetStateAction<boolean>>;
   redirect: () => void
-  fieldName: ArrayPath<TFormValues>
+  // fieldName: ArrayPath<TFormValues>
   // className?: string;
 };
 

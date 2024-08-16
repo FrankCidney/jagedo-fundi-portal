@@ -33,7 +33,7 @@ const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
 //     errors: FieldErrors<ContractorProfileSchema>
 // }
 
-export default function ActiveJobDetailsAttachments() {
+export default function FundiActiveJobDetailsAttachments() {
 //   const { control, register, getValues, setValue, formState: { errors } } = useForm();
   
 
@@ -63,14 +63,14 @@ export default function ActiveJobDetailsAttachments() {
 
           <p className='mb-4 ps-4 text-lg text-gray-900 font-semibold'>Attachments</p>
 
-          <div className="grid grid-cols-6 gap-2 rounded-t-md bg-gray-100 p-2 dark:bg-gray-900">
+          <div className="grid grid-cols-5 gap-2 rounded-t-md bg-gray-100 p-2 dark:bg-gray-900">
             <TableHeaderCell className="col-span-1 ps-4 py-2">
               <Text className='text-center font-semibold text-gray-500'>No.</Text>
             </TableHeaderCell>
 
-            <TableHeaderCell className="col-span-1 py-2">
+            {/* <TableHeaderCell className="col-span-1 py-2">
               <Text className='text-center font-semibold text-gray-500'>Milestone</Text>
-            </TableHeaderCell>
+            </TableHeaderCell> */}
 
             <TableHeaderCell className="col-span-2 py-2">
               <Text className='text-center font-semibold text-gray-500'>Document Name</Text>
@@ -87,15 +87,15 @@ export default function ActiveJobDetailsAttachments() {
                 return (
                   <Fragment key={`attachments-table-${index}`}>
                     <SortableList.Item id={field.id}>
-                      <div className="group grid min-h-10 grid-cols-6 gap-0 border-b border-muted dark:border-muted/20">
+                      <div className="group grid min-h-10 grid-cols-5 gap-0 border-b border-muted dark:border-muted/20">
 
                         <div className="col-span-1 p-2 ms-4 pb-4 flex items-center justify-center">
                             <Text className='text-center font-semibold text-gray-500'>{index + 1}</Text>                       
                         </div>
 
-                        <div className="col-span-1 p-2 pb-4 flex items-center justify-center">
+                        {/* <div className="col-span-1 p-2 pb-4 flex items-center justify-center">
                           <Text className='text-center text-gray-900 dark:text-gray-0'>Milestone {index + 1}</Text>
-                        </div>
+                        </div> */}
 
                         <div className="col-span-2 p-2 pb-4 flex items-center justify-center">
                           {field.docName ? (
@@ -109,7 +109,7 @@ export default function ActiveJobDetailsAttachments() {
                                 size="lg"
                                 inputClassName="text-sm"
                                 {...register(`attachmentsTable.${index}.docName`)}
-                                className="[&>label>span]:font-medium"
+                                className="[&>label>span]:font-medium flex-grow"
                             />
                           )}
                           {/* <Input

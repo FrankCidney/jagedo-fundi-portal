@@ -66,16 +66,16 @@ export default function AddReviewComponent() {
 
   return (
     <>
-    <div className='relative'>
+    <div className='relative px-2 pt-6 pb-8 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50'>
 
-      {/* <p className='mb-4 ps-4 text-lg text-gray-900 font-semibold'>Professional Fees</p> */}
+      <p className='mb-4 ps-4 text-lg text-gray-900 font-semibold'>Add Review</p>
 
-      <div className="grid grid-cols-10 gap-2 rounded-t-md bg-gray-100 p-2 dark:bg-gray-900">
+      <div className="grid grid-cols-9 gap-2 rounded-t-md bg-gray-100 p-2 dark:bg-gray-900">
         <TableHeaderCell className="col-span-1 py-2 flex items-center justify-center">
           <Text className='font-semibold text-gray-500'>No.</Text>
         </TableHeaderCell>
 
-        <TableHeaderCell className="col-span-4 p-1 py-2 flex items-center">
+        <TableHeaderCell className="col-span-3 p-1 py-2 flex items-center">
           <Text className='font-semibold text-gray-500'>Question</Text>
         </TableHeaderCell>
 
@@ -107,13 +107,13 @@ export default function AddReviewComponent() {
             return (
               <Fragment key={`add-review-table-${index}`}>
                 <div>
-                  <div className="group grid py-2 min-h-10 grid-cols-10 gap-0 border-b border-muted dark:border-muted/20">
+                  <div className="group grid py-2 min-h-10 grid-cols-9 gap-0 border-b border-muted dark:border-muted/20">
                     
                     <div className="col-span-1 w-full p-2 pe-4 text-center text-gray-900 dark:text-gray-0">
                         {index + 1}
                     </div>  
 
-                    <div className="col-span-4 p-2">
+                    <div className="col-span-3 p-2">
                         <Text className='text-gray-900 dark:text-gray-0'>{ field.question }</Text>
                     </div>
 
@@ -146,17 +146,36 @@ export default function AddReviewComponent() {
         </form>
       </>
 
-      {/* <div className='flex mt-8 mb-8'> */}
+      {/* <Textarea
+        placeholder="Add comments..."
+        // {...register('review')}
+        // error={errors.review?.message}
+        textareaClassName="h-24 w-full"
+        className="mt-8"
+        label="Comments"
+      /> */}
+
+      {/* <div className='flex justify-center mt-8'>
+        <Link href={routes.serviceProvider.contractor.reviews}>
+          <Button className="px-8" type="submit">
+            Submit
+          </Button>
+        </Link>
+      </div> */}
+     
+      </div>
+
+      <div className='pt-4 pb-4 mt-4'>
         {/* <p className='font-semibold mr-8 flex-shrink-0'>Comments</p> */}
         <Textarea
           placeholder="Add comments..."
           // {...register('review')}
           // error={errors.review?.message}
           textareaClassName="h-24 w-full"
-          className="mt-8"
+          className=""
           label="Comments"
         />
-      {/* </div> */}
+      </div>
 
       {contractor && (
         <div className='flex justify-center mt-8'>
@@ -188,15 +207,6 @@ export default function AddReviewComponent() {
         </div>
       )}
 
-      {/* <div className='flex justify-center mt-8'>
-        <Link href={routes.serviceProvider.contractor.reviews}>
-          <Button className="px-8" type="submit">
-            Submit
-          </Button>
-        </Link>
-      </div> */}
-     
-      </div>
     </>
   );
 }

@@ -195,11 +195,11 @@ export const getColumns = ({
     width: 100,
     render: (requestType: string, row: any) => (
         <div className="gap-3 pe-3">        
-          {/* <Link href={routes.serviceProvider.fundi.viewReview}> */}
-            <Text onClick={() => setViewReviewsModalState(true)} className="text-sm text-green-600 cursor-pointer">
+          <Link href={routes.serviceProvider.fundi.viewReview}>
+            <Text /*onClick={() => setViewReviewsModalState(true)}*/ className="text-sm text-green-600 cursor-pointer">
               View
             </Text>
-          {/* </Link> */}
+          </Link>
         </div>
       ),
   },

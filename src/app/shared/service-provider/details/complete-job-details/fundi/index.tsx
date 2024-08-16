@@ -1,6 +1,6 @@
 'use client'
 
-import { AdvancedCheckbox, Button, Modal, Tooltip } from "rizzui";
+import { AdvancedCheckbox, Button, Modal, Tooltip, Tab } from "rizzui";
 // import { useState } from 'react';
 // import ReviewCard from "@/app/shared/custom-reviews/review-card-view";
 // import ReviewForm from "@/app/shared/custom-reviews/review-form";
@@ -11,6 +11,8 @@ import { completeJobDetailsData } from "@/data/custom-job-details-data";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { routes } from "@/config/routes";
+import ProgressBarActive from "../../../progress-bar-fundi";
+import FundiCompleteJobDetailsAttachments from "../fundi-attachments";
 // import { PiUserCircleDuotone } from "react-icons/pi";
 // import ToastButton from "@/components/buttons/toast-button";
 
@@ -102,9 +104,29 @@ export default function FundiCompleteJobDetails() {
 
             {/* <UserDetailsCard /> */}
 
-            <div className="mb-4">
+            <Tab>
+                <Tab.List>
+                    <Tab.ListItem>Progress Tracker</Tab.ListItem>
+                    <Tab.ListItem>Project Details</Tab.ListItem>
+                </Tab.List>
+
+                <Tab.Panels>
+                    <Tab.Panel>
+                        <ProgressBarActive />
+                        <FundiCompleteJobDetailsAttachments />
+                    </Tab.Panel>
+
+                    <Tab.Panel>
+                        <div className="mb-4">
+                            <ChunkedGrid data={jobId === 'JOB0021'? completeJobDetailsData[0] : completeJobDetailsData[1]} dataChunkSize={8}/>
+                        </div>
+                    </Tab.Panel>
+                </Tab.Panels>
+            </Tab>
+
+            {/* <div className="mb-4">
                 <ChunkedGrid data={jobId === 'JOB0021'? completeJobDetailsData[0] : completeJobDetailsData[1]} dataChunkSize={8}/>
-            </div>
+            </div> */}
 
             <div className="flex justify-center mt-6">
                 {/* <Button className="">

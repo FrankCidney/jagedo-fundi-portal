@@ -1,6 +1,6 @@
 'use client'
 
-import { AdvancedCheckbox, Button, Modal, Tooltip } from "rizzui";
+import { AdvancedCheckbox, Button, Modal, Tab, Tooltip } from "rizzui";
 // import { useState } from 'react';
 // import ReviewCard from "@/app/shared/custom-reviews/review-card-view";
 // import ReviewForm from "@/app/shared/custom-reviews/review-form";
@@ -13,6 +13,9 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 // import ToastButton from "@/components/buttons/toast-button";
 import { routes } from "@/config/routes";
 import Link from "next/link";
+import ProgressBarActive from "../../progress-bar-fundi";
+// import ActiveJobDetailsAttachments from "../sp-job-details/attachments";
+import CompleteJobDetailsAttachments from "./attachments";
 
 // const data = [
 //     {
@@ -100,7 +103,34 @@ export default function CompleteJobDetails() {
 
             {/* <UserDetailsCard /> */}
 
-            <div className="mb-4">
+            <Tab>
+                <Tab.List>
+                    <Tab.ListItem>Progress Tracker</Tab.ListItem>
+                    <Tab.ListItem>Project Details</Tab.ListItem>
+                </Tab.List>
+
+                <Tab.Panels>
+                    <Tab.Panel>
+                        <ProgressBarActive />
+                        {/* <ActiveJobDetailsAttachments /> */}
+                        <CompleteJobDetailsAttachments />
+                    </Tab.Panel>
+
+                    <Tab.Panel>
+                        <div className="mb-4">
+                            {
+                                contractor? (
+                                    <ChunkedGrid data={jobId === 'JOB0021'? contractorCompleteJobDetailsData[0] : contractorCompleteJobDetailsData[1]} dataChunkSize={8}/>
+                                ) : (
+                                    <ChunkedGrid data={jobId === 'JOB0021'? professionalCompleteJobDetailsData[0] : professionalCompleteJobDetailsData[1]} dataChunkSize={8}/>
+                                )
+                            }
+                        </div>
+                    </Tab.Panel>
+                </Tab.Panels>
+            </Tab>
+
+            {/* <div className="mb-4">
                 {
                     contractor? (
                         <ChunkedGrid data={jobId === 'JOB0021'? contractorCompleteJobDetailsData[0] : contractorCompleteJobDetailsData[1]} dataChunkSize={8}/>
@@ -108,7 +138,7 @@ export default function CompleteJobDetails() {
                         <ChunkedGrid data={jobId === 'JOB0021'? professionalCompleteJobDetailsData[0] : professionalCompleteJobDetailsData[1]} dataChunkSize={8}/>
                     )
                 }
-            </div>
+            </div> */}
 
 
             <div className="flex justify-center mt-6">

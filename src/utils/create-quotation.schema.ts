@@ -2,22 +2,14 @@ import { z } from 'zod';
 import { ATTACHMENTS_TABLE_DEFAULT_VALUE } from './create-contractor-quotation.schema';
 // import { createId } from '@paralleldrive/cuid2';
 
-// export const INVOICE_TABLE_DEFAULT_DATA = [
-//   {
-//     id: createId(),
-//     title: 'Product 1',
-//     quantity: 1,
-//     rate: 120,
-//     tax: 15,
-//   },
-//   {
-//     id: createId(),
-//     title: 'Product 2',
-//     quantity: 3,
-//     rate: 60,
-//     tax: 12,
-//   },
-// ];
+export type FirstTableType = {
+  serviceProvider: string
+  name: string
+  emailAddress: string
+  uniqueId: string
+  numberOfHours: undefined
+  ratePerHour: undefined
+}
 
 export const FIRST_TABLE_DEFAULT_VALUE = [
   {
@@ -90,32 +82,32 @@ export const SECOND_TABLE_VIEW_VALUE = [
   },
 ];
 
-export const THIRD_TABLE_VIEW_VALUE = [
-  {
+export const THIRD_TABLE_VIEW_VALUE = {
     // item: '1',
-    professionalName: 'Olive Wangari',
-    professionalFees: 1500,
-    expenses: 1000,
-    totalAmount: 7500,
-    withholdingTax: 10,
-    payableByClient: 7600,
-    jagedoCommission: 0,
-    payableToServiceProvider: 0,
-  },
-];
-export const THIRD_TABLE_DEFAULT_VALUE = [
-  {
+    // professionalName: 'Olive Wangari',
+    professionalFees: 150000,
+    expenses: 100000,
+    totalAmount: 250000,
+    withholdingTax: 5000,
+    whtVat: 2000,
+    payableByClient: 76000,
+    jagedoCommission: 20000,
+    payableToServiceProvider: 150000,
+  }
+
+export const THIRD_TABLE_DEFAULT_VALUE = {
     // item: '1',
-    professionalName: 'Olive Wangari',
+    // professionalName: 'Olive Wangari',
     professionalFees: 0,
     expenses: 0,
     totalAmount: 0,
     withholdingTax: 0,
+    whtVat: 0,
     payableByClient: 0,
     jagedoCommission: 0,
     payableToServiceProvider: 0,
-  },
-];
+  }
+
 
 export const FOURTH_TABLE_DEFAULT_VALUE = [
   {
@@ -168,18 +160,6 @@ export const CREATE_QUOTATION_VIEW_VALUE = {
   fourthTable: FOURTH_TABLE_VIEW_VALUE,
 };
 
-// export const firstTableSchema = z.array(
-//     z.object({
-//         serviceProvider: z.string(),
-//         name: z.string(),
-//         emailAddress: z.string(),
-//         uniqueId: z.string(),
-//         numberOfHours: z.number(),
-//         ratePerHour: z.number(),
-//         Amount: z.number(),
-//     })
-//   )
-
 export const createQuotationSchema = z.object({
   firstTable: z.array(
     z.object({
@@ -201,19 +181,18 @@ export const createQuotationSchema = z.object({
   totalProfessionalFees: z.number(),
   totalExpensesCost: z.number(),
   grandTotal: z.number(),
-  thirdTable: z.array(
-    z.object({
+  thirdTable: z.object({
       // item: z.string(),
-      professionalName: z.string(),
+      // professionalName: z.string(),
       professionalFees: z.number(),
       expenses: z.number(),
       totalAmount: z.number(),
       withholdingTax: z.number(),
+      whtVat: z.number(),
       payableByClient: z.number(),
       jagedoCommission: z.number(),
       payableToServiceProvider: z.number(),
-    })
-  ),
+    }),
   fourthTable: z.array(
     z.object({
       milestone: z.string(),

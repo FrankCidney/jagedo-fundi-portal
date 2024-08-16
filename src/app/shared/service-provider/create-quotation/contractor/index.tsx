@@ -66,7 +66,7 @@ export default function CreateContractorQuotationComponent() {
           steps={contractorCreateQuotationSteps}
           setModalState={setModalState}
           redirect={handleRedirect}
-          fieldName='bill'
+          // fieldName='bill'
         >
           {( methods, currentStep, delta ) => {
             // let subTotal = methods.watch('bill').reduce((acc, item) => {

@@ -31,7 +31,7 @@ export default function SecondTable() {
   }
 
   return (
-    <div className="mt-8 px-2 pt-6 pb-2 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
+    <div className="px-2 pt-6 pb-2 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
 
       <p className='mb-4 ps-4 text-lg text-gray-900 font-semibold'>Other Expenses</p>
 

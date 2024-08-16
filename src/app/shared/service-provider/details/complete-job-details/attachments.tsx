@@ -14,8 +14,9 @@ import {
   PiCloudArrowDown,
 } from 'react-icons/pi';
 import CustomUploadZone from '@/components/ui/file-upload/custom-upload-zone';
-import { ACTIVE_JOBS_DEFAULT_VALUE, activeJobsSchema, ActiveJobsType } from '@/utils/active-jobs.schema';
+import { ACTIVE_JOBS_DEFAULT_VALUE, activeJobsSchema, ActiveJobsType, COMPLETE_JOBS_DEFAULT_VALUE, completeJobsSchema } from '@/utils/active-jobs.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
+// import { usePathname } from 'next/navigation';
 
 // dynamic import Select component from rizzui
 const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
@@ -33,14 +34,15 @@ const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
 //     errors: FieldErrors<ContractorProfileSchema>
 // }
 
-export default function ActiveJobDetailsAttachments() {
+export default function CompleteJobDetailsAttachments() {
 //   const { control, register, getValues, setValue, formState: { errors } } = useForm();
-  
+    // const pathname = usePathname()
+    // const fundi = pathname.includes('fundi')
 
   const { control, register, getValues, setValue, formState: { errors } } = useForm<ActiveJobsType>({
     mode: 'onChange',
-    defaultValues: ACTIVE_JOBS_DEFAULT_VALUE,
-    resolver: zodResolver(activeJobsSchema),
+    defaultValues: COMPLETE_JOBS_DEFAULT_VALUE,
+    resolver: zodResolver(completeJobsSchema),
   });
 
   const { fields, append, remove, move } = useFieldArray({
@@ -59,7 +61,7 @@ export default function ActiveJobDetailsAttachments() {
   return (
     <form className='@container mb-4'>
         {/* <div> */}
-        <div className="px-2 pt-6 pb-16 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
+        <div className="px-2 pt-6 pb-12 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
 
           <p className='mb-4 ps-4 text-lg text-gray-900 font-semibold'>Attachments</p>
 
@@ -168,7 +170,7 @@ export default function ActiveJobDetailsAttachments() {
 
 
 
-          <div className='relative'>
+          {/* <div className='relative'>
             <Button
               type="button"
               variant="text"
@@ -184,7 +186,7 @@ export default function ActiveJobDetailsAttachments() {
               <PiPlusCircle className="size-5" />
               Add Item
             </Button> 
-          </div>     
+          </div>      */}
         </div>
     </form>
   );

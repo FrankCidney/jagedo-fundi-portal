@@ -24,12 +24,12 @@ import { PiTrashDuotone } from 'react-icons/pi';
 
 const statusOptions = [
   {
-    label: 'Ongoing',
-    value: 'ongoing',
+    label: 'Reviewed',
+    value: 'reviewed',
   },
   {
-    label: 'Completed',
-    value: 'completed',
+    label: 'Unreviewed',
+    value: 'unreviewed',
   },
 ];
 

@@ -1,23 +1,15 @@
 'use client';
 
-import { Button, Text } from 'rizzui';
+import { Text } from 'rizzui';
 import { Fragment } from 'react';
 import cn from '@/utils/class-names';
 import { DragEndEvent } from '@dnd-kit/core';
-// import { createId } from '@paralleldrive/cuid2';
-import { QuoteInput } from '../quote-forms/quote-input';
-import { useFieldArray, useFormContext } from 'react-hook-form';
-import { SortableList } from '@/components/dnd-sortable/dnd-sortable-list';
-import {
-  PiPlusCircle,
-  PiTrashBold,
-  PiArrowsOutCardinalBold,
-} from 'react-icons/pi';
+// import { useFieldArray, useFormContext } from 'react-hook-form';
 import { usePathname } from 'next/navigation';
-import { CREATE_QUOTATION_DEFAULT_VALUE } from '@/utils/create-quotation.schema';
+import { CREATE_QUOTATION_DEFAULT_VALUE, CREATE_QUOTATION_VIEW_VALUE } from '@/utils/create-quotation.schema';
 
-export default function ThirdTable() {
-  const { control, register, } = useFormContext();
+export default function ViewThirdTable() {
+  // const { control, register, } = useFormContext();
   // const { fields, move } = useFieldArray({
   //   control: control,
   //   name: 'thirdTable',
@@ -26,17 +18,11 @@ export default function ThirdTable() {
   const pathname = usePathname()
   const standardTwo = pathname.includes('standard-two')
 
-  // function handleChange(event: DragEndEvent) {
-  //   const { active, over } = event;
-  //   if (!active || !over) return;
-  //   const oldIndex = fields.findIndex((item) => item.id === active.id);
-  //   const newIndex = fields.findIndex((item) => item.id === over.id);
-  //   move(oldIndex, newIndex);
-  // }
-
   const thirdTableKeys = Object.keys(CREATE_QUOTATION_DEFAULT_VALUE.thirdTable)
   const fieldNamesStandardOne = ['Professional Fees', 'Total Expenses', 'Total Amount', 'WHT 5%', 'WHT VAT 2%', 'Payable By Client','JaGedo Commission', 'Payable To Service Provider']
   const fieldNamesStandardTwo = ['Professional Fees', 'Total Expenses', 'Total Amount', 'WHT 5%', 'WHT VAT 2%', 'Payable By Client','Discount', 'Payable To Service Provider']
+  const values = CREATE_QUOTATION_VIEW_VALUE.thirdTable
+  type ValueKeys = keyof typeof values
 
   return (
     <div className="relative px-2 pt-6 pb-10 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
@@ -77,14 +63,15 @@ export default function ThirdTable() {
                     placeholder="Name"
                     {...register(`thirdTable.${field}`)}
                   /> */}
-                  <QuoteInput
+                  {/* <QuoteInput
                     type="number"
                     placeholder="0"
                     inputClassName="[&_input]:text-center"
                     {...register(`thirdTable.${field}`, {
                       valueAsNumber: true,
                     })}
-                  />
+                  /> */}
+                    <Text className='text-center text-gray-900 dark:text-gray-0'>{ values[field as ValueKeys] }</Text>
                 </div>
               </div>
               </>
@@ -249,25 +236,6 @@ export default function ThirdTable() {
           </>
         </Fragment>
       </ul>
-
-      {/* <Button
-        type="button"
-        variant="text"
-        className="absolute bottom-0 start-0 translate-y-full gap-2 ps-0 active:enabled:translate-y-full dark:text-gray-400"
-        onClick={() =>
-          append({
-            serviceProvider: '',
-            name: '',
-            emailAddress: '',
-            uniqueId: '',
-            numberOfHours: 0,
-            ratePerHour: 0,
-          },)
-        }
-      >
-        <PiPlusCircle className="size-5" />
-        Add Item
-      </Button> */}
     </div>
   );
 }

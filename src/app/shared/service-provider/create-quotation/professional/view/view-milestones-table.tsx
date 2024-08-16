@@ -1,9 +1,10 @@
 'use client';
 
-import { Collapse, Text } from 'rizzui';
+import { Text } from 'rizzui';
 import { Fragment } from 'react';
 import cn from '@/utils/class-names';
-import { useFormContext } from 'react-hook-form';
+// import { useFormContext } from 'react-hook-form';
+import { CREATE_QUOTATION_VIEW_VALUE } from '@/utils/create-quotation.schema';
 // import { PiCaretDownBold } from 'react-icons/pi';
 
 type MilestoneTableType = {
@@ -14,30 +15,12 @@ type MilestoneTableType = {
 }
 
 export default function ViewMilestonesTable() {
-    const { getValues } = useFormContext();
-    const values = getValues()
+    // const { getValues } = useFormContext();
+    // const values = getValues()
+    const values = CREATE_QUOTATION_VIEW_VALUE.fourthTable
     
   return (
     <>
-    {/* <Collapse
-        defaultOpen={false}
-        className={cn('mx-0 py-5 md:py-7 lg:mx-8')}
-        header={({ open, toggle }) => (
-          <button
-            type="button"
-            onClick={toggle}
-            className="flex w-full cursor-pointer items-center justify-between text-left font-lexend text-xl font-semibold text-gray-700"
-          >
-            Bills
-            <PiCaretDownBold
-              className={cn(
-                'h-5 w-5 -rotate-90 transform transition-transform duration-300 rtl:rotate-90',
-                open && '-rotate-0 rtl:rotate-0'
-              )}
-            />
-          </button>
-        )}
-      > */}
         <div className="relative mt-4 mb-4 px-2 pt-6 pb-10 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
             <p className='mb-4 ps-4 text-lg text-gray-900 font-semibold'>Milestones</p>
 
@@ -57,7 +40,7 @@ export default function ViewMilestonesTable() {
             </div>
 
             <ul>
-            {values?.milestonesTable.map((field: MilestoneTableType, index: number) => {
+            {values?.map((field: MilestoneTableType, index: number) => {
                 return (
                 <Fragment key={`milestones-table-${index}`}>
                     <li>
@@ -84,7 +67,6 @@ export default function ViewMilestonesTable() {
             })}     
             </ul>
         </div>
-      {/* </Collapse> */}
     </>
   );
 }

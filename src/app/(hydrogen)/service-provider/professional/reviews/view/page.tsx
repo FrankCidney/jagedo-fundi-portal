@@ -1,4 +1,4 @@
-import AddReviewComponent from '@/app/shared/service-provider/details/reviews/add-review';
+import ViewReviewComponent from '@/app/shared/service-provider/details/reviews/view-review';
 import { metaObject } from '@/config/site.config';
 import { Title } from 'rizzui';
 
@@ -13,7 +13,7 @@ export default function ReviewsPage() {
         JOB0021
       </Title>
 
-      <AddReviewComponent />
+      <ViewReviewComponent />
     </>
   )
   

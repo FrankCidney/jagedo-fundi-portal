@@ -2,6 +2,7 @@
 // import SpRequisitionsTable from '@/app/shared/service-provider/tables/sp-requisitions-table';
 // import ReviewCard from '@/app/shared/custom-reviews/review-card-view';
 // import ContractorReviewsTable from '@/app/shared/service-provider/tables/reviews-table';
+import ViewReviewComponent from '@/app/shared/service-provider/details/reviews/view-review';
 import ReviewCard from '@/components/cards/review-card';
 // import ContractorQuotationsTable from '@/app/shared/service-provider/tables/sp-quotations-table/contractor';
 // import ContractorRequisitionsTable from '@/app/shared/service-provider/tables/sp-requisitions-table/contractor';
@@ -16,17 +17,19 @@ export default function ReviewsPage() {
   return (
     <>
       <Title as="h4" className="mb-3.5 font-semibold @2xl:mb-5 pb-5">
-        Review
+        JOB0021
       </Title>
 
-      <div className="@container">
+      <ViewReviewComponent />
+
+      {/* <div className="@container">
         <ReviewCard
             customer={{ name: 'Floyd Wangari'}}
             message='Did a good job fixing the wiring'
             date={new Date()}
          />
          
-      </div>
+      </div> */}
     </>
   )
   

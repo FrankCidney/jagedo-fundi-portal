@@ -13,9 +13,14 @@ import {
   PiTrashBold,
   PiArrowsOutCardinalBold,
 } from 'react-icons/pi';
+import { FirstTableType } from '@/utils/create-quotation.schema';
 
-export default function FirstTable() {
-  const { control, register, getValues } = useFormContext();
+type Props = {
+  viewQuotation: boolean
+}
+
+export default function FirstTable({ viewQuotation }: Props) {
+  const { control, register, getValues, watch } = useFormContext();
   const { fields, append, remove, move } = useFieldArray({
     control: control,
     name: 'firstTable',
@@ -28,6 +33,11 @@ export default function FirstTable() {
     const newIndex = fields.findIndex((item) => item.id === over.id);
     move(oldIndex, newIndex);
   }
+
+  let subTotal = watch(`firstTable`).reduce((acc: number, item: FirstTableType) => {
+    if (!item.numberOfHours || !item.ratePerHour) return acc;
+    return acc + item.numberOfHours * item.ratePerHour;
+  }, 0);
 
   return (
     <div className="relative px-2 pt-6 pb-14 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
@@ -63,6 +73,7 @@ export default function FirstTable() {
             let rate = getValues(`firstTable.${index}.ratePerHour`);
             let numOfHours = getValues(`firstTable.${index}.numberOfHours`);
             let total = rate * numOfHours;
+
             return (
               <Fragment key={`first-table-${index}`}>
                 <SortableList.Item id={field.id}>
@@ -151,10 +162,30 @@ export default function FirstTable() {
         </SortableList>
       </ul>
 
+      <div className="mt-6 ms-auto w-full max-w-xs divide-y dark:divide-muted/20">
+        <div className="grid grid-cols-2 items-center gap-2">
+            <div className='font-semibold'>
+                Subtotal:
+            </div>
+            <div className="text-center font-semibold dark:text-gray-0">
+                {subTotal ? `${subTotal}` : '0'}
+                {/* <QuoteInput
+                    type="number"
+                    placeholder="--"
+                    inputClassName="[&_input]:text-center"
+                    {...register(`bill.${index}.subTotal`, {
+                    valueAsNumber: true,
+                    })}
+                    value={subTotal}
+                /> */}
+            </div>
+        </div>
+      </div>
+
       <Button
         type="button"
         variant="text"
-        className="absolute bottom-14 start-2 translate-y-full gap-2 ps-0 active:enabled:translate-y-full dark:text-gray-400"
+        className="absolute bottom-24 start-2 translate-y-full gap-2 ps-0 active:enabled:translate-y-full dark:text-gray-400"
         onClick={() =>
           append({
             serviceProvider: '',

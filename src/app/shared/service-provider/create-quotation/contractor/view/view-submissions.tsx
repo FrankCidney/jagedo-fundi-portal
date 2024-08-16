@@ -1,6 +1,6 @@
-import { Collapse } from 'rizzui';
-import { PiCaretDownBold } from 'react-icons/pi';
-import cn from '@/utils/class-names';
+// import { Collapse } from 'rizzui';
+// import { PiCaretDownBold } from 'react-icons/pi';
+// import cn from '@/utils/class-names';
 import ViewAttachmentsBlock from '../../view-attachments-block';
 import ViewMilestonesTable from './view-milestones-table';
 

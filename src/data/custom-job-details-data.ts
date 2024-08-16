@@ -4,6 +4,18 @@ export const Note = [
   },
 ];
 
+export const reviewComments = [
+  {
+    Customer: 'Liked the service, would recommend',
+  },
+  {
+    Admin: 'The service provider did a good job',
+  },
+  {
+    'Service Provider': 'Job was finished with no problems',
+  },
+]
+
 export const JobDescription = [
   {
     'Job Description': 'Repair of faulty wiring system',

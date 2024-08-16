@@ -14,8 +14,9 @@ import {
   PiCloudArrowDown,
 } from 'react-icons/pi';
 import CustomUploadZone from '@/components/ui/file-upload/custom-upload-zone';
-import { ACTIVE_JOBS_DEFAULT_VALUE, activeJobsSchema, ActiveJobsType } from '@/utils/active-jobs.schema';
+import { ACTIVE_JOBS_DEFAULT_VALUE, activeJobsSchema, ActiveJobsType, COMPLETE_JOBS_DEFAULT_VALUE, completeJobsSchema } from '@/utils/active-jobs.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
+// import { usePathname } from 'next/navigation';
 
 // dynamic import Select component from rizzui
 const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
@@ -33,14 +34,15 @@ const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
 //     errors: FieldErrors<ContractorProfileSchema>
 // }
 
-export default function ActiveJobDetailsAttachments() {
+export default function FundiCompleteJobDetailsAttachments() {
 //   const { control, register, getValues, setValue, formState: { errors } } = useForm();
-  
+    // const pathname = usePathname()
+    // const fundi = pathname.includes('fundi')
 
   const { control, register, getValues, setValue, formState: { errors } } = useForm<ActiveJobsType>({
     mode: 'onChange',
-    defaultValues: ACTIVE_JOBS_DEFAULT_VALUE,
-    resolver: zodResolver(activeJobsSchema),
+    defaultValues: COMPLETE_JOBS_DEFAULT_VALUE,
+    resolver: zodResolver(completeJobsSchema),
   });
 
   const { fields, append, remove, move } = useFieldArray({
@@ -59,18 +61,18 @@ export default function ActiveJobDetailsAttachments() {
   return (
     <form className='@container mb-4'>
         {/* <div> */}
-        <div className="px-2 pt-6 pb-16 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
+        <div className="px-2 pt-6 pb-12 border border-muted rounded-lg sm:rounded-sm lg:rounded-xl xl:rounded-2xl bg-gray-0 dark:bg-gray-50">
 
           <p className='mb-4 ps-4 text-lg text-gray-900 font-semibold'>Attachments</p>
 
-          <div className="grid grid-cols-6 gap-2 rounded-t-md bg-gray-100 p-2 dark:bg-gray-900">
+          <div className="grid grid-cols-5 gap-2 rounded-t-md bg-gray-100 p-2 dark:bg-gray-900">
             <TableHeaderCell className="col-span-1 ps-4 py-2">
               <Text className='text-center font-semibold text-gray-500'>No.</Text>
             </TableHeaderCell>
 
-            <TableHeaderCell className="col-span-1 py-2">
+            {/* <TableHeaderCell className="col-span-1 py-2">
               <Text className='text-center font-semibold text-gray-500'>Milestone</Text>
-            </TableHeaderCell>
+            </TableHeaderCell> */}
 
             <TableHeaderCell className="col-span-2 py-2">
               <Text className='text-center font-semibold text-gray-500'>Document Name</Text>
@@ -87,15 +89,15 @@ export default function ActiveJobDetailsAttachments() {
                 return (
                   <Fragment key={`attachments-table-${index}`}>
                     <SortableList.Item id={field.id}>
-                      <div className="group grid min-h-10 grid-cols-6 gap-0 border-b border-muted dark:border-muted/20">
+                      <div className="group grid min-h-10 grid-cols-5 gap-0 border-b border-muted dark:border-muted/20">
 
                         <div className="col-span-1 p-2 ms-4 pb-4 flex items-center justify-center">
                             <Text className='text-center font-semibold text-gray-500'>{index + 1}</Text>                       
                         </div>
 
-                        <div className="col-span-1 p-2 pb-4 flex items-center justify-center">
+                        {/* <div className="col-span-1 p-2 pb-4 flex items-center justify-center">
                           <Text className='text-center text-gray-900 dark:text-gray-0'>Milestone {index + 1}</Text>
-                        </div>
+                        </div> */}
 
                         <div className="col-span-2 p-2 pb-4 flex items-center justify-center">
                           {field.docName ? (
@@ -168,7 +170,7 @@ export default function ActiveJobDetailsAttachments() {
 
 
 
-          <div className='relative'>
+          {/* <div className='relative'>
             <Button
               type="button"
               variant="text"
@@ -184,7 +186,7 @@ export default function ActiveJobDetailsAttachments() {
               <PiPlusCircle className="size-5" />
               Add Item
             </Button> 
-          </div>     
+          </div>      */}
         </div>
     </form>
   );

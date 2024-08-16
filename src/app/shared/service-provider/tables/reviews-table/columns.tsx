@@ -5,6 +5,8 @@ import { Text, Badge } from 'rizzui';
 import { Dispatch, SetStateAction } from 'react';
 import DateCell from '@/components/ui/date-cell';
 import Rate from '@/components/ui/rate';
+import Link from 'next/link';
+import { routes } from '@/config/routes';
 
 type Columns = {
   data: any[];
@@ -178,11 +180,11 @@ export const getColumns = ({
     width: 100,
     render: (requestType: string, row: any) => (
         <div className="gap-3 pe-3">        
-          {/* <Link href={routes.serviceProvider.fundi.viewReview}> */}
-            <Text onClick={() => setViewReviewsModalState(true)} className="text-sm text-green-600 cursor-pointer">
+          <Link href={routes.serviceProvider.fundi.viewReview}>
+            <Text /*onClick={() => setViewReviewsModalState(true)}*/ className="text-sm text-green-600 cursor-pointer">
               View
             </Text>
-          {/* </Link> */}
+          </Link>
         </div>
       ),
   },

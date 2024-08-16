@@ -78,10 +78,13 @@ export default function Timeline({
               <div className="ps-10">
                 <Text className=" text-sm font-normal leading-loose text-gray-500">
                   {timeline.text}
-                  <Text as="span" className="block font-medium text-gray-700">
+                  
+                  {`${timeline.date} ${timeline.time}`}
+                  
+                  <Text as="span" className="block font-medium text-gray-700 text-orange">
                     {timeline.hightlightedText}
                   </Text>{' '}
-                  {`${timeline.date} ${timeline.time}`}
+                  {/* {`${timeline.date} ${timeline.time}`} */}
                 </Text>
 
 

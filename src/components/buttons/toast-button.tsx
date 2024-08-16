@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { Button, Text } from 'rizzui';
 import toast from 'react-hot-toast';
 // import { Text } from 'rizzui';
-import { routes } from '@/config/routes';
+// import { routes } from '@/config/routes';
 
 export default function ToastButton({
   title,
