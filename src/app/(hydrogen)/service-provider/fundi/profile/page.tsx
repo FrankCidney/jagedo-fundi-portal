@@ -9,7 +9,7 @@ import PageHeader from '@/app/shared/commons/page-header';
 import CreateFundiProfileForm from '@/app/shared/service-provider/profile/create-profile/fundi';
 
 export const metadata = {
-  ...metaObject('Fundi Profile'),
+  ...metaObject('Profile'),
 };
 
 const pageHeader = {

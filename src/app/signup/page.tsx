@@ -4,7 +4,7 @@ import AccountType from '@/app/shared/custom-account-type-cards/account-type';
 import { metaObject } from '@/config/site.config';
 
 export const metadata = {
-  ...metaObject('Sign Up 4'),
+  ...metaObject('Sign Up'),
 };
 
 export default function SignUpPage() {

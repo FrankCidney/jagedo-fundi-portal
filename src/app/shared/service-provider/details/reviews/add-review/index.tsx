@@ -17,19 +17,19 @@ import { usePathname } from 'next/navigation';
 
 const data = [
     {
-        question: 'Question 1 goes here',
+        question: 'Was the quality of the workmanship satisfactory?',
     },
     {
-        question: 'Question 2 goes here',
+        question: 'Did the Service Provider adhere to the project timeline?',
     },
     {
-        question: 'Question 3 goes here',
+        question: 'Was the project completed within the agreed budget?',
     },
     {
-        question: 'Question 4 goes here',
+        question: 'Were the materials used in line with the agreed-upon specifications?',
     },
     {
-        question: 'Question 5 goes here',
+        question: 'Would you recommend this Service Provider for future projects?',
     }
 ]
 

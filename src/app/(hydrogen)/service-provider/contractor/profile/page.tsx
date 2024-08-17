@@ -10,7 +10,7 @@ import PageHeader from '@/app/shared/commons/page-header';
 import CreateContractorProfileForm from '@/app/shared/service-provider/profile/create-profile/contractor';
 
 export const metadata = {
-  ...metaObject('Fundi Profile'),
+  ...metaObject('Profile'),
 };
 
 const pageHeader = {

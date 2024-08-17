@@ -30,7 +30,7 @@ const TotalsBlock = () => {
                 inputClassName="[&_input]:text-center"
                 placeholder="total"
                 {...register(`totalExpensesCost`)}
-                value={totalExpenses}
+                value={totalExpenses ? totalExpenses : 0}
                 />
             </div>    
         </div>
@@ -43,7 +43,7 @@ const TotalsBlock = () => {
                 inputClassName="[&_input]:text-center"
                 placeholder="total"
                 {...register(`grandTotal`)}
-                value={grandTotal}
+                value={grandTotal ? grandTotal : 0}
                 />
             </div>    
         </div>

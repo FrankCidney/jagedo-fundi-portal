@@ -24,6 +24,7 @@ import {
   subCounty, 
 } from "@/app/shared/custom-sign-up/fundi-fields/data";
 import { usePathname, useRouter } from 'next/navigation';
+import { routes } from "@/config/routes";
 // import { routes } from '@/config/routes';
 
 
@@ -67,10 +68,10 @@ export default function FundiSteps() {
   // submit handler
   const onSubmit: SubmitHandler<RefinedSpSignUpFormSchema> = (data, e) => {
     e?.preventDefault()
-    console.log(e)
-    console.log(data);
+    // console.log(e)
+    // console.log(data);
 
-    // router.push(routes.auth.otp4)
+    router.push(routes.auth.otp4)
   };
 
     return (

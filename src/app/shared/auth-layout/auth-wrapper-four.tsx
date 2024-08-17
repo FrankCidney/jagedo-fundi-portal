@@ -119,11 +119,11 @@ function AuthHeader() {
         </div>
       </Link>
       <div className="flex items-center space-x-2 md:space-x-4 -mt-16">
-        <AuthNavLink href={routes.auth.signIn4}>
+        <AuthNavLink href={'/signin'}>
           <PiArrowLineRight className="h-4 w-4" />
           <span>Login</span>
         </AuthNavLink>
-        <AuthNavLink href={routes.auth.signUp4}>
+        <AuthNavLink href={'/signup'}>
           <PiUserCirclePlus className="h-4 w-4" />
           <span>Sign Up</span>
         </AuthNavLink>

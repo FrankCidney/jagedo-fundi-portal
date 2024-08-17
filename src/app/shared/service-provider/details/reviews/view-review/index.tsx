@@ -19,35 +19,35 @@ import { reviewComments } from '@/data/custom-job-details-data';
 
 const data = [
     {
-        question: 'Question 1 goes here',
+        question: 'Was the quality of the workmanship satisfactory?',
         customerValue: 3,
         spValue: 4,
         adminValue: undefined,
         average: 5,
     },
     {
-        question: 'Question 2 goes here',
+        question: 'Did the Service Provider adhere to the project timeline?',
         customerValue: 2,
         spValue: 5,
         adminValue: undefined,
         average: 4,
     },
     {
-        question: 'Question 3 goes here',
+        question: 'Was the project completed within the agreed budget?',
         customerValue: 5,
         spValue: 4,
         adminValue: undefined,
         average: 3.5,
     },
     {
-        question: 'Question 4 goes here',
+        question: 'Were the materials used in line with the agreed-upon specifications?',
         customerValue: 5,
         spValue: 2,
         adminValue: undefined,
         average: 2.7,
     },
     {
-        question: 'Question 5 goes here',
+        question: 'Would you recommend this Service Provider for future projects?',
         customerValue: 4,
         spValue: 3,
         adminValue: 4,
