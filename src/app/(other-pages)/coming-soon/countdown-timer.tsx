@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Countdown from 'react-countdown';
 
 function Render({ days, hours, minutes, seconds, completed }: any) {
@@ -52,15 +53,39 @@ function Render({ days, hours, minutes, seconds, completed }: any) {
 }
 
 export default function CountdownTimer() {
+  const [targetDate, setTargetDate] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Calculate the target date only on the client side
+    const target = new Date('2024-11-15T00:00:00').getTime();
+
+    // Calculate the current time
+    const now = Date.now();
+
+    // Calculate the time difference
+    const timeDifference = target - now;
+
+    // Set the target date based on the difference
+    setTargetDate(now + timeDifference);
+  }, []);
+
   // Calculate the time difference between now and November 15th
-  const targetDate = new Date('2024-11-15T00:00:00').getTime(); // Convert to timestamp (number)
-  const now = Date.now(); // Current time as timestamp (number)
-  const timeDifference = targetDate - now; // Subtracting two numbers
+  // const targetDate = new Date('2024-11-15T00:00:00').getTime(); // Convert to timestamp (number)
+  // const now = Date.now(); 
+  // const timeDifference = targetDate - now; 
+
+  if (!targetDate) {
+    return (
+      <div className="flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-t-transparent border-gray-400 rounded-full animate-spin"></div>
+      </div>
+    ); // Render nothing until targetDate is set
+  }
 
   return (
     <div>
       {/* <Countdown date={Date.now() + 2000000000} renderer={Render} /> */}
-      <Countdown date={now + timeDifference} renderer={Render} />
+      <Countdown date={targetDate} renderer={Render} />
     </div>
   );
 }

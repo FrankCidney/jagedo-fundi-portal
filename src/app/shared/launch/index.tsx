@@ -114,7 +114,7 @@ const eComDashboardStatData = [
         style: 'text-[#3872FA]',
         fill: '#3872FA',
         chart: orderData,
-        link: 'https://private-test-4h489zq3t-jagedo-admin-v2.vercel.app/signin?callbackUrl=%2F',
+        link: 'https://private-test-7qfb9w92f-jagedo-admin-v2.vercel.app/signin?callbackUrl=%2F',
         },
   {
       id: '2',
@@ -140,7 +140,7 @@ const eComDashboardStatData = [
     style: 'text-[#3872FA]',
     fill: '#3872FA',
     chart: orderData,
-    link: 'https://jagedo-fundi-portal-57ifufhzh-frankcidneys-projects.vercel.app/signin?callbackUrl=%2F',
+    link: 'https://jagedo-fundi-portal-g6oadj9bs-frankcidneys-projects.vercel.app/signin?callbackUrl=%2F',
   },
   {
     id: '4',
@@ -153,7 +153,7 @@ const eComDashboardStatData = [
     style: 'text-[#3872FA]',
     fill: '#3872FA',
     chart: orderData,
-    link: 'https://jagedo-fundi-portal-g7noh8w31-frankcidneys-projects.vercel.app/signin?callbackUrl=%2F',
+    link: 'https://jagedo-fundi-portal-d7zblm9xb-frankcidneys-projects.vercel.app/signin?callbackUrl=%2F',
   },
   {
     id: '5',
@@ -166,7 +166,7 @@ const eComDashboardStatData = [
     style: 'text-[#3872FA]',
     fill: '#3872FA',
     chart: orderData,
-    link: 'https://jagedo-fundi-portal-b2b4mtac8-frankcidneys-projects.vercel.app/signin?callbackUrl=%2F',
+    link: 'https://jagedo-fundi-portal-bzorp19xd-frankcidneys-projects.vercel.app/signin?callbackUrl=%2F',
   },
 //   {
 //     id: '4',
